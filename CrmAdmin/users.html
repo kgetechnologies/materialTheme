@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CrmAdmin – Users</title>
+
+  <!-- Core layout CSS -->
+  <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/page-misc.css">
+  <link rel="stylesheet" href="assets/css/dashboards-crm.css">
+</head>
+
+<body class="layout-navbar-fixed layout-menu-fixed">
+
+  <div class="layout-wrapper">
+    <div class="layout-container">
+
+      <!-- SIDEBAR -->
+      <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+        <div class="app-brand demo">
+          <a href="dashboard.html" class="app-brand-link">
+            <span class="app-brand-text demo menu-text fw-bold ms-2">CrmAdmin</span>
+          </a>
+        </div>
+
+        <div class="menu-inner-shadow"></div>
+
+        <ul class="menu-inner py-1">
+          <li class="menu-item">
+            <a href="dashboard.html" class="menu-link">
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="menu-item">
+            <a href="tenants.html" class="menu-link">
+              <span class="menu-title">Tenants</span>
+            </a>
+          </li>
+
+          <li class="menu-item active">
+            <a href="users.html" class="menu-link">
+              <span class="menu-title">Users</span>
+            </a>
+          </li>
+        </ul>
+
+      </aside>
+
+      <!-- NAVBAR -->
+      <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme">
+        <div class="navbar-nav-right d-flex align-items-center">
+          <span class="fw-semibold">Users</span>
+        </div>
+      </nav>
+
+      <!-- CONTENT -->
+      <div class="layout-content-wrapper">
+        <div class="layout-content">
+          <div class="container-fluid">
+
+            <!-- PAGE TITLE -->
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <h4 class="fw-bold">Users</h4>
+                <p class="text-muted mb-0">Invite and manage platform users</p>
+              </div>
+              <div class="col-md-6 text-end">
+                <button class="btn btn-primary">Invite User</button>
+              </div>
+            </div>
+
+            <!-- USERS TABLE -->
+            <div class="card">
+              <div class="card-body">
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Roles</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td>admin@acme.com</td>
+                        <td>John Admin</td>
+                        <td>Admin</td>
+                        <td>
+                          <span class="badge bg-success">Active</span>
+                        </td>
+                        <td>
+                          <button class="btn btn-sm btn-outline-primary">View</button>
+                          <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>operator@globex.com</td>
+                        <td>Sarah Operator</td>
+                        <td>Operator</td>
+                        <td>
+                          <span class="badge bg-secondary">Inactive</span>
+                        </td>
+                        <td>
+                          <button class="btn btn-sm btn-outline-primary">View</button>
+                          <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
