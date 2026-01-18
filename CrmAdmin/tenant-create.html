@@ -482,6 +482,7 @@
                                                             </div>
                                                         </div>
 
+
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <h6 class="small mb-1">Send connection request</h6>
@@ -1847,56 +1848,84 @@
                     <!-- / Menu -->
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 class="fw-bold mb-0">Users</h4>
-                            <button class="btn btn-primary">Invite User</button>
-                        </div>
-                        <div class="card">
+                        <h4 class="fw-bold mb-4">Create Tenant</h4>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Company Details</h5>
+                            </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Email</th>
-                                                <th>Name</th>
-                                                <th>Roles</th>
-                                                <th>Last Login</th>
-                                                <th>Active</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>admin@kge.com</td>
-                                                <td>Admin User</td>
-                                                <td>AppOwner</td>
-                                                <td>2026-01-15</td>
-                                                <td>
-                                                    <span class="badge bg-success">Yes</span>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-warning">Deactivate</button>
-                                                    <button class="btn btn-sm btn-outline-info">Impersonate</button>
-                                                </td>
-                                            </tr>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Company Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter company name" />
+                                    </div>
 
-                                            <tr>
-                                                <td>user@demo.com</td>
-                                                <td>Demo User</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-10</td>
-                                                <td>
-                                                    <span class="badge bg-secondary">No</span>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-success">Activate</button>
-                                                    <button class="btn btn-sm btn-outline-info">Impersonate</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Contact Person</label>
+                                        <input type="text" class="form-control" placeholder="Enter contact name" />
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Plan & Subscription Limits</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Plan</label>
+                                        <select class="form-select">
+                                            <option>Basic</option>
+                                            <option>Standard</option>
+                                            <option>Enterprise</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Max Factories</label>
+                                        <input type="number" class="form-control" />
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Max Locations / Factory</label>
+                                        <input type="number" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Auth0 Configuration</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Client ID</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Domain</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Audience</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Allowed Referrers</label>
+                                        <input type="text" class="form-control" placeholder="https://example.com" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary">Create Tenant</button>
+                            <button class="btn btn-outline-secondary">Validate Auth0</button>
+                            <button class="btn btn-outline-success">Generate Onboarding Link</button>
                         </div>
                     </div>
                     <!--/ Content -->
