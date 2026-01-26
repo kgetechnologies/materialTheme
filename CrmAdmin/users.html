@@ -1849,7 +1849,10 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h4 class="fw-bold mb-0">Users</h4>
-                            <button class="btn btn-primary">Invite User</button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inviteUserModal">
+                                Invite User
+                            </button>
+
                         </div>
                         <div class="card">
                             <div class="card-body">
@@ -1908,7 +1911,7 @@
                                             <tr>
                                                 <td>user1@kge.com</td>
                                                 <td>Anuj Kumar</td>
-                                                <td>Viewer1</td>
+                                                <td>Viewer</td>
                                                 <td>2026-01-17</td>
                                                 <td>
                                                     <span class="badge bg-success">Yes</span>
@@ -1921,7 +1924,7 @@
                                             <tr>
                                                 <td>user2@kge.com</td>
                                                 <td>Alok Raj</td>
-                                                <td>Viewer2</td>
+                                                <td>Viewer</td>
                                                 <td>2026-01-17</td>
                                                 <td>
                                                     <span class="badge bg-success">Yes</span>
@@ -1934,7 +1937,7 @@
                                             <tr>
                                                 <td>user3@kge.com</td>
                                                 <td>Abhishek Kumar</td>
-                                                <td>Viewer3</td>
+                                                <td>Viewer</td>
                                                 <td>2026-01-18</td>
                                                 <td>
                                                     <span class="badge bg-success">No</span>
@@ -1947,7 +1950,7 @@
                                             <tr>
                                                 <td>user4@kge.com</td>
                                                 <td>Danny</td>
-                                                <td>Viewer4</td>
+                                                <td>Viewer</td>
                                                 <td>2026-01-19</td>
                                                 <td>
                                                     <span class="badge bg-success">No</span>
@@ -1960,7 +1963,7 @@
                                             <tr>
                                                 <td>user5@kge.com</td>
                                                 <td>Kanika</td>
-                                                <td>Viewer5</td>
+                                                <td>Viewer</td>
                                                 <td>2026-01-19</td>
                                                 <td>
                                                     <span class="badge bg-success">No</span>
@@ -1973,7 +1976,7 @@
                                             <tr>
                                                 <td>user6@kge.com</td>
                                                 <td>Hrithik</td>
-                                                <td>Viewer6</td>
+                                                <td>Viewer</td>
                                                 <td>2026-01-20</td>
                                                 <td>
                                                     <span class="badge bg-success">No</span>
@@ -1986,7 +1989,7 @@
                                             <tr>
                                                 <td>user7@kge.com</td>
                                                 <td>Raj Kumar</td>
-                                                <td>Viewer7</td>
+                                                <td>Viewer</td>
                                                 <td>2026-01-20</td>
                                                 <td>
                                                     <span class="badge bg-success">Yes</span>
@@ -1999,7 +2002,7 @@
                                             <tr>
                                                 <td>user8@kge.com</td>
                                                 <td>Ayush</td>
-                                                <td>Viewer8</td>
+                                                <td>Viewer</td>
                                                 <td>2026-01-21</td>
                                                 <td>
                                                     <span class="badge bg-success">Yes</span>
@@ -2012,7 +2015,7 @@
                                             <tr>
                                                 <td>user9@kge.com</td>
                                                 <td>Akash</td>
-                                                <td>Viewer9</td>
+                                                <td>Viewer</td>
                                                 <td>2026-01-22</td>
                                                 <td>
                                                     <span class="badge bg-success">Yes</span>
@@ -2025,7 +2028,7 @@
                                             <tr>
                                                 <td>user10@kge.com</td>
                                                 <td>Manish</td>
-                                                <td>Viewer10</td>
+                                                <td>Viewer</td>
                                                 <td>2026-01-23</td>
                                                 <td>
                                                     <span class="badge bg-success">No</span>
@@ -2126,6 +2129,59 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
+
+                    <div class="modal fade" id="inviteUserModal" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Invite User</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="row">
+
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" class="form-control" placeholder="user@kge.com">
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Name</label>
+                                            <input type="text" class="form-control" placeholder="Name">
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Roles</label>
+                                            <select class="form-select" multiple>
+                                                <option>AppOwner</option>
+                                                <option>Architect</option>
+                                                <option>Manager</option>
+                                                <option>Viewer</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Active</label>
+                                            <select class="form-select">
+                                                <option selected>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-primary">Send Invite</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
 </body>
 
 </html>
