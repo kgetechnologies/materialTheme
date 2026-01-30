@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Land / Sea Detection (No API)</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3 style="padding:10px;">Click anywhere on the map</h3>
+    <div id="map"></div>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        const map = L.map('map').setView([20.5937, 78.9629], 5);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        map.on('click', function (e) {
+            const lat = e.latlng.lat;
+            const lng = e.latlng.lng;
+
+            const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.address) {
+                        alert(
+                            "Land\nLatitude: " + lat.toFixed(6) +
+                            "\nLongitude: " + lng.toFixed(6)
+                        );
+                    } else {
+                        alert(
+                            "Sea\nLatitude: " + lat.toFixed(6) +
+                            "\nLongitude: " + lng.toFixed(6)
+                        );
+                    }
+                })
+                .catch(() => {
+                    alert(
+                        "Sea\nLatitude: " + lat.toFixed(6) +
+                        "\nLongitude: " + lng.toFixed(6)
+                    );
+                });
+        });
+    </script>
+
+
+
+</body>
+
+</html>
