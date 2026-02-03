@@ -319,8 +319,6 @@
                                                                 <i class="icon-base ri ri-user-3-line icon-24px"></i>
                                                             </div>
                                                         </div>
-
-
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <h6 class="small mb-1">Congratulation Lettie 🎉</h6>
@@ -372,8 +370,6 @@
                                                                 <i class="icon-base ri ri-user-3-line icon-24px"></i>
                                                             </div>
                                                         </div>
-
-
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <h6 class="small mb-1">New Message ✉️</h6>
@@ -481,6 +477,7 @@
                                                                 <i class="icon-base ri ri-user-3-line icon-24px"></i>
                                                             </div>
                                                         </div>
+
 
                                                     </div>
                                                     <div class="flex-grow-1">
@@ -1847,273 +1844,83 @@
                     <!-- / Menu -->
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 class="fw-bold mb-0">Users</h4>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inviteUserModal">
-                                Invite User
-                            </button>
+                        <h4 class="fw-bold mb-4">Reconciliation & Adjustments</h4>
 
-                        </div>
-                        <div class="card">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Create Adjustment</h5>
+                            </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Email</th>
-                                                <th>Name</th>
-                                                <th>Roles</th>
-                                                <th>Last Login</th>
-                                                <th>Active</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                            <tr data-page="1">
-                                                <td>admin@kge.com</td>
-                                                <td>Admin User</td>
-                                                <td>AppOwner</td>
-                                                <td>2026-01-15</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Reason Code</label>
+                                        <select class="form-select">
+                                            <option>Damage</option>
+                                            <option>Manual Correction</option>
+                                            <option>Inventory Mismatch</option>
+                                        </select>
+                                    </div>
 
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="1">
-                                                <td>vikash@kge.com</td>
-                                                <td>Vikash</td>
-                                                <td>Architect</td>
-                                                <td>2026-01-15</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-success action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Delta Quantity</label>
+                                        <input type="number" class="form-control" />
+                                    </div>
 
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="1">
-                                                <td>prashant@kge.com</td>
-                                                <td>Prashant Kumar</td>
-                                                <td>Manager</td>
-                                                <td>2026-01-16</td>
-                                                <td>
-                                                    <span class="badge bg-danger status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
+                                    <div class="col-md-4 mb-3">
+                                        <label class="form-label">Apply To</label>
+                                        <select class="form-select">
+                                            <option>Product</option>
+                                            <option>Order</option>
+                                            <option>Stage</option>
+                                        </select>
+                                    </div>
 
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="1">
-                                                <td>user1@kge.com</td>
-                                                <td>Anuj Kumar</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-17</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Reference ID</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
 
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="1">
-                                                <td>user2@kge.com</td>
-                                                <td>Alok Raj</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-17</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
-
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="2">
-                                                <td>user3@kge.com</td>
-                                                <td>Abhishek Kumar</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-18</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="2">
-                                                <td>user4@kge.com</td>
-                                                <td>Danny</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-19</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="2">
-                                                <td>user5@kge.com</td>
-                                                <td>Kanika</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-19</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="2">
-                                                <td>user6@kge.com</td>
-                                                <td>Hrithik</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-20</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="2">
-                                                <td>user7@kge.com</td>
-                                                <td>Raj Kumar</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-20</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
-
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="3">
-                                                <td>user8@kge.com</td>
-                                                <td>Ayush</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-21</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
-
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="3">
-                                                <td>user9@kge.com</td>
-                                                <td>Akash</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-22</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
-
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="3">
-                                                <td>user10@kge.com</td>
-                                                <td>Manish</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-23</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Notes</label>
+                                        <textarea class="form-control"></textarea>
+                                    </div>
                                 </div>
-                                <nav>
-                                    <ul class="pagination justify-content-end" id="pagination">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" data-page="prev">Previous</a>
-                                        </li>
 
-                                        <li class="page-item active">
-                                            <a class="page-link" href="#" data-page="1">1</a>
-                                        </li>
+                                <button class="btn btn-primary">Apply Adjustment</button>
+                            </div>
+                        </div>
 
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" data-page="2">2</a>
-                                        </li>
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" data-page="3">3</a>
-                                        </li>
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" data-page="next">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-
-
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Adjustment History</h5>
+                            </div>
+                            <div class="card-body table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Entity</th>
+                                            <th>Reference</th>
+                                            <th>Delta</th>
+                                            <th>Reason</th>
+                                            <th>By</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2024-10-01</td>
+                                            <td>Product</td>
+                                            <td>PRD-102</td>
+                                            <td>-5</td>
+                                            <td>Damage</td>
+                                            <td>Admin</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
+
                     <!--/ Content -->
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
@@ -2134,7 +1941,8 @@
                                         target="_blank">License</a>
 
                                     <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
-                                        class="footer-link me-4">More Themes</a>
+                                        class="footer-link me-4">More
+                                        Themes</a>
                                     <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
                                         target="_blank" class="footer-link me-4">Documentation</a>
 
@@ -2178,134 +1986,6 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
-
-                    <div class="modal fade" id="inviteUserModal" tabindex="-1">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Invite User</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-
-                                <div class="modal-body" style="max-height: 60vh; overflow-y: auto;">
-
-                                    <div class="row">
-
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Email</label>
-                                            <input type="email" class="form-control" placeholder="user@kge.com">
-                                        </div>
-
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Name</label>
-                                            <input type="text" class="form-control" placeholder="Name">
-                                        </div>
-
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Roles</label>
-                                            <select class="form-select" multiple style="max-height: 120px;">
-
-                                                <option>AppOwner</option>
-                                                <option>Architect</option>
-                                                <option>Manager</option>
-                                                <option>Viewer</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Active</label>
-                                            <select class="form-select">
-                                                <option selected>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <button class="btn btn-primary" id="sendInviteBtn">Send Invite</button>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <style>
-                        /* Status badges */
-                        .status-badge {
-                            display: inline-block;
-                            min-width: 50px;
-                            text-align: center;
-                            font-size: 0.85rem;
-                            padding: 6px 0;
-                        }
-
-                        /* Action buttons */
-                        .action-btn {
-                            min-width: 120px;
-                            margin-right: 6px;
-                        }
-                    </style>
-                    <script>
-                        document.getElementById("sendInviteBtn").addEventListener("click", function () {
-                            const email = document.getElementById("inviteEmail").value.trim();
-                            const name = document.getElementById("inviteName").value.trim();
-                            const roles = document.getElementById("inviteRoles").selectedOptions;
-
-                            if (!email || !name || roles.length === 0) {
-                                alert("Please fill all fields and select at least one role.");
-                                return;
-                            }
-
-                            alert("Invite sent successfully!");
-
-                            // Close modal (Bootstrap 5)
-                            const modalEl = document.getElementById("inviteUserModal");
-                            const modal = bootstrap.Modal.getInstance(modalEl);
-                            modal.hide();
-                        });
-                    </script>
-                    <script>
-                        let currentPage = 1;
-                        const rows = document.querySelectorAll("tbody tr");
-                        const links = document.querySelectorAll("#pagination .page-link");
-
-                        function showPage(page) {
-                            rows.forEach(row => {
-                                row.style.display = row.dataset.page == page ? "" : "none";
-                            });
-
-                            document.querySelectorAll(".pagination .page-item")
-                                .forEach(li => li.classList.remove("active"));
-
-                            document.querySelector(`[data-page="${page}"]`)
-                                ?.parentElement.classList.add("active");
-
-                            currentPage = page;
-                        }
-
-                        links.forEach(link => {
-                            link.addEventListener("click", function (e) {
-                                e.preventDefault();
-                                const page = this.dataset.page;
-
-                                if (page === "prev" && currentPage > 1) {
-                                    showPage(currentPage - 1);
-                                } else if (page === "next" && currentPage < 3) {
-                                    showPage(currentPage + 1);
-                                } else if (!isNaN(page)) {
-                                    showPage(Number(page));
-                                }
-                            });
-                        });
-
-                        // Load first page
-                        showPage(1);
-                    </script>
-
 </body>
 
 </html>

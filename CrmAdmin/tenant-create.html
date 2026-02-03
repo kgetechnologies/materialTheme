@@ -1856,163 +1856,285 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label">Company Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter company name" />
+                                        
+                                        <div class="mb-3 position-relative">
+                                            <label class="form-label">Company Name</label>
+
+                                            <input id="companyInput" type="text" class="form-control"
+                                                placeholder="Enter company name" autocomplete="off" />
+
+                                            <div id="companySuggestions" class="list-group position-absolute w-100"
+                                                style="z-index: 9999; display: none;"></div>
                                     </div>
 
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Contact Person</label>
-                                        <input type="text" class="form-control" placeholder="Enter contact name" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Plan & Subscription Limits</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <label class="form-label">Plan</label>
-                                        <select class="form-select">
-                                            <option>Basic</option>
-                                            <option>Standard</option>
-                                            <option>Enterprise</option>
-                                        </select>
-                                    </div>
 
-                                    <div class="col-md-4 mb-3">
-                                        <label class="form-label">Max Factories</label>
-                                        <input type="number" class="form-control" />
-                                    </div>
-
-                                    <div class="col-md-4 mb-3">
-                                        <label class="form-label">Max Locations / Factory</label>
-                                        <input type="number" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Auth0 Configuration</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Client ID</label>
-                                        <input type="text" class="form-control" />
-                                    </div>
-
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Domain</label>
-                                        <input type="text" class="form-control" />
-                                    </div>
-
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Audience</label>
-                                        <input type="text" class="form-control" />
-                                    </div>
-
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Allowed Referrers</label>
-                                        <input type="text" class="form-control" placeholder="https://example.com" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Feature Flags</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-check form-switch mb-2">
-                                    <input class="form-check-input" type="checkbox" checked>
-                                    <label class="form-check-label">Enable Product Flow Designer</label>
                                 </div>
 
-                                <div class="form-check form-switch mb-2">
-                                    <input class="form-check-input" type="checkbox">
-                                    <label class="form-check-label">Enable Advanced Reports</label>
-                                </div>
-
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" checked>
-                                    <label class="form-check-label">Enable Defect Tracking</label>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Contact Person</label>
+                                    <input type="text" class="form-control" placeholder="Enter contact name" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary">Create Tenant</button>
-                            <button class="btn btn-outline-secondary">Validate Auth0</button>
-                            <button class="btn btn-outline-success">Generate Onboarding Link</button>
                         </div>
                     </div>
-                    <!--/ Content -->
-                    <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme">
-                        <div class="container-xxl">
-                            <div
-                                class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
-                                <div class="mb-2 mb-md-0">
-                                    &#169;
-                                    <script>
-                                        document.write(new Date().getFullYear());
-                                    </script>
-                                    , made with ❤️ by
-                                    <a href="https://pixinvent.com" target="_blank"
-                                        class="footer-link fw-medium">Pixinvent</a>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Plan & Subscription Limits</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Plan</label>
+                                    <select id="planSelect" class="form-select">
+                                        <option value="">Select Plan</option>
+                                        <option value="free">Free</option>
+                                        <option value="starter">Starter</option>
+                                        <option value="professional">Professional</option>
+                                        <option value="enterprise">Enterprise</option>
+                                    </select>
+
                                 </div>
-                                <div class="d-none d-lg-inline-block">
-                                    <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                                        target="_blank">License</a>
 
-                                    <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
-                                        class="footer-link me-4">More Themes</a>
-                                    <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
-                                        target="_blank" class="footer-link me-4">Documentation</a>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Max Factories</label>
+                                    <input id="maxFactories" type="number" class="form-control" />
 
-                                    <a href="https://pixinvent.ticksy.com/" target="_blank"
-                                        class="footer-link d-none d-sm-inline-block">Support</a>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Max Locations / Factory</label>
+                                    <input id="maxLocations" type="number" class="form-control" />
+
                                 </div>
                             </div>
                         </div>
-                    </footer>
-                    <!-- / Footer -->
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Auth0 Configuration</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Client ID</label>
+                                    <input type="text" class="form-control" />
+                                </div>
 
-                    <!-- Core JS -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Domain</label>
+                                    <input type="text" class="form-control" />
+                                </div>
 
-                    <!-- build:js assets/vendor/js/theme.js  -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Audience</label>
+                                    <input type="text" class="form-control" />
+                                </div>
 
-                    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Allowed Referrers</label>
+                                    <input type="text" class="form-control" placeholder="https://example.com" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Feature Flags</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted mb-2">
+                                Enabled features for this tenant
+                            </p>
 
-                    <script src="./assets/vendor/libs/popper/popper.js"></script>
-                    <script src="./assets/vendor/js/bootstrap.js"></script>
-                    <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
+                            <div class="form-check form-switch mb-2">
+                                <input class="form-check-input" type="checkbox" checked>
+                                <label class="form-check-label">Enable Product Flow Designer</label>
+                            </div>
 
-                    <script src="./assets/vendor/libs/pickr/pickr.js"></script>
+                            <div class="form-check form-switch mb-2">
+                                <input class="form-check-input" type="checkbox">
+                                <label class="form-check-label">Enable Advanced Reports</label>
+                            </div>
 
-                    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                                <label class="form-check-label">Enable Defect Tracking</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 mt-3">
+                        <button id="createTenantBtn" class="btn btn-primary">
+                            Save Tenant
+                        </button>
 
-                    <script src="./assets/vendor/libs/hammer/hammer.js"></script>
+                        <button id="validateAuthBtn" class="btn btn-primary">
+                            Validate Auth0
+                        </button>
 
-                    <script src="./assets/vendor/libs/i18n/i18n.js"></script>
+                        <button id="generateLinkBtn" class="btn btn-primary">
+                            Generate Onboarding Link
+                        </button>
+                    </div>
 
-                    <script src="./assets/vendor/js/menu.js"></script>
+                </div>
+                <!--/ Content -->
+                <!-- Footer -->
+                <footer class="content-footer footer bg-footer-theme">
+                    <div class="container-xxl">
+                        <div
+                            class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                            <div class="mb-2 mb-md-0">
+                                &#169;
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script>
+                                , made with ❤️ by
+                                <a href="https://pixinvent.com" target="_blank"
+                                    class="footer-link fw-medium">Pixinvent</a>
+                            </div>
+                            <div class="d-none d-lg-inline-block">
+                                <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
+                                    target="_blank">License</a>
 
-                    <!-- endbuild -->
+                                <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
+                                    class="footer-link me-4">More Themes</a>
+                                <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
+                                    target="_blank" class="footer-link me-4">Documentation</a>
 
-                    <!-- Vendors JS -->
-                    <script src="./assets/vendor/libs/apex-charts/apexcharts.js"></script>
-                    <script src="./assets/vendor/libs/swiper/swiper.js"></script>
+                                <a href="https://pixinvent.ticksy.com/" target="_blank"
+                                    class="footer-link d-none d-sm-inline-block">Support</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- / Footer -->
 
-                    <!-- Main JS -->
+                <!-- Core JS -->
 
-                    <script src="./assets/js/main.js"></script>
+                <!-- build:js assets/vendor/js/theme.js  -->
 
-                    <!-- Page JS -->
-                    <script src="./assets/js/dashboards-analytics.js"></script>
+                <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+
+                <script src="./assets/vendor/libs/popper/popper.js"></script>
+                <script src="./assets/vendor/js/bootstrap.js"></script>
+                <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
+
+                <script src="./assets/vendor/libs/pickr/pickr.js"></script>
+
+                <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+                <script src="./assets/vendor/libs/hammer/hammer.js"></script>
+
+                <script src="./assets/vendor/libs/i18n/i18n.js"></script>
+
+                <script src="./assets/vendor/js/menu.js"></script>
+
+                <!-- endbuild -->
+
+                <!-- Vendors JS -->
+                <script src="./assets/vendor/libs/apex-charts/apexcharts.js"></script>
+                <script src="./assets/vendor/libs/swiper/swiper.js"></script>
+
+                <!-- Main JS -->
+
+                <script src="./assets/js/main.js"></script>
+
+                <!-- Page JS -->
+                <script src="./assets/js/dashboards-analytics.js"></script>
+                <script>
+                    document.getElementById("createTenantBtn").addEventListener("click", function () {
+                        alert("Tenant created successfully.\nStatus: Provisioning");
+                    });
+
+                    document.getElementById("validateAuthBtn").addEventListener("click", function () {
+                        alert("Auth0 configuration validated successfully.");
+                    });
+
+                    document.getElementById("generateLinkBtn").addEventListener("click", function () {
+                        alert("Onboarding link generated.\nLink copied to clipboard.");
+                    });
+                </script>
+                <script>
+                    const planLimits = {
+                        free: { factories: 1, locations: 2 },
+                        starter: { factories: 3, locations: 5 },
+                        professional: { factories: 10, locations: 20 },
+                        enterprise: { factories: 50, locations: 100 }
+                    };
+
+                    document.getElementById("planSelect").addEventListener("change", function () {
+                        const selectedPlan = this.value;
+
+                        if (planLimits[selectedPlan]) {
+                            document.getElementById("maxFactories").value =
+                                planLimits[selectedPlan].factories;
+
+                            document.getElementById("maxLocations").value =
+                                planLimits[selectedPlan].locations;
+                        } else {
+                            document.getElementById("maxFactories").value = "";
+                            document.getElementById("maxLocations").value = "";
+                        }
+                    });
+                </script>
+
+
+                <script>
+                    console.log("Company autocomplete loaded");
+
+                    const companies = [
+                        "KGE Technologies",
+                        "Demo Corp",
+                        "ABC Technologies",
+                        "OPS Pvt Ltd",
+                        "Raj Industries",
+                        "Pranav Corporation",
+                        "Danny Industries"
+                    ];
+
+                    const input = document.getElementById("companyInput");
+                    const box = document.getElementById("companySuggestions");
+
+                    input.addEventListener("input", function () {
+                        const value = this.value.toLowerCase();
+                        box.innerHTML = "";
+
+                        if (!value) {
+                            box.style.display = "none";
+                            return;
+                        }
+
+                        const matches = companies.filter(c =>
+                            c.toLowerCase().includes(value)
+                        );
+
+                        matches.forEach(company => {
+                            const item = document.createElement("button");
+                            item.type = "button";
+                            item.className = "list-group-item list-group-item-action";
+                            item.textContent = company;
+
+                            item.onclick = () => {
+                                input.value = company;
+                                box.style.display = "none";
+                            };
+
+                            box.appendChild(item);
+                        });
+
+                        if (matches.length === 0) {
+                            const add = document.createElement("button");
+                            add.type = "button";
+                            add.className = "list-group-item list-group-item-action text-primary";
+                            add.innerHTML = "➕ Add new company";
+                            box.appendChild(add);
+                        }
+
+                        box.style.display = "block";
+                    });
+                </script>
+
+
 </body>
 
 </html>

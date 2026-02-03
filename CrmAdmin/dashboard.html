@@ -52,6 +52,15 @@
   <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
 
   <script src="./assets/js/config.js"></script>
+  <link rel="stylesheet" href="assets/vendor/libs/flatpickr/flatpickr.css" />
+  <style>
+    .content-footer {
+      position: relative;
+      left: 0;
+      right: 0;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -125,7 +134,9 @@
               <!-- /Search -->
 
               <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
-                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
+                  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Change Language">
+
                   <i class="icon-base ri ri-translate-2 icon-md"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -156,7 +167,9 @@
               <!-- Style Switcher -->
               <li class="nav-item dropdown me-sm-2 me-xl-0">
                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                  id="nav-theme" href="javascript:void(0);" data-bs-toggle="dropdown">
+                  id="nav-theme" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-toggle="tooltip"
+                  data-bs-placement="bottom" title="Toggle Theme">
+
                   <i class="icon-base ri ri-sun-line icon-22px theme-icon-active"></i>
                   <span class="d-none ms-2" id="nav-theme-text">Toggle theme</span>
                 </a>
@@ -188,8 +201,9 @@
               <!-- Quick links -->
               <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-sm-2 me-xl-0">
                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                  href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                  aria-expanded="false">
+                  href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-toggle="tooltip"
+                  data-bs-placement="bottom" title="Quick Shortcuts">
+
                   <i class="icon-base ri ri-star-smile-line icon-22px"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end p-0">
@@ -276,8 +290,9 @@
               <!-- Notification -->
               <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-4 me-xl-1">
                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                  href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                  aria-expanded="false">
+                  href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-toggle="tooltip"
+                  data-bs-placement="bottom" title="Notifications">
+
                   <i class="icon-base ri ri-notification-2-line icon-22px"></i>
                   <span
                     class="position-absolute top-0 start-50 translate-middle-y badge badge-dot bg-danger mt-2 border"></span>
@@ -512,7 +527,9 @@
 
               <!-- User -->
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
+                  data-bs-toggle="tooltip" data-bs-placement="bottom" title="User Profile">
+
                   <div class="avatar">
                     <div class="avatar-initial bg-label-primary rounded-3">
                       <i class="icon-base ri ri-user-3-line icon-24px"></i>
@@ -935,6 +952,7 @@
                             <div data-i18n="List">List</div>
                           </a>
                         </li>
+
                         <li class="menu-item">
                           <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <div data-i18n="View">View</div>
@@ -1758,15 +1776,19 @@
                 <!-- Date Range -->
                 <div class="col-md-4">
                   <label class="form-label">Date Range</label>
-                  <input type="text" class="form-control" placeholder="Select date range" />
+                  <input type="text" class="form-control" id="dashboardDateRange" placeholder="Select date range" />
+
                 </div>
 
                 <!-- Export CSV -->
                 <div class="col-md-4">
-                  <button class="btn btn-outline-primary w-100">
+                  <button class="btn btn-outline-primary w-100 form-control">
                     Export CSV
                   </button>
                 </div>
+
+
+
 
               </div>
 
@@ -1785,8 +1807,10 @@
                       </div>
                     </div>
                     <div class="card-info mt-5">
-                      <h5 class="mb-1">24</h5>
-                      <p>Active Tenants</p>
+                      <h3 class="fw-bold mb-1">24</h3>
+
+                      <p class="text-muted mb-1">Active Tenants</p>
+
                       <div class="badge bg-label-secondary rounded-pill">Current</div>
                     </div>
                   </div>
@@ -1807,7 +1831,7 @@
                       </div>
                     </div>
                     <div class="card-info mt-5">
-                      <h5 class="mb-1">12,450</h5>
+                      <h3 class="fw-bold mb-1">$12,450</h3>
                       <p>API Usage (24h)</p>
                       <div class="badge bg-label-secondary rounded-pill">Last 24h</div>
                     </div>
@@ -1829,7 +1853,7 @@
                       </div>
                     </div>
                     <div class="card-info mt-5">
-                      <h5 class="mb-1">6</h5>
+                      <h3 class="fw-bold mb-1">6</h3>
                       <p>Open Tickets</p>
                       <div class="badge bg-label-secondary rounded-pill">Unresolved</div>
                     </div>
@@ -1851,7 +1875,7 @@
                       </div>
                     </div>
                     <div class="card-info mt-5">
-                      <h5 class="mb-1">92%</h5>
+                      <h3 class="fw-bold mb-1">92%</h3>
                       <p>Average Yield</p>
                       <div class="badge bg-label-secondary rounded-pill">This Month</div>
                     </div>
@@ -1873,7 +1897,7 @@
                       </div>
                     </div>
                     <div class="card-info mt-5">
-                      <h5 class="mb-1">88%</h5>
+                      <h3 class="fw-bold mb-1">88%</h3>
                       <p>Throughput</p>
                       <div class="badge bg-label-secondary rounded-pill">Today</div>
                     </div>
@@ -1895,7 +1919,7 @@
                       </div>
                     </div>
                     <div class="card-info mt-5">
-                      <h5 class="mb-1">3%</h5>
+                      <h3 class="fw-bold mb-1">3%</h3>
                       <p>Defect Rate</p>
                       <div class="badge bg-label-secondary rounded-pill">Last 7 Days</div>
                     </div>
@@ -1906,30 +1930,41 @@
           </div>
           <!--/ Content -->
           <!-- Footer -->
-          <footer class="content-footer footer bg-footer-theme">
+          <footer class="content-footer footer bg-footer-theme w-100">
+
             <div class="container-xxl">
               <div
-                class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                class="footer-container container-xxl d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
                 <div class="mb-2 mb-md-0">
                   &#169;
                   <script>
                     document.write(new Date().getFullYear());
                   </script>
-                  , made with ❤️ by
+                  , made with <i class="icon-base ri ri-heart-fill text-danger"></i> by
+
                   <a href="https://pixinvent.com" target="_blank" class="footer-link fw-medium">Pixinvent</a>
                 </div>
-                <div class="d-none d-lg-inline-block">
-                  <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                    target="_blank">License</a>
+                <div class="d-flex gap-4 d-none d-lg-flex">
 
-                  <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
-                    class="footer-link me-4">More
-                    Themes</a>
-                  <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/" target="_blank"
-                    class="footer-link me-4">Documentation</a>
+                  <a href="https://themeforest.net/licenses/standard" class="footer-link me-4" target="_blank"
+                    rel="noopener noreferrer">
+                    License
+                  </a>
 
-                  <a href="https://pixinvent.ticksy.com/" target="_blank"
-                    class="footer-link d-none d-sm-inline-block">Support</a>
+                  <a href="https://themeforest.net/user/pixinvent/portfolio" class="footer-link me-4" target="_blank"
+                    rel="noopener noreferrer">
+                    More Themes
+                  </a>
+
+                  <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
+                    class="footer-link me-4" target="_blank" rel="noopener noreferrer">
+                    Documentation
+                  </a>
+
+                  <a href="https://pixinvent.ticksy.com/" class="footer-link" target="_blank" rel="noopener noreferrer">
+                    Support
+                  </a>
+
                 </div>
               </div>
             </div>
@@ -1968,6 +2003,27 @@
 
           <!-- Page JS -->
           <script src="./assets/js/dashboards-analytics.js"></script>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+
+              tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl);
+              });
+            });
+          </script>
+
+          <script src="assets/vendor/libs/flatpickr/flatpickr.js"></script>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              flatpickr("#dashboardDateRange", {
+                mode: "range",
+                dateFormat: "Y-m-d",
+                allowInput: true
+              });
+            });
+          </script>
+
 </body>
 
 </html>

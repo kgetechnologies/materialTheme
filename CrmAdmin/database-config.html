@@ -319,8 +319,6 @@
                                                                 <i class="icon-base ri ri-user-3-line icon-24px"></i>
                                                             </div>
                                                         </div>
-
-
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <h6 class="small mb-1">Congratulation Lettie 🎉</h6>
@@ -372,8 +370,6 @@
                                                                 <i class="icon-base ri ri-user-3-line icon-24px"></i>
                                                             </div>
                                                         </div>
-
-
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <h6 class="small mb-1">New Message ✉️</h6>
@@ -481,6 +477,7 @@
                                                                 <i class="icon-base ri ri-user-3-line icon-24px"></i>
                                                             </div>
                                                         </div>
+
 
                                                     </div>
                                                     <div class="flex-grow-1">
@@ -893,6 +890,13 @@
                                                     </a>
                                                     <ul class="menu-sub">
                                                         <li class="menu-item">
+                                                            <a href="database-config.html" class="menu-link">
+                                                                <i class="menu-icon ri-database-2-line"></i>
+                                                                <div>Database Configuration</div>
+                                                            </a>
+                                                        </li>
+
+                                                        <li class="menu-item">
                                                             <a href="app-ecommerce-settings-detail.html"
                                                                 class="menu-link">
                                                                 <div data-i18n="Store Details">Store Details</div>
@@ -1013,6 +1017,7 @@
                                                         <div data-i18n="List">List</div>
                                                     </a>
                                                 </li>
+
                                                 <li class="menu-item">
                                                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                                                         <div data-i18n="View">View</div>
@@ -1846,466 +1851,134 @@
                     </aside>
                     <!-- / Menu -->
                     <!-- Content -->
+
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 class="fw-bold mb-0">Users</h4>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inviteUserModal">
-                                Invite User
-                            </button>
+                        <h4 class="fw-bold mb-4">Database Configuration</h4>
 
-                        </div>
-                        <div class="card">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Vendor Database Settings</h5>
+                            </div>
+
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Email</th>
-                                                <th>Name</th>
-                                                <th>Roles</th>
-                                                <th>Last Login</th>
-                                                <th>Active</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                            <tr data-page="1">
-                                                <td>admin@kge.com</td>
-                                                <td>Admin User</td>
-                                                <td>AppOwner</td>
-                                                <td>2026-01-15</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
+                                <div class="row">
 
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="1">
-                                                <td>vikash@kge.com</td>
-                                                <td>Vikash</td>
-                                                <td>Architect</td>
-                                                <td>2026-01-15</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-success action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="1">
-                                                <td>prashant@kge.com</td>
-                                                <td>Prashant Kumar</td>
-                                                <td>Manager</td>
-                                                <td>2026-01-16</td>
-                                                <td>
-                                                    <span class="badge bg-danger status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="1">
-                                                <td>user1@kge.com</td>
-                                                <td>Anuj Kumar</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-17</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
-
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="1">
-                                                <td>user2@kge.com</td>
-                                                <td>Alok Raj</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-17</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
-
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="2">
-                                                <td>user3@kge.com</td>
-                                                <td>Abhishek Kumar</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-18</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="2">
-                                                <td>user4@kge.com</td>
-                                                <td>Danny</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-19</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="2">
-                                                <td>user5@kge.com</td>
-                                                <td>Kanika</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-19</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="2">
-                                                <td>user6@kge.com</td>
-                                                <td>Hrithik</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-20</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="2">
-                                                <td>user7@kge.com</td>
-                                                <td>Raj Kumar</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-20</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
-
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="3">
-                                                <td>user8@kge.com</td>
-                                                <td>Ayush</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-21</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
-
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="3">
-                                                <td>user9@kge.com</td>
-                                                <td>Akash</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-22</td>
-                                                <td>
-                                                    <span class="badge bg-success status-badge">Yes</span>
-
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-outline-warning action-btn">Deactivate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                            <tr data-page="3">
-                                                <td>user10@kge.com</td>
-                                                <td>Manish</td>
-                                                <td>Viewer</td>
-                                                <td>2026-01-23</td>
-                                                <td>
-                                                    <span class="badge bg-secondary status-badge">No</span>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        class="btn btn-sm btn-outline-warning action-btn">Activate</button>
-                                                    <button class="btn btn-outline-info action-btn">Impersonate</button>
-                                                </td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <nav>
-                                    <ul class="pagination justify-content-end" id="pagination">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" data-page="prev">Previous</a>
-                                        </li>
-
-                                        <li class="page-item active">
-                                            <a class="page-link" href="#" data-page="1">1</a>
-                                        </li>
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" data-page="2">2</a>
-                                        </li>
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" data-page="3">3</a>
-                                        </li>
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" data-page="next">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--/ Content -->
-                    <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme">
-                        <div class="container-xxl">
-                            <div
-                                class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
-                                <div class="mb-2 mb-md-0">
-                                    &#169;
-                                    <script>
-                                        document.write(new Date().getFullYear());
-                                    </script>
-                                    , made with ❤️ by
-                                    <a href="https://pixinvent.com" target="_blank"
-                                        class="footer-link fw-medium">Pixinvent</a>
-                                </div>
-                                <div class="d-none d-lg-inline-block">
-                                    <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                                        target="_blank">License</a>
-
-                                    <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
-                                        class="footer-link me-4">More Themes</a>
-                                    <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
-                                        target="_blank" class="footer-link me-4">Documentation</a>
-
-                                    <a href="https://pixinvent.ticksy.com/" target="_blank"
-                                        class="footer-link d-none d-sm-inline-block">Support</a>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
-                    <!-- / Footer -->
-
-                    <!-- Core JS -->
-
-                    <!-- build:js assets/vendor/js/theme.js  -->
-
-                    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
-
-                    <script src="./assets/vendor/libs/popper/popper.js"></script>
-                    <script src="./assets/vendor/js/bootstrap.js"></script>
-                    <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
-
-                    <script src="./assets/vendor/libs/pickr/pickr.js"></script>
-
-                    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
-                    <script src="./assets/vendor/libs/hammer/hammer.js"></script>
-
-                    <script src="./assets/vendor/libs/i18n/i18n.js"></script>
-
-                    <script src="./assets/vendor/js/menu.js"></script>
-
-                    <!-- endbuild -->
-
-                    <!-- Vendors JS -->
-                    <script src="./assets/vendor/libs/apex-charts/apexcharts.js"></script>
-                    <script src="./assets/vendor/libs/swiper/swiper.js"></script>
-
-                    <!-- Main JS -->
-
-                    <script src="./assets/js/main.js"></script>
-
-                    <!-- Page JS -->
-                    <script src="./assets/js/dashboards-analytics.js"></script>
-
-                    <div class="modal fade" id="inviteUserModal" tabindex="-1">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Invite User</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-
-                                <div class="modal-body" style="max-height: 60vh; overflow-y: auto;">
-
-                                    <div class="row">
-
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Email</label>
-                                            <input type="email" class="form-control" placeholder="user@kge.com">
-                                        </div>
-
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Name</label>
-                                            <input type="text" class="form-control" placeholder="Name">
-                                        </div>
-
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Roles</label>
-                                            <select class="form-select" multiple style="max-height: 120px;">
-
-                                                <option>AppOwner</option>
-                                                <option>Architect</option>
-                                                <option>Manager</option>
-                                                <option>Viewer</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label">Active</label>
-                                            <select class="form-select">
-                                                <option selected>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Database Provider</label>
+                                        <select class="form-select">
+                                            <option>Shared (Default)</option>
+                                            <option>Microsoft SQL Server</option>
+                                            <option>PostgreSQL</option>
+                                            <option>MySQL</option>
+                                            <option>MariaDB</option>
+                                        </select>
                                     </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Database Name</label>
+                                        <input type="text" class="form-control" placeholder="vendor_db_name">
+                                    </div>
+
+                                    <div class="col-12 mb-3">
+                                        <label class="form-label">Connection String</label>
+                                        <textarea class="form-control" rows="3"
+                                            placeholder="jdbc:postgresql://host:5432/dbname"></textarea>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <button class="btn btn-outline-primary w-100">
+                                            Test Connection
+                                        </button>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <button class="btn btn-primary w-100">
+                                            Save Configuration
+                                        </button>
+                                    </div>
+
+                                    <div class="col-md-4 mb-3">
+                                        <button class="btn btn-outline-danger w-100">
+                                            Revert to Shared Database
+                                        </button>
+                                    </div>
+
                                 </div>
 
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <button class="btn btn-primary" id="sendInviteBtn">Send Invite</button>
-
+                                <div class="alert alert-info mt-3">
+                                    Database configurations are cached for performance and applied per tenant.
                                 </div>
 
                             </div>
                         </div>
                     </div>
-                    <style>
-                        /* Status badges */
-                        .status-badge {
-                            display: inline-block;
-                            min-width: 50px;
-                            text-align: center;
-                            font-size: 0.85rem;
-                            padding: 6px 0;
-                        }
 
-                        /* Action buttons */
-                        .action-btn {
-                            min-width: 120px;
-                            margin-right: 6px;
-                        }
-                    </style>
-                    <script>
-                        document.getElementById("sendInviteBtn").addEventListener("click", function () {
-                            const email = document.getElementById("inviteEmail").value.trim();
-                            const name = document.getElementById("inviteName").value.trim();
-                            const roles = document.getElementById("inviteRoles").selectedOptions;
+                </div>
+                <!--/ Content -->
+                <!-- Footer -->
+                <footer class="content-footer footer bg-footer-theme">
+                    <div class="container-xxl">
+                        <div
+                            class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                            <div class="mb-2 mb-md-0">
+                                &#169;
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script>
+                                , made with ❤️ by
+                                <a href="https://pixinvent.com" target="_blank"
+                                    class="footer-link fw-medium">Pixinvent</a>
+                            </div>
+                            <div class="d-none d-lg-inline-block">
+                                <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
+                                    target="_blank">License</a>
 
-                            if (!email || !name || roles.length === 0) {
-                                alert("Please fill all fields and select at least one role.");
-                                return;
-                            }
+                                <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
+                                    class="footer-link me-4">More
+                                    Themes</a>
+                                <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
+                                    target="_blank" class="footer-link me-4">Documentation</a>
 
-                            alert("Invite sent successfully!");
+                                <a href="https://pixinvent.ticksy.com/" target="_blank"
+                                    class="footer-link d-none d-sm-inline-block">Support</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- / Footer -->
 
-                            // Close modal (Bootstrap 5)
-                            const modalEl = document.getElementById("inviteUserModal");
-                            const modal = bootstrap.Modal.getInstance(modalEl);
-                            modal.hide();
-                        });
-                    </script>
-                    <script>
-                        let currentPage = 1;
-                        const rows = document.querySelectorAll("tbody tr");
-                        const links = document.querySelectorAll("#pagination .page-link");
+                <!-- Core JS -->
 
-                        function showPage(page) {
-                            rows.forEach(row => {
-                                row.style.display = row.dataset.page == page ? "" : "none";
-                            });
+                <!-- build:js assets/vendor/js/theme.js  -->
 
-                            document.querySelectorAll(".pagination .page-item")
-                                .forEach(li => li.classList.remove("active"));
+                <script src="./assets/vendor/libs/jquery/jquery.js"></script>
 
-                            document.querySelector(`[data-page="${page}"]`)
-                                ?.parentElement.classList.add("active");
+                <script src="./assets/vendor/libs/popper/popper.js"></script>
+                <script src="./assets/vendor/js/bootstrap.js"></script>
+                <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
 
-                            currentPage = page;
-                        }
+                <script src="./assets/vendor/libs/pickr/pickr.js"></script>
 
-                        links.forEach(link => {
-                            link.addEventListener("click", function (e) {
-                                e.preventDefault();
-                                const page = this.dataset.page;
+                <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-                                if (page === "prev" && currentPage > 1) {
-                                    showPage(currentPage - 1);
-                                } else if (page === "next" && currentPage < 3) {
-                                    showPage(currentPage + 1);
-                                } else if (!isNaN(page)) {
-                                    showPage(Number(page));
-                                }
-                            });
-                        });
+                <script src="./assets/vendor/libs/hammer/hammer.js"></script>
 
-                        // Load first page
-                        showPage(1);
-                    </script>
+                <script src="./assets/vendor/libs/i18n/i18n.js"></script>
 
+                <script src="./assets/vendor/js/menu.js"></script>
+
+                <!-- endbuild -->
+
+                <!-- Vendors JS -->
+                <script src="./assets/vendor/libs/apex-charts/apexcharts.js"></script>
+                <script src="./assets/vendor/libs/swiper/swiper.js"></script>
+
+                <!-- Main JS -->
+
+                <script src="./assets/js/main.js"></script>
+
+                <!-- Page JS -->
+                <script src="./assets/js/dashboards-analytics.js"></script>
 </body>
 
 </html>
