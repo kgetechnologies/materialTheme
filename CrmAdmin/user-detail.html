@@ -1856,11 +1856,13 @@
                                     </div>
                                     <div class="col-md-4">
                                         <label class="form-label">Email</label>
-                                        <input class="form-control" value="prashant@kge.com" disabled>
+                                        <input class="form-control" value="prashant@kge.com" readonly />
+
                                     </div>
                                     <div class="col-md-4">
                                         <label class="form-label">Status</label>
-                                        <select class="form-select">
+                                        <select class="form-select" onchange="alert('Status updated')">
+
                                             <option>Active</option>
                                             <option selected>Inactive</option>
                                         </select>
@@ -1868,6 +1870,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mb-4 text-end">
+                            <button class="btn btn-primary" onclick="alert('User details saved')">
+                                Save Changes
+                            </button>
+                        </div>
+
 
                         <!-- Roles & Actions -->
                         <div class="card mb-4">
@@ -1876,15 +1884,33 @@
                             </div>
                             <div class="card-body">
                                 <label class="form-label">Assigned Roles</label>
-                                <select class="form-select mb-3" multiple>
-                                    <option>Manager</option>
+                                <select class="form-select mb-3" multiple size="4">
+                                    <option selected>Manager</option>
+                                    <option>Admin</option>
+                                    <option>Viewer</option>
+                                    <option>Auditor</option>
                                 </select>
 
+
                                 <div class="d-flex gap-2">
-                                    <button class="btn btn-outline-primary">Force Refresh Token</button>
-                                    <button class="btn btn-outline-warning">Impersonate</button>
-                                    <button class="btn btn-outline-danger">Deactivate</button>
+                                    <button class="btn btn-outline-primary flex-fill"
+                                        onclick="alert('Token refreshed successfully')">
+                                        Force Refresh Token
+                                    </button>
+
+                                    <button class="btn btn-outline-primary flex-fill"
+                                        onclick="alert('Impersonation started')">
+                                        Impersonate
+                                    </button>
+
+                                    <button class="btn btn-outline-primary flex-fill"
+                                        onclick="confirm('Are you sure you want to deactivate this user?')">
+                                        Deactivate
+                                    </button>
                                 </div>
+
+
+
                             </div>
                         </div>
 
@@ -1893,11 +1919,27 @@
                             <div class="card-header">
                                 <h5 class="mb-0">Activity Log</h5>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="max-height: 180px; overflow-y: auto;">
                                 <ul class="list-group">
-                                    <li class="list-group-item">Logged in – 2 hours ago</li>
-                                    <li class="list-group-item">Role updated – Yesterday</li>
-                                    <li class="list-group-item">Token refreshed – 3 days ago</li>
+
+                                    <li class="list-group-item">
+                                        <strong>2026-01-18 10:32 AM</strong> |
+                                        Prashant Kumar <span class="badge bg-label-primary">Manager</span><br>
+                                        <small class="text-muted">Action: Logged in</small>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <strong>2026-01-17 04:15 PM</strong> |
+                                        Prashant Kumar <span class="badge bg-label-primary">Manager</span><br>
+                                        <small class="text-muted">Action: Role updated</small>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <strong>2026-01-15 11:40 AM</strong> |
+                                        Admin User <span class="badge bg-label-warning">AppOwner</span><br>
+                                        <small class="text-muted">Action: Token refreshed</small>
+                                    </li>
+
                                 </ul>
                             </div>
                         </div>
