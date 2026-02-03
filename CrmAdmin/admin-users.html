@@ -8,7 +8,8 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Demo: Dashboard - Analytics | Materialize - Bootstrap Dashboard PRO</title>
+    <title>User Management | Admin</title>
+
 
     <meta name="description" content="" />
 
@@ -52,6 +53,15 @@
     <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
 
     <script src="./assets/js/config.js"></script>
+    <link rel="stylesheet" href="assets/vendor/libs/flatpickr/flatpickr.css" />
+    <style>
+        .content-footer {
+            position: relative;
+            left: 0;
+            right: 0;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -127,7 +137,9 @@
 
                             <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                                    data-bs-toggle="dropdown">
+                                    data-bs-toggle="dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                    title="Change Language">
+
                                     <i class="icon-base ri ri-translate-2 icon-md"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -162,7 +174,9 @@
                             <!-- Style Switcher -->
                             <li class="nav-item dropdown me-sm-2 me-xl-0">
                                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                                    id="nav-theme" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                    id="nav-theme" href="javascript:void(0);" data-bs-toggle="dropdown"
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Toggle Theme">
+
                                     <i class="icon-base ri ri-sun-line icon-22px theme-icon-active"></i>
                                     <span class="d-none ms-2" id="nav-theme-text">Toggle theme</span>
                                 </a>
@@ -195,8 +209,9 @@
                             <!-- Quick links -->
                             <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-sm-2 me-xl-0">
                                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                    aria-expanded="false">
+                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Quick Shortcuts">
+
                                     <i class="icon-base ri ri-star-smile-line icon-22px"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end p-0">
@@ -288,8 +303,9 @@
                             <!-- Notification -->
                             <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-4 me-xl-1">
                                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                    aria-expanded="false">
+                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Notifications">
+
                                     <i class="icon-base ri ri-notification-2-line icon-22px"></i>
                                     <span
                                         class="position-absolute top-0 start-50 translate-middle-y badge badge-dot bg-danger mt-2 border"></span>
@@ -567,7 +583,9 @@
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                                    data-bs-toggle="dropdown">
+                                    data-bs-toggle="dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                    title="User Profile">
+
                                     <div class="avatar">
                                         <div class="avatar-initial bg-label-primary rounded-3">
                                             <i class="icon-base ri ri-user-3-line icon-24px"></i>
@@ -1845,30 +1863,21 @@
                     <!-- / Menu -->
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h4 class="fw-bold mb-0">Stock Defects (Admin Review)</h4>
-                        </div>
-
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="row g-3">
                                     <div class="col-md-3">
-                                        <label class="form-label">Company</label>
-                                        <select class="form-select">
-                                            <option>All Companies</option>
-                                            <option>KGE Technologies</option>
-                                            <option>Demo Corp</option>
-                                        </select>
+                                        <label class="form-label">Search User</label>
+                                        <input type="text" class="form-control" placeholder="Name or Email">
                                     </div>
 
                                     <div class="col-md-3">
-                                        <label class="form-label">Severity</label>
+                                        <label class="form-label">Role</label>
                                         <select class="form-select">
                                             <option>All</option>
-                                            <option>Low</option>
-                                            <option>Medium</option>
-                                            <option>High</option>
-                                            <option>Critical</option>
+                                            <option>Super Admin</option>
+                                            <option>Platform Admin</option>
+                                            <option>Support Admin</option>
                                         </select>
                                     </div>
 
@@ -1876,9 +1885,8 @@
                                         <label class="form-label">Status</label>
                                         <select class="form-select">
                                             <option>All</option>
-                                            <option>Pending</option>
-                                            <option>Approved</option>
-                                            <option>Rejected</option>
+                                            <option>Active</option>
+                                            <option>Inactive</option>
                                         </select>
                                     </div>
 
@@ -1886,242 +1894,171 @@
                                         <button class="btn btn-primary w-100">Apply Filters</button>
                                     </div>
                                 </div>
-                                <div class="row mb-4">
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h6>Total Defects</h6>
-                                                <h3>142</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h6>Critical</h6>
-                                                <h3 class="text-danger">18</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h6>Pending Review</h6>
-                                                <h3>37</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h6>Approved</h6>
-                                                <h3 class="text-success">89</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <h5 class="mb-0">Defect Trends (Last 30 Days)</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="defectTrendChart" style="height: 300px;"></div>
-                                    </div>
-                                </div>
-
                             </div>
+                        </div>
+                        <div class="d-flex justify-content-end mb-3">
+                            <button class="btn btn-primary">
+                                Create Admin User
+                            </button>
                         </div>
                         <div class="card">
                             <div class="card-body table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Company</th>
-                                            <th>Product</th>
-                                            <th>Severity</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
                                             <th>Status</th>
-                                            <th>Reported On</th>
+                                            <th>Last Login</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="table-danger">
-                                            <td>DF-101</td>
-                                            <td>KGE Technologies</td>
-                                            <td>Steel Rod</td>
-                                            <td><span class="badge bg-danger">Critical</span></td>
-                                            <td>
-                                                <span class="badge bg-label-warning">Pending</span>
-                                            </td>
-
-
-
-                                            <td>2024-10-01</td>
+                                        <tr>
+                                            <td>John Doe</td>
+                                            <td>john.admin@platform.com</td>
+                                            <td><span class="badge bg-primary">Super Admin</span></td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                            <td>2024-10-10</td>
                                             <td class="d-flex gap-2">
-                                                <button class="btn btn-sm btn-success"
-                                                    onclick="approveDefect('DF-101')">
-                                                    Approve
-                                                </button>
-
-                                                <button class="btn btn-sm btn-danger" onclick="rejectDefect('DF-101')">
-                                                    Reject
-                                                </button>
-
-                                                <button class="btn btn-sm btn-warning"
-                                                    onclick="escalateDefect('DF-101')">
-                                                    Escalate
-                                                </button>
+                                                <button class="btn btn-sm btn-warning">Deactivate</button>
+                                                <button class="btn btn-sm btn-outline-primary">Edit</button>
                                             </td>
-
                                         </tr>
 
                                         <tr>
-                                            <td>DF-102</td>
-                                            <td>Demo Corp</td>
-                                            <td>Plastic Sheet</td>
-                                            <td><span class="badge bg-warning">Medium</span></td>
-
-                                            <td>
-                                                <span class="badge bg-label-success">Approved</span>
-                                            </td>
-
-
-
-                                            </td>
-                                            <td>2024-10-02</td>
-                                            <td>
-                                                <a href="stock-defect-detail.html"
-                                                    class="btn btn-sm btn-outline-primary">View</a>
+                                            <td>Sarah Smith</td>
+                                            <td>sarah.support@platform.com</td>
+                                            <td><span class="badge bg-info">Support Admin</span></td>
+                                            <td><span class="badge bg-secondary">Inactive</span></td>
+                                            <td>2024-09-22</td>
+                                            <td class="d-flex gap-2">
+                                                <button class="btn btn-sm btn-success">Activate</button>
+                                                <button class="btn btn-sm btn-outline-primary">Edit</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-
-
                             </div>
                         </div>
                         <div class="card mt-4">
                             <div class="card-header">
-                                <h5 class="mb-0">Admin Audit Trail</h5>
+                                <h5 class="mb-0">Admin Activity Audit</h5>
                             </div>
                             <div class="card-body">
                                 <ul class="list-group">
                                     <li class="list-group-item">
-                                        DF-101 escalated by Admin on 2024-10-01
+                                        John Doe promoted Sarah Smith to Support Admin
                                     </li>
                                     <li class="list-group-item">
-                                        DF-102 approved by Admin on 2024-10-02
+                                        Sarah Smith deactivated user mike.admin@platform.com
+                                    </li>
+                                    <li class="list-group-item">
+                                        John Doe created new admin account: alex.admin@platform.com
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!--/ Content -->
-                        <!-- Footer -->
-                        <footer class="content-footer footer bg-footer-theme">
-                            <div class="container-xxl">
-                                <div
-                                    class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
-                                    <div class="mb-2 mb-md-0">
-                                        &#169;
-                                        <script>
-                                            document.write(new Date().getFullYear());
-                                        </script>
-                                        , made with ❤️ by
-                                        <a href="https://pixinvent.com" target="_blank"
-                                            class="footer-link fw-medium">Pixinvent</a>
-                                    </div>
-                                    <div class="d-none d-lg-inline-block">
-                                        <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                                            target="_blank">License</a>
+                    </div>
+                    <!--/ Content -->
+                    <!-- Footer -->
+                    <footer class="content-footer footer bg-footer-theme w-100">
 
-                                        <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
-                                            class="footer-link me-4">More
-                                            Themes</a>
-                                        <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
-                                            target="_blank" class="footer-link me-4">Documentation</a>
+                        <div class="container-xxl">
+                            <div
+                                class="footer-container container-xxl d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                                <div class="mb-2 mb-md-0">
+                                    &#169;
+                                    <script>
+                                        document.write(new Date().getFullYear());
+                                    </script>
+                                    , made with <i class="icon-base ri ri-heart-fill text-danger"></i> by
 
-                                        <a href="https://pixinvent.ticksy.com/" target="_blank"
-                                            class="footer-link d-none d-sm-inline-block">Support</a>
-                                    </div>
+                                    <a href="https://pixinvent.com" target="_blank"
+                                        class="footer-link fw-medium">Pixinvent</a>
+                                </div>
+                                <div class="d-flex gap-4 d-none d-lg-flex">
+
+                                    <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
+                                        target="_blank" rel="noopener noreferrer">
+                                        License
+                                    </a>
+
+                                    <a href="https://themeforest.net/user/pixinvent/portfolio" class="footer-link me-4"
+                                        target="_blank" rel="noopener noreferrer">
+                                        More Themes
+                                    </a>
+
+                                    <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
+                                        class="footer-link me-4" target="_blank" rel="noopener noreferrer">
+                                        Documentation
+                                    </a>
+
+                                    <a href="https://pixinvent.ticksy.com/" class="footer-link" target="_blank"
+                                        rel="noopener noreferrer">
+                                        Support
+                                    </a>
+
                                 </div>
                             </div>
-                        </footer>
-                        <!-- / Footer -->
+                        </div>
+                    </footer>
+                    <!-- / Footer -->
 
-                        <!-- Core JS -->
+                    <!-- Core JS -->
 
-                        <!-- build:js assets/vendor/js/theme.js  -->
+                    <!-- build:js assets/vendor/js/theme.js  -->
 
-                        <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+                    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
 
-                        <script src="./assets/vendor/libs/popper/popper.js"></script>
-                        <script src="./assets/vendor/js/bootstrap.js"></script>
-                        <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
+                    <script src="./assets/vendor/libs/popper/popper.js"></script>
+                    <script src="./assets/vendor/js/bootstrap.js"></script>
+                    <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
 
-                        <script src="./assets/vendor/libs/pickr/pickr.js"></script>
+                    <script src="./assets/vendor/libs/pickr/pickr.js"></script>
 
-                        <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+                    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-                        <script src="./assets/vendor/libs/hammer/hammer.js"></script>
+                    <script src="./assets/vendor/libs/hammer/hammer.js"></script>
 
-                        <script src="./assets/vendor/libs/i18n/i18n.js"></script>
+                    <script src="./assets/vendor/libs/i18n/i18n.js"></script>
 
-                        <script src="./assets/vendor/js/menu.js"></script>
+                    <script src="./assets/vendor/js/menu.js"></script>
 
-                        <!-- endbuild -->
+                    <!-- endbuild -->
 
-                        <!-- Vendors JS -->
-                        <script src="./assets/vendor/libs/apex-charts/apexcharts.js"></script>
-                        <script src="./assets/vendor/libs/swiper/swiper.js"></script>
+                    <!-- Vendors JS -->
+                    <script src="./assets/vendor/libs/apex-charts/apexcharts.js"></script>
+                    <script src="./assets/vendor/libs/swiper/swiper.js"></script>
 
-                        <!-- Main JS -->
+                    <!-- Main JS -->
 
-                        <script src="./assets/js/main.js"></script>
+                    <script src="./assets/js/main.js"></script>
 
-                        <!-- Page JS -->
-                        <script src="./assets/js/dashboards-analytics.js"></script>
-                        <script>
-                            function approveDefect(defectId) {
-                                alert("Defect " + defectId + " approved.\nAction logged for audit.");
-                            }
+                    <!-- Page JS -->
+                    <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
 
-                            function rejectDefect(defectId) {
-                                alert("Defect " + defectId + " rejected.\nAction logged for audit.");
-                            }
+                            tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                                new bootstrap.Tooltip(tooltipTriggerEl);
+                            });
+                        });
+                    </script>
 
-                            function escalateDefect(defectId) {
-                                if (confirm("This will escalate the defect to Platform Admin. Continue?")) {
-                                    alert("Defect " + defectId + " escalated.\nAction logged for audit.");
-                                }
-                            }
-                        </script>
-                        <script>
-                            var options = {
-                                chart: {
-                                    type: 'line',
-                                    height: 300
-                                },
-                                series: [{
-                                    name: 'Defects',
-                                    data: [12, 19, 14, 22, 30, 28, 35]
-                                }],
-                                xaxis: {
-                                    categories: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7']
-                                }
-
-                            };
-
-                            var chart = new ApexCharts(
-                                document.querySelector("#defectTrendChart"),
-                                options
-                            );
-                            chart.render();
-                        </script>
+                    <script src="assets/vendor/libs/flatpickr/flatpickr.js"></script>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            flatpickr("#dashboardDateRange", {
+                                mode: "range",
+                                dateFormat: "Y-m-d",
+                                allowInput: true
+                            });
+                        });
+                    </script>
 
 </body>
 
