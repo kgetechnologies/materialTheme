@@ -1857,15 +1857,16 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Lot Number</th>
-                                                <th>Batch</th>
-                                                <th>Material Type</th>
-                                                <th>Available Qty</th>
-                                                <th>Location</th>
+                                                <th onclick="sortTable(0)" style="cursor:pointer">Lot Number ⬍</th>
+                                                <th onclick="sortTable(0)" style="cursor:pointer">Batch ⬍</th>
+                                                <th onclick="sortTable(0)" style="cursor:pointer">Material Type ⬍</th>
+                                                <th onclick="sortTable(0)" style="cursor:pointer">Available Qty ⬍</th>
+                                                <th onclick="sortTable(0)" style="cursor:pointer">Location ⬍</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="tableBody">
+
                                             <tr>
                                                 <td>LOT-1001</td>
                                                 <td>BATCH-A1</td>
@@ -1905,9 +1906,24 @@
 
                                 <nav class="mt-3">
                                     <ul class="pagination justify-content-end">
-                                        <li class="page-item active"><a class="page-link">1</a></li>
-                                        <li class="page-item"><a class="page-link">2</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#"
+                                                onclick="changePage(currentPage - 1)">Previous</a>
+                                        </li>
+
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" onclick="changePage(1)">1</a>
+                                        </li>
+
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" onclick="changePage(2)">2</a>
+                                        </li>
+
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" onclick="changePage(currentPage + 1)">Next</a>
+                                        </li>
                                     </ul>
+
                                 </nav>
                             </div>
                         </div>
@@ -1978,6 +1994,59 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script>
+                        let sortDirection = {};
+
+                        function sortTable(columnIndex, isNumber = false) {
+                            const table = document.querySelector("table");
+                            const tbody = table.querySelector("tbody");
+                            const rows = Array.from(tbody.querySelectorAll("tr"));
+
+                            sortDirection[columnIndex] = !sortDirection[columnIndex];
+                            const direction = sortDirection[columnIndex] ? 1 : -1;
+
+                            rows.sort((a, b) => {
+                                let cellA = a.children[columnIndex].innerText.trim();
+                                let cellB = b.children[columnIndex].innerText.trim();
+
+                                if (isNumber) {
+                                    return direction * (parseFloat(cellA) - parseFloat(cellB));
+                                }
+
+                                return direction * cellA.localeCompare(cellB);
+                            });
+
+                            rows.forEach(row => tbody.appendChild(row));
+                        }
+                    </script>
+                    <script>
+                        let currentPage = 1;
+                        const rowsPerPage = 5;
+
+                        function changePage(page) {
+                            const table = document.getElementById("tableBody");
+                            const rows = table.querySelectorAll("tr");
+                            const totalPages = Math.ceil(rows.length / rowsPerPage);
+
+                            if (page < 1 || page > totalPages) return;
+
+                            currentPage = page;
+
+                            rows.forEach((row, index) => {
+                                row.style.display =
+                                    index >= (currentPage - 1) * rowsPerPage &&
+                                        index < currentPage * rowsPerPage
+                                        ? ""
+                                        : "none";
+                            });
+                        }
+
+                        // Initialize pagination on page load
+                        document.addEventListener("DOMContentLoaded", () => {
+                            changePage(1);
+                        });
+                    </script>
+
 </body>
 
 </html>

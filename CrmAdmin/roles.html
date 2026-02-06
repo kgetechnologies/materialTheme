@@ -1854,8 +1854,9 @@
                                 </div>
 
                                 <!-- Filter input -->
-                                <input type="text" id="roleFilter" class="form-control"
-                                    placeholder="Filter roles by name, description or claims" onkeyup="filterRoles()" />
+                                <input type="text" class="form-control" id="roleFilter"
+                                    placeholder="Filter roles by name, description or claims" onkeyup="filterRoles()">
+
                             </div>
 
 
@@ -1871,7 +1872,8 @@
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="rolesTableBody">
+
                                             <tr>
                                                 <td>Admin</td>
                                                 <td>Platform level administrator</td>
@@ -1991,6 +1993,17 @@
 
                                 rows[i].style.display = match ? "" : "none";
                             }
+                        }
+                    </script>
+                    <script>
+                        function filterRoles() {
+                            const input = document.getElementById("roleFilter").value.toLowerCase();
+                            const rows = document.querySelectorAll("#rolesTableBody tr");
+
+                            rows.forEach(row => {
+                                const text = row.innerText.toLowerCase();
+                                row.style.display = text.includes(input) ? "" : "none";
+                            });
                         }
                     </script>
 
