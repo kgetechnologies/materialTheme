@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vendor Admin Dashboard</title>
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="assets/vendor/css/core.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <h1 style="color:green">Github is working</h1>
+
+  <!-- Header -->
+  <header class="topbar">
+    <h2>Vendor Admin</h2>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <ul>
+        <li>Dashboard</li>
+        <li>Vendors</li>
+        <li>Analytics</li>
+        <li>Settings</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <h1>Dashboard Overview</h1>
+
+      <div class="cards">
+        <div class="card">Total Vendors<br><strong>120</strong></div>
+        <div class="card">Active Vendors<br><strong>98</strong></div>
+        <div class="card">Pending Requests<br><strong>22</strong></div>
+      </div>
+
+      <button onclick="showMessage()">Test Action</button>
+    </main>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2026 VendorApp
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/js/script.js"></script>
 </body>
-</html>
+</html> 
