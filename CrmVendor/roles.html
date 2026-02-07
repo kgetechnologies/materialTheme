@@ -1,19 +1,21 @@
 <!doctype html>
 
 <html lang="en" class="layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr" data-skin="default"
-    data-bs-theme="light" data-assets-path="../../assets/" data-template="horizontal-menu-template">
+    data-bs-theme="light" data-assets-path="../Static/assets/" data-template="horizontal-menu-template">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Demo: Dashboard - Analytics | Materialize - Bootstrap Dashboard PRO</title>
+    <title>Vendor – Roles</title>
+    <h4 class="fw-bold mb-4">Roles</h4>
+
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../Static/assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,37 +23,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
         rel="stylesheet" />
 
-    <link rel="stylesheet" href="./assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="../Static/assets/vendor/fonts/iconify-icons.css" />
 
     <!-- Core CSS -->
     <!-- build:css assets/vendor/css/theme.css -->
 
-    <link rel="stylesheet" href="./assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="../Static/assets/vendor/libs/node-waves/node-waves.css" />
 
-    <link rel="stylesheet" href="./assets/vendor/libs/pickr/pickr-themes.css" />
+    <link rel="stylesheet" href="../Static/assets/vendor/libs/pickr/pickr-themes.css" />
 
-    <link rel="stylesheet" href="./assets/vendor/css/core.css" />
-    <link rel="stylesheet" href="./assets/css/demo.css" />
+    <link rel="stylesheet" href="../Static/assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="../Static/assets/css/demo.css" />
 
     <!-- Vendors CSS -->
 
-    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- endbuild -->
 
-    <link rel="stylesheet" href="./assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="./assets/vendor/libs/swiper/swiper.css" />
+    <link rel="stylesheet" href="../Static/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="../Static/assets/vendor/libs/swiper/swiper.css" />
 
     <!-- Page CSS -->
-    <link rel="stylesheet" href="./assets/vendor/css/pages/cards-statistics.css" />
+    <link rel="stylesheet" href="../Static/assets/vendor/css/pages/cards-statistics.css" />
 
     <!-- Helpers -->
-    <script src="./assets/vendor/js/helpers.js"></script>
+    <script src="../Static/assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 
     <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
 
-    <script src="./assets/js/config.js"></script>
+    <script src="../Static/assets/js/config.js"></script>
+    <link rel="stylesheet" href="assets/vendor/libs/flatpickr/flatpickr.css" />
+    <style>
+        .content-footer {
+            position: relative;
+            left: 0;
+            right: 0;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -127,7 +138,9 @@
 
                             <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                                    data-bs-toggle="dropdown">
+                                    data-bs-toggle="dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                    title="Change Language">
+
                                     <i class="icon-base ri ri-translate-2 icon-md"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -162,7 +175,9 @@
                             <!-- Style Switcher -->
                             <li class="nav-item dropdown me-sm-2 me-xl-0">
                                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                                    id="nav-theme" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                    id="nav-theme" href="javascript:void(0);" data-bs-toggle="dropdown"
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Toggle Theme">
+
                                     <i class="icon-base ri ri-sun-line icon-22px theme-icon-active"></i>
                                     <span class="d-none ms-2" id="nav-theme-text">Toggle theme</span>
                                 </a>
@@ -195,8 +210,9 @@
                             <!-- Quick links -->
                             <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-sm-2 me-xl-0">
                                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                    aria-expanded="false">
+                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Quick Shortcuts">
+
                                     <i class="icon-base ri ri-star-smile-line icon-22px"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end p-0">
@@ -288,8 +304,9 @@
                             <!-- Notification -->
                             <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-4 me-xl-1">
                                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                    aria-expanded="false">
+                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Notifications">
+
                                     <i class="icon-base ri ri-notification-2-line icon-22px"></i>
                                     <span
                                         class="position-absolute top-0 start-50 translate-middle-y badge badge-dot bg-danger mt-2 border"></span>
@@ -567,7 +584,9 @@
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                                    data-bs-toggle="dropdown">
+                                    data-bs-toggle="dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                    title="User Profile">
+
                                     <div class="avatar">
                                         <div class="avatar-initial bg-label-primary rounded-3">
                                             <i class="icon-base ri ri-user-3-line icon-24px"></i>
@@ -1010,6 +1029,7 @@
                                                         <div data-i18n="List">List</div>
                                                     </a>
                                                 </li>
+
                                                 <li class="menu-item">
                                                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                                                         <div data-i18n="View">View</div>
@@ -1844,118 +1864,71 @@
                     <!-- / Menu -->
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold mb-4">Materials Master</h4>
+                        <h4 class="fw-bold mb-4">Roles</h4>
 
                         <div class="card">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">Materials</h5>
-                                <button class="btn btn-primary btn-sm">Add Material</button>
-                            </div>
-
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th onclick="sortTable(0)" style="cursor:pointer">Lot Number ⬍</th>
-                                                <th onclick="sortTable(0)" style="cursor:pointer">Batch ⬍</th>
-                                                <th onclick="sortTable(0)" style="cursor:pointer">Material Type ⬍</th>
-                                                <th onclick="sortTable(0)" style="cursor:pointer">Available Qty ⬍</th>
-                                                <th onclick="sortTable(0)" style="cursor:pointer">Location ⬍</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tableBody">
-
-                                            <tr>
-                                                <td>LOT-1001</td>
-                                                <td>BATCH-A1</td>
-                                                <td>Steel Sheet</td>
-                                                <td>120</td>
-                                                <td>Factory A / Store 1</td>
-                                                <td>
-                                                    <a href="material-detail.html"
-                                                        class="btn btn-sm btn-outline-primary">View</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>LOT-2003</td>
-                                                <td>BATCH-B7</td>
-                                                <td>Aluminium Rod</td>
-                                                <td>60</td>
-                                                <td>Factory B / Store 2</td>
-                                                <td>
-                                                    <a href="material-detail.html"
-                                                        class="btn btn-sm btn-outline-primary">View</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>LOT-3009</td>
-                                                <td>BATCH-C2</td>
-                                                <td>Copper Coil</td>
-                                                <td>30</td>
-                                                <td>Factory A / Store 3</td>
-                                                <td>
-                                                    <a href="material-detail.html"
-                                                        class="btn btn-sm btn-outline-primary">View</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <nav class="mt-3">
-                                    <ul class="pagination justify-content-end">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#"
-                                                onclick="changePage(currentPage - 1)">Previous</a>
-                                        </li>
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" onclick="changePage(1)">1</a>
-                                        </li>
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" onclick="changePage(2)">2</a>
-                                        </li>
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" onclick="changePage(currentPage + 1)">Next</a>
-                                        </li>
-                                    </ul>
-
-                                </nav>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Role</th>
+                                            <th>Description</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Manager</td>
+                                            <td>Manages daily operations</td>
+                                            <td>
+                                                <a href="role-detail.html" class="btn btn-sm btn-primary">Edit</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
                     </div>
                     <!--/ Content -->
                     <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme">
+                    <footer class="content-footer footer bg-footer-theme w-100">
+
                         <div class="container-xxl">
                             <div
-                                class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                                class="footer-container container-xxl d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
                                 <div class="mb-2 mb-md-0">
                                     &#169;
                                     <script>
                                         document.write(new Date().getFullYear());
                                     </script>
-                                    , made with ❤️ by
+                                    , made with <i class="icon-base ri ri-heart-fill text-danger"></i> by
+
                                     <a href="https://pixinvent.com" target="_blank"
                                         class="footer-link fw-medium">Pixinvent</a>
                                 </div>
-                                <div class="d-none d-lg-inline-block">
+                                <div class="d-flex gap-4 d-none d-lg-flex">
+
                                     <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                                        target="_blank">License</a>
+                                        target="_blank" rel="noopener noreferrer">
+                                        License
+                                    </a>
 
-                                    <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
-                                        class="footer-link me-4">More
-                                        Themes</a>
+                                    <a href="https://themeforest.net/user/pixinvent/portfolio" class="footer-link me-4"
+                                        target="_blank" rel="noopener noreferrer">
+                                        More Themes
+                                    </a>
+
                                     <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
-                                        target="_blank" class="footer-link me-4">Documentation</a>
+                                        class="footer-link me-4" target="_blank" rel="noopener noreferrer">
+                                        Documentation
+                                    </a>
 
-                                    <a href="https://pixinvent.ticksy.com/" target="_blank"
-                                        class="footer-link d-none d-sm-inline-block">Support</a>
+                                    <a href="https://pixinvent.ticksy.com/" class="footer-link" target="_blank"
+                                        rel="noopener noreferrer">
+                                        Support
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
@@ -1966,86 +1939,118 @@
 
                     <!-- build:js assets/vendor/js/theme.js  -->
 
-                    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+                    <script src="../Static/assets/vendor/libs/jquery/jquery.js"></script>
 
-                    <script src="./assets/vendor/libs/popper/popper.js"></script>
-                    <script src="./assets/vendor/js/bootstrap.js"></script>
-                    <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
+                    <script src="../Static/assets/vendor/libs/popper/popper.js"></script>
+                    <script src="../Static/assets/vendor/js/bootstrap.js"></script>
+                    <script src="../Static/assets/vendor/libs/node-waves/node-waves.js"></script>
 
-                    <script src="./assets/vendor/libs/pickr/pickr.js"></script>
+                    <script src="../Static/assets/vendor/libs/pickr/pickr.js"></script>
 
-                    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+                    <script src="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-                    <script src="./assets/vendor/libs/hammer/hammer.js"></script>
+                    <script src="../Static/assets/vendor/libs/hammer/hammer.js"></script>
 
-                    <script src="./assets/vendor/libs/i18n/i18n.js"></script>
+                    <script src="../Static/assets/vendor/libs/i18n/i18n.js"></script>
 
-                    <script src="./assets/vendor/js/menu.js"></script>
+                    <script src="../Static/assets/vendor/js/menu.js"></script>
 
                     <!-- endbuild -->
 
                     <!-- Vendors JS -->
-                    <script src="./assets/vendor/libs/apex-charts/apexcharts.js"></script>
-                    <script src="./assets/vendor/libs/swiper/swiper.js"></script>
+                    <script src="../Static/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+                    <script src="../Static/assets/vendor/libs/swiper/swiper.js"></script>
 
                     <!-- Main JS -->
 
-                    <script src="./assets/js/main.js"></script>
+                    <script src="../Static/assets/js/main.js"></script>
 
                     <!-- Page JS -->
-                    <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script src="../Static/assets/js/dashboards-analytics.js"></script>
                     <script>
-                        let sortDirection = {};
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
 
-                        function sortTable(columnIndex, isNumber = false) {
-                            const table = document.querySelector("table");
-                            const tbody = table.querySelector("tbody");
-                            const rows = Array.from(tbody.querySelectorAll("tr"));
-
-                            sortDirection[columnIndex] = !sortDirection[columnIndex];
-                            const direction = sortDirection[columnIndex] ? 1 : -1;
-
-                            rows.sort((a, b) => {
-                                let cellA = a.children[columnIndex].innerText.trim();
-                                let cellB = b.children[columnIndex].innerText.trim();
-
-                                if (isNumber) {
-                                    return direction * (parseFloat(cellA) - parseFloat(cellB));
-                                }
-
-                                return direction * cellA.localeCompare(cellB);
+                            tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                                new bootstrap.Tooltip(tooltipTriggerEl);
                             });
-
-                            rows.forEach(row => tbody.appendChild(row));
-                        }
-                    </script>
-                    <script>
-                        let currentPage = 1;
-                        const rowsPerPage = 5;
-
-                        function changePage(page) {
-                            const table = document.getElementById("tableBody");
-                            const rows = table.querySelectorAll("tr");
-                            const totalPages = Math.ceil(rows.length / rowsPerPage);
-
-                            if (page < 1 || page > totalPages) return;
-
-                            currentPage = page;
-
-                            rows.forEach((row, index) => {
-                                row.style.display =
-                                    index >= (currentPage - 1) * rowsPerPage &&
-                                        index < currentPage * rowsPerPage
-                                        ? ""
-                                        : "none";
-                            });
-                        }
-
-                        // Initialize pagination on page load
-                        document.addEventListener("DOMContentLoaded", () => {
-                            changePage(1);
                         });
                     </script>
+
+                    <script src="assets/vendor/libs/flatpickr/flatpickr.js"></script>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            flatpickr("#dashboardDateRange", {
+                                mode: "range",
+                                dateFormat: "Y-m-d",
+                                allowInput: true
+                            });
+                        });
+                    </script>
+                    <script>
+                        const filters = document.querySelectorAll('#statusFilter, #priorityFilter, #categoryFilter');
+
+                        filters.forEach(f => {
+                            f.addEventListener('change', () => {
+                                console.log('Filter applied');
+                                // backend will handle real filtering later
+                            });
+                        });
+                    </script>
+
+                    <!-- Create Ticket Modal -->
+                    <div class="modal fade" id="createTicketModal" tabindex="-1">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Create Support Ticket</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Category</label>
+                                            <select class="form-select">
+                                                <option>Production</option>
+                                                <option>Inventory</option>
+                                                <option>Billing</option>
+                                                <option>System</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Priority</label>
+                                            <select class="form-select">
+                                                <option>Low</option>
+                                                <option>Medium</option>
+                                                <option>High</option>
+                                                <option>Critical</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label class="form-label">Subject</label>
+                                            <input class="form-control" placeholder="Short issue summary">
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label class="form-label">Description</label>
+                                            <textarea class="form-control" rows="4"
+                                                placeholder="Describe the issue"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-primary" onclick="alert('Ticket created')">
+                                        Submit Ticket
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 </body>
 

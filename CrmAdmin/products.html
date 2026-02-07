@@ -1857,12 +1857,19 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>SKU</th>
-                                                <th>Name</th>
-                                                <th>Stages</th>
-                                                <th>Actions</th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer">
+                                                    SKU ⬍
+                                                </th>
+                                                <th onclick="sortTable(1, 'string')" style="cursor:pointer">
+                                                    NAME ⬍
+                                                </th>
+                                                <th onclick="sortTable(2, 'number')" style="cursor:pointer">
+                                                    STAGES ⬍
+                                                </th>
+                                                <th>ACTIONS</th>
                                             </tr>
                                         </thead>
+
                                         <tbody>
                                             <tr>
                                                 <td>SKU-1001</td>
@@ -1893,6 +1900,15 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <!-- Pagination -->
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <div id="pageInfo" class="text-muted small"></div>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -1963,6 +1979,94 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script>
+                        let sortDirection = {};
+
+                        function sortTable(columnIndex, type) {
+                            const table = document.querySelector("table");
+                            const tbody = table.querySelector("tbody");
+                            const rows = Array.from(tbody.querySelectorAll("tr"));
+
+                            // Toggle direction
+                            sortDirection[columnIndex] = !sortDirection[columnIndex];
+                            const direction = sortDirection[columnIndex] ? 1 : -1;
+
+                            rows.sort((a, b) => {
+                                let valA = a.children[columnIndex].innerText.trim();
+                                let valB = b.children[columnIndex].innerText.trim();
+
+                                if (type === "number") {
+                                    return direction * (Number(valA) - Number(valB));
+                                } else {
+                                    return direction * valA.localeCompare(valB);
+                                }
+                            });
+
+                            // Re-append sorted rows
+                            rows.forEach(row => tbody.appendChild(row));
+                        }
+                    </script>
+                    <script>
+                        const rowsPerPage = 5;
+                        let currentPage = 1;
+
+                        const table = document.querySelector("table");
+                        const tbody = table.querySelector("tbody");
+                        const rows = Array.from(tbody.querySelectorAll("tr"));
+
+                        function displayPage(page) {
+                            currentPage = page;
+                            const start = (page - 1) * rowsPerPage;
+                            const end = start + rowsPerPage;
+
+                            rows.forEach((row, index) => {
+                                row.style.display = index >= start && index < end ? "" : "none";
+                            });
+
+                            updatePagination();
+                            updatePageInfo();
+                        }
+
+                        function updatePagination() {
+                            const totalPages = Math.ceil(rows.length / rowsPerPage);
+                            const pagination = document.getElementById("pagination");
+                            pagination.innerHTML = "";
+
+                            // Previous
+                            pagination.innerHTML += `
+    <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
+      <a class="page-link" href="#" onclick="displayPage(${currentPage - 1})">Previous</a>
+    </li>
+  `;
+
+                            // Page numbers
+                            for (let i = 1; i <= totalPages; i++) {
+                                pagination.innerHTML += `
+      <li class="page-item ${currentPage === i ? "active" : ""}">
+        <a class="page-link" href="#" onclick="displayPage(${i})">${i}</a>
+      </li>
+    `;
+                            }
+
+                            // Next
+                            pagination.innerHTML += `
+    <li class="page-item ${currentPage === totalPages ? "disabled" : ""}">
+      <a class="page-link" href="#" onclick="displayPage(${currentPage + 1})">Next</a>
+    </li>
+  `;
+                        }
+
+                        function updatePageInfo() {
+                            const start = (currentPage - 1) * rowsPerPage + 1;
+                            const end = Math.min(currentPage * rowsPerPage, rows.length);
+                            document.getElementById("pageInfo").innerText =
+                                `Showing ${start}–${end} of ${rows.length}`;
+                        }
+
+                        // Initial load
+                        displayPage(1);
+                    </script>
+
 </body>
 
 </html>
