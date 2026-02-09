@@ -1,0 +1,337 @@
+<!doctype html>
+
+<html lang="en" class="layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr" data-skin="default"
+    data-bs-theme="light" data-assets-path="../../assets/" data-template="horizontal-menu-template">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Vendor - Product line</title>
+   
+
+    <meta name="description" content=""width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="./assets/vendor/fonts/iconify-icons.css" />
+
+    <!-- Core CSS -->
+    <!-- build:css assets/vendor/css/theme.css -->
+
+    <link rel="stylesheet" href="./assets/vendor/libs/node-waves/node-waves.css" />
+
+    <link rel="stylesheet" href="./assets/vendor/libs/pickr/pickr-themes.css" />
+
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="./assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/swiper/swiper.css" />
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="./assets/vendor/css/pages/cards-statistics.css" />
+
+    <!-- Helpers -->
+    <script src="./assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+
+    <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
+
+    <script src="./assets/js/config.js"></script>
+    <style>
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .stat-card { background: linear-gradient(135deg, #667eea 0%, #7e5eff 100%); padding: 20px; border-radius: 8px; color: white; margin: 60px 20px; }
+        .stat-card-value { font-size: 28px; font-weight: bold; }
+    </style>
+</head>
+
+<body>
+    <div class="navbar-brand app-brand demo d-none d-xl-flex py-6 px-8 me-6">
+                        <a href="./dashboard.html" class="app-brand-link gap-2">
+                            <span class="app-brand-logo demo">
+                                <span class="text-primary">
+                                    <svg width="45" height="25" viewBox="0 0 38 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M30.0944 2.22569C29.0511 0.444187 26.7508 -0.172113 24.9566 0.849138C23.1623 1.87039 22.5536 4.14247 23.5969 5.92397L30.5368 17.7743C31.5801 19.5558 33.8804 20.1721 35.6746 19.1509C37.4689 18.1296 38.0776 15.8575 37.0343 14.076L30.0944 2.22569Z" fill="currentColor"></path>
+                                        <path d="M30.171 2.22569C29.1277 0.444187 26.8274 -0.172113 25.0332 0.849138C23.2389 1.87039 22.6302 4.14247 23.6735 5.92397L30.6134 17.7743C31.6567 19.5558 33.957 20.1721 35.7512 19.1509C37.5455 18.1296 38.1542 15.8575 37.1109 14.076L30.171 2.22569Z" fill="url(#paint0_linear_2989_100980)" fill-opacity="0.4"></path>
+                                        <path d="M22.9676 2.22569C24.0109 0.444187 26.3112 -0.172113 28.1054 0.849138C29.8996 1.87039 30.5084 4.14247 29.4651 5.92397L22.5251 17.7743C21.4818 19.5558 19.1816 20.1721 17.3873 19.1509C15.5931 18.1296 14.9843 15.8575 16.0276 14.076L22.9676 2.22569Z" fill="currentColor"></path>
+                                        <path d="M14.9558 2.22569C13.9125 0.444187 11.6122 -0.172113 9.818 0.849138C8.02377 1.87039 7.41502 4.14247 8.45833 5.92397L15.3983 17.7743C16.4416 19.5558 18.7418 20.1721 20.5361 19.1509C22.3303 18.1296 22.9391 15.8575 21.8958 14.076L14.9558 2.22569Z" fill="currentColor"></path>
+                                        <path d="M14.9558 2.22569C13.9125 0.444187 11.6122 -0.172113 9.818 0.849138C8.02377 1.87039 7.41502 4.14247 8.45833 5.92397L15.3983 17.7743C16.4416 19.5558 18.7418 20.1721 20.5361 19.1509C22.3303 18.1296 22.9391 15.8575 21.8958 14.076L14.9558 2.22569Z" fill="url(#paint1_linear_2989_100980)" fill-opacity="0.4"></path>
+                                        <path d="M7.82901 2.22569C8.87231 0.444187 11.1726 -0.172113 12.9668 0.849138C14.7611 1.87039 15.3698 4.14247 14.3265 5.92397L7.38656 17.7743C6.34325 19.5558 4.04298 20.1721 2.24875 19.1509C0.454514 18.1296 -0.154233 15.8575 0.88907 14.076L7.82901 2.22569Z" fill="currentColor"></path>
+                                        <defs>
+                                            <linearGradient id="paint0_linear_2989_100980" x1="5.36642" y1="0.849138" x2="10.532" y2="24.104" gradientUnits="userSpaceOnUse">
+                                                <stop offset="0" stop-opacity="1"></stop>
+                                                <stop offset="1" stop-opacity="0"></stop>
+                                            </linearGradient>
+                                            <linearGradient id="paint1_linear_2989_100980" x1="5.19475" y1="0.849139" x2="10.3357" y2="24.1155" gradientUnits="userSpaceOnUse">
+                                                <stop offset="0" stop-opacity="1"></stop>
+                                                <stop offset="1" stop-opacity="0"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </span>
+                            </span>
+                            <span class="app-brand-text demo menu-text fw-semibold ms-1 fs-4" >Materialize</span>
+                        </a>
+
+                        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-xl-none">
+                            <i class="icon-base ri ri-close-line icon-sm"></i>
+                        </a>
+                    </div>
+    
+    
+                    <div class="stats-row">
+            <div class="stat-card"><div class="stat-card-value">240</div><div>Total Products</div></div>
+            <div class="stat-card"><div class="stat-card-value">45</div><div>Active Product Lines</div></div>
+            <div class="stat-card"><div class="stat-card-value">85
+
+            </div><div>In Production</div></div>
+            <div class="stat-card"><div class="stat-card-value">23</div><div>Low Stock Items</div></div>
+        </div>
+                    <!-- / Menu -->
+                    <!-- Content -->
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <h4 class="fw-bold py-1 mb-1">Product Line</h4>
+
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Product List</h5>
+                                <button class="btn btn-primary btn-sm">Create Product Line</button>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer">
+                                                    LINE CODE ⬍
+                                                </th>
+                                                <th onclick="sortTable(1, 'string')" style="cursor:pointer">
+                                                    LINE NAME ⬍
+                                                </th>
+                                                <th onclick="sortTable(2, 'number')" style="cursor:pointer">
+                                                    NO. of STAGES ⬍
+                                                </th>
+                                                <th>STATUS</th>
+                                                <th>ACTIONS</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>LINE CODE-1001</td>
+                                                <td>Assembly Line</td>
+                                                <td>5</td>
+                                                <td> <spa class="status active">Active</spa></td>
+                                                <td>
+                                                    <a href="product-flow.html"
+                                                        class="btn btn-sm btn-outline-primary">View Flow</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>LINE CODE-1003</td>
+                                                <td>Packaging Line</td>
+                                                <td>2</td>
+                                                <td> <spa class="status inactive">Inactive</spa></td>
+                                                <td>
+                                                    <a href="product-flow.html"
+                                                        class="btn btn-sm btn-outline-primary">View Flow</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>LINE CODE-1007</td>
+                                                <td>Welding Assembly line</td>
+                                                <td>5</td>
+                                                <td> <spa class="status active">Active</spa></td>
+                                                <td>
+                                                    <a href="product-flow.html"
+                                                        class="btn btn-sm btn-outline-primary">View Flow</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- Pagination -->
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <div id="pageInfo" class="text-muted small"></div>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--/ Content -->
+                    <!-- Footer -->
+                    <footer class="content-footer footer bg-footer-theme">
+                        <div class="container-xxl">
+                            <div
+                                class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                                <div class="mb-2 mb-md-0">
+                                    &#169;
+                                    <script>
+                                        document.write(new Date().getFullYear());
+                                    </script>
+                                    , made with ❤️ by
+                                    <a href="https://pixinvent.com" target="_blank"
+                                        class="footer-link fw-medium">Pixinvent</a>
+                                </div>
+                                <div class="d-none d-lg-inline-block">
+                                    <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
+                                        target="_blank">License</a>
+
+                                    <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
+                                        class="footer-link me-4">More
+                                        Themes</a>
+                                    <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
+                                        target="_blank" class="footer-link me-4">Documentation</a>
+
+                                    <a href="https://pixinvent.ticksy.com/" target="_blank"
+                                        class="footer-link d-none d-sm-inline-block">Support</a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- / Footer -->
+
+                    <!-- Core JS -->
+
+                    <!-- build:js assets/vendor/js/theme.js  -->
+
+                    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+
+                    <script src="./assets/vendor/libs/popper/popper.js"></script>
+                    <script src="./assets/vendor/js/bootstrap.js"></script>
+                    <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
+
+                    <script src="./assets/vendor/libs/pickr/pickr.js"></script>
+
+                    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+                    <script src="./assets/vendor/libs/hammer/hammer.js"></script>
+
+                    <script src="./assets/vendor/libs/i18n/i18n.js"></script>
+
+                    <script src="./assets/vendor/js/menu.js"></script>
+
+                    <!-- endbuild -->
+
+                    <!-- Vendors JS -->
+                    <script src="./assets/vendor/libs/apex-charts/apexcharts.js"></script>
+                    <script src="./assets/vendor/libs/swiper/swiper.js"></script>
+
+                    <!-- Main JS -->
+
+                    <script src="./assets/js/main.js"></script>
+
+                    <!-- Page JS -->
+                    <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script>
+                        let sortDirection = {};
+
+                        function sortTable(columnIndex, type) {
+                            const table = document.querySelector("table");
+                            const tbody = table.querySelector("tbody");
+                            const rows = Array.from(tbody.querySelectorAll("tr"));
+
+                            // Toggle direction
+                            sortDirection[columnIndex] = !sortDirection[columnIndex];
+                            const direction = sortDirection[columnIndex] ? 1 : -1;
+
+                            rows.sort((a, b) => {
+                                let valA = a.children[columnIndex].innerText.trim();
+                                let valB = b.children[columnIndex].innerText.trim();
+
+                                if (type === "number") {
+                                    return direction * (Number(valA) - Number(valB));
+                                } else {
+                                    return direction * valA.localeCompare(valB);
+                                }
+                            });
+
+                            // Re-append sorted rows
+                            rows.forEach(row => tbody.appendChild(row));
+                        }
+                    </script>
+                    <script>
+                        const rowsPerPage = 5;
+                        let currentPage = 1;
+
+                        const table = document.querySelector("table");
+                        const tbody = table.querySelector("tbody");
+                        const rows = Array.from(tbody.querySelectorAll("tr"));
+
+                        function displayPage(page) {
+                            currentPage = page;
+                            const start = (page - 1) * rowsPerPage;
+                            const end = start + rowsPerPage;
+
+                            rows.forEach((row, index) => {
+                                row.style.display = index >= start && index < end ? "" : "none";
+                            });
+
+                            updatePagination();
+                            updatePageInfo();
+                        }
+
+                        function updatePagination() {
+                            const totalPages = Math.ceil(rows.length / rowsPerPage);
+                            const pagination = document.getElementById("pagination");
+                            pagination.innerHTML = "";
+
+                            // Previous
+                            pagination.innerHTML += `
+    <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
+      <a class="page-link" href="#" onclick="displayPage(${currentPage - 1})">Previous</a>
+    </li>
+  `;
+
+                            // Page numbers
+                            for (let i = 1; i <= totalPages; i++) {
+                                pagination.innerHTML += `
+      <li class="page-item ${currentPage === i ? "active" : ""}">
+        <a class="page-link" href="#" onclick="displayPage(${i})">${i}</a>
+      </li>
+    `;
+                            }
+
+                            // Next
+                            pagination.innerHTML += `
+    <li class="page-item ${currentPage === totalPages ? "disabled" : ""}">
+      <a class="page-link" href="#" onclick="displayPage(${currentPage + 1})">Next</a>
+    </li>
+  `;
+                        }
+
+                        function updatePageInfo() {
+                            const start = (currentPage - 1) * rowsPerPage + 1;
+                            const end = Math.min(currentPage * rowsPerPage, rows.length);
+                            document.getElementById("pageInfo").innerText =
+                                `Showing ${start}–${end} of ${rows.length}`;
+                        }
+
+                        // Initial load
+                        displayPage(1);
+                    </script>
+
+</body>
+
+</html>
