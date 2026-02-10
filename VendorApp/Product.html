@@ -1,18 +1,11 @@
-<!doctype html>
-
-<html lang="en" class="layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr" data-skin="default"
-    data-bs-theme="light" data-assets-path="../../assets/" data-template="horizontal-menu-template">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Demo: Dashboard - Analytics | Materialize - Bootstrap Dashboard PRO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-    <meta name="description" content="" />
-
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
@@ -52,10 +45,7 @@
     <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
 
     <script src="./assets/js/config.js"></script>
-</head>
-
-<body>
-    <!-- Layout wrapper -->
+    <body>
     <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
         <div class="layout-container">
             <!-- Navbar -->
@@ -1841,86 +1831,77 @@
                             </ul>
                         </div>
                     </aside>
-                    <!-- / Menu -->
-                    <!-- Content -->
-                    <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold mb-4">Products Line</h4>
+    
+    <div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Inventory /</span> Product Master Data
+    </h4>
 
-                        <div class="card">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">Product List</h5>
-                                <button class="btn btn-primary btn-sm">Create Product</button>
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Product List</h5>
+            <button class="btn btn-primary">
+                <i class="bx bx-plus me-1"></i> Add New Product
+            </button> </div>
+
+        <div class="table-responsive text-nowrap">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>SKU Code</th> <th>Product Name</th>
+                        <th>BOM Status</th> <th>Activation</th> <th>Current Status</th> <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    <tr>
+                        <td><strong>PROD-A-101</strong></td>
+                        <td>Steel Frame - Heavy Duty</td>
+                        <td><span class="badge bg-label-info">Linked</span></td>
+                        <td>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
                             </div>
+                        </td>
+                        <td><span class="badge bg-label-success">In Stock</span></td> <td class="text-center">
+                            <button class="btn btn-sm btn-outline-primary">View BOM</button>
+                        </td>
+                    </tr>
 
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer">
-                                                    LINE CODE⬍
-                                                </th>
-                                                <th onclick="sortTable(1, 'string')" style="cursor:pointer">
-                                                    LINE NAME ⬍
-                                                </th>
-                                                <th onclick="sortTable(2, 'number')" style="cursor:pointer">
-                                                    STAGES ⬍
-                                                </th>
-                                                <th>STATUS</th>
-                                                <th>ACTIONS</th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <tr>
-                                                <td>LINE-1001</td>
-                                                <td>Assembly Line</td>
-                                                <td>4</td>
-                                                <td><span class="badge bg-label-sucess">Active</span></td>
-                                                <td>
-                                                    <a href="product-flow.html"
-                                                        class="btn btn-sm btn-outline-primary">View Flow</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>LINE-1003</td>
-                                                <td>Packaging Line</td>
-                                                <td>3</td>
-                                                <td><span class="badge bg-label-sucess">Active</span></td>
-                                                <td>
-                                                    <a href="product-flow.html"
-                                                        class="btn btn-sm btn-outline-primary">View Flow</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>LINE-1007</td>
-                                                <td>Weldeding Assembly line</td>
-                                                <td>5</td>
-                                                <td><span class="badge bg-label-danger">Inactive</span></td>
-                                                <td>
-                                                    <a href="product-flow.html"
-                                                        class="btn btn-sm btn-outline-primary">View Flow</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- Pagination -->
-                                    <div class="d-flex justify-content-between align-items-center mt-3">
-                                        <div id="pageInfo" class="text-muted small"></div>
-
-                                        <nav>
-                                            <ul class="pagination mb-0" id="pagination"></ul>
-                                        </nav>
-                                    </div>
-
-                                </div>
+                    <tr>
+                        <td><strong>PROD-B-202</strong></td>
+                        <td>Alloy Brackets - 5mm</td>
+                        <td><span class="badge bg-label-warning">Pending BOM</span></td>
+                        <td>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox">
                             </div>
-                        </div>
+                        </td>
+                        <td><span class="badge bg-label-danger">Discontinued</span></td> <td class="text-center">
+                            <button class="btn btn-sm btn-outline-primary">View BOM</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>PROD-C-303</strong></td>
+                    <td>Electronic Control Unit</td>
+                <td><span class="bagde bg-label-warning">Inreview</span></td>
+                <td>
+                    <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox">
+                            </div>
+                        </td>
+                        <td><span class="badge bg-label-danger">Incoming</span></td> <td class="text-center">
+                            <button class="btn btn-sm btn-outline-primary">View BOM</button>
+                        </td>
+                    
+                </td>
 
-                    </div>
-                    <!--/ Content -->
-                    <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme">
+                </td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
                             <div
                                 class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
@@ -2072,5 +2053,4 @@
                     </script>
 
 </body>
-
 </html>
