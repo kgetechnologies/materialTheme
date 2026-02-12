@@ -1844,217 +1844,77 @@
                     <!-- / Menu -->
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <!-- Page Header -->
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <div>
-                                <h4 class="fw-bold mb-1">Support Tickets</h4>
-                                <p class="text-muted mb-0">
-                                    Create and manage support tickets for your team or escalate to admin support
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Stats Cards -->
-                        <div class="row g-4 mb-4">
-
-                            <div class="col-xl-2 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <h4 class="mb-0">47</h4>
-                                        <small class="text-muted">Total Tickets</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-2 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <h4 class="text-info mb-0">18</h4>
-                                        <small class="text-muted">Open</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-2 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <h4 class="text-warning mb-0">12</h4>
-                                        <small class="text-muted">In Progress</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-3 col-md-6 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <h4 class="text-success mb-0">14</h4>
-                                        <small class="text-muted">Resolved Today</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-3 col-md-6 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <h4 class="text-danger mb-0">3</h4>
-                                        <small class="text-muted">High Priority</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-
-                                    <!-- Search -->
-                                    <div class="flex-grow-1" style="max-width: 400px;">
-                                        <input type="text" class="form-control"
-                                            placeholder="Search tickets by ID, title, or description">
-                                    </div>
-
-                                    <!-- Create Ticket -->
-                                    <button class="btn btn-success" data-bs-toggle="modal"
-                                        data-bs-target="#createTicketModal">
-                                        + Create New Ticket
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="row g-3">
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">Status</label>
-                                        <select class="form-select">
-                                            <option>All Statuses</option>
-                                            <option>Open</option>
-                                            <option>In Progress</option>
-                                            <option>Resolved</option>
-                                            <option>Closed</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">Priority</label>
-                                        <select class="form-select">
-                                            <option>All Priorities</option>
-                                            <option>Critical</option>
-                                            <option>High</option>
-                                            <option>Medium</option>
-                                            <option>Low</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">Assigned To</label>
-                                        <select class="form-select">
-                                            <option>All Users</option>
-                                            <option>Me</option>
-                                            <option>Unassigned</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">Date Range</label>
-                                        <select class="form-select">
-                                            <option>Last 7 Days</option>
-                                            <option>Last 30 Days</option>
-                                            <option>Last 90 Days</option>
-                                            <option>All Time</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
                         <div class="card">
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table align-middle">
-                                        <thead class="table-light">
-                                            <tr>
-                                                <th>Ticket ID</th>
-                                                <th>Title</th>
-                                                <th>Priority</th>
-                                                <th>Status</th>
-                                                <th>Assigned To</th>
-                                                <th>Created</th>
-                                                <th>Comments</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
 
-                                        <tbody id="ticketTableBody">
+                                <form>
 
-                                            <tr>
-                                                <td class="fw-semibold text-primary">#TKT-1047</td>
-                                                <td>Production Line 3 Equipment Malfunction</td>
-                                                <td><span class="badge bg-danger">Critical</span></td>
-                                                <td><span class="badge bg-warning">In Progress</span></td>
-                                                <td>John Maintenance</td>
-                                                <td>09 Feb 2025</td>
-                                                <td>5</td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-primary"
-                                                        data-bs-toggle="modal" data-bs-target="#ticketDetailModal">
-                                                        View
-                                                    </button>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="fw-semibold text-primary">#TKT-1046</td>
-                                                <td>Material Quality Issue – Raw Sugar</td>
-                                                <td><span class="badge bg-danger-subtle text-danger">High</span></td>
-                                                <td><span class="badge bg-info">Open</span></td>
-                                                <td>Sarah QC</td>
-                                                <td>09 Feb 2025</td>
-                                                <td>2</td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-primary"
-                                                        data-bs-toggle="modal" data-bs-target="#ticketDetailModal">
-                                                        View
-                                                    </button>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="fw-semibold text-primary">#TKT-1045</td>
-                                                <td>Access Request – New User</td>
-                                                <td><span class="badge bg-secondary">Medium</span></td>
-                                                <td><span class="badge bg-success">Resolved</span></td>
-                                                <td>IT Admin</td>
-                                                <td>08 Feb 2025</td>
-                                                <td>3</td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-primary"
-                                                        data-bs-toggle="modal" data-bs-target="#ticketDetailModal">
-                                                        View
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- Pagination -->
-                                    <div class="d-flex justify-content-between align-items-center mt-3">
-
-                                        <div id="pageInfo" class="text-muted small"></div>
-
-                                        <nav>
-                                            <ul class="pagination mb-0" id="pagination"></ul>
-                                        </nav>
-
+                                    <div class="mb-3">
+                                        <label class="form-label">Role Name</label>
+                                        <input type="text" class="form-control">
                                     </div>
 
-                                </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Description</label>
+                                        <textarea class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Permissions</label>
+
+                                        <div class="row">
+
+                                            <h6 class="mt-4 mb-3">Permissions</h6>
+
+                                            <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <label class="form-check">
+                                                        <input class="form-check-input" type="checkbox">
+                                                        <span class="form-check-label">User Management</span>
+                                                    </label>
+                                                    <label class="form-check">
+                                                        <input class="form-check-input" type="checkbox">
+                                                        <span class="form-check-label">Role Management</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label class="form-check">
+                                                        <input class="form-check-input" type="checkbox">
+                                                        <span class="form-check-label">Production Management</span>
+                                                    </label>
+                                                    <label class="form-check">
+                                                        <input class="form-check-input" type="checkbox">
+                                                        <span class="form-check-label">Inventory Management</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label class="form-check">
+                                                        <input class="form-check-input" type="checkbox">
+                                                        <span class="form-check-label">Quality Control</span>
+                                                    </label>
+                                                    <label class="form-check">
+                                                        <input class="form-check-input" type="checkbox">
+                                                        <span class="form-check-label">Analytics & Reports</span>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 text-end">
+                                        <button class="btn btn-primary">Save Role</button>
+                                    </div>
+
+                                </form>
+
                             </div>
                         </div>
-
-
 
                     </div>
                     <!--/ Content -->

@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en" class="layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr" data-skin="default"
     data-bs-theme="light" data-assets-path="../Static/assets/" data-template="horizontal-menu-template">
 
@@ -7,12 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Vendor – User Details</title>
-    <h4 class="fw-bold mb-4">User Details</h4>
-
-
-    <meta name="description" content="" />
+    <title>Vendor Analytics Dashboard</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../Static/assets/img/favicon/favicon.ico" />
@@ -20,57 +14,26 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
     <link rel="stylesheet" href="../Static/assets/vendor/fonts/iconify-icons.css" />
 
     <!-- Core CSS -->
-    <!-- build:css assets/vendor/css/theme.css -->
-
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/node-waves/node-waves.css" />
-
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/pickr/pickr-themes.css" />
-
     <link rel="stylesheet" href="../Static/assets/vendor/css/core.css" />
     <link rel="stylesheet" href="../Static/assets/css/demo.css" />
-
-    <!-- Vendors CSS -->
-
     <link rel="stylesheet" href="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
-    <!-- endbuild -->
-
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/swiper/swiper.css" />
-
-    <!-- Page CSS -->
-    <link rel="stylesheet" href="../Static/assets/vendor/css/pages/cards-statistics.css" />
 
     <!-- Helpers -->
     <script src="../Static/assets/vendor/js/helpers.js"></script>
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-
-    <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
-
     <script src="../Static/assets/js/config.js"></script>
-    <link rel="stylesheet" href="assets/vendor/libs/flatpickr/flatpickr.css" />
-    <style>
-        .content-footer {
-            position: relative;
-            left: 0;
-            right: 0;
-        }
-    </style>
-
 </head>
 
 <body>
-    <!-- Layout wrapper -->
     <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
         <div class="layout-container">
-            <!-- Navbar -->
 
+            <!-- Navbar -->
             <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
                 <div class="container-xxl">
                     <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-6">
@@ -138,9 +101,7 @@
 
                             <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                                    data-bs-toggle="dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                    title="Change Language">
-
+                                    data-bs-toggle="dropdown">
                                     <i class="icon-base ri ri-translate-2 icon-md"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -175,9 +136,7 @@
                             <!-- Style Switcher -->
                             <li class="nav-item dropdown me-sm-2 me-xl-0">
                                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                                    id="nav-theme" href="javascript:void(0);" data-bs-toggle="dropdown"
-                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Toggle Theme">
-
+                                    id="nav-theme" href="javascript:void(0);" data-bs-toggle="dropdown">
                                     <i class="icon-base ri ri-sun-line icon-22px theme-icon-active"></i>
                                     <span class="d-none ms-2" id="nav-theme-text">Toggle theme</span>
                                 </a>
@@ -210,9 +169,8 @@
                             <!-- Quick links -->
                             <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-sm-2 me-xl-0">
                                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-toggle="tooltip"
-                                    data-bs-placement="bottom" title="Quick Shortcuts">
-
+                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                    aria-expanded="false">
                                     <i class="icon-base ri ri-star-smile-line icon-22px"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end p-0">
@@ -304,9 +262,8 @@
                             <!-- Notification -->
                             <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-4 me-xl-1">
                                 <a class="nav-link dropdown-toggle hide-arrow btn btn-icon btn-text-secondary rounded-pill"
-                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-toggle="tooltip"
-                                    data-bs-placement="bottom" title="Notifications">
-
+                                    href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                    aria-expanded="false">
                                     <i class="icon-base ri ri-notification-2-line icon-22px"></i>
                                     <span
                                         class="position-absolute top-0 start-50 translate-middle-y badge badge-dot bg-danger mt-2 border"></span>
@@ -584,9 +541,7 @@
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                                    data-bs-toggle="dropdown" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                    title="User Profile">
-
+                                    data-bs-toggle="dropdown">
                                     <div class="avatar">
                                         <div class="avatar-initial bg-label-primary rounded-3">
                                             <i class="icon-base ri ri-user-3-line icon-24px"></i>
@@ -676,10 +631,9 @@
 
             <!-- / Navbar -->
 
-            <!-- Layout container -->
             <div class="layout-page">
-                <!-- Content wrapper -->
                 <div class="content-wrapper">
+
                     <!-- Menu -->
                     <aside id="layout-menu" class="layout-menu-horizontal menu-horizontal menu flex-grow-0">
                         <div class="container-xxl d-flex h-100">
@@ -1029,7 +983,6 @@
                                                         <div data-i18n="List">List</div>
                                                     </a>
                                                 </li>
-
                                                 <li class="menu-item">
                                                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                                                         <div data-i18n="View">View</div>
@@ -1862,218 +1815,223 @@
                         </div>
                     </aside>
                     <!-- / Menu -->
-                    <!-- Content -->
+
+                    <!-- CONTENT -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold mb-4">User Details</h4>
 
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <label class="form-label">Name</label>
-                                        <input class="form-control" value="Prashant Kumar" readonly>
+                        <h4 class="fw-bold mb-1">Production Analytics Dashboard</h4>
+                        <p class="text-muted mb-4">
+                            Real-time insights into production, quality, and efficiency metrics
+                        </p>
+                        <div class="row g-4 mb-4">
+
+                            <div class="col-xl-2 col-md-4 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <small class="text-muted">Production Output</small>
+                                        <h4 class="fw-bold mt-2">8,945 kg</h4>
+                                        <small class="text-success">↑ 12.5% vs yesterday</small>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <div class="col-md-4">
-                                        <label class="form-label">Email</label>
-                                        <input class="form-control" value="prashant@vendor.com" readonly>
+                            <div class="col-xl-2 col-md-4 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <small class="text-muted">Efficiency Rate</small>
+                                        <h4 class="fw-bold mt-2">94.2%</h4>
+                                        <small class="text-success">↑ 2.3% vs last week</small>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <div class="col-md-4">
-                                        <label class="form-label">Status</label>
-                                        <select class="form-select">
-                                            <option selected>Active</option>
-                                            <option>Inactive</option>
-                                        </select>
+                            <div class="col-xl-2 col-md-4 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <small class="text-muted">Quality Score</small>
+                                        <h4 class="fw-bold mt-2">97.8%</h4>
+                                        <small class="text-success">↑ 0.5% vs yesterday</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-2 col-md-4 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <small class="text-muted">Defect Rate</small>
+                                        <h4 class="fw-bold mt-2">2.2%</h4>
+                                        <small class="text-success">↓ 0.3% improvement</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-2 col-md-4 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <small class="text-muted">Wastage Rate</small>
+                                        <h4 class="fw-bold mt-2">3.1%</h4>
+                                        <small class="text-warning">↑ 0.4% vs target</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-2 col-md-4 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <small class="text-muted">OEE Score</small>
+                                        <h4 class="fw-bold mt-2">89.5%</h4>
+                                        <small class="text-success">↑ 1.8% improvement</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning mb-3">
+                                Active Alerts & Notifications
+                            </h5>
+
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    ⚠️ <strong>Low stock alert:</strong> Milk Powder (LOT-2025-004) – Only 45 kg
+                                    remaining
+                                </li>
+                                <li class="mb-2">
+                                    ⚠️ <strong>Maintenance overdue:</strong> Equipment EQ-004 overdue by 4 days
+                                </li>
+                                <li>
+                                    ⚠️ <strong>Job delay:</strong> Job Order JC-2025-015 behind schedule by 6 hours
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Production Trend -->
+                        <div class="col s12 m8">
+                            <div class="card">
+                                <div class="card-content">
+                                    <span class="card-title">Production Trend (Last 7 Days)</span>
+                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
+                                        Line Chart Placeholder
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <label class="form-label">Assigned Roles</label>
-                                <select class="form-select" multiple size="8">
-                                    <option>Company_Admin</option>
-                                    <option selected>Manager</option>
-                                    <option>Operator</option>
-                                    <option>Sales</option>
-                                    <option>Viewer</option>
-                                    <option>Production</option>
-                                    <option>Procurement</option>
-                                    <option>QualityControl</option>
-                                </select>
+                        <!-- Quality Metrics -->
+                        <div class="col s12 m4">
+                            <div class="card">
+                                <div class="card-content">
+                                    <span class="card-title">Quality Metrics</span>
+                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
+                                        Quality Gauge Placeholder
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Top Products -->
+                        <div class="col s12 m8">
+                            <div class="card">
+                                <div class="card-content">
+                                    <span class="card-title">Top 5 Products by Volume</span>
+                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
+                                        Bar Chart Placeholder
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="text-end">
-                            <button class="btn btn-primary">Save Changes</button>
+                        <!-- Cost Analysis -->
+                        <div class="col s12 m4">
+                            <div class="card">
+                                <div class="card-content">
+                                    <span class="card-title">Cost Analysis</span>
+                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
+                                        Pie Chart Placeholder
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Stage-wise Cycle Time -->
+                        <div class="col s12 m6">
+                            <div class="card">
+                                <div class="card-content">
+                                    <span class="card-title">Stage-wise Cycle Time</span>
+                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
+                                        Horizontal Bar Chart Placeholder
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-
-
+                        <!-- Defect Distribution -->
+                        <div class="col s12 m6">
+                            <div class="card">
+                                <div class="card-content">
+                                    <span class="card-title">Defect Distribution</span>
+                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
+                                        Donut Chart Placeholder
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!--/ Content -->
-                    <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme w-100">
 
+
+                    <!-- /CONTENT -->
+
+                    <!-- Footer -->
+                    <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
                             <div
-                                class="footer-container container-xxl d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                                class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
                                 <div class="mb-2 mb-md-0">
                                     &#169;
                                     <script>
                                         document.write(new Date().getFullYear());
                                     </script>
-                                    , made with <i class="icon-base ri ri-heart-fill text-danger"></i> by
-
+                                    , made with ❤️ by
                                     <a href="https://pixinvent.com" target="_blank"
                                         class="footer-link fw-medium">Pixinvent</a>
                                 </div>
-                                <div class="d-flex gap-4 d-none d-lg-flex">
-
+                                <div class="d-none d-lg-inline-block">
                                     <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                                        target="_blank" rel="noopener noreferrer">
-                                        License
-                                    </a>
+                                        target="_blank">License</a>
 
-                                    <a href="https://themeforest.net/user/pixinvent/portfolio" class="footer-link me-4"
-                                        target="_blank" rel="noopener noreferrer">
-                                        More Themes
-                                    </a>
-
+                                    <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
+                                        class="footer-link me-4">More
+                                        Themes</a>
                                     <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
-                                        class="footer-link me-4" target="_blank" rel="noopener noreferrer">
-                                        Documentation
-                                    </a>
+                                        target="_blank" class="footer-link me-4">Documentation</a>
 
-                                    <a href="https://pixinvent.ticksy.com/" class="footer-link" target="_blank"
-                                        rel="noopener noreferrer">
-                                        Support
-                                    </a>
-
+                                    <a href="https://pixinvent.ticksy.com/" target="_blank"
+                                        class="footer-link d-none d-sm-inline-block">Support</a>
                                 </div>
                             </div>
                         </div>
                     </footer>
                     <!-- / Footer -->
 
-                    <!-- Core JS -->
+                </div>
+            </div>
 
-                    <!-- build:js assets/vendor/js/theme.js  -->
+        </div>
+    </div>
 
-                    <script src="../Static/assets/vendor/libs/jquery/jquery.js"></script>
-
-                    <script src="../Static/assets/vendor/libs/popper/popper.js"></script>
-                    <script src="../Static/assets/vendor/js/bootstrap.js"></script>
-                    <script src="../Static/assets/vendor/libs/node-waves/node-waves.js"></script>
-
-                    <script src="../Static/assets/vendor/libs/pickr/pickr.js"></script>
-
-                    <script src="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
-                    <script src="../Static/assets/vendor/libs/hammer/hammer.js"></script>
-
-                    <script src="../Static/assets/vendor/libs/i18n/i18n.js"></script>
-
-                    <script src="../Static/assets/vendor/js/menu.js"></script>
-
-                    <!-- endbuild -->
-
-                    <!-- Vendors JS -->
-                    <script src="../Static/assets/vendor/libs/apex-charts/apexcharts.js"></script>
-                    <script src="../Static/assets/vendor/libs/swiper/swiper.js"></script>
-
-                    <!-- Main JS -->
-
-                    <script src="../Static/assets/js/main.js"></script>
-
-                    <!-- Page JS -->
-                    <script src="../Static/assets/js/dashboards-analytics.js"></script>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-
-                            tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-                                new bootstrap.Tooltip(tooltipTriggerEl);
-                            });
-                        });
-                    </script>
-
-                    <script src="assets/vendor/libs/flatpickr/flatpickr.js"></script>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            flatpickr("#dashboardDateRange", {
-                                mode: "range",
-                                dateFormat: "Y-m-d",
-                                allowInput: true
-                            });
-                        });
-                    </script>
-                    <script>
-                        const filters = document.querySelectorAll('#statusFilter, #priorityFilter, #categoryFilter');
-
-                        filters.forEach(f => {
-                            f.addEventListener('change', () => {
-                                console.log('Filter applied');
-                                // backend will handle real filtering later
-                            });
-                        });
-                    </script>
-
-                    <!-- Create Ticket Modal -->
-                    <div class="modal fade" id="createTicketModal" tabindex="-1">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Create Support Ticket</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-
-                                <div class="modal-body">
-                                    <div class="row g-3">
-                                        <div class="col-md-6">
-                                            <label class="form-label">Category</label>
-                                            <select class="form-select">
-                                                <option>Production</option>
-                                                <option>Inventory</option>
-                                                <option>Billing</option>
-                                                <option>System</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label class="form-label">Priority</label>
-                                            <select class="form-select">
-                                                <option>Low</option>
-                                                <option>Medium</option>
-                                                <option>High</option>
-                                                <option>Critical</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <label class="form-label">Subject</label>
-                                            <input class="form-control" placeholder="Short issue summary">
-                                        </div>
-
-                                        <div class="col-12">
-                                            <label class="form-label">Description</label>
-                                            <textarea class="form-control" rows="4"
-                                                placeholder="Describe the issue"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <button class="btn btn-primary" onclick="alert('Ticket created')">
-                                        Submit Ticket
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Core JS -->
+    <script src="../Static/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../Static/assets/vendor/js/bootstrap.js"></script>
+    <script src="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../Static/assets/vendor/js/menu.js"></script>
+    <script src="../Static/assets/js/main.js"></script>
 
 </body>
 
