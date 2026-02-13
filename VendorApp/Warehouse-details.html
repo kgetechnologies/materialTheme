@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
@@ -45,7 +43,8 @@
     <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
 
     <script src="./assets/js/js/config.js"></script>
-    <body>
+</head>
+<body>
     <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
         <div class="layout-container">
             <!-- Navbar -->
@@ -648,9 +647,9 @@
             <!-- / Navbar -->
 
             <!-- Layout container -->
-            <div class="layout-page">
+            <html class="layout-page">
                 <!-- Content wrapper -->
-                <div class="content-wrapper">
+                <body class="content-wrapper">
                     <!-- Menu -->
                     <aside id="layout-menu" class="layout-menu-horizontal menu-horizontal menu flex-grow-0">
                         <div class="container-xxl d-flex h-100">
@@ -1831,77 +1830,89 @@
                             </ul>
                         </div>
                     </aside>
-    
-    <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Inventory /</span> Product Master Data
-    </h4>
+                    <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="fw-bold mb-0">
+            <span class="text-muted fw-light">Warehouses /</span> Main Hub - North
+        </h4>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="locationStatus" checked>
+            <label class="form-check-label" for="locationStatus">Operating Status</label>
+        </div>
+    </div>
 
-    <div class="card">
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h6 class="text-muted small text-uppercase mb-3">Location Address</h6>
+                    <p class="mb-1 fw-bold">123 Industrial Way</p>
+                    <p class="mb-0 text-muted">New York, NY 10001</p>
+                    <p class="mt-2"><span class="badge bg-label-secondary">Primary Distribution Center</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h6 class="text-muted small text-uppercase mb-2">Space Utilization</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <h4 class="mb-0 me-3">85% Full</h4>
+                        <div class="progress w-100" style="height: 12px;">
+                            <div class="progress-bar bg-danger" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <p class="small text-muted mb-0">Remaining Capacity: 1,500 m² of 10,000 m²</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow-none border">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Product List</h5>
-            <button class="btn btn-primary">
-                <i class="bx bx-plus me-1"></i> Add New Product
+            <h5 class="mb-0">Current Inventory at this Location</h5>
+            <button class="btn btn-sm btn-outline-primary" onclick="initiateTransfer()">
+                <i class="bx bx-transfer me-1"></i> New Stock Transfer
             </button> </div>
-
-        <div class="table-responsive text-nowrap">
+        <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>SKU Code</th> <th>Product Name</th>
-                        <th>BOM Status</th> <th>Activation</th> <th>Current Status</th> <th class="text-center">Actions</th>
+                        <th>Zone/Aisle</th>
+                        <th>Material Lot</th>
+                        <th>Quantity On Hand</th>
+                        <th>Last Moved</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody class="table-border-bottom-0">
+                <tbody>
                     <tr>
-                        <td><strong>PROD-A-101</strong></td>
-                        <td>Steel Frame - Heavy Duty</td>
-                        <td><span class="badge bg-label-info">Linked</span></td>
+                        <td><strong>Aisle A-12</strong></td>
+                        <td><a href="material-details.html">LOT-2026-001</a></td>
+                        <td>350 kg</td>
+                        <td>2026-02-10</td>
                         <td>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" checked>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-label-success">In Stock</span></td> <td class="text-center">
-                            <button class="btn btn-sm btn-outline-primary">View BOM</button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td><strong>PROD-B-202</strong></td>
-                        <td>Alloy Brackets - 5mm</td>
-                        <td><span class="badge bg-label-warning">Pending BOM</span></td>
-                        <td>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox">
-                            </div>
-                        </td>
-                        <td><span class="badge bg-label-danger">Discontinued</span></td> <td class="text-center">
-                            <button class="btn btn-sm btn-outline-primary">View BOM</button>
+                            <button class="btn btn-icon btn-sm btn-outline-secondary"><i class="bx bx-edit-alt"></i></button>
                         </td>
                     </tr>
                     <tr>
-                        <td><strong>PROD-C-303</strong></td>
-                    <td>Electronic Control Unit</td>
-                <td><span class="bagde bg-label-warning">Inreview</span></td>
-                <td>
-                    <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox">
-                            </div>
+                        <td><strong>Cold Storage B</strong></td>
+                        <td><a href="material-details.html">LOT-2026-089</a></td>
+                        <td>25 Liters</td>
+                        <td>2026-02-12</td>
+                        <td>
+                            <button class="btn btn-icon btn-sm btn-outline-secondary"><i class="bx bx-edit-alt"></i></button>
                         </td>
-                        <td><span class="badge bg-label-danger">Incoming</span></td> <td class="text-center">
-                            <button class="btn btn-sm btn-outline-primary">View BOM</button>
-                        </td>
-                    
-                </td>
-
-                </td></tr>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-<footer class="content-footer footer bg-footer-theme">
+
+
+ 
+
+                    <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
                             <div
                                 class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
@@ -1930,6 +1941,11 @@
                             </div>
                         </div>
                     </footer>
+                    
+
+
+
+
                     <!-- / Footer -->
 
                     <!-- Core JS -->
@@ -1940,7 +1956,7 @@
 
                     <script src="./assets/vendor/libs/libs/popper/popper.js"></script>
                     <script src="./assets/vendor/js/js/bootstrap.js"></script>
-                    <script src="./assets/vendor/libs/libs/node-waves/node-waves.js"></script>
+                    <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
 
                     <script src="./assets/vendor/libs/libs/pickr/pickr.js"></script>
 
@@ -1963,7 +1979,8 @@
                     <script src="./assets/js/js/main.js"></script>
 
                     <!-- Page JS -->
-                    <script src="./assets/js/js/dashboards-analytics.js"></script>
+                    <script src="./assets/js/js/config.js"></script>
+                    
                     <script>
                         let sortDirection = {};
 
@@ -2050,29 +2067,31 @@
 
                         // Initial load
                         displayPage(1);
+                    </script>
+                    <script>
+                        /**
+* Warehouse Detail Interactions
+*/
 
-                        // Function to add a new Material row to the BOM
-function addMaterialRow() {
-    const tbody = document.querySelector('#bomTable tbody');
-    const rowId = Date.now(); // Unique ID for the new row
-    
-    const rowHtml = `
-        <tr id="row-${rowId}">
-            <td><input type="text" class="form-control" placeholder="Material SKU"></td>
-            <td><input type="number" class="form-control qty-input" value="1" oninput="calculateBOMTotal()"></td>
-            <td><input type="number" class="form-control price-input" value="0.00" oninput="calculateBOMTotal()"></td>
-            <td class="text-center">
-                <button type="button" class="btn btn-sm btn-icon btn-outline-danger" onclick="document.getElementById('row-${rowId}').remove(); calculateBOMTotal();">
-                    <i class="bx bx-trash"></i>
-                </button>
-            </td>
-        </tr>`;
-        
-    tbody.insertAdjacentHTML('beforeend', rowHtml);
+// Toggle Warehouse Operating Status
+document.getElementById('locationStatus')?.addEventListener('change', function(e) {
+    const isActive = e.target.checked;
+    // Capability: Active/inactive status
+    console.log(`Setting warehouse status to: ${isActive ? 'Active' : 'Inactive'}`);
+    alert(`Warehouse status updated in the database.`);
+});
+
+// Calculate Capacity remaining after inventory shifts
+function recalculateLocalCapacity() {
+    // Capability: Capacity management
+    console.log("Analyzing zone-by-zone occupancy...");
 }
+
+ 
+
+
 
 
                     </script>
-
-</body>
-</html>
+                </body>
+            </html>
