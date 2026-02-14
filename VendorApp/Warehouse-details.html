@@ -1830,81 +1830,79 @@
                             </ul>
                         </div>
                     </aside>
-                    <div class="container-xxl flex-grow-1 container-p-y">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4 class="fw-bold mb-0">
-            <span class="text-muted fw-light">Warehouses /</span> Main Hub - North
-        </h4>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="locationStatus" checked>
-            <label class="form-check-label" for="locationStatus">Operating Status</label>
-        </div>
-    </div>
-
-    <div class="row mb-4">
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h6 class="text-muted small text-uppercase mb-3">Location Address</h6>
-                    <p class="mb-1 fw-bold">123 Industrial Way</p>
-                    <p class="mb-0 text-muted">New York, NY 10001</p>
-                    <p class="mt-2"><span class="badge bg-label-secondary">Primary Distribution Center</span></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-8">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h6 class="text-muted small text-uppercase mb-2">Space Utilization</h6>
-                    <div class="d-flex align-items-center mb-2">
-                        <h4 class="mb-0 me-3">85% Full</h4>
-                        <div class="progress w-100" style="height: 12px;">
-                            <div class="progress-bar bg-danger" style="width: 85%"></div>
-                        </div>
+                    <div class="layout-page">
+    <div class="content-wrapper">
+        <div class="container-xxl flex-grow-1 container-p-y">
+           
+            <div class="card mb-4">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="fw-bold mb-1">Main Hub - North</h4>
+                        <p class="text-muted mb-0">123 Industrial Way, NY</p>
                     </div>
-                    <p class="small text-muted mb-0">Remaining Capacity: 1,500 m² of 10,000 m²</p>
+                    <button type="button" class="btn btn-primary" onclick="openTransferModal()">
+                        New Stock Transfer
+                    </button>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="card shadow-none border">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Current Inventory at this Location</h5>
-            <button class="btn btn-sm btn-outline-primary" onclick="initiateTransfer()">
-                <i class="bx bx-transfer me-1"></i> New Stock Transfer
-            </button> </div>
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Zone/Aisle</th>
-                        <th>Material Lot</th>
-                        <th>Quantity On Hand</th>
-                        <th>Last Moved</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Aisle A-12</strong></td>
-                        <td><a href="material-details.html">LOT-2026-001</a></td>
-                        <td>350 kg</td>
-                        <td>2026-02-10</td>
-                        <td>
-                            <button class="btn btn-icon btn-sm btn-outline-secondary"><i class="bx bx-edit-alt"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Cold Storage B</strong></td>
-                        <td><a href="material-details.html">LOT-2026-089</a></td>
-                        <td>25 Liters</td>
-                        <td>2026-02-12</td>
-                        <td>
-                            <button class="btn btn-icon btn-sm btn-outline-secondary"><i class="bx bx-edit-alt"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+
+            <div class="card shadow-none border">
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Zone/Aisle</th>
+                                <th>Material Lot</th>
+                                <th>Quantity On Hand</th>
+                                <th>Last Moved</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            <tr>
+                                <td><strong>Aisle A-12</strong></td>
+                                <td><a href="material-details.html" class="fw-medium">LOT-2026-001</a></td>
+                                <td>350 kg</td>
+                                <td>2026-02-10</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="initiateZoneTransfer('LOT-2026-089')">Transfer</button>
+                                        <button type="button" class="btn btn-sm btn-label-warning me-2" onclick="reportWastage('LOT-2026-089')">Report</button>
+                                        <button type="button" class="btn btn-sm btn-label-secondary">Edit</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cold Storage B</strong></td>
+                                <td><a href="material-details.html" class="fw-medium">LOT-2026-089</a></td>
+                                <td>25 Liters</td>
+                                <td>2026-02-12</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="initiateZoneTransfer('LOT-2026-089')">Transfer</button>
+                                        <button type="button" class="btn btn-sm btn-label-warning me-2" onclick="reportWastage('LOT-2026-089')">Report</button>
+                                        <button type="button" class="btn btn-sm btn-label-secondary">Edit</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bulk Section C</strong></td>
+                                <td><a href="material-details.html" class="fw-medium">LOT-2026-001</a></td>
+                                <td>1200kg</td>
+                                <td>2026-02-14</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="initiateZoneTransfer('LOT-2026-089')">Transfer</button>
+                                        <button type="button" class="btn btn-sm btn-label-warning me-2" onclick="reportWastage('LOT-2026-089')">Report</button>
+                                        <button type="button" class="btn btn-sm btn-label-secondary">Edit</button>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -1912,7 +1910,10 @@
 
  
 
-                    <footer class="content-footer footer bg-footer-theme">
+                    
+
+ 
+ <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
                             <div
                                 class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
@@ -1941,11 +1942,6 @@
                             </div>
                         </div>
                     </footer>
-                    
-
-
-
-
                     <!-- / Footer -->
 
                     <!-- Core JS -->
@@ -1956,7 +1952,7 @@
 
                     <script src="./assets/vendor/libs/libs/popper/popper.js"></script>
                     <script src="./assets/vendor/js/js/bootstrap.js"></script>
-                    <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
+                    <script src="./assets/vendor/libs/libs/node-waves/node-waves.js"></script>
 
                     <script src="./assets/vendor/libs/libs/pickr/pickr.js"></script>
 
@@ -2069,29 +2065,41 @@
                         displayPage(1);
                     </script>
                     <script>
-                        /**
-* Warehouse Detail Interactions
-*/
+                        
 
-// Toggle Warehouse Operating Status
-document.getElementById('locationStatus')?.addEventListener('change', function(e) {
-    const isActive = e.target.checked;
-    // Capability: Active/inactive status
-    console.log(`Setting warehouse status to: ${isActive ? 'Active' : 'Inactive'}`);
-    alert(`Warehouse status updated in the database.`);
-});
 
-// Calculate Capacity remaining after inventory shifts
-function recalculateLocalCapacity() {
-    // Capability: Capacity management
-    console.log("Analyzing zone-by-zone occupancy...");
+// 1. Function to handle internal warehouse transfers
+function initiateZoneTransfer(lotId) {
+    // Prevent default navigation behavior
+    console.log("Initiating transfer for: " + lotId);
+   
+    // In a real application, this would open a Modal to select a new Aisle/Zone
+    // This connects to the 'warehouses' and 'addresses' database tables
+    alert("Transferring " + lotId + ". Please select the destination Zone.");
 }
 
- 
+// 2. Function to report damage or wastage (Updates Status)
+function reportWastage(lotId) {
+    // Logic for Active/inactive status
+    if (confirm("Are you sure you want to report damage for " + lotId + "?")) {
+        console.log("Updating database status for lot to 'Inactive'...");
+       
+        // This targets the material_lots table as seen in your controller setup
+        alert("Success: " + lotId + " has been flagged for review.");
+    }
+}
 
+// 3. Header Action: Create a new stock transfer across locations
+function openTransferModal() {
+    console.log("Opening multi-warehouse transfer interface...");
+    // This utilizes the API Endpoint: POST /api/v1/VendorClient/Locations/{companyId}/list-warehouses
+}
 
-
-
-                    </script>
+// 4. Recalculate Capacity (Visual Update)
+function updateCapacityUI() {
+    // Logic to update the progress bars seen in your warehouse list
+    console.log("Recalculating warehouse floor space...");
+}
+</script>
                 </body>
             </html>
