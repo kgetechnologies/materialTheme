@@ -1,16 +1,12 @@
 <!doctype html>
-
 <html lang="en" class="layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr" data-skin="default"
-    data-bs-theme="light" data-assets-path="../.../Static/assets/" data-template="horizontal-menu-template">
+    data-bs-theme="light" data-assets-path="../Static/assets/" data-template="horizontal-menu-template">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Demo: Dashboard - Analytics | Materialize - Bootstrap Dashboard PRO</title>
-
-    <meta name="description" content="" />
+    <title>Vendor Analytics Dashboard</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../Static/assets/img/favicon/favicon.ico" />
@@ -18,48 +14,26 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
     <link rel="stylesheet" href="../Static/assets/vendor/fonts/iconify-icons.css" />
 
     <!-- Core CSS -->
-    <!-- build:css assets/vendor/css/theme.css -->
-
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/node-waves/node-waves.css" />
-
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/pickr/pickr-themes.css" />
-
     <link rel="stylesheet" href="../Static/assets/vendor/css/core.css" />
     <link rel="stylesheet" href="../Static/assets/css/demo.css" />
-
-    <!-- Vendors CSS -->
-
     <link rel="stylesheet" href="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
-    <!-- endbuild -->
-
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/swiper/swiper.css" />
-
-    <!-- Page CSS -->
-    <link rel="stylesheet" href="../Static/assets/vendor/css/pages/cards-statistics.css" />
 
     <!-- Helpers -->
     <script src="../Static/assets/vendor/js/helpers.js"></script>
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-
-    <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
-
     <script src="../Static/assets/js/config.js"></script>
 </head>
 
 <body>
-    <!-- Layout wrapper -->
     <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
         <div class="layout-container">
-            <!-- Navbar -->
 
+            <!-- Navbar -->
             <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
                 <div class="container-xxl">
                     <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-6">
@@ -657,10 +631,9 @@
 
             <!-- / Navbar -->
 
-            <!-- Layout container -->
             <div class="layout-page">
-                <!-- Content wrapper -->
                 <div class="content-wrapper">
+
                     <!-- Menu -->
                     <aside id="layout-menu" class="layout-menu-horizontal menu-horizontal menu flex-grow-0">
                         <div class="container-xxl d-flex h-100">
@@ -1842,82 +1815,157 @@
                         </div>
                     </aside>
                     <!-- / Menu -->
-                    <!-- Content -->
+
+                    <!-- CONTENT -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="card">
+
+                        <h4 class="fw-bold mb-1">Material Requirements Calculation</h4>
+                        <p class="text-muted mb-4">
+                            Calculate required raw materials for a selected job order and identify shortages
+                        </p>
+
+
+                        <div class="card mb-4">
                             <div class="card-body">
+                                <h5 class="card-title mb-3">Job Order Selection</h5>
 
-                                <form>
-
-                                    <div class="mb-3">
-                                        <label class="form-label">Role Name</label>
-                                        <input type="text" class="form-control">
+                                <div class="row g-3 align-items-end">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Job Order</label>
+                                        <select class="form-select">
+                                            <option selected disabled>Select Job Order</option>
+                                            <option>JO-2025-001 – Milk Powder Batch</option>
+                                            <option>JO-2025-002 – Cheese Production</option>
+                                            <option>JO-2025-003 – Butter Packaging</option>
+                                        </select>
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label class="form-label">Description</label>
-                                        <textarea class="form-control"></textarea>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Planned Quantity</label>
+                                        <input type="number" class="form-control" value="Auto (from Job Order)"
+                                            readonly>
+
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label class="form-label">Permissions</label>
-
-                                        <div class="row">
-
-                                            <h6 class="mt-4 mb-3">Permissions</h6>
-
-                                            <div class="row">
-
-                                                <div class="col-md-4">
-                                                    <label class="form-check">
-                                                        <input class="form-check-input" type="checkbox">
-                                                        <span class="form-check-label">User Management</span>
-                                                    </label>
-                                                    <label class="form-check">
-                                                        <input class="form-check-input" type="checkbox">
-                                                        <span class="form-check-label">Role Management</span>
-                                                    </label>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <label class="form-check">
-                                                        <input class="form-check-input" type="checkbox">
-                                                        <span class="form-check-label">Production Management</span>
-                                                    </label>
-                                                    <label class="form-check">
-                                                        <input class="form-check-input" type="checkbox">
-                                                        <span class="form-check-label">Inventory Management</span>
-                                                    </label>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <label class="form-check">
-                                                        <input class="form-check-input" type="checkbox">
-                                                        <span class="form-check-label">Quality Control</span>
-                                                    </label>
-                                                    <label class="form-check">
-                                                        <input class="form-check-input" type="checkbox">
-                                                        <span class="form-check-label">Analytics & Reports</span>
-                                                    </label>
-                                                </div>
-
-                                            </div>
-
-
-                                        </div>
+                                    <div class="col-md-4 d-grid">
+                                        <button class="btn btn-primary">
+                                            Calculate Requirements
+                                        </button>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-4 mb-4">
 
-                                    <div class="mt-4 text-end">
-                                        <button class="btn btn-primary">Save Role</button>
+                            <div class="col-md-3">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <small class="text-muted">Total Materials Required</small>
+                                        <h4 class="fw-bold mt-2">1,250 kg</h4>
+                                        <small class="text-muted">Based on BOM</small>
                                     </div>
+                                </div>
+                            </div>
 
-                                </form>
+                            <div class="col-md-3">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <small class="text-muted">Available Stock</small>
+                                        <h4 class="fw-bold mt-2 text-success">980 kg</h4>
+                                        <small class="text-muted">Current inventory</small>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="col-md-3">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <small class="text-muted">Shortage</small>
+                                        <h4 class="fw-bold mt-2 text-danger">270 kg</h4>
+                                        <small class="text-muted">Procurement needed</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <small class="text-muted">Surplus</small>
+                                        <h4 class="fw-bold mt-2">0 kg</h4>
+                                        <small class="text-muted">No excess</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Material Requirement Breakdown</h5>
+
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Material Code</th>
+                                                <th>Material Name</th>
+                                                <th>Required Qty</th>
+                                                <th>Available Stock</th>
+                                                <th>Shortage</th>
+                                                <th>Unit</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>RM-001</td>
+                                                <td>Milk Powder</td>
+                                                <td>600</td>
+                                                <td>450</td>
+                                                <td class="text-danger fw-bold">150</td>
+                                                <td>kg</td>
+                                                <td>
+                                                    <span class="badge bg-danger">Shortage</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>RM-002</td>
+                                                <td>Sugar</td>
+                                                <td>400</td>
+                                                <td>400</td>
+                                                <td>0</td>
+                                                <td>kg</td>
+                                                <td>
+                                                    <span class="badge bg-success">Sufficient</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>RM-003</td>
+                                                <td>Packaging Material</td>
+                                                <td>250</td>
+                                                <td>130</td>
+                                                <td class="text-danger fw-bold">120</td>
+                                                <td>units</td>
+                                                <td>
+                                                    <span class="badge bg-danger">Shortage</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
+
+
+
                     </div>
-                    <!--/ Content -->
+
+
+
+                    <!-- /CONTENT -->
+
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
@@ -1950,184 +1998,18 @@
                     </footer>
                     <!-- / Footer -->
 
-                    <!-- Core JS -->
-
-                    <!-- build:js assets/vendor/js/theme.js  -->
-
-                    <script src="../Static/assets/vendor/libs/jquery/jquery.js"></script>
-
-                    <script src="../Static/assets/vendor/libs/popper/popper.js"></script>
-                    <script src="../Static/assets/vendor/js/bootstrap.js"></script>
-                    <script src="../Static/assets/vendor/libs/node-waves/node-waves.js"></script>
-
-                    <script src="../Static/assets/vendor/libs/pickr/pickr.js"></script>
-
-                    <script src="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
-                    <script src="../Static/assets/vendor/libs/hammer/hammer.js"></script>
-
-                    <script src="../Static/assets/vendor/libs/i18n/i18n.js"></script>
-
-                    <script src="../Static/assets/vendor/js/menu.js"></script>
-
-                    <!-- endbuild -->
-
-                    <!-- Vendors JS -->
-                    <script src="../Static/assets/vendor/libs/apex-charts/apexcharts.js"></script>
-                    <script src="../Static/assets/vendor/libs/swiper/swiper.js"></script>
-
-                    <!-- Main JS -->
-
-                    <script src="../Static/assets/js/main.js"></script>
-
-                    <!-- Page JS -->
-                    <script src="../Static/assets/js/dashboards-analytics.js"></script>
-
-
-                    <!-- Ticket Detail Modal -->
-                    <div class="modal fade" id="ticketDetailModal" tabindex="-1">
-                        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                            <div class="modal-content">
-
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Ticket #TK-1024</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-                                <hr>
-
-                                <h6 class="mb-3">Update Ticket</h6>
-
-                                <div class="row g-3">
-                                    <!-- Status -->
-                                    <div class="col-md-4">
-                                        <label class="form-label">Status</label>
-                                        <select class="form-select">
-                                            <option>Open</option>
-                                            <option>In Progress</option>
-                                            <option>Resolved</option>
-                                            <option>Closed</option>
-                                        </select>
-                                    </div>
-
-                                    <!-- Priority -->
-                                    <div class="col-md-4">
-                                        <label class="form-label">Priority</label>
-                                        <select class="form-select">
-                                            <option>Low</option>
-                                            <option selected>Medium</option>
-                                            <option>High</option>
-                                            <option>Critical</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="mt-4">
-                                    <label class="form-label">Add Comment</label>
-                                    <textarea class="form-control" rows="3"
-                                        placeholder="Write your update or comment here..."></textarea>
-                                </div>
-
-                                <div class="modal-body">
-                                    <!-- Ticket Info -->
-                                    <div class="mb-4">
-                                        <span class="badge bg-label-warning me-2">Medium Priority</span>
-                                        <span class="badge bg-label-info">Open</span>
-                                    </div>
-
-                                    <p><strong>Category:</strong> Inventory</p>
-                                    <p><strong>Description:</strong></p>
-                                    <p class="text-muted">
-                                        Stock quantity mismatch during warehouse transfer.
-                                    </p>
-
-                                    <hr>
-
-                                    <!-- Comments -->
-                                    <h6>Comments</h6>
-
-                                    <div class="border rounded p-3 mb-3">
-                                        <small class="text-muted">Vendor • 12 Feb 2026, 10:45 AM</small>
-                                        <p class="mb-0">Issue observed during inward entry.</p>
-                                    </div>
-
-                                    <div class="border rounded p-3">
-                                        <small class="text-muted">Support • 12 Feb 2026, 12:10 PM</small>
-                                        <p class="mb-0">We are reviewing the stock logs.</p>
-                                    </div>
-                                </div>
-
-                                <<div class="modal-footer">
-                                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                        Cancel
-                                    </button>
-                                    <button class="btn btn-primary">
-                                        Update Ticket
-                                    </button>
-                            </div>
-
-
-                        </div>
-                    </div>
                 </div>
-                <script>
-                    const rowsPerPage = 5;
-                    let currentPage = 1;
+            </div>
 
-                    const tbody = document.getElementById("ticketTableBody");
-                    const rows = Array.from(tbody.querySelectorAll("tr"));
+        </div>
+    </div>
 
-                    function displayPage(page) {
-                        currentPage = page;
-                        const start = (page - 1) * rowsPerPage;
-                        const end = start + rowsPerPage;
-
-                        rows.forEach((row, index) => {
-                            row.style.display = index >= start && index < end ? "" : "none";
-                        });
-
-                        updatePagination();
-                        updatePageInfo();
-                    }
-
-                    function updatePagination() {
-                        const totalPages = Math.ceil(rows.length / rowsPerPage);
-                        const pagination = document.getElementById("pagination");
-                        pagination.innerHTML = "";
-
-                        // Previous
-                        pagination.innerHTML += `
-      <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
-        <a class="page-link" href="#" onclick="displayPage(${currentPage - 1})">Previous</a>
-      </li>
-    `;
-
-                        // Page numbers
-                        for (let i = 1; i <= totalPages; i++) {
-                            pagination.innerHTML += `
-        <li class="page-item ${currentPage === i ? "active" : ""}">
-          <a class="page-link" href="#" onclick="displayPage(${i})">${i}</a>
-        </li>
-      `;
-                        }
-
-                        // Next
-                        pagination.innerHTML += `
-      <li class="page-item ${currentPage === totalPages ? "disabled" : ""}">
-        <a class="page-link" href="#" onclick="displayPage(${currentPage + 1})">Next</a>
-      </li>
-    `;
-                    }
-
-                    function updatePageInfo() {
-                        const start = (currentPage - 1) * rowsPerPage + 1;
-                        const end = Math.min(currentPage * rowsPerPage, rows.length);
-                        document.getElementById("pageInfo").innerText =
-                            `Showing ${start}–${end} of ${rows.length} tickets`;
-                    }
-
-                    // Initial load
-                    displayPage(1);
-                </script>
+    <!-- Core JS -->
+    <script src="../Static/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../Static/assets/vendor/js/bootstrap.js"></script>
+    <script src="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../Static/assets/vendor/js/menu.js"></script>
+    <script src="../Static/assets/js/main.js"></script>
 
 </body>
 

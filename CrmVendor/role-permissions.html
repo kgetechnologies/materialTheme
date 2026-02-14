@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>Quality Report | Vendor</title>
+    <title>Role Permissions</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../Static/assets/img/favicon/favicon.ico" />
@@ -1818,198 +1818,152 @@
 
                     <!-- CONTENT -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold mb-1">Quality Report</h4>
+
+                        <h4 class="fw-bold mb-1">Role Permissions</h4>
                         <p class="text-muted mb-4">
-                            Defects, quality scores, and inspection performance
+                            Manage access permissions for tenant roles
                         </p>
 
+                        <!-- Role Selector -->
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h6 class="fw-bold mb-3">Filters</h6>
-
-                                <div class="row g-3">
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">From Date</label>
-                                        <input type="date" class="form-control">
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">To Date</label>
-                                        <input type="date" class="form-control">
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">Product</label>
-                                        <select class="form-select">
-                                            <option>All Products</option>
-                                            <option>Steel Frame</option>
-                                            <option>Aluminium Panel</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">Defect Type</label>
-                                        <select class="form-select">
-                                            <option>All Defects</option>
-                                            <option>Crack</option>
-                                            <option>Surface Damage</option>
-                                            <option>Misalignment</option>
-                                        </select>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="mt-3">
-                                    <button class="btn btn-primary me-2">Apply Filters</button>
-                                    <button class="btn btn-outline-secondary">Reset</button>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h6 class="mb-0">Production Report</h6>
-                                <div>
-                                    <button class="btn btn-sm btn-outline-primary me-2">Export Excel</button>
-                                    <button class="btn btn-sm btn-outline-danger">Export PDF</button>
-                                </div>
-                            </div>
-
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Product</th>
-                                            <th>Stage</th>
-                                            <th>Defect Type</th>
-                                            <th>Severity</th>
-                                            <th>Action Taken</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        <tr>
-                                            <td>12 Feb 2026</td>
-                                            <td>Steel Frame</td>
-                                            <td>Welding</td>
-                                            <td>Crack</td>
-                                            <td>High</td>
-                                            <td>Rework</td>
-                                        </tr>
-                                        <tr>
-                                            <td>12 Feb 2026</td>
-                                            <td>Aluminium Panel</td>
-                                            <td>Assembly</td>
-                                            <td>Surface Damage</td>
-                                            <td>Medium</td>
-                                            <td>Scrap</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
+                                <label class="form-label fw-semibold">Select Role</label>
+                                <select class="form-select w-25">
+                                    <option selected>Company_Admin</option>
+                                    <option>Manager</option>
+                                    <option>Operator</option>
+                                    <option>Sales</option>
+                                    <option>Viewer</option>
+                                    <option>Production</option>
+                                    <option>Procurement</option>
+                                    <option>QualityControl</option>
+                                </select>
                             </div>
                         </div>
 
+                        <div class="row g-4">
 
+                            <!-- User Management -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="fw-semibold mb-3">User Management</h6>
 
-                    </div>
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title text-warning mb-3">
-                                Active Alerts & Notifications
-                            </h5>
-
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2">
-                                    ⚠️ <strong>Low stock alert:</strong> Milk Powder (LOT-2025-004) – Only 45 kg
-                                    remaining
-                                </li>
-                                <li class="mb-2">
-                                    ⚠️ <strong>Maintenance overdue:</strong> Equipment EQ-004 overdue by 4 days
-                                </li>
-                                <li>
-                                    ⚠️ <strong>Job delay:</strong> Job Order JC-2025-015 behind schedule by 6 hours
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- Production Trend -->
-                        <div class="col s12 m8">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Production Trend (Last 7 Days)</span>
-                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
-                                        Line Chart Placeholder
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">View Users</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">Create Users</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">Edit Users</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">Activate / Deactivate Users</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Production -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="fw-semibold mb-3">Production</h6>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">View Job Orders</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">Create Job Orders</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">Update Production Status</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Inventory -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="fw-semibold mb-3">Inventory</h6>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">View Inventory</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">Adjust Stock</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">Approve Material Usage</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quality Control -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="fw-semibold mb-3">Quality Control</h6>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">View QC Reports</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">Log Defects</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">Approve / Reject Batches</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Reports -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="fw-semibold mb-3">Reports</h6>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">View Reports</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked disabled>
+                                            <label class="form-check-label">Export Reports</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
-                        <!-- Quality Metrics -->
-                        <div class="col s12 m4">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Quality Metrics</span>
-                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
-                                        Quality Gauge Placeholder
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- Top Products -->
-                        <div class="col s12 m8">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Top 5 Products by Volume</span>
-                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
-                                        Bar Chart Placeholder
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- Action -->
+                        <div class="mt-4">
+                            <button class="btn btn-primary" disabled>
+                                Save Permissions
+                            </button>
                         </div>
 
-                        <!-- Cost Analysis -->
-                        <div class="col s12 m4">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Cost Analysis</span>
-                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
-                                        Pie Chart Placeholder
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- Stage-wise Cycle Time -->
-                        <div class="col s12 m6">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Stage-wise Cycle Time</span>
-                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
-                                        Horizontal Bar Chart Placeholder
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Defect Distribution -->
-                        <div class="col s12 m6">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Defect Distribution</span>
-                                    <div class="grey lighten-4 center-align" style="height:250px; line-height:250px;">
-                                        Donut Chart Placeholder
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
 
 
