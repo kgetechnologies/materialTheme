@@ -1863,12 +1863,18 @@
                                 <h5 class="card-title mb-0">Add Comment</h5>
                             </div>
                             <div class="card-body">
-                                <select class="form-select mb-2">
+                                <select class="form-select mb-2" id="commentType">
+
                                     <option>External (Visible to Tenant)</option>
                                     <option>Internal (Admins Only)</option>
                                 </select>
-                                <textarea class="form-control mb-2" rows="3"></textarea>
-                                <button class="btn btn-primary">Add Comment</button>
+                                <textarea class="form-control mb-2" rows="3" id="commentText"
+                                    placeholder="Enter your comment"></textarea>
+
+                                <button type="button" class="btn btn-primary" id="addCommentBtn">
+                                    Add Comment
+                                </button>
+
                             </div>
                         </div>
 
@@ -1876,13 +1882,46 @@
                             <div class="card-header">
                                 <h5 class="card-title mb-0">Comment History</h5>
                             </div>
-                            <div class="card-body">
-                                <p><strong>Admin:</strong> Investigating issue.</p>
-                                <p><strong>Tenant:</strong> Service is down.</p>
 
-                                <button class="btn btn-danger mt-3">Escalate Ticket</button>
+                            <div class="card-body">
+
+                                <!-- Comment 1 -->
+                                <div class="mb-3">
+                                    <p class="mb-1">
+                                        <strong>Admin</strong>
+                                    </p>
+                                    <p class="mb-1 text-body">
+                                        Investigating issue.
+                                    </p>
+                                    <small class="text-muted">
+                                        Feb 11, 2026 • 10:45 AM • 2 hours ago
+                                    </small>
+                                </div>
+
+                                <hr>
+
+                                <!-- Comment 2 -->
+                                <div class="mb-3">
+                                    <p class="mb-1">
+                                        <strong>Tenant</strong>
+                                    </p>
+                                    <p class="mb-1 text-body">
+                                        Service is down.
+                                    </p>
+                                    <small class="text-muted">
+                                        Feb 11, 2026 • 09:30 AM • 3 hours ago
+                                    </small>
+                                </div>
+
+                                <button class="btn btn-danger mt-3" data-bs-toggle="modal"
+                                    data-bs-target="#escalateConfirmModal">
+                                    Escalate Ticket
+                                </button>
+
                             </div>
                         </div>
+
+
 
 
                     </div>
@@ -2002,6 +2041,72 @@
                             </div>
                         </div>
                     </div>
+                    <script>
+                        document.getElementById("addCommentBtn").addEventListener("click", function () {
+
+                            const commentText = document.getElementById("commentText").value.trim();
+                            const commentType = document.getElementById("commentType").value;
+                            const commentHistory = document.getElementById("commentHistory");
+
+                            if (commentText === "") {
+                                alert("Please enter a comment");
+                                return;
+                            }
+
+                            const newComment = document.createElement("p");
+                            newComment.innerHTML = `<strong>${commentType}:</strong> ${commentText}`;
+
+                            commentHistory.appendChild(newComment);
+
+                            // Clear textarea after adding
+                            document.getElementById("commentText").value = "";
+                        });
+                    </script>
+                    <!-- Escalate Ticket Confirmation Modal -->
+                    <div class="modal fade" id="escalateConfirmModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-danger">Confirm Escalation</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <p>
+                                        Are you sure you want to <strong>escalate this ticket</strong>?
+                                    </p>
+                                    <p class="text-muted mb-0">
+                                        This action cannot be undone.
+                                    </p>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        No
+                                    </button>
+
+                                    <button type="button" class="btn btn-danger" id="confirmEscalateBtn">
+                                        Yes, Escalate
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById("confirmEscalateBtn").addEventListener("click", function () {
+
+                            // 🔥 PLACE escalation logic here
+                            alert("Ticket escalated successfully!");
+
+                            // Close modal
+                            const modalEl = document.getElementById('escalateConfirmModal');
+                            const modal = bootstrap.Modal.getInstance(modalEl);
+                            modal.hide();
+
+                        });
+                    </script>
 
 </body>
 

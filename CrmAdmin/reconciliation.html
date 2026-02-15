@@ -1851,7 +1851,7 @@
                                 <h5 class="card-title mb-0">Create Adjustment</h5>
                             </div>
                             <div class="card-body">
-                                <div class="row">
+                                <div class="row mt-3">
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label">Reason Code</label>
                                         <select class="form-select">
@@ -1863,7 +1863,13 @@
 
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label">Delta Quantity</label>
-                                        <input type="number" class="form-control" />
+                                        <input type="number" class="form-control" id="deltaQuantity"
+                                            placeholder="Delta Quantity" min="0" max="1000" step="1">
+                                        <small class="text-muted">
+                                            Maximum allowed: 1000 units
+                                        </small>
+
+
                                     </div>
 
                                     <div class="col-md-4 mb-3">
@@ -1875,18 +1881,29 @@
                                         </select>
                                     </div>
 
+                                    <!-- Reference ID -->
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Reference ID</label>
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" placeholder="Enter reference ID" />
                                     </div>
 
+                                    <!-- Notes -->
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Notes</label>
-                                        <textarea class="form-control"></textarea>
+                                        <textarea class="form-control" rows="1" placeholder="Add notes"></textarea>
+
                                     </div>
                                 </div>
 
-                                <button class="btn btn-primary">Apply Adjustment</button>
+
+                                <div class="row mt-3">
+                                    <div class="col-12 text-end">
+                                        <button class="btn btn-primary">
+                                            Apply Adjustment
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
@@ -1986,6 +2003,21 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script>
+                        const deltaInput = document.getElementById("deltaQuantity");
+
+                        deltaInput.addEventListener("input", function () {
+                            const max = 1000;
+
+                            if (this.value > max) {
+                                this.value = max;
+                            }
+                            if (this.value < 0) {
+                                this.value = 0;
+                            }
+                        });
+                    </script>
+
 </body>
 
 </html>
