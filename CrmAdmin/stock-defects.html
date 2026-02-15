@@ -1852,13 +1852,15 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="row g-3">
+
                                     <div class="col-md-3">
                                         <label class="form-label">Company</label>
                                         <select class="form-select">
                                             <option>All Companies</option>
-                                            <option>KGE Technologies</option>
                                             <option>Demo Corp</option>
+                                            <option>KGE Technologies</option>
                                         </select>
+
                                     </div>
 
                                     <div class="col-md-3">
@@ -1882,16 +1884,24 @@
                                         </select>
                                     </div>
 
-                                    <div class="col-md-3 d-flex align-items-end">
-                                        <button class="btn btn-primary w-100">Apply Filters</button>
+                                </div>
+
+                                <!-- RIGHT-ALIGNED ACTION -->
+                                <div class="row mt-3">
+                                    <div class="col-12 text-end">
+                                        <button class="btn btn-primary px-4">
+                                            Apply Filters
+                                        </button>
                                     </div>
                                 </div>
+
+
                                 <div class="row mb-4">
                                     <div class="col-md-3">
                                         <div class="card">
                                             <div class="card-body">
                                                 <h6>Total Defects</h6>
-                                                <h3>142</h3>
+                                                <h3 class="fw-bold">142</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -1900,7 +1910,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <h6>Critical</h6>
-                                                <h3 class="text-danger">18</h3>
+                                                <h3 class="fw-bold text-danger">18</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -1909,7 +1919,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <h6>Pending Review</h6>
-                                                <h3>37</h3>
+                                                <h3 class="fw-bold">37</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -1918,7 +1928,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <h6>Approved</h6>
-                                                <h3 class="text-success">89</h3>
+                                                <h3 class="fw-bold text-success">89</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -1936,7 +1946,8 @@
                         </div>
                         <div class="card">
                             <div class="card-body table-responsive">
-                                <table class="table">
+                                <table class="table" id="defectsTable">
+
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -1995,7 +2006,7 @@
                                             <td>2024-10-02</td>
                                             <td>
                                                 <a href="stock-defect-detail.html"
-                                                    class="btn btn-sm btn-outline-primary">View</a>
+                                                    class="btn btn-sm btn-primary">View</a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -2011,12 +2022,13 @@
                             <div class="card-body">
                                 <ul class="list-group">
                                     <li class="list-group-item">
-                                        DF-101 escalated by Admin on 2024-10-01
-                                    </li>
-                                    <li class="list-group-item">
                                         DF-102 approved by Admin on 2024-10-02
                                     </li>
+                                    <li class="list-group-item">
+                                        DF-101 escalated by Admin on 2024-10-01
+                                    </li>
                                 </ul>
+
                             </div>
                         </div>
 
@@ -2104,23 +2116,73 @@
                             var options = {
                                 chart: {
                                     type: 'line',
-                                    height: 300
+                                    height: 300,
+                                    toolbar: {
+                                        show: true,
+                                        tools: {
+                                            download: true,
+                                            selection: true,
+                                            zoom: true,
+                                            zoomin: true,
+                                            zoomout: true,
+                                            pan: true,
+                                            reset: true
+                                        }
+                                    }
                                 },
-                                series: [{
-                                    name: 'Defects',
-                                    data: [12, 19, 14, 22, 30, 28, 35]
-                                }],
+
+                                tooltip: {
+                                    enabled: true
+                                },
+
+                                series: [
+                                    { name: 'Defects', data: [12, 19, 14, 22, 30, 28, 35] }
+                                ],
+
                                 xaxis: {
                                     categories: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7']
                                 }
-
                             };
+
 
                             var chart = new ApexCharts(
                                 document.querySelector("#defectTrendChart"),
                                 options
                             );
                             chart.render();
+                        </script>
+                        <script>
+                            const companies = [
+                                "KGE Technologies",
+                                "Demo Corp",
+                                "Alpha Industries"
+                            ];
+
+                            const select = document.getElementById("companySelect");
+
+                            companies
+                                .sort((a, b) => a.localeCompare(b))   // A–Z sorting
+                                .forEach(company => {
+                                    const option = document.createElement("option");
+                                    option.text = company;
+                                    option.value = company;
+                                    select.add(option);
+                                });
+                        </script>
+                        <script src="./assets/vendor/libs/datatables/datatables.js"></script>
+                        <script src="./assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                $('#defectsTable').DataTable({
+                                    paging: true,
+                                    searching: false,
+                                    info: false,
+                                    ordering: true,
+                                    columnDefs: [
+                                        { orderable: false, targets: -1 } // Disable sorting for Actions column
+                                    ]
+                                });
+                            });
                         </script>
 
 </body>
