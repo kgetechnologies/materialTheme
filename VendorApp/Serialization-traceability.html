@@ -647,9 +647,9 @@
             <!-- / Navbar -->
 
             <!-- Layout container -->
-            <html class="layout-page">
+            <div class="layout-page">
                 <!-- Content wrapper -->
-                <body class="content-wrapper">
+                <div class="content-wrapper">
                     <!-- Menu -->
                     <aside id="layout-menu" class="layout-menu-horizontal menu-horizontal menu flex-grow-0">
                         <div class="container-xxl d-flex h-100">
@@ -1870,21 +1870,25 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>SN-2026-B12</strong></td>
-                                        <td>High-Precision Sensor</td>
-                                        <td><span class="badge bg-label-warning">Rework</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-label-primary" onclick="viewTraceability('SN-2026-#12')">View History</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>SN-2026-Z05</strong></td>
-                                        <td>Power Supply Unit</td>
-                                        <td><span class="badge bg-label-secondary">Dispatched</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-label-primary" onclick="viewTraceability('SN-2026-Z05')">View History</button>
-                                        </td>
-                                    </tr>
+    <td><strong>SN-2026-B12</strong></td>
+    <td>High-Precision Sensor</td>
+    <td><span class="badge bg-label-warning">Rework</span></td>
+    <td>
+        <button class="btn btn-sm btn-label-primary" onclick="viewTraceability('SN-2026-B12')">View History</button>
+    </td>
+</tr>
+
+<tr>
+    <td><strong>SN-2026-Z05</strong></td>
+    <td>Power Supply Unit</td>
+    <td><span class="badge bg-label-secondary">Dispatched</span></td>
+    <td>
+        <button class="btn btn-sm btn-label-primary" onclick="viewTraceability('SN-2026-Z05')">View History</button>
+    </td>
+</tr>
+
+ 
+
                                 </tbody>
                             </table>
                         </div>
@@ -1918,26 +1922,6 @@
                                         <p class="mb-0">Product ID generated at Manufacturing Plant.</p>
                                     </div>
                                 </li>
-                                <li class="timeline-item timeline-item-transparent border-left-dashed">
-                                    <span class="timeline-point timeline-point-primary"></span>
-                                    <div class="timeline-event">
-                                        <div class="timeline-header mb-1">
-                                            <h6 class="mb-0">Rework Initiated</h6>
-                                            <small class="text-muted">Feb 16, 2026</small>
-                                        </div>
-                                        <p class="mb-0">Moved to the technical lab for sensor recalibration folloeing defect repost DEF-004.</p>
-                                    </div>
-                                </li>
-                                <li class="timeline-item timeline-item-transparent border-left-dashed">
-                                    <span class="timeline-point timeline-point-primary"></span>
-                                    <div class="timeline-event">
-                                        <div class="timeline-header mb-1">
-                                            <h6 class="mb-0">Defect Identified</h6>
-                                            <small class="text-muted">Feb 15, 2026</small>
-                                        </div>
-                                        <p class="mb-0">Discovered during "Work Order" phase. Unit failed sensitivity audit AUD-2026-009</p>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -1955,7 +1939,9 @@
 
  
 
-                    <footer class="content-footer footer bg-footer-theme">
+    
+
+    <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
                             <div
                                 class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
@@ -2017,8 +2003,7 @@
                     <script src="./assets/js/js/main.js"></script>
 
                     <!-- Page JS -->
-                    <script src="./assets/js/js/config.js"></script>
-                    
+                    <script src="./assets/js/js/dashboards-analytics.js"></script>
                     <script>
                         let sortDirection = {};
 
@@ -2106,43 +2091,19 @@
                         // Initial load
                         displayPage(1);
                     </script>
-                    
-<script>
-
-
-// Function to fetch all locations from the API
-async function listWarehouses() {
-    // Connects to: POST /api/v1/VendorClient/Locations/{companyId}/list-warehouses
-    console.log("Fetching active and inactive warehouse locations...");
-}
-
-// Function to handle stock transfers between locations
-function initiateTransfer(fromId, toId) {
-    // Capability: Integration with stock transfers
-    console.log(`Setting up stock transfer from ${fromId} to ${toId}`);
-}
-
-// Function to update capacity based on new inventory arrivals
-function updateCapacityMetric() {
-    // Capability: Capacity management
-    console.log("Recalculating warehouse floor space utilization...");
-}
-
- 
-
-                    </script>
-                    <script>/**
- * Serialization & Traceability Logic
- */
+                    <script>
+                        /**
+* Serialization & Traceability Logic
+*/
 
 function viewTraceability(serialNumber) {
     // Show the history card and hide placeholder
     document.getElementById('traceabilityCard').style.display = 'block';
     document.getElementById('noSelection').style.display = 'none';
-    
+   
     // Update the header with the selected serial
     document.getElementById('displaySerial').innerText = serialNumber;
-    
+   
     console.log("Fetching traceability logs from product_traceability table for: " + serialNumber);
 }
 
@@ -2152,6 +2113,11 @@ function generateNewSerial() {
         console.log("Requesting new ID from SerializationController...");
         alert("New serial number generated and assigned to stock.");
     }
-}</script>
+}
+
+ 
+
+                    </script>
 </body>
-            </html>
+</html>
+
