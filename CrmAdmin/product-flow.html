@@ -1850,7 +1850,7 @@
                             <div class="col-lg-4">
                                 <div class="card mb-4">
                                     <div class="card-header">
-                                        <h5 class="mb-0">Product Info</h5>
+                                        <h5 class="mb-0">Product Information</h5>
                                     </div>
                                     <div class="card-body">
                                         <p><strong>SKU:</strong> SKU-1001</p>
@@ -1864,10 +1864,13 @@
                                         <h5 class="mb-0">Add Step</h5>
                                     </div>
                                     <div class="card-body">
-                                        <input class="form-control mb-2" placeholder="Step Name">
-                                        <input class="form-control mb-2" type="number"
-                                            placeholder="Default Time (mins)">
-                                        <button class="btn btn-primary w-100">Add Step</button>
+                                        <input id="stepName" class="form-control mb-2" placeholder="Step Name">
+                                        <input id="stepTime" class="form-control mb-2" type="number" min="1" max="600"
+                                            step="1" placeholder="Default Time (mins)"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+
+                                        <button id="addStepBtn" class="btn btn-primary w-100">Add Step</button>
+
                                     </div>
                                 </div>
                             </div>
@@ -1877,37 +1880,55 @@
                                     <div class="card-header">
                                         <h5 class="mb-0">Flow Steps</h5>
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body" id="flowSteps">
 
-                                        <div class="d-flex align-items-center mb-3">
-                                            <span class="badge bg-primary me-2">1</span>
+                                        <!-- Step 1 -->
+                                        <div class="flow-step d-flex align-items-center mb-3">
+                                            <span class="badge bg-primary me-2 step-number">1</span>
+
                                             <div class="flex-grow-1">
                                                 <strong>Cutting</strong>
                                                 <div class="text-muted">10 mins</div>
                                             </div>
+
+                                            <div class="ms-2">
+                                                <button class="btn btn-sm btn-light" onclick="moveUp(this)">⬆</button>
+                                                <button class="btn btn-sm btn-light" onclick="moveDown(this)">⬇</button>
+                                            </div>
                                         </div>
 
-                                        <div class="text-center mb-3">⬇</div>
+                                        <!-- Step 2 -->
+                                        <div class="flow-step d-flex align-items-center mb-3">
+                                            <span class="badge bg-primary me-2 step-number">2</span>
 
-                                        <div class="d-flex align-items-center mb-3">
-                                            <span class="badge bg-primary me-2">2</span>
                                             <div class="flex-grow-1">
                                                 <strong>Welding</strong>
                                                 <div class="text-muted">20 mins</div>
                                             </div>
+
+                                            <div class="ms-2">
+                                                <button class="btn btn-sm btn-light" onclick="moveUp(this)">⬆</button>
+                                                <button class="btn btn-sm btn-light" onclick="moveDown(this)">⬇</button>
+                                            </div>
                                         </div>
 
-                                        <div class="text-center mb-3">⬇</div>
+                                        <!-- Step 3 -->
+                                        <div class="flow-step d-flex align-items-center">
+                                            <span class="badge bg-primary me-2 step-number">3</span>
 
-                                        <div class="d-flex align-items-center">
-                                            <span class="badge bg-primary me-2">3</span>
                                             <div class="flex-grow-1">
                                                 <strong>Painting</strong>
                                                 <div class="text-muted">15 mins</div>
                                             </div>
+
+                                            <div class="ms-2">
+                                                <button class="btn btn-sm btn-light" onclick="moveUp(this)">⬆</button>
+                                                <button class="btn btn-sm btn-light" onclick="moveDown(this)">⬇</button>
+                                            </div>
                                         </div>
 
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -1978,6 +1999,82 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script>
+                        function moveUp(button) {
+                            const step = button.closest(".flow-step");
+                            const previous = step.previousElementSibling;
+
+                            if (previous) {
+                                step.parentNode.insertBefore(step, previous);
+                                updateStepNumbers();
+                            }
+                        }
+
+                        function moveDown(button) {
+                            const step = button.closest(".flow-step");
+                            const next = step.nextElementSibling;
+
+                            if (next) {
+                                step.parentNode.insertBefore(next, step);
+                                updateStepNumbers();
+                            }
+                        }
+
+                        function updateStepNumbers() {
+                            document.querySelectorAll(".flow-step").forEach((step, index) => {
+                                const badge = step.querySelector(".step-number");
+                                badge.innerText = index + 1;
+                            });
+                        }
+                    </script>
+                    <script>
+                        let stepCount = 3;
+
+                        document.getElementById('addStepBtn').addEventListener('click', function () {
+                            const stepName = document.getElementById('stepName').value.trim();
+                            const stepTime = document.getElementById('stepTime').value.trim();
+
+                            if (!stepName) {
+                                alert('Step name is required');
+                                return;
+                            }
+
+                            if (!stepTime || isNaN(stepTime) || stepTime < 1 || stepTime > 600) {
+                                alert('Default time must be between 1 and 600 minutes');
+                                return;
+                            }
+
+
+                            stepCount++;
+
+                            const flowSteps = document.getElementById('flowSteps');
+
+                            // Add arrow
+                            const arrow = document.createElement('div');
+                            arrow.className = 'text-center mb-3';
+                            arrow.innerText = '⬇';
+                            flowSteps.appendChild(arrow);
+
+                            // Add step block
+                            const stepDiv = document.createElement('div');
+                            stepDiv.className = 'd-flex align-items-center mb-3';
+
+                            stepDiv.innerHTML = `
+      <span class="badge bg-primary me-2">${stepCount}</span>
+      <div class="flex-grow-1">
+        <strong>${stepName}</strong>
+        <div class="text-muted">${stepTime} mins</div>
+      </div>
+    `;
+
+                            flowSteps.appendChild(stepDiv);
+
+                            // Clear inputs
+                            document.getElementById('stepName').value = '';
+                            document.getElementById('stepTime').value = '';
+                        });
+                    </script>
+
 </body>
 
 </html>

@@ -1849,7 +1849,10 @@
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h5 class="mb-0">Types</h5>
-                                <button class="btn btn-primary btn-sm">Add Type</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTypeModal">
+                                    Add Type
+                                </button>
+
                             </div>
 
                             <div class="card-body">
@@ -1904,10 +1907,32 @@
                                 </div>
 
                                 <nav class="mt-3">
-                                    <ul class="pagination justify-content-end">
-                                        <li class="page-item active"><a class="page-link">1</a></li>
-                                        <li class="page-item"><a class="page-link">2</a></li>
-                                    </ul>
+                                    <nav class="d-flex justify-content-end mt-3">
+                                        <ul class="pagination mb-0">
+
+                                            <!-- Previous -->
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#">Previous</a>
+                                            </li>
+
+                                            <!-- Page 1 -->
+                                            <li class="page-item active">
+                                                <a class="page-link" href="#">1</a>
+                                            </li>
+
+                                            <!-- Page 2 -->
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">2</a>
+                                            </li>
+
+                                            <!-- Next -->
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
+                                            </li>
+
+                                        </ul>
+                                    </nav>
+
                                 </nav>
                             </div>
                         </div>
@@ -1978,6 +2003,71 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
+                    <div class="modal fade" id="addTypeModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Add Defect / Wastage Type</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="row g-3">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Name</label>
+                                            <input type="text" class="form-control" placeholder="Enter name">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Category</label>
+                                            <select class="form-select">
+                                                <option>Defect</option>
+                                                <option>Wastage</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Severity</label>
+                                            <select class="form-select">
+                                                <option>Low</option>
+                                                <option>Medium</option>
+                                                <option>High</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Cost Impact (₹)</label>
+                                            <input type="number" class="form-control" min="1" step="1">
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label class="form-label">Default Action</label>
+                                            <select class="form-select">
+                                                <option>Rework</option>
+                                                <option>Discard</option>
+                                                <option>Quarantine</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                        Cancel
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        Save Type
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <script src="./assets/vendor/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

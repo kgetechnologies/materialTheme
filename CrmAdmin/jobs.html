@@ -52,6 +52,19 @@
     <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
 
     <script src="./assets/js/config.js"></script>
+    <style>
+        th {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .sort-icon {
+            font-size: 12px;
+            color: #999;
+            margin-left: 4px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -1849,7 +1862,8 @@
                         <!-- Filters -->
                         <div class="card mb-4">
                             <div class="card-body">
-                                <div class="row g-3">
+                                <div class="row g-3 filter-row">
+
                                     <div class="col-md-3">
                                         <label class="form-label">Company</label>
                                         <select class="form-select">
@@ -1892,20 +1906,24 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Job Card</th>
-                                                <th>Company</th>
-                                                <th>Factory</th>
-                                                <th>Status</th>
-                                                <th>Start Time</th>
-                                                <th>Actions</th>
+                                                <th onclick="sortTable(0)">JOB CARD <span class="sort-icon">⇅</span>
+                                                </th>
+                                                <th onclick="sortTable(1)">COMPANY <span class="sort-icon">⇅</span></th>
+                                                <th onclick="sortTable(2)">FACTORY <span class="sort-icon">⇅</span></th>
+                                                <th onclick="sortTable(3)">STATUS <span class="sort-icon">⇅</span></th>
+                                                <th onclick="sortTable(4)">START TIME <span class="sort-icon">⇅</span>
+                                                </th>
+                                                <th>ACTIONS</th>
                                             </tr>
                                         </thead>
+
                                         <tbody>
                                             <tr>
                                                 <td>JOB-1001</td>
                                                 <td>Company A</td>
                                                 <td>Factory A</td>
-                                                <td><span class="badge bg-success">Running</span></td>
+                                                <td><span class="badge bg-success status-badge">Running</span>
+                                                </td>
                                                 <td>10:30 AM</td>
                                                 <td>
                                                     <a href="job-detail.html"
@@ -1916,7 +1934,7 @@
                                                 <td>JOB-1002</td>
                                                 <td>Company B</td>
                                                 <td>Factory B</td>
-                                                <td><span class="badge bg-warning">Paused</span></td>
+                                                <td><span class="badge bg-warning status-badge">Paused</span></td>
                                                 <td>09:10 AM</td>
                                                 <td>
                                                     <a href="job-detail.html"
@@ -1927,7 +1945,7 @@
                                                 <td>JOB-1003</td>
                                                 <td>Company A</td>
                                                 <td>Factory A</td>
-                                                <td><span class="badge bg-secondary">Completed</span></td>
+                                                <td><span class="badge bg-secondary status-badge">Completed</span></td>
                                                 <td>08:00 AM</td>
                                                 <td>
                                                     <a href="job-detail.html"
@@ -1948,6 +1966,9 @@
                                     </ul>
                                 </nav>
                             </div>
+                        </div>
+                        <div class="page-meta">
+                            Running Jobs · Admin
                         </div>
 
                     </div>
@@ -2016,6 +2037,36 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script>
+                        let sortDirection = {};
+
+                        function sortTable(colIndex) {
+                            const table = document.querySelector("table tbody");
+                            const rows = Array.from(table.querySelectorAll("tr"));
+                            const dir = sortDirection[colIndex] === "asc" ? "desc" : "asc";
+                            sortDirection[colIndex] = dir;
+
+                            rows.sort((a, b) => {
+                                let A = a.children[colIndex].innerText.trim();
+                                let B = b.children[colIndex].innerText.trim();
+
+                                // Handle time column (START TIME)
+                                if (A.match(/AM|PM/)) {
+                                    return dir === "asc"
+                                        ? new Date("1970/01/01 " + A) - new Date("1970/01/01 " + B)
+                                        : new Date("1970/01/01 " + B) - new Date("1970/01/01 " + A);
+                                }
+
+                                // Normal text sorting
+                                return dir === "asc"
+                                    ? A.localeCompare(B)
+                                    : B.localeCompare(A);
+                            });
+
+                            rows.forEach(row => table.appendChild(row));
+                        }
+                    </script>
+
 </body>
 
 </html>

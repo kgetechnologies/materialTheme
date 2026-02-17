@@ -1882,7 +1882,9 @@
                                         <!-- TTL -->
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label">Default TTL (seconds)</label>
-                                            <input type="number" class="form-control" value="3600">
+                                            <input type="number" class="form-control" id="defaultTtl" value="3600"
+                                                min="1" max="86400" step="1" required>
+
                                         </div>
 
                                         <!-- Redis Connection -->
@@ -1893,23 +1895,21 @@
                                         </div>
 
                                         <!-- Actions -->
-                                        <div class="col-md-3 mb-3">
-                                            <button class="btn btn-outline-primary w-100">
+                                        <div class="d-flex flex-wrap gap-3 mt-3">
+                                            <button class="btn btn-primary">
                                                 Test Connection
                                             </button>
-                                        </div>
 
-                                        <div class="col-md-3 mb-3">
-                                            <button class="btn btn-primary w-100">
+                                            <button class="btn btn-primary" onclick="validateCacheConfig()">
                                                 Save Configuration
                                             </button>
-                                        </div>
 
-                                        <div class="col-md-3 mb-3">
-                                            <button class="btn btn-outline-warning w-100">
+
+                                            <button class="btn btn-primary">
                                                 Invalidate Cache
                                             </button>
                                         </div>
+
 
                                     </div>
 
@@ -2019,6 +2019,35 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script>
+                        const ttlInput = document.getElementById("defaultTtl");
+
+                        ttlInput.addEventListener("input", function () {
+                            const value = Number(this.value);
+
+                            if (value < 1) {
+                                this.value = 1;
+                            }
+
+                            if (value > 86400) {
+                                this.value = 86400;
+                            }
+                        });
+                    </script>
+                    <script>
+                        function validateCacheConfig() {
+                            const ttl = Number(document.getElementById("defaultTtl").value);
+
+                            if (ttl < 1 || ttl > 86400 || isNaN(ttl)) {
+                                alert("Default TTL must be between 1 and 86400 seconds.");
+                                return;
+                            }
+
+                            // proceed with save
+                            alert("Configuration saved successfully.");
+                        }
+                    </script>
+
 </body>
 
 </html>

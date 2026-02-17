@@ -1852,7 +1852,8 @@
                     <!-- / Menu -->
                     <!-- Content -->
 
-                    <div class="container-xxl flex-grow-1 container-p-y">
+                    <div class="container-fluid flex-grow-1 container-p-y">
+
                         <h4 class="fw-bold mb-4">Database Configuration</h4>
 
                         <div class="card mb-4">
@@ -1860,125 +1861,131 @@
                                 <h5 class="card-title mb-0">Vendor Database Settings</h5>
                             </div>
 
-                            <div class="card-body">
+                            <div class="card-body p-4">
+
                                 <div class="row">
 
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Database Provider</label>
-                                        <select class="form-select">
-                                            <option>Shared (Default)</option>
-                                            <option>Microsoft SQL Server</option>
-                                            <option>PostgreSQL</option>
-                                            <option>MySQL</option>
-                                            <option>MariaDB</option>
-                                        </select>
+                                    <div class="col-12 col-lg-8 col-xl-6">
+                                        <div class="card">
+                                            <!-- Database Configuration Form -->
+                                        </div>
                                     </div>
-
-                                    <div class="col-md-6 mb-3">
-                                        <label class="form-label">Database Name</label>
-                                        <input type="text" class="form-control" placeholder="vendor_db_name">
-                                    </div>
-
-                                    <div class="col-12 mb-3">
-                                        <label class="form-label">Connection String</label>
-                                        <textarea class="form-control" rows="3"
-                                            placeholder="jdbc:postgresql://host:5432/dbname"></textarea>
-                                    </div>
-
-                                    <div class="col-md-4 mb-3">
-                                        <button class="btn btn-outline-primary w-100">
-                                            Test Connection
-                                        </button>
-                                    </div>
-
-                                    <div class="col-md-4 mb-3">
-                                        <button class="btn btn-primary w-100">
-                                            Save Configuration
-                                        </button>
-                                    </div>
-
-                                    <div class="col-md-4 mb-3">
-                                        <button class="btn btn-outline-danger w-100">
-                                            Revert to Shared Database
-                                        </button>
-                                    </div>
-
                                 </div>
 
-                                <div class="alert alert-info mt-3">
-                                    Database configurations are cached for performance and applied per tenant.
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Database Provider</label>
+                                    <select class="form-select">
+
+                                        <option>MariaDB</option>
+                                        <option>Microsoft SQL Server</option>
+                                        <option>MySQL</option>
+                                        <option>PostgreSQL</option>
+                                        <option>Shared (Default)</option>
+
+                                    </select>
                                 </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Database Name</label>
+                                    <input type="text" class="form-control" placeholder="vendor_db_name">
+                                </div>
+
+                                <div class="col-12 mb-3">
+                                    <label class="form-label">Connection String</label>
+                                    <textarea class="form-control" rows="3"
+                                        placeholder="jdbc:postgresql://host:5432/dbname"></textarea>
+                                </div>
+
+                                <div class="d-flex flex-wrap gap-3 mt-3">
+                                    <button class="btn btn-primary">
+                                        Test Connection
+                                    </button>
+
+                                    <button class="btn btn-primary">
+                                        Save Configuration
+                                    </button>
+
+                                    <button class="btn btn-primary">
+                                        Revert To Shared Database
+                                    </button>
+                                </div>
+
 
                             </div>
+
+                            <div class="alert alert-info mt-3">
+                                Database configurations are cached for performance and applied per tenant.
+                            </div>
+
                         </div>
                     </div>
-
                 </div>
-                <!--/ Content -->
-                <!-- Footer -->
-                <footer class="content-footer footer bg-footer-theme">
-                    <div class="container-xxl">
-                        <div
-                            class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
-                            <div class="mb-2 mb-md-0">
-                                &#169;
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script>
-                                , made with ❤️ by
-                                <a href="https://pixinvent.com" target="_blank"
-                                    class="footer-link fw-medium">Pixinvent</a>
-                            </div>
-                            <div class="d-none d-lg-inline-block">
-                                <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                                    target="_blank">License</a>
 
-                                <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
-                                    class="footer-link me-4">More
-                                    Themes</a>
-                                <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
-                                    target="_blank" class="footer-link me-4">Documentation</a>
+            </div>
+            <!--/ Content -->
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+                <div class="container-xxl">
+                    <div
+                        class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                        <div class="mb-2 mb-md-0">
+                            &#169;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            , made with ❤️ by
+                            <a href="https://pixinvent.com" target="_blank" class="footer-link fw-medium">Pixinvent</a>
+                        </div>
+                        <div class="d-none d-lg-inline-block">
+                            <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
+                                target="_blank">License</a>
 
-                                <a href="https://pixinvent.ticksy.com/" target="_blank"
-                                    class="footer-link d-none d-sm-inline-block">Support</a>
-                            </div>
+                            <a href="https://themeforest.net/user/pixinvent/portfolio" target="_blank"
+                                class="footer-link me-4">More
+                                Themes</a>
+                            <a href="https://demos.pixinvent.com/materialize-html-admin-template/documentation/"
+                                target="_blank" class="footer-link me-4">Documentation</a>
+
+                            <a href="https://pixinvent.ticksy.com/" target="_blank"
+                                class="footer-link d-none d-sm-inline-block">Support</a>
                         </div>
                     </div>
-                </footer>
-                <!-- / Footer -->
+                </div>
+            </footer>
+            <!-- / Footer -->
 
-                <!-- Core JS -->
+            <!-- Core JS -->
 
-                <!-- build:js assets/vendor/js/theme.js  -->
+            <!-- build:js assets/vendor/js/theme.js  -->
 
-                <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+            <script src="./assets/vendor/libs/jquery/jquery.js"></script>
 
-                <script src="./assets/vendor/libs/popper/popper.js"></script>
-                <script src="./assets/vendor/js/bootstrap.js"></script>
-                <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
+            <script src="./assets/vendor/libs/popper/popper.js"></script>
+            <script src="./assets/vendor/js/bootstrap.js"></script>
+            <script src="./assets/vendor/libs/node-waves/node-waves.js"></script>
 
-                <script src="./assets/vendor/libs/pickr/pickr.js"></script>
+            <script src="./assets/vendor/libs/pickr/pickr.js"></script>
 
-                <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+            <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-                <script src="./assets/vendor/libs/hammer/hammer.js"></script>
+            <script src="./assets/vendor/libs/hammer/hammer.js"></script>
 
-                <script src="./assets/vendor/libs/i18n/i18n.js"></script>
+            <script src="./assets/vendor/libs/i18n/i18n.js"></script>
 
-                <script src="./assets/vendor/js/menu.js"></script>
+            <script src="./assets/vendor/js/menu.js"></script>
 
-                <!-- endbuild -->
+            <!-- endbuild -->
 
-                <!-- Vendors JS -->
-                <script src="./assets/vendor/libs/apex-charts/apexcharts.js"></script>
-                <script src="./assets/vendor/libs/swiper/swiper.js"></script>
+            <!-- Vendors JS -->
+            <script src="./assets/vendor/libs/apex-charts/apexcharts.js"></script>
+            <script src="./assets/vendor/libs/swiper/swiper.js"></script>
 
-                <!-- Main JS -->
+            <!-- Main JS -->
 
-                <script src="./assets/js/main.js"></script>
+            <script src="./assets/js/main.js"></script>
 
-                <!-- Page JS -->
-                <script src="./assets/js/dashboards-analytics.js"></script>
+            <!-- Page JS -->
+            <script src="./assets/js/dashboards-analytics.js"></script>
 </body>
 
 </html>

@@ -60,6 +60,64 @@
             left: 0;
             right: 0;
         }
+
+        /* Unified table action / label buttons */
+        .table-pill {
+            min-width: 110px;
+            height: 34px;
+            padding: 0 12px;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        th.sortable {
+            cursor: pointer;
+            position: relative;
+            user-select: none;
+        }
+
+        th.sortable::after {
+            content: "⇅";
+            font-size: 11px;
+            margin-left: 6px;
+            color: #b5b5b5;
+        }
+
+        th.sortable.asc::after {
+            content: "▲";
+            color: #696cff;
+        }
+
+        th.sortable.desc::after {
+            content: "▼";
+            color: #696cff;
+        }
+
+        .filter-btn {
+            height: 42px;
+            padding: 0 16px;
+            font-weight: 500;
+        }
+
+        /* Force equal height for filter bar controls */
+        .filter-bar .form-control,
+        .filter-bar .form-select,
+        .filter-bar .btn {
+            height: 44px;
+        }
+
+        /* Fix button text vertical centering */
+        .filter-bar .btn {
+            line-height: 44px;
+            padding-top: 0;
+            padding-bottom: 0;
+            font-weight: 500;
+        }
     </style>
 
 </head>
@@ -1864,7 +1922,8 @@
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="card mb-4">
-                            <div class="card-body">
+                            <div class="card-body filter-bar">
+
                                 <div class="row g-3">
                                     <div class="col-md-3">
                                         <label class="form-label">Search User</label>
@@ -1891,55 +1950,94 @@
                                     </div>
 
                                     <div class="col-md-3 d-flex align-items-end">
-                                        <button class="btn btn-primary w-100">Apply Filters</button>
+                                        <button class="btn btn-primary w-100">
+                                            Apply Filters
+                                        </button>
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mb-3">
-                            <button class="btn btn-primary">
+                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#createAdminUserModal">
                                 Create Admin User
                             </button>
+
                         </div>
                         <div class="card">
                             <div class="card-body table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Role</th>
-                                            <th>Status</th>
-                                            <th>Last Login</th>
-                                            <th>Actions</th>
+                                            <th class="sortable" data-type="text">NAME</th>
+                                            <th class="sortable" data-type="text">EMAIL</th>
+                                            <th class="sortable" data-type="text">ROLE</th>
+                                            <th class="sortable" data-type="text">STATUS</th>
+                                            <th class="sortable" data-type="date">LAST LOGIN</th>
+                                            <th class="sortable" data-type="text">ACTIONS</th>
                                         </tr>
                                     </thead>
+
                                     <tbody>
                                         <tr>
                                             <td>John Doe</td>
                                             <td>john.admin@platform.com</td>
-                                            <td><span class="badge bg-primary">Super Admin</span></td>
-                                            <td><span class="badge bg-success">Active</span></td>
-                                            <td>2024-10-10</td>
-                                            <td class="d-flex gap-2">
-                                                <button class="btn btn-sm btn-warning">Deactivate</button>
-                                                <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                            <td><span class="badge bg-primary table-pill">Super Admin</span>
                                             </td>
+                                            <td><span class="badge bg-success table-pill">Active</span></td>
+                                            <td>2024-10-10</td>
+                                            <td>
+                                                <div class="d-flex gap-2">
+                                                    <button class="btn btn-warning table-pill">Deactivate</button>
+                                                    <button class="btn btn-outline-primary table-pill">Edit</button>
+                                                </div>
+                                            </td>
+
                                         </tr>
 
                                         <tr>
                                             <td>Sarah Smith</td>
                                             <td>sarah.support@platform.com</td>
-                                            <td><span class="badge bg-info">Support Admin</span></td>
-                                            <td><span class="badge bg-secondary">Inactive</span></td>
+                                            <td><span class="badge bg-info table-pill">Support Admin</span>
+                                            </td>
+                                            <td><span class="badge bg-secondary table-pill">Inactive</span></td>
                                             <td>2024-09-22</td>
                                             <td class="d-flex gap-2">
-                                                <button class="btn btn-sm btn-success">Activate</button>
-                                                <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                                <button class="btn btn-success table-pill">Activate</button>
+                                                <button class="btn btn-outline-primary table-pill">Edit</button>
+
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-end mt-3">
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination pagination-sm mb-0">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#">Previous</a>
+                                            </li>
+
+                                            <li class="page-item active">
+                                                <a class="page-link" href="#">1</a>
+                                            </li>
+
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">2</a>
+                                            </li>
+
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">3</a>
+                                            </li>
+
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+
                             </div>
                         </div>
                         <div class="card mt-4">
@@ -2059,6 +2157,91 @@
                             });
                         });
                     </script>
+                    <script>
+                        document.querySelectorAll("th.sortable").forEach((header, columnIndex) => {
+                            let asc = true;
+
+                            header.addEventListener("click", () => {
+                                const table = header.closest("table");
+                                const tbody = table.querySelector("tbody");
+                                const rows = Array.from(tbody.querySelectorAll("tr"));
+
+                                document.querySelectorAll("th.sortable").forEach(th =>
+                                    th.classList.remove("asc", "desc")
+                                );
+
+                                header.classList.add(asc ? "asc" : "desc");
+
+                                rows.sort((a, b) => {
+                                    let A = a.children[columnIndex].innerText.trim();
+                                    let B = b.children[columnIndex].innerText.trim();
+                                    const type = header.dataset.type;
+
+                                    if (type === "date") {
+                                        return asc
+                                            ? new Date(A) - new Date(B)
+                                            : new Date(B) - new Date(A);
+                                    }
+
+                                    return asc
+                                        ? A.localeCompare(B, undefined, { numeric: true })
+                                        : B.localeCompare(A, undefined, { numeric: true });
+                                });
+
+                                asc = !asc;
+                                rows.forEach(row => tbody.appendChild(row));
+                            });
+                        });
+                    </script>
+                    <div class="modal fade" id="createAdminUserModal" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Create Admin User</h5>
+                                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="row g-3">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Name</label>
+                                            <input type="text" class="form-control" placeholder="Full name">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" class="form-control" placeholder="Email address">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Role</label>
+                                            <select class="form-select">
+                                                <option>Super Admin</option>
+                                                <option>Support Admin</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Status</label>
+                                            <select class="form-select">
+                                                <option>Active</option>
+                                                <option>Inactive</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-primary">Create User</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
 
 </body>
 
