@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Admin - Main Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        .navbar-custom {
+            background: #1a1a2e;
+        }
+        .navbar-custom .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+        .navbar-custom .nav-link {
+            color: #ecf0f1;
+        }
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: white;
+            background: #e74c3c;
+        }
+        .dropdown-menu {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .note { padding:12px; background:#fff3cd; border-radius:6px; margin:12px 0; border-left:4px solid #ffc107 }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="bi bi-shield-lock-fill"></i> Platform Admin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../00_Dashboard/Dashboard.html" target="_blank"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Company Management</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../01_Company_Management/01_Companies/01_Companies_List.html" target="_blank">Companies (List)</a></li>
+                            <li><a class="dropdown-item" href="../01_Company_Management/01_Companies/01_Companies_Create.html" target="_blank">Companies (Create)</a></li>
+                            <li><a class="dropdown-item" href="../01_Company_Management/01_Companies/01_Companies_View.html" target="_blank">Companies (View)</a></li>
+                            <li><a class="dropdown-item" href="../01_Company_Management/01_Companies/01_Companies_Edit.html" target="_blank">Companies (Edit)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">User Management</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../02_User_Management/01_Users/01_Users_List.html" target="_blank">Users (List)</a></li>
+                            <li><a class="dropdown-item" href="../02_User_Management/01_Users/01_Users_Create.html" target="_blank">Users (Create)</a></li>
+                            <li><a class="dropdown-item" href="../02_User_Management/01_Users/01_Users_View.html" target="_blank">Users (View)</a></li>
+                            <li><a class="dropdown-item" href="../02_User_Management/01_Users/01_Users_Edit.html" target="_blank">Users (Edit)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Platform Features</a>
+                        <ul class="dropdown-menu">
+                            <li><h6 class="dropdown-header">Feature Flags</h6></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/01_FeatureFlags/01_FeatureFlags_List.html" target="_blank">Feature Flags (List)</a></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/01_FeatureFlags/01_FeatureFlags_Create.html" target="_blank">Feature Flags (Create)</a></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/01_FeatureFlags/01_FeatureFlags_View.html" target="_blank">Feature Flags (View)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Vendor Cache</h6></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/02_VendorCache/02_VendorCache_View.html" target="_blank">Vendor Cache (View)</a></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/02_VendorCache/02_VendorCache_Config.html" target="_blank">Vendor Cache (Config)</a></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/02_VendorCache/02_VendorCache_Create.html" target="_blank">Vendor Cache (Create)</a></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/02_VendorCache/02_VendorCache_Edit.html" target="_blank">Vendor Cache (Edit)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Vendor Database</h6></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/03_VendorDatabase/03_VendorDatabase_View.html" target="_blank">Vendor Database (View)</a></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/03_VendorDatabase/03_VendorDatabase_Config.html" target="_blank">Vendor Database (Config)</a></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/03_VendorDatabase/03_VendorDatabase_Create.html" target="_blank">Vendor Database (Create)</a></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/03_VendorDatabase/03_VendorDatabase_Edit.html" target="_blank">Vendor Database (Edit)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Monitoring & Analytics</a>
+                        <ul class="dropdown-menu">
+                            <li><h6 class="dropdown-header">Monitoring</h6></li>
+                            <li><a class="dropdown-item" href="../04_Monitoring_Analytics/01_Monitoring/01_Monitoring_Dashboard.html" target="_blank">Monitoring Dashboard</a></li>
+                            <li><a class="dropdown-item" href="../04_Monitoring_Analytics/01_Monitoring/01_Monitoring_View.html" target="_blank">Monitoring (View)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Stock Defects Analytics</h6></li>
+                            <li><a class="dropdown-item" href="../04_Monitoring_Analytics/02_StockDefects/02_StockDefects_Analytics.html" target="_blank">Stock Defects Analytics</a></li>
+                            <li><a class="dropdown-item" href="../04_Monitoring_Analytics/02_StockDefects/02_StockDefects_View.html" target="_blank">Stock Defects (View)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Support System</a>
+                        <ul class="dropdown-menu">
+                            <li><h6 class="dropdown-header">Support Tickets</h6></li>
+                            <li><a class="dropdown-item" href="../05_Support_System/01_SupportTickets/01_SupportTickets_List.html" target="_blank">Support Tickets (List)</a></li>
+                            <li><a class="dropdown-item" href="../05_Support_System/01_SupportTickets/01_SupportTickets_View.html" target="_blank">Support Tickets (View)</a></li>
+                            <li><a class="dropdown-item" href="../05_Support_System/01_SupportTickets/01_SupportTickets_Resolve.html" target="_blank">Support Tickets (Resolve)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Document Management</h6></li>
+                            <li><a class="dropdown-item" href="../05_Support_System/02_DocumentManagement/02_DocumentManagement_List.html" target="_blank">Documents (List)</a></li>
+                            <li><a class="dropdown-item" href="../05_Support_System/02_DocumentManagement/02_DocumentManagement_Create.html" target="_blank">Documents (Create)</a></li>
+                            <li><a class="dropdown-item" href="../05_Support_System/02_DocumentManagement/02_DocumentManagement_View.html" target="_blank">Documents (View)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Documentation</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../00_Documentation/00_ADMIN_OVERVIEW.md" target="_blank">Admin Overview</a></li>
+                            <li><a class="dropdown-item" href="../00_Documentation/CONTROLLER_MOCKUP_MAP.md" target="_blank">Controller Mockup Map</a></li>
+                            <li><a class="dropdown-item" href="../00_Documentation/GENERATION_STATUS.md" target="_blank">Generation Status</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../01_Company_Management/01_Companies/01_Companies_API.md" target="_blank">Companies API</a></li>
+                            <li><a class="dropdown-item" href="../02_User_Management/01_Users/01_Users_API.md" target="_blank">Users API</a></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/02_VendorCache/02_VendorCache_API.md" target="_blank">Vendor Cache API</a></li>
+                            <li><a class="dropdown-item" href="../03_Platform_Features/03_VendorDatabase/03_VendorDatabase_API.md" target="_blank">Vendor Database API</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <div class="note">
+            <strong><i class="bi bi-info-circle"></i> Admin Portal:</strong> All menu links open in new tabs for easy reference. This is the Platform Admin area for cross-tenant management.
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h5>Quick Access</h5>
+                <ul>
+                    <li><a href="../00_Dashboard/Dashboard.html" target="_blank">Platform Dashboard</a> — System metrics and health</li>
+                    <li><a href="../01_Company_Management/01_Companies/01_Companies_List.html" target="_blank">Companies (List)</a> — Manage all companies</li>
+                    <li><a href="../02_User_Management/01_Users/01_Users_List.html" target="_blank">Users (List)</a> — Cross-tenant user management</li>
+                    <li><a href="../04_Monitoring_Analytics/01_Monitoring/01_Monitoring_Dashboard.html" target="_blank">Monitoring Dashboard</a> — Platform monitoring</li>
+                    <li><a href="../05_Support_System/01_SupportTickets/01_SupportTickets_List.html" target="_blank">Support Tickets</a> — All support requests</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h6>Statistics</h6>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-building"></i> Total Controllers: 9</li>
+                    <li><i class="bi bi-file-earmark"></i> Total Mockups: 44</li>
+                    <li><i class="bi bi-check-circle text-success"></i> Status: 100% Complete</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create - Product Line</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Create Product Line</h1>
+      <div>
+        <a class="btn btn-outline-secondary" href="05_ProductLines_List.html">Back to list</a>
+        <a class="btn btn-link muted" href="05_ProductLines_API.md" target="_blank">API Docs</a>
+      </div>
+    </div>
+
+    <p class="text-muted">Maps to <code>POST /api/v1/VendorClient/ProductLine/{companyId}/create</code>. Include <code>X-Company-Id</code> header.</p>
+
+    <form id="createForm" novalidate>
+      <div class="mb-3">
+        <label class="form-label">Code</label>
+        <input id="code" class="form-control" type="text" placeholder="PL-002" required>
+        <div class="invalid-feedback">Code is required.</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input id="name" class="form-control" type="text" placeholder="Mechanical Components" required>
+        <div class="invalid-feedback">Name is required.</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea id="description" class="form-control" rows="3" placeholder="Short description"></textarea>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <input id="isActive" class="form-check-input" type="checkbox" checked>
+        <label class="form-check-label" for="isActive">Active</label>
+      </div>
+
+      <div class="mb-3">
+        <button id="submitBtn" class="btn btn-primary" type="button">Create</button>
+        <button id="previewBtn" class="btn btn-outline-secondary ms-2" type="button">Preview Request</button>
+      </div>
+    </form>
+
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Request Preview</h5>
+        <pre id="requestJson" style="white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px"></pre>
+      </div>
+    </div>
+
+    <div class="muted">Example success response in API docs shows created object with <code>productLinePk</code>.</div>
+  </div>
+
+  <script>
+    function gather(){
+      return {
+        code: document.getElementById('code').value || null,
+        name: document.getElementById('name').value || null,
+        description: document.getElementById('description').value || null,
+        isActive: document.getElementById('isActive').checked
+      };
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(), null, 2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      if(!document.getElementById('code').value || !document.getElementById('name').value){
+        if(!document.getElementById('code').value) document.getElementById('code').classList.add('is-invalid');
+        if(!document.getElementById('name').value) document.getElementById('name').classList.add('is-invalid');
+        return;
+      }
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(), null, 2);
+      alert('Mockup preview - send request to API endpoint as per docs.');
+    });
+  </script>
+</body>
+</html>

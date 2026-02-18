@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assign Role to User</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif}</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Assign Role to User</h1>
+    <form id="form">
+      <div class="mb-3"><label class="form-label">User</label><select id="userId" class="form-select"><option value="1">jane@company.com</option></select></div>
+      <div class="mb-3"><label class="form-label">Role</label><select id="roleId" class="form-select"><option value="1">Admin</option></select></div>
+      <button id="preview" type="button" class="btn btn-outline-secondary">Preview</button>
+      <button id="submit" type="button" class="btn btn-primary">Assign</button>
+    </form>
+    <pre id="previewJson" style="background:#f8f9fa;padding:12px;margin-top:12px;border-radius:6px"></pre>
+  </div>
+  <script>
+    document.getElementById('preview').addEventListener('click', ()=>{
+      const obj = {
+        userId: document.getElementById('userId').value ? parseInt(document.getElementById('userId').value) : null,
+        roleId: document.getElementById('roleId').value ? parseInt(document.getElementById('roleId').value) : null
+      };
+      document.getElementById('previewJson').textContent = JSON.stringify(obj,null,2);
+    });
+    document.getElementById('submit').addEventListener('click', ()=>{ document.getElementById('preview').click(); alert('Mockup: use API docs to send real request') });
+  </script>
+</body>
+</html>

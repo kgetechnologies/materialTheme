@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Create - OrderLines Create</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='d-flex justify-content-between align-items-center mb-3'>
+      <h1>Create OrderLines Create</h1>
+      <div>
+        <a class='btn btn-outline-secondary' href='01_OrderLines_List.html'>Back to list</a>
+        <a class='btn btn-link muted' href='01_OrderLines_API.md' target='_blank'>API Docs</a>
+      </div>
+    </div>
+
+    <p class='text-muted'>This form maps to the API create endpoint. Include tenant header <code>X-Company-Id</code> when applicable.</p>
+
+    <form id='createForm' novalidate><div class='mb-3'><label class='form-label'>j o b C a r d N u m b e r</label><input id='jobCardNumber' class='form-control' type='text' placeholder='Enter j o b C a r d N u m b e r'></div>
+<div class='mb-3'><label class='form-label'>p r o d u c t L i n e I d</label><input id='productLineId' class='form-control' type='number' placeholder='Enter p r o d u c t L i n e I d'></div>
+<div class='mb-3'><label class='form-label'>i n i t i a l Q u a n t i t y</label><input id='initialQuantity' class='form-control' type='text' placeholder='Enter i n i t i a l Q u a n t i t y'></div>
+<div class='mb-3'><label class='form-label'>m a t e r i a l s</label><input id='materials' class='form-control' type='text' placeholder='Enter m a t e r i a l s'></div>
+      <div class='mb-3'>
+        <button id='submitBtn' class='btn btn-primary' type='button'>Create</button>
+        <button id='previewBtn' class='btn btn-outline-secondary ms-2' type='button'>Preview Request</button>
+      </div>
+    </form>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='card mb-3'>
+          <div class='card-body'>
+            <h5 class='card-title'>Request Preview</h5>
+            <pre id='requestJson' style='white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px'></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function gather(){
+      const obj = {};      obj['jobCardNumber'] = document.getElementById('jobCardNumber') && document.getElementById('jobCardNumber').value ? document.getElementById('jobCardNumber').value : null;\n      obj['productLineId'] = document.getElementById('productLineId') && document.getElementById('productLineId').value ? document.getElementById('productLineId').value : null;\n      obj['initialQuantity'] = document.getElementById('initialQuantity') && document.getElementById('initialQuantity').value ? document.getElementById('initialQuantity').value : null;\n      obj['materials'] = document.getElementById('materials') && document.getElementById('materials').value ? document.getElementById('materials').value : null;\n      return obj;
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      const payload = gather();
+      document.getElementById('requestJson').textContent = JSON.stringify(payload,null,2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(),null,2);
+      alert('This is a mockup preview. Use the API docs to send real requests.')
+    });
+  </script>
+</body>
+</html>

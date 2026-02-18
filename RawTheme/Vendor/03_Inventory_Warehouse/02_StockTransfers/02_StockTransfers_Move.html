@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Move Stock Transfer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif}</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Move Stock Transfer</h1>
+    <form id="form">
+      <div class="mb-3"><label class="form-label">Stock Transfer</label><select id="stockTransferId" class="form-select"><option value="1">ST-1001</option></select></div>
+      <div class="mb-3"><label class="form-label">From Location</label><input id="fromLocation" class="form-control" value="Warehouse A" readonly></div>
+      <div class="mb-3"><label class="form-label">To Location</label><select id="toLocation" class="form-select"><option value="2">Warehouse B</option></select></div>
+      <div class="mb-3"><label class="form-label">Notes</label><textarea id="notes" class="form-control"></textarea></div>
+      <button id="preview" type="button" class="btn btn-outline-secondary">Preview</button>
+      <button id="submit" type="button" class="btn btn-primary">Move</button>
+    </form>
+    <pre id="previewJson" style="background:#f8f9fa;padding:12px;margin-top:12px;border-radius:6px"></pre>
+  </div>
+  <script>
+    document.getElementById('preview').addEventListener('click', ()=>{
+      const obj = {
+        stockTransferId: document.getElementById('stockTransferId').value ? parseInt(document.getElementById('stockTransferId').value) : null,
+        toLocation: document.getElementById('toLocation').value ? parseInt(document.getElementById('toLocation').value) : null,
+        notes: document.getElementById('notes').value || null
+      };
+      document.getElementById('previewJson').textContent = JSON.stringify(obj,null,2);
+    });
+    document.getElementById('submit').addEventListener('click', ()=>{ document.getElementById('preview').click(); alert('Mockup: use API docs to send real request') });
+  </script>
+</body>
+</html>

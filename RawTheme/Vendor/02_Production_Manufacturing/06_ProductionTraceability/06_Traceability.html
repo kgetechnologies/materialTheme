@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Traceability - Manufacturing CRM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <h2><i class="bi bi-search"></i> Production Traceability</h2>
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-4"><input type="text" class="form-control" placeholder="Lot Number / Serial Number / Barcode"></div>
+                    <div class="col-md-3"><input type="date" class="form-control"></div>
+                    <div class="col-md-3"><button class="btn btn-primary w-100"><i class="bi bi-search"></i> Trace</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5>Traceability Chain</h5>
+                <div class="timeline">
+                    <div class="alert alert-info"><strong>Raw Material</strong><br>LOT-2026-001 - Steel Sheet<br>Supplier: ABC Steel<br>Date: 2026-02-01</div>
+                    <div class="alert alert-success"><strong>Production</strong><br>Job Card: JC-2026-001<br>Line: Assembly A<br>Date: 2026-02-10</div>
+                    <div class="alert alert-warning"><strong>Quality Check</strong><br>Inspector: John Doe<br>Result: Passed<br>Date: 2026-02-10</div>
+                    <div class="alert alert-primary"><strong>Finished Goods</strong><br>FG-LOT-001<br>Warehouse: Main<br>Date: 2026-02-11</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

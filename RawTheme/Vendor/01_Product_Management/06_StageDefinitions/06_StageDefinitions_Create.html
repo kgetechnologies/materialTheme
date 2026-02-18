@@ -1,0 +1,88 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create - Stage Definition</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Create Stage Definition</h1>
+      <div>
+        <a class="btn btn-outline-secondary" href="06_StageDefinitions_List.html">Back to list</a>
+        <a class="btn btn-link muted" href="06_StageDefinitions_API.md" target="_blank">API Docs</a>
+      </div>
+    </div>
+
+    <p class="text-muted">Maps to <code>POST /api/v1/VendorClient/StageDefinition/{companyId}/create</code>.</p>
+
+    <form id="createForm" novalidate>
+      <div class="mb-3">
+        <label class="form-label">Product Line</label>
+        <select id="productLinePk" class="form-select">
+          <option value="">Select product line</option>
+          <option value="1">Electronics Assembly</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Stage Name</label>
+        <input id="stageName" class="form-control" type="text" placeholder="Final Assembly" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Stage Order</label>
+        <input id="stageOrder" class="form-control" type="number" value="1">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Estimated Duration (hours)</label>
+        <input id="estimatedDurationHours" class="form-control" type="number" step="0.1" value="1.0">
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <input id="isActive" class="form-check-input" type="checkbox" checked>
+        <label class="form-check-label" for="isActive">Active</label>
+      </div>
+
+      <div class="mb-3">
+        <button id="submitBtn" class="btn btn-primary" type="button">Create</button>
+        <button id="previewBtn" class="btn btn-outline-secondary ms-2" type="button">Preview Request</button>
+      </div>
+    </form>
+
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Request Preview</h5>
+        <pre id="requestJson" style="white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px"></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function gather(){
+      return {
+        productLinePk: document.getElementById('productLinePk').value ? parseInt(document.getElementById('productLinePk').value): null,
+        stageName: document.getElementById('stageName').value || null,
+        stageOrder: document.getElementById('stageOrder').value ? parseInt(document.getElementById('stageOrder').value) : null,
+        estimatedDurationHours: document.getElementById('estimatedDurationHours').value ? parseFloat(document.getElementById('estimatedDurationHours').value) : null,
+        isActive: document.getElementById('isActive').checked
+      };
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(), null, 2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      if(!document.getElementById('stageName').value){ document.getElementById('stageName').classList.add('is-invalid'); return; }
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(), null, 2);
+      alert('Mockup preview - use API docs to send real requests.');
+    });
+  </script>
+</body>
+</html>

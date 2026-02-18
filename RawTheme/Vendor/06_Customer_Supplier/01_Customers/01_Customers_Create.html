@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Create - Customers Create</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='d-flex justify-content-between align-items-center mb-3'>
+      <h1>Create Customers Create</h1>
+      <div>
+        <a class='btn btn-outline-secondary' href='01_Customers_List.html'>Back to list</a>
+        <a class='btn btn-link muted' href='01_Customers_API.md' target='_blank'>API Docs</a>
+      </div>
+    </div>
+
+    <p class='text-muted'>This form maps to the API create endpoint. Include tenant header <code>X-Company-Id</code> when applicable.</p>
+
+    <form id='createForm' novalidate><div class='mb-3'><label class='form-label'>c u s t o m e r C o d e</label><input id='customerCode' class='form-control' type='text' placeholder='Enter c u s t o m e r C o d e'></div>
+<div class='mb-3'><label class='form-label'>c u s t o m e r N a m e</label><input id='customerName' class='form-control' type='text' placeholder='Enter c u s t o m e r N a m e'></div>
+<div class='mb-3'><label class='form-label'>c u s t o m e r T y p e</label><select id='customerType' class='form-select'>
+<option value="Unknown">Unknown</option>
+<option value="Retailer">Retailer</option>
+<option value="Distributor">Distributor</option>
+<option value="Wholesaler">Wholesaler</option>
+<option value="OEM">OEM</option>
+<option value="EndUser">EndUser</option>
+<option value="Reseller">Reseller</option>
+<option value="Dealer">Dealer</option>
+<option value="Franchise">Franchise</option>
+<option value="Partner">Partner</option>
+<option value="Government">Government</option>
+<option value="Educational">Educational</option>
+</select></div>
+<div class='mb-3'><label class='form-label'>c o n t a c t P e r s o n</label><input id='contactPerson' class='form-control' type='text' placeholder='Enter c o n t a c t P e r s o n'></div>
+<div class='mb-3'><label class='form-label'>e m a i l</label><input id='email' class='form-control' type='email' placeholder='Enter e m a i l'></div>
+<div class='mb-3'><label class='form-label'>p h o n e</label><input id='phone' class='form-control' type='tel' placeholder='Enter p h o n e'></div>
+<div class='mb-3'><label class='form-label'>a d d r e s s</label><input id='address' class='form-control' type='text' placeholder='Enter a d d r e s s'></div>
+<div class='mb-3'><label class='form-label'>c i t y</label><input id='city' class='form-control' type='text' placeholder='Enter c i t y'></div>
+<div class='mb-3'><label class='form-label'>c o u n t r y</label><input id='country' class='form-control' type='text' placeholder='Enter c o u n t r y'></div>
+      <div class='mb-3'>
+        <button id='submitBtn' class='btn btn-primary' type='button'>Create</button>
+        <button id='previewBtn' class='btn btn-outline-secondary ms-2' type='button'>Preview Request</button>
+      </div>
+    </form>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='card mb-3'>
+          <div class='card-body'>
+            <h5 class='card-title'>Request Preview</h5>
+            <pre id='requestJson' style='white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px'></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function gather(){
+      const obj = {};      obj['customerCode'] = document.getElementById('customerCode') && document.getElementById('customerCode').value ? document.getElementById('customerCode').value : null;\n      obj['customerName'] = document.getElementById('customerName') && document.getElementById('customerName').value ? document.getElementById('customerName').value : null;\n      obj['customerType'] = document.getElementById('customerType') && document.getElementById('customerType').value ? document.getElementById('customerType').value : null;\n      obj['contactPerson'] = document.getElementById('contactPerson') && document.getElementById('contactPerson').value ? document.getElementById('contactPerson').value : null;\n      obj['email'] = document.getElementById('email') && document.getElementById('email').value ? document.getElementById('email').value : null;\n      obj['phone'] = document.getElementById('phone') && document.getElementById('phone').value ? document.getElementById('phone').value : null;\n      obj['address'] = document.getElementById('address') && document.getElementById('address').value ? document.getElementById('address').value : null;\n      obj['city'] = document.getElementById('city') && document.getElementById('city').value ? document.getElementById('city').value : null;\n      obj['country'] = document.getElementById('country') && document.getElementById('country').value ? document.getElementById('country').value : null;\n      return obj;
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      const payload = gather();
+      document.getElementById('requestJson').textContent = JSON.stringify(payload,null,2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(),null,2);
+      alert('This is a mockup preview. Use the API docs to send real requests.')
+    });
+  </script>
+</body>
+</html>

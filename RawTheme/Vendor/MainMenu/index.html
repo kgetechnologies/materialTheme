@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manufacturing CRM - Main Menu (Mockups)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        .navbar-custom {
+            background: #2c3e50;
+        }
+        .navbar-custom .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+        .navbar-custom .nav-link {
+            color: #ecf0f1;
+        }
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: white;
+            background: #3498db;
+        }
+        .dropdown-menu {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .note { padding:12px; background:#f8f9fa; border-radius:6px; margin:12px 0 }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="bi bi-gear-fill"></i> Manufacturing CRM (Mockups)</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Product Management</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../01_Product_Management/01_Products/01_Products_List.html" target="_blank">Products (List)</a></li>
+                            <li><a class="dropdown-item" href="../01_Product_Management/02_ProductVariants/02_ProductVariants_List.html" target="_blank">Product Variants (List)</a></li>
+                            <li><a class="dropdown-item" href="../01_Product_Management/03_Materials/03_Materials_List.html" target="_blank">Materials (List)</a></li>
+                            <li><a class="dropdown-item" href="../01_Product_Management/04_BillOfMaterials/04_BillOfMaterials_List.html" target="_blank">Bill of Materials (List)</a></li>
+                            <li><a class="dropdown-item" href="../01_Product_Management/05_ProductLines/05_ProductLines_List.html" target="_blank">Product Lines (List)</a></li>
+                            <li><a class="dropdown-item" href="../01_Product_Management/06_StageDefinitions/06_StageDefinitions_List.html" target="_blank">Stage Definitions (List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Production</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../02_Production_Manufacturing/01_OrderLines/01_OrderLines_List.html" target="_blank">Order Lines (List)</a></li>
+                            <li><a class="dropdown-item" href="../02_Production_Manufacturing/02_ProductionLines/02_ProductionLines_List.html" target="_blank">Production Lines (List)</a></li>
+                            <li><a class="dropdown-item" href="../02_Production_Manufacturing/03_ProductionDashboard/03_ProductionDashboard_View.html" target="_blank">Production Dashboard (View)</a></li>
+                            <li><a class="dropdown-item" href="../02_Production_Manufacturing/04_SmallScaleProduction/04_SmallScaleProduction_List.html" target="_blank">Small Scale Production (List)</a></li>
+                            <li><a class="dropdown-item" href="../02_Production_Manufacturing/05_FoodProcessing/05_FoodProcessing_List.html" target="_blank">Food Processing (List)</a></li>
+                            <li><a class="dropdown-item" href="../02_Production_Manufacturing/06_ProductionTraceability/06_ProductionTraceability_Search.html" target="_blank">Production Traceability (Search)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Inventory</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../03_Inventory_Warehouse/01_Warehouses/01_Warehouses_List.html" target="_blank">Warehouses (List)</a></li>
+                            <li><a class="dropdown-item" href="../03_Inventory_Warehouse/02_StockTransfers/02_StockTransfers_List.html" target="_blank">Stock Transfers (List)</a></li>
+                            <li><a class="dropdown-item" href="../03_Inventory_Warehouse/03_BarcodeRfid/03_BarcodeRfid_Page.html" target="_blank">Barcode/RFID (Page)</a></li>
+                            <li><a class="dropdown-item" href="../03_Inventory_Warehouse/04_InventoryOptimization/04_InventoryOptimization_List.html" target="_blank">Inventory Optimization (List)</a></li>
+                            <li><a class="dropdown-item" href="../03_Inventory_Warehouse/05_Serialization/05_Serialization_List.html" target="_blank">Serialization (List)</a></li>
+                            <li><a class="dropdown-item" href="../03_Inventory_Warehouse/06_MaterialRejection/06_MaterialRejection_List.html" target="_blank">Material Rejection (List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Quality</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../04_Quality_Control/01_DefectTypes/01_DefectTypes_List.html" target="_blank">Defect Types (List)</a></li>
+                            <li><a class="dropdown-item" href="../04_Quality_Control/02_StockDefects/02_StockDefects_List.html" target="_blank">Stock Defects (List)</a></li>
+                            <li><a class="dropdown-item" href="../04_Quality_Control/03_WastageTypes/03_WastageTypes_List.html" target="_blank">Wastage Types (List)</a></li>
+                            <li><a class="dropdown-item" href="../04_Quality_Control/04_WastageConversion/04_WastageConversion_List.html" target="_blank">Wastage Conversion (List)</a></li>
+                            <li><a class="dropdown-item" href="../04_Quality_Control/05_ScrapeManagement/05_ScrapeManagement_List.html" target="_blank">Scrape Management (List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Organization</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../05_Organization_Setup/01_CompanySetup/01_CompanySetup_View.html" target="_blank">Company Setup (View)</a></li>
+                            <li><a class="dropdown-item" href="../05_Organization_Setup/02_Locations/02_Locations_List.html" target="_blank">Locations (List)</a></li>
+                            <li><a class="dropdown-item" href="../05_Organization_Setup/03_Departments/03_Departments_List.html" target="_blank">Departments (List)</a></li>
+                            <li><a class="dropdown-item" href="../05_Organization_Setup/04_ManufacturingSites/04_ManufacturingSites_List.html" target="_blank">Manufacturing Sites (List)</a></li>
+                            <li><a class="dropdown-item" href="../05_Organization_Setup/05_Equipment/05_Equipment_List.html" target="_blank">Equipment (List)</a></li>
+                            <li><a class="dropdown-item" href="../05_Organization_Setup/06_Shifts/06_Shifts_List.html" target="_blank">Shifts (List)</a></li>
+                            <li><a class="dropdown-item" href="../05_Organization_Setup/07_Holidays/07_Holidays_List.html" target="_blank">Holidays (List)</a></li>
+                            <li><a class="dropdown-item" href="../05_Organization_Setup/08_RegionalAddress/08_RegionalAddress_List.html" target="_blank">Regional Address (List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Customers</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../06_Customer_Supplier/01_Customers/01_Customers_List.html" target="_blank">Customers (List)</a></li>
+                            <li><a class="dropdown-item" href="../06_Customer_Supplier/02_Suppliers/02_Suppliers_List.html" target="_blank">Suppliers (List)</a></li>
+                            <li><a class="dropdown-item" href="../06_Customer_Supplier/03_OrderLineEditHistory/03_OrderLineEditHistory_List.html" target="_blank">Order Edit History (List)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Analytics</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../07_Analytics_Reports/01_Analytics/01_Analytics_Dashboard.html" target="_blank">Analytics Dashboard (View)</a></li>
+                            <li><a class="dropdown-item" href="../07_Analytics_Reports/02_Reports/02_Reports_List.html" target="_blank">Reports (List)</a></li>
+                            <li><a class="dropdown-item" href="../07_Analytics_Reports/03_ProductionDashboard/03_ProductionDashboard_View.html" target="_blank">Production Dashboard (View)</a></li>
+                            <li><a class="dropdown-item" href="../07_Analytics_Reports/04_EnvironmentalCompliance/04_EnvironmentalCompliance_View.html" target="_blank">Environmental Compliance (View)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">System</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../08_System_Management/01_Users/01_Users_List.html" target="_blank">Users (List)</a></li>
+                            <li><a class="dropdown-item" href="../08_System_Management/02_Roles/02_Roles_List.html" target="_blank">Roles (List)</a></li>
+                            <li><a class="dropdown-item" href="../08_System_Management/03_Settings/03_Settings_View.html" target="_blank">Settings (View)</a></li>
+                            <li><a class="dropdown-item" href="../08_System_Management/04_DocumentManagement/04_DocumentManagement_List.html" target="_blank">Document Management (List)</a></li>
+                            <li><a class="dropdown-item" href="../08_System_Management/05_EmailNotifications/05_EmailNotifications_List.html" target="_blank">Email Notifications (List)</a></li>
+                            <li><a class="dropdown-item" href="../08_System_Management/06_SupportTickets/06_SupportTickets_List.html" target="_blank">Support Tickets (List)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <div class="note">Note: menu links open each mockup page in a <strong>new browser tab</strong> for easy developer reference. Use the linked "Create" pages alongside the list views for full flow examples.</div>
+        <div class="row">
+            <div class="col-md-8">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="../02_Production_Manufacturing/01_OrderLines/01_OrderLines_List.html" target="_blank">Order Lines (List)</a> — opens in a new tab</li>
+                    <li><a href="../08_System_Management/01_Users/01_Users_Create.html" target="_blank">Users (Create)</a> — example create page</li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-end text-muted">
+                <small>Developer tip: open the list page and create page in separate tabs for side-by-side comparison.</small>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

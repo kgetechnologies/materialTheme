@@ -1,0 +1,162 @@
+﻿<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Create - Food Create</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='d-flex justify-content-between align-items-center mb-3'>
+      <h1>Create Food Create</h1>
+      <div>
+        <a class='btn btn-outline-secondary' href='05_Food_List.html'>Back to list</a>
+        <a class='btn btn-link muted' href='05_Food_API.md' target='_blank'>API Docs</a>
+      </div>
+    </div>
+
+    <p class='text-muted'>This form maps to the API create endpoint. Include tenant header <code>X-Company-Id</code> when applicable.</p>
+
+    <form id='createForm' novalidate><div class='mb-3'><label class='form-label'>p r o d u c t I d</label><input id='productId' class='form-control' type='number' placeholder='Enter p r o d u c t I d'></div>
+<div class='mb-3'><label class='form-label'>b a t c h N u m b e r</label><input id='batchNumber' class='form-control' type='text' placeholder='Enter b a t c h N u m b e r'></div>
+<div class='mb-3'><label class='form-label'>l o t C o d e</label><input id='lotCode' class='form-control' type='text' placeholder='Enter l o t C o d e'></div>
+<div class='mb-3'><label class='form-label'>p r o d u c t i o n D a t e</label><input id='productionDate' class='form-control' type='text' placeholder='Enter p r o d u c t i o n D a t e'></div>
+<div class='mb-3'><label class='form-label'>p l a n n e d Q u a n t i t y</label><input id='plannedQuantity' class='form-control' type='text' placeholder='Enter p l a n n e d Q u a n t i t y'></div>
+<div class='mb-3'><label class='form-label'>u n i t</label><select id='unit' class='form-select'>
+<option value="Unknown">Unknown</option>
+<option value="Piece">Piece</option>
+<option value="Unit">Unit</option>
+<option value="Set">Set</option>
+<option value="Kit">Kit</option>
+<option value="Bundle">Bundle</option>
+<option value="Box">Box</option>
+<option value="Case">Case</option>
+<option value="Pallet">Pallet</option>
+<option value="Dozen">Dozen</option>
+<option value="Pack">Pack</option>
+<option value="Pair">Pair</option>
+<option value="Ream">Ream</option>
+<option value="Hour">Hour</option>
+<option value="Day">Day</option>
+<option value="Week">Week</option>
+<option value="Month">Month</option>
+<option value="Year">Year</option>
+<option value="Quarter">Quarter</option>
+<option value="Session">Session</option>
+<option value="Seat">Seat</option>
+<option value="User">User</option>
+<option value="License">License</option>
+<option value="Credit">Credit</option>
+<option value="Subscription">Subscription</option>
+<option value="Kilogram">Kilogram</option>
+<option value="Gram">Gram</option>
+<option value="MetricTon">MetricTon</option>
+<option value="Pound">Pound</option>
+<option value="Ounce">Ounce</option>
+<option value="Milligram">Milligram</option>
+<option value="Meter">Meter</option>
+<option value="Centimeter">Centimeter</option>
+<option value="Millimeter">Millimeter</option>
+<option value="Foot">Foot</option>
+<option value="Inch">Inch</option>
+<option value="Yard">Yard</option>
+<option value="Kilometer">Kilometer</option>
+<option value="Mile">Mile</option>
+<option value="SquareMeter">SquareMeter</option>
+<option value="SquareFoot">SquareFoot</option>
+<option value="SquareYard">SquareYard</option>
+<option value="SquareKilometer">SquareKilometer</option>
+<option value="Hectare">Hectare</option>
+<option value="Acre">Acre</option>
+<option value="Liter">Liter</option>
+<option value="Milliliter">Milliliter</option>
+<option value="Gallon">Gallon</option>
+<option value="Quart">Quart</option>
+<option value="Pint">Pint</option>
+<option value="Cup">Cup</option>
+<option value="CubicMeter">CubicMeter</option>
+<option value="CubicFoot">CubicFoot</option>
+<option value="Barrel">Barrel</option>
+<option value="KilowattHour">KilowattHour</option>
+<option value="Watt">Watt</option>
+<option value="Joule">Joule</option>
+<option value="CalorieSmall">CalorieSmall</option>
+<option value="CalorieKilo">CalorieKilo</option>
+<option value="Byte">Byte</option>
+<option value="Kilobyte">Kilobyte</option>
+<option value="Megabyte">Megabyte</option>
+<option value="Gigabyte">Gigabyte</option>
+<option value="Terabyte">Terabyte</option>
+<option value="Petabyte">Petabyte</option>
+<option value="Impression">Impression</option>
+<option value="Click">Click</option>
+<option value="View">View</option>
+<option value="Lead">Lead</option>
+<option value="Conversion">Conversion</option>
+<option value="Download">Download</option>
+<option value="Percentage">Percentage</option>
+<option value="Rating">Rating</option>
+<option value="Point">Point</option>
+<option value="Token">Token</option>
+<option value="Custom">Custom</option>
+</select></div>
+<div class='mb-3'><label class='form-label'>p r o c e s s i n g T y p e</label><select id='processingType' class='form-select'>
+<option value="Unknown">Unknown</option>
+<option value="Grinding">Grinding</option>
+<option value="Blending">Blending</option>
+<option value="Roasting">Roasting</option>
+<option value="Baking">Baking</option>
+<option value="Freezing">Freezing</option>
+<option value="Canning">Canning</option>
+<option value="Packaging">Packaging</option>
+<option value="Pasteurization">Pasteurization</option>
+<option value="Sterilization">Sterilization</option>
+<option value="Drying">Drying</option>
+<option value="Smoking">Smoking</option>
+<option value="Fermentation">Fermentation</option>
+<option value="Mixing">Mixing</option>
+<option value="Cutting">Cutting</option>
+<option value="Slicing">Slicing</option>
+<option value="Custom">Custom</option>
+</select></div>
+<div class='mb-3'><label class='form-label'>e x p i r y D a t e</label><input id='expiryDate' class='form-control' type='text' placeholder='Enter e x p i r y D a t e'></div>
+<div class='mb-3'><label class='form-label'>o p e r a t o r N a m e</label><input id='operatorName' class='form-control' type='text' placeholder='Enter o p e r a t o r N a m e'></div>
+<div class='mb-3'><label class='form-label'>n o t e s</label><input id='notes' class='form-control' type='text' placeholder='Enter n o t e s'></div>
+      <div class='mb-3'>
+        <button id='submitBtn' class='btn btn-primary' type='button'>Create</button>
+        <button id='previewBtn' class='btn btn-outline-secondary ms-2' type='button'>Preview Request</button>
+      </div>
+    </form>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='card mb-3'>
+          <div class='card-body'>
+            <h5 class='card-title'>Request Preview</h5>
+            <pre id='requestJson' style='white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px'></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function gather(){
+      const obj = {};      obj['productId'] = document.getElementById('productId') && document.getElementById('productId').value ? document.getElementById('productId').value : null;\n      obj['batchNumber'] = document.getElementById('batchNumber') && document.getElementById('batchNumber').value ? document.getElementById('batchNumber').value : null;\n      obj['lotCode'] = document.getElementById('lotCode') && document.getElementById('lotCode').value ? document.getElementById('lotCode').value : null;\n      obj['productionDate'] = document.getElementById('productionDate') && document.getElementById('productionDate').value ? document.getElementById('productionDate').value : null;\n      obj['plannedQuantity'] = document.getElementById('plannedQuantity') && document.getElementById('plannedQuantity').value ? document.getElementById('plannedQuantity').value : null;\n      obj['unit'] = document.getElementById('unit') && document.getElementById('unit').value ? document.getElementById('unit').value : null;\n      obj['processingType'] = document.getElementById('processingType') && document.getElementById('processingType').value ? document.getElementById('processingType').value : null;\n      obj['expiryDate'] = document.getElementById('expiryDate') && document.getElementById('expiryDate').value ? document.getElementById('expiryDate').value : null;\n      obj['operatorName'] = document.getElementById('operatorName') && document.getElementById('operatorName').value ? document.getElementById('operatorName').value : null;\n      obj['notes'] = document.getElementById('notes') && document.getElementById('notes').value ? document.getElementById('notes').value : null;\n      return obj;
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      const payload = gather();
+      document.getElementById('requestJson').textContent = JSON.stringify(payload,null,2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(),null,2);
+      alert('This is a mockup preview. Use the API docs to send real requests.')
+    });
+  </script>
+</body>
+</html>

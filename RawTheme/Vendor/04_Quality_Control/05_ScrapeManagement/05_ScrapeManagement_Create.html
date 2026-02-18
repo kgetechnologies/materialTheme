@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Record Scrape</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Record Scrape</h1>
+      <div>
+        <a class="btn btn-outline-secondary" href="05_ScrapeManagement_List.html">Back to list</a>
+        <a class="btn btn-link muted" href="05_ScrapeManagement_API.md" target="_blank">API Docs</a>
+      </div>
+    </div>
+
+    <form id="form">
+      <div class="mb-3"><label class="form-label">Scrape Date</label><input id="scrapeDate" type="date" class="form-control"></div>
+      <div class="mb-3"><label class="form-label">Material</label><select id="materialPk" class="form-select"><option value="8">Contaminated Resin</option></select></div>
+      <div class="mb-3"><label class="form-label">Quantity</label><input id="quantity" type="number" class="form-control" step="0.01"></div>
+      <div class="mb-3"><label class="form-label">Unit</label><input id="unit" class="form-control" value="L"></div>
+      <div class="mb-3"><label class="form-label">Reason</label><input id="reason" class="form-control"></div>
+      <div class="mb-3"><label class="form-label">Disposal Method</label><input id="disposalMethod" class="form-control"></div>
+      <div class="mb-3"><label class="form-label">Disposal Cost</label><input id="disposalCost" type="number" class="form-control" step="0.01"></div>
+      <div class="mb-3"><label class="form-label">Notes</label><textarea id="notes" class="form-control" rows="3"></textarea></div>
+      <button id="preview" type="button" class="btn btn-outline-secondary">Preview</button>
+      <button id="submit" type="button" class="btn btn-primary">Record</button>
+    </form>
+
+    <pre id="previewJson" style="background:#f8f9fa;padding:12px;margin-top:12px;border-radius:6px"></pre>
+  </div>
+  <script>
+    document.getElementById('preview').addEventListener('click', ()=>{
+      const obj = {
+        scrapeDate: document.getElementById('scrapeDate').value || null,
+        materialPk: document.getElementById('materialPk').value ? parseInt(document.getElementById('materialPk').value) : null,
+        quantity: document.getElementById('quantity').value ? parseFloat(document.getElementById('quantity').value) : null,
+        unit: document.getElementById('unit').value || null,
+        reason: document.getElementById('reason').value || null,
+        disposalMethod: document.getElementById('disposalMethod').value || null,
+        disposalCost: document.getElementById('disposalCost').value ? parseFloat(document.getElementById('disposalCost').value) : null,
+        notes: document.getElementById('notes').value || null
+      };
+      document.getElementById('previewJson').textContent = JSON.stringify(obj,null,2);
+    });
+    document.getElementById('submit').addEventListener('click', ()=>{ document.getElementById('preview').click(); alert('Mockup: use API docs to send real request') });
+  </script>
+</body>
+</html>

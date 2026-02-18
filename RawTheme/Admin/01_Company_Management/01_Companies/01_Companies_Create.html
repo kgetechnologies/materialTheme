@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Create Company</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif}</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='d-flex justify-content-between align-items-center mb-3'>
+      <h1>Create Company</h1>
+      <a class='btn btn-outline-secondary' href='01_Companies_List.html'>Back to List</a>
+    </div>
+
+    <form id='createForm'>
+      <div class='card mb-3'>
+        <div class='card-header'><h5>Company Information</h5></div>
+        <div class='card-body'>
+          <div class='mb-3'>
+            <label class='form-label'>Company Name *</label>
+            <input id='name' class='form-control' required>
+          </div>
+          <div class='row'>
+            <div class='col-md-6 mb-3'>
+              <label class='form-label'>Contact Email</label>
+              <input id='contactEmail' type='email' class='form-control'>
+            </div>
+            <div class='col-md-6 mb-3'>
+              <label class='form-label'>Contact Phone</label>
+              <input id='contactPhone' type='tel' class='form-control'>
+            </div>
+          </div>
+          <div class='mb-3'>
+            <label class='form-label'>Address</label>
+            <textarea id='address' class='form-control' rows='2'></textarea>
+          </div>
+          <div class='mb-3'>
+            <label class='form-label'>Logo URL</label>
+            <input id='logoUrl' type='url' class='form-control'>
+          </div>
+        </div>
+      </div>
+
+      <div class='card mb-3'>
+        <div class='card-header'><h5>Auth0 Configuration</h5></div>
+        <div class='card-body'>
+          <div class='mb-3'>
+            <label class='form-label'>Auth0 Domain</label>
+            <input id='auth0Domain' class='form-control' placeholder='tenant.auth0.com'>
+          </div>
+          <div class='mb-3'>
+            <label class='form-label'>Auth0 Audience</label>
+            <input id='auth0Audience' class='form-control' placeholder='https://api.example.com'>
+          </div>
+          <div class='mb-3'>
+            <label class='form-label'>Auth0 Client ID</label>
+            <input id='auth0ClientId' class='form-control'>
+          </div>
+        </div>
+      </div>
+
+      <div class='mb-3'>
+        <button id='submitBtn' type='button' class='btn btn-primary'>Create Company</button>
+        <button id='previewBtn' type='button' class='btn btn-outline-secondary'>Preview Request</button>
+      </div>
+    </form>
+
+    <div class='card'>
+      <div class='card-body'>
+        <h5>Request Preview</h5>
+        <pre id='requestJson' style='background:#f8f9fa;padding:12px;border-radius:6px'></pre>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function gather() {
+      return {
+        name: document.getElementById('name').value || null,
+        contactEmail: document.getElementById('contactEmail').value || null,
+        contactPhone: document.getElementById('contactPhone').value || null,
+        address: document.getElementById('address').value || null,
+        logoUrl: document.getElementById('logoUrl').value || null,
+        auth0Domain: document.getElementById('auth0Domain').value || null,
+        auth0Audience: document.getElementById('auth0Audience').value || null,
+        auth0ClientId: document.getElementById('auth0ClientId').value || null
+      };
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', () => {
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(), null, 2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(), null, 2);
+      alert('Mockup: Use API POST /api/v1/AppOwner/Companies/create');
+    });
+  </script>
+</body>
+</html>

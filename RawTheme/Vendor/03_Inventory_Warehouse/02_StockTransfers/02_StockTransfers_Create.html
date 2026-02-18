@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Create - StockTransfers Create</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='d-flex justify-content-between align-items-center mb-3'>
+      <h1>Create StockTransfers Create</h1>
+      <div>
+        <a class='btn btn-outline-secondary' href='02_StockTransfers_List.html'>Back to list</a>
+        <a class='btn btn-link muted' href='02_StockTransfers_API.md' target='_blank'>API Docs</a>
+      </div>
+    </div>
+
+    <p class='text-muted'>This form maps to the API create endpoint. Include tenant header <code>X-Company-Id</code> when applicable.</p>
+
+    <form id='createForm' novalidate><div class='mb-3'><label class='form-label'>m a t e r i a l L o t I d</label><input id='materialLotId' class='form-control' type='number' placeholder='Enter m a t e r i a l L o t I d'></div>
+<div class='mb-3'><label class='form-label'>q u a n t i t y</label><input id='quantity' class='form-control' type='text' placeholder='Enter q u a n t i t y'></div>
+<div class='mb-3'><label class='form-label'>f r o m L o c a t i o n T y p e</label><input id='fromLocationType' class='form-control' type='text' placeholder='Enter f r o m L o c a t i o n T y p e'></div>
+<div class='mb-3'><label class='form-label'>f r o m L o c a t i o n I d</label><input id='fromLocationId' class='form-control' type='number' placeholder='Enter f r o m L o c a t i o n I d'></div>
+<div class='mb-3'><label class='form-label'>t o L o c a t i o n T y p e</label><input id='toLocationType' class='form-control' type='text' placeholder='Enter t o L o c a t i o n T y p e'></div>
+<div class='mb-3'><label class='form-label'>t o L o c a t i o n I d</label><input id='toLocationId' class='form-control' type='number' placeholder='Enter t o L o c a t i o n I d'></div>
+<div class='mb-3'><label class='form-label'>r e m a r k s</label><input id='remarks' class='form-control' type='text' placeholder='Enter r e m a r k s'></div>
+      <div class='mb-3'>
+        <button id='submitBtn' class='btn btn-primary' type='button'>Create</button>
+        <button id='previewBtn' class='btn btn-outline-secondary ms-2' type='button'>Preview Request</button>
+      </div>
+    </form>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='card mb-3'>
+          <div class='card-body'>
+            <h5 class='card-title'>Request Preview</h5>
+            <pre id='requestJson' style='white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px'></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function gather(){
+      const obj = {};      obj['materialLotId'] = document.getElementById('materialLotId') && document.getElementById('materialLotId').value ? document.getElementById('materialLotId').value : null;\n      obj['quantity'] = document.getElementById('quantity') && document.getElementById('quantity').value ? document.getElementById('quantity').value : null;\n      obj['fromLocationType'] = document.getElementById('fromLocationType') && document.getElementById('fromLocationType').value ? document.getElementById('fromLocationType').value : null;\n      obj['fromLocationId'] = document.getElementById('fromLocationId') && document.getElementById('fromLocationId').value ? document.getElementById('fromLocationId').value : null;\n      obj['toLocationType'] = document.getElementById('toLocationType') && document.getElementById('toLocationType').value ? document.getElementById('toLocationType').value : null;\n      obj['toLocationId'] = document.getElementById('toLocationId') && document.getElementById('toLocationId').value ? document.getElementById('toLocationId').value : null;\n      obj['remarks'] = document.getElementById('remarks') && document.getElementById('remarks').value ? document.getElementById('remarks').value : null;\n      return obj;
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      const payload = gather();
+      document.getElementById('requestJson').textContent = JSON.stringify(payload,null,2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(),null,2);
+      alert('This is a mockup preview. Use the API docs to send real requests.')
+    });
+  </script>
+</body>
+</html>

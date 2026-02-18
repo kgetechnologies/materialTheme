@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Create Cache Configuration</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif}</style>
+</head>
+<body>
+  <div class='container'>
+    <h1>Create Cache Configuration</h1>
+    <form>
+      <div class='mb-3'><label class='form-label'>Company</label><select id='companyPk' class='form-select'><option>Select Company...</option><option>Acme Manufacturing</option><option>TechCorp Industries</option></select></div>
+      <div class='form-check mb-3'><input type='checkbox' class='form-check-input' id='cachingEnabled' checked><label class='form-check-label'>Caching Enabled</label></div>
+      <div class='mb-3'><label class='form-label'>Isolation Level</label><select id='isolationLevel' class='form-select'>
+<option selected>Shared</option>
+<option>Dedicated</option>
+<option>Disabled</option>
+</select></div>
+      <div class='mb-3'><label class='form-label'>Default TTL (minutes)</label><input id='defaultCacheTtlMinutes' type='number' class='form-control' value='60'></div>
+      <div class='mb-3'><label class='form-label'>Cache Key Prefix</label><input id='cacheKeyPrefix' class='form-control' placeholder='vendor_'></div>
+      <div class='mb-3'><label class='form-label'>Redis Connection String</label><input id='redisConnectionString' class='form-control' placeholder='localhost:6379'><small class='text-muted'>Leave empty for shared Redis</small></div>
+      <div class='mb-3'><label class='form-label'>Notes</label><textarea id='notes' class='form-control' rows='3'></textarea></div>
+      <button type='button' class='btn btn-primary'>Create Configuration</button>
+      <button type='button' class='btn btn-outline-secondary'>Validate Redis</button>
+      <a href='02_VendorCache_View.html' class='btn btn-secondary'>Cancel</a>
+    </form>
+  </div>
+</body>
+</html>

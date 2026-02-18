@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Create Support Ticket</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='d-flex justify-content-between align-items-center mb-3'>
+      <h1>Create Support Ticket</h1>
+      <div>
+        <a class='btn btn-outline-secondary' href='06_SupportTickets_List.html'>Back to list</a>
+        <a class='btn btn-link muted' href='06_SupportTickets_API.md' target='_blank'>API Docs</a>
+      </div>
+    </div>
+
+    <p class='text-muted'>This form maps to the API create endpoint. Include tenant header <code>X-Company-Id</code> when applicable.</p>
+
+    <form id='createForm' novalidate>
+      <div class='mb-3'>
+        <label class='form-label'>Subject</label>
+        <input id='subject' class='form-control' placeholder='Enter subject'>
+      </div>
+      <div class='mb-3'>
+        <label class='form-label'>Description</label>
+        <textarea id='description' class='form-control' rows='6' placeholder='Enter description'></textarea>
+      </div>
+      <div class='mb-3'>
+        <label class='form-label'>Priority</label>
+        <select id='priority' class='form-select'>
+          <option>Low</option>
+          <option>Medium</option>
+          <option selected>High</option>
+        </select>
+      </div>
+      <div class='mb-3'>
+        <label class='form-label'>Category</label>
+        <input id='category' class='form-control' placeholder='Enter category'>
+      </div>
+      <div class='mb-3'>
+        <label class='form-label'>Attachments (URLs, comma-separated)</label>
+        <input id='attachments' class='form-control' placeholder='https://... , https://...' pattern='https?://.+'>
+      </div>
+      <div class='mb-3'>
+        <button id='submitBtn' class='btn btn-primary' type='button'>Create</button>
+        <button id='previewBtn' class='btn btn-outline-secondary ms-2' type='button'>Preview Request</button>
+      </div>
+    </form>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='card mb-3'>
+          <div class='card-body'>
+            <h5 class='card-title'>Request Preview</h5>
+            <pre id='requestJson' style='white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px'></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function gather(){
+      const obj = {
+        subject: document.getElementById('subject').value || null,
+        description: document.getElementById('description').value || null,
+        priority: document.getElementById('priority').value || null,
+        attachments: document.getElementById('attachments').value ? document.getElementById('attachments').value.split(',').map(x=>x.trim()) : [],
+        category: document.getElementById('category').value || null
+      };
+      return obj;
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      const payload = gather();
+      document.getElementById('requestJson').textContent = JSON.stringify(payload,null,2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(),null,2);
+      alert('This is a mockup preview. Use the API docs to send real requests.')
+    });
+  </script>
+</body>
+</html>

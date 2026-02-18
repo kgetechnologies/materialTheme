@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Dashboard - Manufacturing CRM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+    <nav aria-label="breadcrumb" class="bg-white border-bottom p-3">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Analytics & Reports</a></li>
+            <li class="breadcrumb-item active">Production Dashboard</li>
+        </ol>
+    </nav>
+
+    <div class="container-fluid p-4">
+        <h2 class="mb-4"><i class="bi bi-speedometer2"></i> Production Dashboard</h2>
+
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5>OEE Score</h5>
+                        <h2 class="text-success">85%</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5>Availability</h5>
+                        <h2 class="text-primary">92%</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5>Performance</h5>
+                        <h2 class="text-warning">88%</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5>Quality</h5>
+                        <h2 class="text-info">96%</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Production Lines Status</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Production Line</th>
+                                <th>Status</th>
+                                <th>Current Order</th>
+                                <th>Progress</th>
+                                <th>OEE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Line A</strong></td>
+                                <td><span class="badge bg-success">Running</span></td>
+                                <td>ORD-2026-0045</td>
+                                <td><div class="progress"><div class="progress-bar" style="width: 75%">75%</div></div></td>
+                                <td>85%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

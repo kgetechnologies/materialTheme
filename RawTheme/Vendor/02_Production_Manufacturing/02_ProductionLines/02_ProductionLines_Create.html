@@ -1,0 +1,234 @@
+﻿<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Create - ProductionLines Create</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='d-flex justify-content-between align-items-center mb-3'>
+      <h1>Create ProductionLines Create</h1>
+      <div>
+        <a class='btn btn-outline-secondary' href='02_ProductionLines_List.html'>Back to list</a>
+        <a class='btn btn-link muted' href='02_ProductionLines_API.md' target='_blank'>API Docs</a>
+      </div>
+    </div>
+
+    <p class='text-muted'>This form maps to the API create endpoint. Include tenant header <code>X-Company-Id</code> when applicable.</p>
+
+    <form id='createForm' novalidate><div class='mb-3'><label class='form-label'>l i n e N a m e</label><input id='lineName' class='form-control' type='text' placeholder='Enter l i n e N a m e'></div>
+<div class='mb-3'><label class='form-label'>l i n e C o d e</label><input id='lineCode' class='form-control' type='text' placeholder='Enter l i n e C o d e'></div>
+<div class='mb-3'><label class='form-label'>l i n e T y p e</label><select id='lineType' class='form-select'>
+<option value="Unknown">Unknown</option>
+<option value="Discrete">Discrete</option>
+<option value="Continuous">Continuous</option>
+<option value="Batch">Batch</option>
+<option value="Assembly">Assembly</option>
+<option value="Packaging">Packaging</option>
+<option value="Bottling">Bottling</option>
+<option value="Mixing">Mixing</option>
+<option value="Cutting">Cutting</option>
+<option value="Printing">Printing</option>
+<option value="Testing">Testing</option>
+<option value="Custom">Custom</option>
+</select></div>
+<div class='mb-3'><label class='form-label'>l o c a t i o n</label><input id='location' class='form-control' type='text' placeholder='Enter l o c a t i o n'></div>
+<div class='mb-3'><label class='form-label'>t h e o r e t i c a l C a p a c i t y</label><input id='theoreticalCapacity' class='form-control' type='text' placeholder='Enter t h e o r e t i c a l C a p a c i t y'></div>
+<div class='mb-3'><label class='form-label'>c a p a c i t y U n i t</label><select id='capacityUnit' class='form-select'>
+<option value="Unknown">Unknown</option>
+<option value="Piece">Piece</option>
+<option value="Unit">Unit</option>
+<option value="Set">Set</option>
+<option value="Kit">Kit</option>
+<option value="Bundle">Bundle</option>
+<option value="Box">Box</option>
+<option value="Case">Case</option>
+<option value="Pallet">Pallet</option>
+<option value="Dozen">Dozen</option>
+<option value="Pack">Pack</option>
+<option value="Pair">Pair</option>
+<option value="Ream">Ream</option>
+<option value="Hour">Hour</option>
+<option value="Day">Day</option>
+<option value="Week">Week</option>
+<option value="Month">Month</option>
+<option value="Year">Year</option>
+<option value="Quarter">Quarter</option>
+<option value="Session">Session</option>
+<option value="Seat">Seat</option>
+<option value="User">User</option>
+<option value="License">License</option>
+<option value="Credit">Credit</option>
+<option value="Subscription">Subscription</option>
+<option value="Kilogram">Kilogram</option>
+<option value="Gram">Gram</option>
+<option value="MetricTon">MetricTon</option>
+<option value="Pound">Pound</option>
+<option value="Ounce">Ounce</option>
+<option value="Milligram">Milligram</option>
+<option value="Meter">Meter</option>
+<option value="Centimeter">Centimeter</option>
+<option value="Millimeter">Millimeter</option>
+<option value="Foot">Foot</option>
+<option value="Inch">Inch</option>
+<option value="Yard">Yard</option>
+<option value="Kilometer">Kilometer</option>
+<option value="Mile">Mile</option>
+<option value="SquareMeter">SquareMeter</option>
+<option value="SquareFoot">SquareFoot</option>
+<option value="SquareYard">SquareYard</option>
+<option value="SquareKilometer">SquareKilometer</option>
+<option value="Hectare">Hectare</option>
+<option value="Acre">Acre</option>
+<option value="Liter">Liter</option>
+<option value="Milliliter">Milliliter</option>
+<option value="Gallon">Gallon</option>
+<option value="Quart">Quart</option>
+<option value="Pint">Pint</option>
+<option value="Cup">Cup</option>
+<option value="CubicMeter">CubicMeter</option>
+<option value="CubicFoot">CubicFoot</option>
+<option value="Barrel">Barrel</option>
+<option value="KilowattHour">KilowattHour</option>
+<option value="Watt">Watt</option>
+<option value="Joule">Joule</option>
+<option value="CalorieSmall">CalorieSmall</option>
+<option value="CalorieKilo">CalorieKilo</option>
+<option value="Byte">Byte</option>
+<option value="Kilobyte">Kilobyte</option>
+<option value="Megabyte">Megabyte</option>
+<option value="Gigabyte">Gigabyte</option>
+<option value="Terabyte">Terabyte</option>
+<option value="Petabyte">Petabyte</option>
+<option value="Impression">Impression</option>
+<option value="Click">Click</option>
+<option value="View">View</option>
+<option value="Lead">Lead</option>
+<option value="Conversion">Conversion</option>
+<option value="Download">Download</option>
+<option value="Percentage">Percentage</option>
+<option value="Rating">Rating</option>
+<option value="Point">Point</option>
+<option value="Token">Token</option>
+<option value="Custom">Custom</option>
+</select></div>
+<div class='mb-3'><label class='form-label'>m a x L i n e S p e e d</label><input id='maxLineSpeed' class='form-control' type='text' placeholder='Enter m a x L i n e S p e e d'></div>
+<div class='mb-3'><label class='form-label'>s p e e d U n i t</label><select id='speedUnit' class='form-select'>
+<option value="Unknown">Unknown</option>
+<option value="Piece">Piece</option>
+<option value="Unit">Unit</option>
+<option value="Set">Set</option>
+<option value="Kit">Kit</option>
+<option value="Bundle">Bundle</option>
+<option value="Box">Box</option>
+<option value="Case">Case</option>
+<option value="Pallet">Pallet</option>
+<option value="Dozen">Dozen</option>
+<option value="Pack">Pack</option>
+<option value="Pair">Pair</option>
+<option value="Ream">Ream</option>
+<option value="Hour">Hour</option>
+<option value="Day">Day</option>
+<option value="Week">Week</option>
+<option value="Month">Month</option>
+<option value="Year">Year</option>
+<option value="Quarter">Quarter</option>
+<option value="Session">Session</option>
+<option value="Seat">Seat</option>
+<option value="User">User</option>
+<option value="License">License</option>
+<option value="Credit">Credit</option>
+<option value="Subscription">Subscription</option>
+<option value="Kilogram">Kilogram</option>
+<option value="Gram">Gram</option>
+<option value="MetricTon">MetricTon</option>
+<option value="Pound">Pound</option>
+<option value="Ounce">Ounce</option>
+<option value="Milligram">Milligram</option>
+<option value="Meter">Meter</option>
+<option value="Centimeter">Centimeter</option>
+<option value="Millimeter">Millimeter</option>
+<option value="Foot">Foot</option>
+<option value="Inch">Inch</option>
+<option value="Yard">Yard</option>
+<option value="Kilometer">Kilometer</option>
+<option value="Mile">Mile</option>
+<option value="SquareMeter">SquareMeter</option>
+<option value="SquareFoot">SquareFoot</option>
+<option value="SquareYard">SquareYard</option>
+<option value="SquareKilometer">SquareKilometer</option>
+<option value="Hectare">Hectare</option>
+<option value="Acre">Acre</option>
+<option value="Liter">Liter</option>
+<option value="Milliliter">Milliliter</option>
+<option value="Gallon">Gallon</option>
+<option value="Quart">Quart</option>
+<option value="Pint">Pint</option>
+<option value="Cup">Cup</option>
+<option value="CubicMeter">CubicMeter</option>
+<option value="CubicFoot">CubicFoot</option>
+<option value="Barrel">Barrel</option>
+<option value="KilowattHour">KilowattHour</option>
+<option value="Watt">Watt</option>
+<option value="Joule">Joule</option>
+<option value="CalorieSmall">CalorieSmall</option>
+<option value="CalorieKilo">CalorieKilo</option>
+<option value="Byte">Byte</option>
+<option value="Kilobyte">Kilobyte</option>
+<option value="Megabyte">Megabyte</option>
+<option value="Gigabyte">Gigabyte</option>
+<option value="Terabyte">Terabyte</option>
+<option value="Petabyte">Petabyte</option>
+<option value="Impression">Impression</option>
+<option value="Click">Click</option>
+<option value="View">View</option>
+<option value="Lead">Lead</option>
+<option value="Conversion">Conversion</option>
+<option value="Download">Download</option>
+<option value="Percentage">Percentage</option>
+<option value="Rating">Rating</option>
+<option value="Point">Point</option>
+<option value="Token">Token</option>
+<option value="Custom">Custom</option>
+</select></div>
+<div class='mb-3'><label class='form-label'>e s t i m a t e d C h a n g e o v e r M i n u t e s</label><input id='estimatedChangeoverMinutes' class='form-control' type='text' placeholder='Enter e s t i m a t e d C h a n g e o v e r M i n u t e s'></div>
+<div class='mb-3'><label class='form-label'>d e s c r i p t i o n</label><input id='description' class='form-control' type='text' placeholder='Enter d e s c r i p t i o n'></div>
+      <div class='mb-3'>
+        <button id='submitBtn' class='btn btn-primary' type='button'>Create</button>
+        <button id='previewBtn' class='btn btn-outline-secondary ms-2' type='button'>Preview Request</button>
+      </div>
+    </form>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='card mb-3'>
+          <div class='card-body'>
+            <h5 class='card-title'>Request Preview</h5>
+            <pre id='requestJson' style='white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px'></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function gather(){
+      const obj = {};      obj['lineName'] = document.getElementById('lineName') && document.getElementById('lineName').value ? document.getElementById('lineName').value : null;\n      obj['lineCode'] = document.getElementById('lineCode') && document.getElementById('lineCode').value ? document.getElementById('lineCode').value : null;\n      obj['lineType'] = document.getElementById('lineType') && document.getElementById('lineType').value ? document.getElementById('lineType').value : null;\n      obj['location'] = document.getElementById('location') && document.getElementById('location').value ? document.getElementById('location').value : null;\n      obj['theoreticalCapacity'] = document.getElementById('theoreticalCapacity') && document.getElementById('theoreticalCapacity').value ? document.getElementById('theoreticalCapacity').value : null;\n      obj['capacityUnit'] = document.getElementById('capacityUnit') && document.getElementById('capacityUnit').value ? document.getElementById('capacityUnit').value : null;\n      obj['maxLineSpeed'] = document.getElementById('maxLineSpeed') && document.getElementById('maxLineSpeed').value ? document.getElementById('maxLineSpeed').value : null;\n      obj['speedUnit'] = document.getElementById('speedUnit') && document.getElementById('speedUnit').value ? document.getElementById('speedUnit').value : null;\n      obj['estimatedChangeoverMinutes'] = document.getElementById('estimatedChangeoverMinutes') && document.getElementById('estimatedChangeoverMinutes').value ? document.getElementById('estimatedChangeoverMinutes').value : null;\n      obj['description'] = document.getElementById('description') && document.getElementById('description').value ? document.getElementById('description').value : null;\n      return obj;
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      const payload = gather();
+      document.getElementById('requestJson').textContent = JSON.stringify(payload,null,2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(),null,2);
+      alert('This is a mockup preview. Use the API docs to send real requests.')
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Transfers - Manufacturing CRM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <div class="row mb-4">
+            <div class="col"><h2><i class="bi bi-arrow-left-right"></i> Stock Transfers</h2></div>
+            <div class="col-auto"><button class="btn btn-primary" onclick="location.href='02_StockTransfers_Create.html'"><i class="bi bi-plus-circle"></i> Create Transfer</button></div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead><tr><th>Transfer #</th><th>Material</th><th>Quantity</th><th>From</th><th>To</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>TRF-001</strong></td><td>Steel Sheet</td><td>100 kg</td><td>WH-001</td><td>WH-002</td><td>2026-02-11</td>
+                            <td><span class="badge bg-success">Completed</span></td>
+                            <td><button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

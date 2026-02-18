@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Upload Document</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif}</style>
+</head>
+<body>
+  <div class='container'>
+    <h1>Upload Document</h1>
+    <form>
+      <div class='mb-3'><label class='form-label'>Company</label><select id='companyId' class='form-select'><option>Select Company...</option><option>Acme Manufacturing</option><option>TechCorp Industries</option></select></div>
+      <div class='mb-3'><label class='form-label'>File</label><input id='file' type='file' class='form-control'></div>
+      <div class='mb-3'><label class='form-label'>Document Type</label><select id='documentType' class='form-select'>
+<option>OrderDocument</option>
+<option>QualityDocument</option>
+<option>ComplianceDocument</option>
+<option>ProductionDocument</option>
+<option>MaintenanceDocument</option>
+<option>TrainingDocument</option>
+<option>Other</option>
+</select></div>
+      <div class='mb-3'><label class='form-label'>Document Category</label><input id='documentCategory' class='form-control' placeholder='e.g., Invoice, Certificate'></div>
+      <div class='mb-3'><label class='form-label'>Classification</label><select id='classification' class='form-select'>
+<option>Public</option>
+<option>Internal</option>
+<option>Confidential</option>
+<option>Restricted</option>
+</select></div>
+      <div class='mb-3'><label class='form-label'>Access Level</label><select id='accessLevel' class='form-select'>
+<option>Public</option>
+<option>CompanyWide</option>
+<option>DepartmentOnly</option>
+<option>RoleRestricted</option>
+<option>UserSpecific</option>
+</select></div>
+      <div class='mb-3'><label class='form-label'>Order Line ID (Optional)</label><input id='orderLineId' class='form-control' placeholder='GUID'></div>
+      <div class='mb-3'><label class='form-label'>Material Lot ID (Optional)</label><input id='materialLotId' class='form-control' placeholder='GUID'></div>
+      <button type='button' class='btn btn-primary'>Upload Document</button>
+      <a href='02_DocumentManagement_List.html' class='btn btn-secondary'>Cancel</a>
+    </form>
+  </div>
+</body>
+</html>

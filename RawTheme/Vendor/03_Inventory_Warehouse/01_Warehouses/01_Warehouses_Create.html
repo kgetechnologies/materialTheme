@@ -1,0 +1,142 @@
+﻿<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Create - Warehouses Create</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='d-flex justify-content-between align-items-center mb-3'>
+      <h1>Create Warehouses Create</h1>
+      <div>
+        <a class='btn btn-outline-secondary' href='01_Warehouses_List.html'>Back to list</a>
+        <a class='btn btn-link muted' href='01_Warehouses_API.md' target='_blank'>API Docs</a>
+      </div>
+    </div>
+
+    <p class='text-muted'>This form maps to the API create endpoint. Include tenant header <code>X-Company-Id</code> when applicable.</p>
+
+    <form id='createForm' novalidate><div class='mb-3'><label class='form-label'>w a r e h o u s e C o d e</label><input id='warehouseCode' class='form-control' type='text' placeholder='Enter w a r e h o u s e C o d e'></div>
+<div class='mb-3'><label class='form-label'>w a r e h o u s e N a m e</label><input id='warehouseName' class='form-control' type='text' placeholder='Enter w a r e h o u s e N a m e'></div>
+<div class='mb-3'><label class='form-label'>w a r e h o u s e T y p e</label><input id='warehouseType' class='form-control' type='text' placeholder='Enter w a r e h o u s e T y p e'></div>
+<div class='mb-3'><label class='form-label'>l o c a t i o n</label><input id='location' class='form-control' type='text' placeholder='Enter l o c a t i o n'></div>
+<div class='mb-3'><label class='form-label'>c a p a c i t y</label><input id='capacity' class='form-control' type='text' placeholder='Enter c a p a c i t y'></div>
+<div class='mb-3'><label class='form-label'>c a p a c i t y U n i t</label><select id='capacityUnit' class='form-select'>
+<option value="Unknown">Unknown</option>
+<option value="Piece">Piece</option>
+<option value="Unit">Unit</option>
+<option value="Set">Set</option>
+<option value="Kit">Kit</option>
+<option value="Bundle">Bundle</option>
+<option value="Box">Box</option>
+<option value="Case">Case</option>
+<option value="Pallet">Pallet</option>
+<option value="Dozen">Dozen</option>
+<option value="Pack">Pack</option>
+<option value="Pair">Pair</option>
+<option value="Ream">Ream</option>
+<option value="Hour">Hour</option>
+<option value="Day">Day</option>
+<option value="Week">Week</option>
+<option value="Month">Month</option>
+<option value="Year">Year</option>
+<option value="Quarter">Quarter</option>
+<option value="Session">Session</option>
+<option value="Seat">Seat</option>
+<option value="User">User</option>
+<option value="License">License</option>
+<option value="Credit">Credit</option>
+<option value="Subscription">Subscription</option>
+<option value="Kilogram">Kilogram</option>
+<option value="Gram">Gram</option>
+<option value="MetricTon">MetricTon</option>
+<option value="Pound">Pound</option>
+<option value="Ounce">Ounce</option>
+<option value="Milligram">Milligram</option>
+<option value="Meter">Meter</option>
+<option value="Centimeter">Centimeter</option>
+<option value="Millimeter">Millimeter</option>
+<option value="Foot">Foot</option>
+<option value="Inch">Inch</option>
+<option value="Yard">Yard</option>
+<option value="Kilometer">Kilometer</option>
+<option value="Mile">Mile</option>
+<option value="SquareMeter">SquareMeter</option>
+<option value="SquareFoot">SquareFoot</option>
+<option value="SquareYard">SquareYard</option>
+<option value="SquareKilometer">SquareKilometer</option>
+<option value="Hectare">Hectare</option>
+<option value="Acre">Acre</option>
+<option value="Liter">Liter</option>
+<option value="Milliliter">Milliliter</option>
+<option value="Gallon">Gallon</option>
+<option value="Quart">Quart</option>
+<option value="Pint">Pint</option>
+<option value="Cup">Cup</option>
+<option value="CubicMeter">CubicMeter</option>
+<option value="CubicFoot">CubicFoot</option>
+<option value="Barrel">Barrel</option>
+<option value="KilowattHour">KilowattHour</option>
+<option value="Watt">Watt</option>
+<option value="Joule">Joule</option>
+<option value="CalorieSmall">CalorieSmall</option>
+<option value="CalorieKilo">CalorieKilo</option>
+<option value="Byte">Byte</option>
+<option value="Kilobyte">Kilobyte</option>
+<option value="Megabyte">Megabyte</option>
+<option value="Gigabyte">Gigabyte</option>
+<option value="Terabyte">Terabyte</option>
+<option value="Petabyte">Petabyte</option>
+<option value="Impression">Impression</option>
+<option value="Click">Click</option>
+<option value="View">View</option>
+<option value="Lead">Lead</option>
+<option value="Conversion">Conversion</option>
+<option value="Download">Download</option>
+<option value="Percentage">Percentage</option>
+<option value="Rating">Rating</option>
+<option value="Point">Point</option>
+<option value="Token">Token</option>
+<option value="Custom">Custom</option>
+</select></div>
+<div class='mb-3'><label class='form-label'>t e m p e r a t u r e C o n t r o l l e d</label><input id='temperatureControlled' class='form-control' type='text' placeholder='Enter t e m p e r a t u r e C o n t r o l l e d'></div>
+<div class='mb-3'><label class='form-label'>h a z m a t C e r t i f i e d</label><input id='hazmatCertified' class='form-control' type='text' placeholder='Enter h a z m a t C e r t i f i e d'></div>
+      <div class='mb-3'>
+        <button id='submitBtn' class='btn btn-primary' type='button'>Create</button>
+        <button id='previewBtn' class='btn btn-outline-secondary ms-2' type='button'>Preview Request</button>
+      </div>
+    </form>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='card mb-3'>
+          <div class='card-body'>
+            <h5 class='card-title'>Request Preview</h5>
+            <pre id='requestJson' style='white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px'></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function gather(){
+      const obj = {};      obj['warehouseCode'] = document.getElementById('warehouseCode') && document.getElementById('warehouseCode').value ? document.getElementById('warehouseCode').value : null;\n      obj['warehouseName'] = document.getElementById('warehouseName') && document.getElementById('warehouseName').value ? document.getElementById('warehouseName').value : null;\n      obj['warehouseType'] = document.getElementById('warehouseType') && document.getElementById('warehouseType').value ? document.getElementById('warehouseType').value : null;\n      obj['location'] = document.getElementById('location') && document.getElementById('location').value ? document.getElementById('location').value : null;\n      obj['capacity'] = document.getElementById('capacity') && document.getElementById('capacity').value ? document.getElementById('capacity').value : null;\n      obj['capacityUnit'] = document.getElementById('capacityUnit') && document.getElementById('capacityUnit').value ? document.getElementById('capacityUnit').value : null;\n      obj['temperatureControlled'] = document.getElementById('temperatureControlled') && document.getElementById('temperatureControlled').value ? document.getElementById('temperatureControlled').value : null;\n      obj['hazmatCertified'] = document.getElementById('hazmatCertified') && document.getElementById('hazmatCertified').value ? document.getElementById('hazmatCertified').value : null;\n      return obj;
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      const payload = gather();
+      document.getElementById('requestJson').textContent = JSON.stringify(payload,null,2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(),null,2);
+      alert('This is a mockup preview. Use the API docs to send real requests.')
+    });
+  </script>
+</body>
+</html>

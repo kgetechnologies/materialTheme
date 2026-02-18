@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Platform Admin Dashboard</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>
+    body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif;background:#f5f5f5}
+    .stat-card{background:#fff;border-radius:8px;padding:20px;margin-bottom:20px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+    .stat-value{font-size:2rem;font-weight:bold;color:#0d6efd}
+    .stat-label{color:#6c757d;font-size:0.9rem}
+    .chart-container{background:#fff;border-radius:8px;padding:20px;margin-bottom:20px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+  </style>
+</head>
+<body>
+  <div class='container-fluid'>
+    <div class='d-flex justify-content-between align-items-center mb-4'>
+      <h1>Platform Admin Dashboard</h1>
+      <div>
+        <button class='btn btn-outline-primary btn-sm'>Refresh</button>
+        <a href='../MainMenu/index.html' class='btn btn-outline-secondary btn-sm'>Main Menu</a>
+      </div>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class='row'>
+      <div class='col-md-3'>
+        <div class='stat-card'>
+          <div class='stat-value'>47</div>
+          <div class='stat-label'>Total Companies</div>
+          <small class='text-success'>↑ 3 this month</small>
+        </div>
+      </div>
+      <div class='col-md-3'>
+        <div class='stat-card'>
+          <div class='stat-value'>42</div>
+          <div class='stat-label'>Active Companies</div>
+          <small class='text-muted'>89% active rate</small>
+        </div>
+      </div>
+      <div class='col-md-3'>
+        <div class='stat-card'>
+          <div class='stat-value'>1,247</div>
+          <div class='stat-label'>Total Users</div>
+          <small class='text-success'>↑ 18 this week</small>
+        </div>
+      </div>
+      <div class='col-md-3'>
+        <div class='stat-card'>
+          <div class='stat-value'>98.7%</div>
+          <div class='stat-label'>System Uptime</div>
+          <small class='text-success'>Last 30 days</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- System Health -->
+    <div class='row'>
+      <div class='col-md-6'>
+        <div class='chart-container'>
+          <h5>System Health</h5>
+          <table class='table table-sm'>
+            <tbody>
+              <tr><td>Database</td><td><span class='badge bg-success'>Healthy</span></td><td>2ms avg</td></tr>
+              <tr><td>Redis Cache</td><td><span class='badge bg-success'>Healthy</span></td><td>0.5ms avg</td></tr>
+              <tr><td>API Response</td><td><span class='badge bg-success'>Healthy</span></td><td>45ms avg</td></tr>
+              <tr><td>Storage (S3)</td><td><span class='badge bg-success'>Healthy</span></td><td>120ms avg</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class='col-md-6'>
+        <div class='chart-container'>
+          <h5>Resource Usage</h5>
+          <div class='mb-3'>
+            <label class='form-label'>Database Storage</label>
+            <div class='progress'><div class='progress-bar' style='width:67%'>67%</div></div>
+            <small class='text-muted'>45.2 GB / 67.5 GB</small>
+          </div>
+          <div class='mb-3'>
+            <label class='form-label'>Cache Memory</label>
+            <div class='progress'><div class='progress-bar bg-warning' style='width:82%'>82%</div></div>
+            <small class='text-muted'>6.5 GB / 8 GB</small>
+          </div>
+          <div class='mb-3'>
+            <label class='form-label'>Document Storage</label>
+            <div class='progress'><div class='progress-bar bg-info' style='width:45%'>45%</div></div>
+            <small class='text-muted'>225 GB / 500 GB</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class='row'>
+      <div class='col-md-6'>
+        <div class='chart-container'>
+          <h5>Recent Companies</h5>
+          <table class='table table-sm table-hover'>
+            <thead><tr><th>Company</th><th>Plan</th><th>Status</th><th>Created</th></tr></thead>
+            <tbody>
+              <tr><td>Acme Manufacturing</td><td>Enterprise</td><td><span class='badge bg-success'>Active</span></td><td>2024-02-10</td></tr>
+              <tr><td>TechCorp Industries</td><td>Professional</td><td><span class='badge bg-success'>Active</span></td><td>2024-02-09</td></tr>
+              <tr><td>Global Widgets Inc</td><td>Starter</td><td><span class='badge bg-warning'>Pending</span></td><td>2024-02-08</td></tr>
+            </tbody>
+          </table>
+          <a href='../01_Company_Management/01_Companies/01_Companies_List.html' class='btn btn-sm btn-outline-primary'>View All Companies</a>
+        </div>
+      </div>
+      <div class='col-md-6'>
+        <div class='chart-container'>
+          <h5>Support Tickets</h5>
+          <table class='table table-sm table-hover'>
+            <thead><tr><th>Ticket</th><th>Company</th><th>Priority</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>#1247</td><td>Acme Manufacturing</td><td><span class='badge bg-danger'>High</span></td><td>Open</td></tr>
+              <tr><td>#1246</td><td>TechCorp Industries</td><td><span class='badge bg-warning'>Medium</span></td><td>In Progress</td></tr>
+              <tr><td>#1245</td><td>Global Widgets Inc</td><td><span class='badge bg-info'>Low</span></td><td>Resolved</td></tr>
+            </tbody>
+          </table>
+          <a href='../05_Support_System/01_SupportTickets/01_SupportTickets_List.html' class='btn btn-sm btn-outline-primary'>View All Tickets</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='chart-container'>
+          <h5>Quick Actions</h5>
+          <div class='d-flex gap-2 flex-wrap'>
+            <a href='../01_Company_Management/01_Companies/01_Companies_Create.html' class='btn btn-primary'>Create Company</a>
+            <a href='../02_User_Management/01_Users/01_Users_Create.html' class='btn btn-primary'>Create User</a>
+            <a href='../03_Platform_Features/01_FeatureFlags/01_FeatureFlags_Create.html' class='btn btn-secondary'>Add Feature Flag</a>
+            <a href='../03_Platform_Features/02_VendorCache/02_VendorCache_Create.html' class='btn btn-secondary'>Configure Cache</a>
+            <a href='../03_Platform_Features/03_VendorDatabase/03_VendorDatabase_Create.html' class='btn btn-secondary'>Configure Database</a>
+            <a href='../04_Monitoring_Analytics/01_Monitoring/01_Monitoring_Dashboard.html' class='btn btn-info'>View Monitoring</a>
+            <a href='../04_Monitoring_Analytics/02_StockDefects/02_StockDefects_Analytics.html' class='btn btn-info'>View Analytics</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Edit Database Configuration</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif}</style>
+</head>
+<body>
+  <div class='container'>
+    <h1>Edit Database Configuration</h1>
+    <form>
+      <div class='mb-3'><label class='form-label'>Company</label><input class='form-control' value='Acme Manufacturing' readonly></div>
+      <div class='mb-3'><label class='form-label'>Database Server</label><input id='server' class='form-control' value='sql-server.database.windows.net'></div>
+      <div class='mb-3'><label class='form-label'>Database Name</label><input id='database' class='form-control' value='ManufacturingCRM'></div>
+      <div class='mb-3'><label class='form-label'>Connection String</label><textarea id='connectionString' class='form-control' rows='2'>Server=sql-server.database.windows.net;Database=ManufacturingCRM;...</textarea></div>
+      <div class='form-check mb-3'><input type='checkbox' class='form-check-input' id='autoProvision' checked><label class='form-check-label'>Auto-Provision Tenant Tables</label></div>
+      <div class='form-check mb-3'><input type='checkbox' class='form-check-input' id='enableBackups' checked><label class='form-check-label'>Enable Automated Backups</label></div>
+      <div class='mb-3'><label class='form-label'>Backup Retention (days)</label><input id='backupRetentionDays' type='number' class='form-control' value='30'></div>
+      <button type='button' class='btn btn-primary'>Update Configuration</button>
+      <button type='button' class='btn btn-outline-secondary'>Test Connection</button>
+      <button type='button' class='btn btn-warning'>Create Backup Now</button>
+      <a href='03_VendorDatabase_View.html' class='btn btn-secondary'>Cancel</a>
+    </form>
+  </div>
+</body>
+</html>

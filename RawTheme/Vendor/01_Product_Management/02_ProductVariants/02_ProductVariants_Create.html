@@ -1,0 +1,232 @@
+﻿<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Create - ProductVariants Create</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='d-flex justify-content-between align-items-center mb-3'>
+      <h1>Create ProductVariants Create</h1>
+      <div>
+        <a class='btn btn-outline-secondary' href='02_ProductVariants_List.html'>Back to list</a>
+        <a class='btn btn-link muted' href='02_ProductVariants_API.md' target='_blank'>API Docs</a>
+      </div>
+    </div>
+
+    <p class='text-muted'>This form maps to the API create endpoint. Include tenant header <code>X-Company-Id</code> when applicable.</p>
+
+    <form id='createForm' novalidate><div class='mb-3'><label class='form-label'>p r o d u c t I d</label><input id='productId' class='form-control' type='number' placeholder='Enter p r o d u c t I d'></div>
+<div class='mb-3'><label class='form-label'>v a r i a n t N a m e</label><input id='variantName' class='form-control' type='text' placeholder='Enter v a r i a n t N a m e'></div>
+<div class='mb-3'><label class='form-label'>s k u</label><input id='sku' class='form-control' type='text' placeholder='Enter s k u'></div>
+<div class='mb-3'><label class='form-label'>b a r c o d e</label><input id='barcode' class='form-control' type='text' placeholder='Enter b a r c o d e'></div>
+<div class='mb-3'><label class='form-label'>d e s c r i p t i o n</label><input id='description' class='form-control' type='text' placeholder='Enter d e s c r i p t i o n'></div>
+<div class='mb-3'><label class='form-label'>v a r i a n t A t t r i b u t e s</label><input id='variantAttributes' class='form-control' type='text' placeholder='Enter v a r i a n t A t t r i b u t e s'></div>
+<div class='mb-3'><label class='form-label'>b a s e P r i c e</label><input id='basePrice' class='form-control' type='text' placeholder='Enter b a s e P r i c e'></div>
+<div class='mb-3'><label class='form-label'>w h o l e s a l e P r i c e</label><input id='wholesalePrice' class='form-control' type='text' placeholder='Enter w h o l e s a l e P r i c e'></div>
+<div class='mb-3'><label class='form-label'>r e t a i l P r i c e</label><input id='retailPrice' class='form-control' type='text' placeholder='Enter r e t a i l P r i c e'></div>
+<div class='mb-3'><label class='form-label'>c o s t P r i c e</label><input id='costPrice' class='form-control' type='text' placeholder='Enter c o s t P r i c e'></div>
+<div class='mb-3'><label class='form-label'>m i n i m u m S t o c k</label><input id='minimumStock' class='form-control' type='text' placeholder='Enter m i n i m u m S t o c k'></div>
+<div class='mb-3'><label class='form-label'>m a x i m u m S t o c k</label><input id='maximumStock' class='form-control' type='text' placeholder='Enter m a x i m u m S t o c k'></div>
+<div class='mb-3'><label class='form-label'>r e o r d e r P o i n t</label><input id='reorderPoint' class='form-control' type='text' placeholder='Enter r e o r d e r P o i n t'></div>
+<div class='mb-3'><label class='form-label'>w e i g h t</label><input id='weight' class='form-control' type='text' placeholder='Enter w e i g h t'></div>
+<div class='mb-3'><label class='form-label'>w e i g h t U n i t</label><select id='weightUnit' class='form-select'>
+<option value="Unknown">Unknown</option>
+<option value="Piece">Piece</option>
+<option value="Unit">Unit</option>
+<option value="Set">Set</option>
+<option value="Kit">Kit</option>
+<option value="Bundle">Bundle</option>
+<option value="Box">Box</option>
+<option value="Case">Case</option>
+<option value="Pallet">Pallet</option>
+<option value="Dozen">Dozen</option>
+<option value="Pack">Pack</option>
+<option value="Pair">Pair</option>
+<option value="Ream">Ream</option>
+<option value="Hour">Hour</option>
+<option value="Day">Day</option>
+<option value="Week">Week</option>
+<option value="Month">Month</option>
+<option value="Year">Year</option>
+<option value="Quarter">Quarter</option>
+<option value="Session">Session</option>
+<option value="Seat">Seat</option>
+<option value="User">User</option>
+<option value="License">License</option>
+<option value="Credit">Credit</option>
+<option value="Subscription">Subscription</option>
+<option value="Kilogram">Kilogram</option>
+<option value="Gram">Gram</option>
+<option value="MetricTon">MetricTon</option>
+<option value="Pound">Pound</option>
+<option value="Ounce">Ounce</option>
+<option value="Milligram">Milligram</option>
+<option value="Meter">Meter</option>
+<option value="Centimeter">Centimeter</option>
+<option value="Millimeter">Millimeter</option>
+<option value="Foot">Foot</option>
+<option value="Inch">Inch</option>
+<option value="Yard">Yard</option>
+<option value="Kilometer">Kilometer</option>
+<option value="Mile">Mile</option>
+<option value="SquareMeter">SquareMeter</option>
+<option value="SquareFoot">SquareFoot</option>
+<option value="SquareYard">SquareYard</option>
+<option value="SquareKilometer">SquareKilometer</option>
+<option value="Hectare">Hectare</option>
+<option value="Acre">Acre</option>
+<option value="Liter">Liter</option>
+<option value="Milliliter">Milliliter</option>
+<option value="Gallon">Gallon</option>
+<option value="Quart">Quart</option>
+<option value="Pint">Pint</option>
+<option value="Cup">Cup</option>
+<option value="CubicMeter">CubicMeter</option>
+<option value="CubicFoot">CubicFoot</option>
+<option value="Barrel">Barrel</option>
+<option value="KilowattHour">KilowattHour</option>
+<option value="Watt">Watt</option>
+<option value="Joule">Joule</option>
+<option value="CalorieSmall">CalorieSmall</option>
+<option value="CalorieKilo">CalorieKilo</option>
+<option value="Byte">Byte</option>
+<option value="Kilobyte">Kilobyte</option>
+<option value="Megabyte">Megabyte</option>
+<option value="Gigabyte">Gigabyte</option>
+<option value="Terabyte">Terabyte</option>
+<option value="Petabyte">Petabyte</option>
+<option value="Impression">Impression</option>
+<option value="Click">Click</option>
+<option value="View">View</option>
+<option value="Lead">Lead</option>
+<option value="Conversion">Conversion</option>
+<option value="Download">Download</option>
+<option value="Percentage">Percentage</option>
+<option value="Rating">Rating</option>
+<option value="Point">Point</option>
+<option value="Token">Token</option>
+<option value="Custom">Custom</option>
+</select></div>
+<div class='mb-3'><label class='form-label'>l e n g t h</label><input id='length' class='form-control' type='text' placeholder='Enter l e n g t h'></div>
+<div class='mb-3'><label class='form-label'>w i d t h</label><input id='width' class='form-control' type='text' placeholder='Enter w i d t h'></div>
+<div class='mb-3'><label class='form-label'>h e i g h t</label><input id='height' class='form-control' type='text' placeholder='Enter h e i g h t'></div>
+<div class='mb-3'><label class='form-label'>d i m e n s i o n U n i t</label><select id='dimensionUnit' class='form-select'>
+<option value="Unknown">Unknown</option>
+<option value="Piece">Piece</option>
+<option value="Unit">Unit</option>
+<option value="Set">Set</option>
+<option value="Kit">Kit</option>
+<option value="Bundle">Bundle</option>
+<option value="Box">Box</option>
+<option value="Case">Case</option>
+<option value="Pallet">Pallet</option>
+<option value="Dozen">Dozen</option>
+<option value="Pack">Pack</option>
+<option value="Pair">Pair</option>
+<option value="Ream">Ream</option>
+<option value="Hour">Hour</option>
+<option value="Day">Day</option>
+<option value="Week">Week</option>
+<option value="Month">Month</option>
+<option value="Year">Year</option>
+<option value="Quarter">Quarter</option>
+<option value="Session">Session</option>
+<option value="Seat">Seat</option>
+<option value="User">User</option>
+<option value="License">License</option>
+<option value="Credit">Credit</option>
+<option value="Subscription">Subscription</option>
+<option value="Kilogram">Kilogram</option>
+<option value="Gram">Gram</option>
+<option value="MetricTon">MetricTon</option>
+<option value="Pound">Pound</option>
+<option value="Ounce">Ounce</option>
+<option value="Milligram">Milligram</option>
+<option value="Meter">Meter</option>
+<option value="Centimeter">Centimeter</option>
+<option value="Millimeter">Millimeter</option>
+<option value="Foot">Foot</option>
+<option value="Inch">Inch</option>
+<option value="Yard">Yard</option>
+<option value="Kilometer">Kilometer</option>
+<option value="Mile">Mile</option>
+<option value="SquareMeter">SquareMeter</option>
+<option value="SquareFoot">SquareFoot</option>
+<option value="SquareYard">SquareYard</option>
+<option value="SquareKilometer">SquareKilometer</option>
+<option value="Hectare">Hectare</option>
+<option value="Acre">Acre</option>
+<option value="Liter">Liter</option>
+<option value="Milliliter">Milliliter</option>
+<option value="Gallon">Gallon</option>
+<option value="Quart">Quart</option>
+<option value="Pint">Pint</option>
+<option value="Cup">Cup</option>
+<option value="CubicMeter">CubicMeter</option>
+<option value="CubicFoot">CubicFoot</option>
+<option value="Barrel">Barrel</option>
+<option value="KilowattHour">KilowattHour</option>
+<option value="Watt">Watt</option>
+<option value="Joule">Joule</option>
+<option value="CalorieSmall">CalorieSmall</option>
+<option value="CalorieKilo">CalorieKilo</option>
+<option value="Byte">Byte</option>
+<option value="Kilobyte">Kilobyte</option>
+<option value="Megabyte">Megabyte</option>
+<option value="Gigabyte">Gigabyte</option>
+<option value="Terabyte">Terabyte</option>
+<option value="Petabyte">Petabyte</option>
+<option value="Impression">Impression</option>
+<option value="Click">Click</option>
+<option value="View">View</option>
+<option value="Lead">Lead</option>
+<option value="Conversion">Conversion</option>
+<option value="Download">Download</option>
+<option value="Percentage">Percentage</option>
+<option value="Rating">Rating</option>
+<option value="Point">Point</option>
+<option value="Token">Token</option>
+<option value="Custom">Custom</option>
+</select></div>
+<div class='mb-3'><label class='form-label'>i s D e f a u l t</label><input id='isDefault' class='form-control' type='text' placeholder='Enter i s D e f a u l t'></div>
+<div class='mb-3'><label class='form-label'>n o t e s</label><input id='notes' class='form-control' type='text' placeholder='Enter n o t e s'></div>
+      <div class='mb-3'>
+        <button id='submitBtn' class='btn btn-primary' type='button'>Create</button>
+        <button id='previewBtn' class='btn btn-outline-secondary ms-2' type='button'>Preview Request</button>
+      </div>
+    </form>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='card mb-3'>
+          <div class='card-body'>
+            <h5 class='card-title'>Request Preview</h5>
+            <pre id='requestJson' style='white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px'></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function gather(){
+      const obj = {};      obj['productId'] = document.getElementById('productId') && document.getElementById('productId').value ? document.getElementById('productId').value : null;\n      obj['variantName'] = document.getElementById('variantName') && document.getElementById('variantName').value ? document.getElementById('variantName').value : null;\n      obj['sku'] = document.getElementById('sku') && document.getElementById('sku').value ? document.getElementById('sku').value : null;\n      obj['barcode'] = document.getElementById('barcode') && document.getElementById('barcode').value ? document.getElementById('barcode').value : null;\n      obj['description'] = document.getElementById('description') && document.getElementById('description').value ? document.getElementById('description').value : null;\n      obj['variantAttributes'] = document.getElementById('variantAttributes') && document.getElementById('variantAttributes').value ? document.getElementById('variantAttributes').value : null;\n      obj['basePrice'] = document.getElementById('basePrice') && document.getElementById('basePrice').value ? document.getElementById('basePrice').value : null;\n      obj['wholesalePrice'] = document.getElementById('wholesalePrice') && document.getElementById('wholesalePrice').value ? document.getElementById('wholesalePrice').value : null;\n      obj['retailPrice'] = document.getElementById('retailPrice') && document.getElementById('retailPrice').value ? document.getElementById('retailPrice').value : null;\n      obj['costPrice'] = document.getElementById('costPrice') && document.getElementById('costPrice').value ? document.getElementById('costPrice').value : null;\n      obj['minimumStock'] = document.getElementById('minimumStock') && document.getElementById('minimumStock').value ? document.getElementById('minimumStock').value : null;\n      obj['maximumStock'] = document.getElementById('maximumStock') && document.getElementById('maximumStock').value ? document.getElementById('maximumStock').value : null;\n      obj['reorderPoint'] = document.getElementById('reorderPoint') && document.getElementById('reorderPoint').value ? document.getElementById('reorderPoint').value : null;\n      obj['weight'] = document.getElementById('weight') && document.getElementById('weight').value ? document.getElementById('weight').value : null;\n      obj['weightUnit'] = document.getElementById('weightUnit') && document.getElementById('weightUnit').value ? document.getElementById('weightUnit').value : null;\n      obj['length'] = document.getElementById('length') && document.getElementById('length').value ? document.getElementById('length').value : null;\n      obj['width'] = document.getElementById('width') && document.getElementById('width').value ? document.getElementById('width').value : null;\n      obj['height'] = document.getElementById('height') && document.getElementById('height').value ? document.getElementById('height').value : null;\n      obj['dimensionUnit'] = document.getElementById('dimensionUnit') && document.getElementById('dimensionUnit').value ? document.getElementById('dimensionUnit').value : null;\n      obj['isDefault'] = document.getElementById('isDefault') && document.getElementById('isDefault').value ? document.getElementById('isDefault').value : null;\n      obj['notes'] = document.getElementById('notes') && document.getElementById('notes').value ? document.getElementById('notes').value : null;\n      return obj;
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      const payload = gather();
+      document.getElementById('requestJson').textContent = JSON.stringify(payload,null,2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(),null,2);
+      alert('This is a mockup preview. Use the API docs to send real requests.')
+    });
+  </script>
+</body>
+</html>

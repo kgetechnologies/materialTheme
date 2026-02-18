@@ -1,0 +1,95 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Email Notification</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Create Email Notification</h1>
+      <div>
+        <a class="btn btn-outline-secondary" href="05_EmailNotifications_List.html">Back to list</a>
+        <a class="btn btn-link muted" href="05_EmailNotifications_API.md" target="_blank">API Docs</a>
+      </div>
+    </div>
+
+    <p class="text-muted">This form maps to the API create endpoint. Include tenant header <code>X-Company-Id</code> when applicable.</p>
+
+    <form id="form" novalidate>
+      <div class="mb-3">
+        <label class="form-label">Template ID</label>
+        <input id="templateId" class="form-control" type="number">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input id="name" class="form-control" type="text" placeholder="Enter name">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Subject</label>
+        <input id="subject" class="form-control" type="text" placeholder="Enter subject">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Body</label>
+        <textarea id="body" class="form-control" rows="6" placeholder="Enter email body"></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Recipients (comma-separated)</label>
+        <input id="recipients" class="form-control" placeholder="orders@company.com, customer@domain.com">
+      </div>
+      <div class="form-check form-switch mb-3">
+        <input id="isActive" class="form-check-input" type="checkbox" checked>
+        <label class="form-check-label" for="isActive">Active</label>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Schedule (ISO or CRON)</label>
+        <input id="schedule" class="form-control" placeholder="Enter schedule">
+      </div>
+      <div class="mb-3">
+        <button id="preview" type="button" class="btn btn-outline-secondary">Preview</button>
+        <button id="submit" type="button" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Request Preview</h5>
+            <pre id="previewJson" style="white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function gather(){
+      const obj = {
+        templateId: document.getElementById('templateId').value ? parseInt(document.getElementById('templateId').value) : null,
+        name: document.getElementById('name').value || null,
+        subject: document.getElementById('subject').value || null,
+        body: document.getElementById('body').value || null,
+        recipients: document.getElementById('recipients').value ? document.getElementById('recipients').value.split(',').map(x=>x.trim()) : [],
+        isActive: document.getElementById('isActive').checked,
+        schedule: document.getElementById('schedule').value || null
+      };
+      return obj;
+    }
+
+    document.getElementById('preview').addEventListener('click', ()=>{
+      const payload = gather();
+      document.getElementById('previewJson').textContent = JSON.stringify(payload,null,2);
+    });
+
+    document.getElementById('submit').addEventListener('click', ()=>{
+      document.getElementById('preview').click();
+      alert('This is a mockup preview. Use the API docs to send real requests.')
+    });
+  </script>
+</body>
+</html>

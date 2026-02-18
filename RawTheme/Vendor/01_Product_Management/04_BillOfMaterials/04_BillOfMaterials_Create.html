@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Create - BillOfMaterials Create</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <style>body{padding:20px;font-family:Segoe UI,Arial,Helvetica,sans-serif} .muted{color:#6c757d}</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='d-flex justify-content-between align-items-center mb-3'>
+      <h1>Create BillOfMaterials Create</h1>
+      <div>
+        <a class='btn btn-outline-secondary' href='04_BillOfMaterials_List.html'>Back to list</a>
+        <a class='btn btn-link muted' href='04_BillOfMaterials_API.md' target='_blank'>API Docs</a>
+      </div>
+    </div>
+
+    <p class='text-muted'>This form maps to the API create endpoint. Include tenant header <code>X-Company-Id</code> when applicable.</p>
+
+    <form id='createForm' novalidate><div class='mb-3'><label class='form-label'>p r o d u c t L i n e I d</label><input id='productLineId' class='form-control' type='number' placeholder='Enter p r o d u c t L i n e I d'></div>
+<div class='mb-3'><label class='form-label'>v e r s i o n</label><input id='version' class='form-control' type='text' placeholder='Enter v e r s i o n'></div>
+<div class='mb-3'><label class='form-label'>n o t e s</label><input id='notes' class='form-control' type='text' placeholder='Enter n o t e s'></div>
+<div class='mb-3'><label class='form-label'>c o m p o n e n t s</label><input id='components' class='form-control' type='text' placeholder='Enter c o m p o n e n t s'></div>
+      <div class='mb-3'>
+        <button id='submitBtn' class='btn btn-primary' type='button'>Create</button>
+        <button id='previewBtn' class='btn btn-outline-secondary ms-2' type='button'>Preview Request</button>
+      </div>
+    </form>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class='card mb-3'>
+          <div class='card-body'>
+            <h5 class='card-title'>Request Preview</h5>
+            <pre id='requestJson' style='white-space:pre-wrap;word-break:break-all;background:#f8f9fa;padding:12px;border-radius:6px'></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function gather(){
+      const obj = {};      obj['productLineId'] = document.getElementById('productLineId') && document.getElementById('productLineId').value ? document.getElementById('productLineId').value : null;\n      obj['version'] = document.getElementById('version') && document.getElementById('version').value ? document.getElementById('version').value : null;\n      obj['notes'] = document.getElementById('notes') && document.getElementById('notes').value ? document.getElementById('notes').value : null;\n      obj['components'] = document.getElementById('components') && document.getElementById('components').value ? document.getElementById('components').value : null;\n      return obj;
+    }
+
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      const payload = gather();
+      document.getElementById('requestJson').textContent = JSON.stringify(payload,null,2);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      document.getElementById('requestJson').textContent = JSON.stringify(gather(),null,2);
+      alert('This is a mockup preview. Use the API docs to send real requests.')
+    });
+  </script>
+</body>
+</html>
