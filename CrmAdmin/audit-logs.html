@@ -1853,7 +1853,8 @@
 
                                     <div class="col-md-3">
                                         <label class="form-label">Entity</label>
-                                        <select class="form-select">
+                                        <select class="form-select" id="entitySelect">
+
                                             <option>All</option>
                                             <option>User</option>
                                             <option>Tenant</option>
@@ -1869,18 +1870,28 @@
 
                                     <div class="col-md-3">
                                         <label class="form-label">From Date</label>
-                                        <input type="date" class="form-control">
+                                        <input type="date" class="form-control" id="fromDate">
+
+
                                     </div>
 
                                     <div class="col-md-3">
                                         <label class="form-label">To Date</label>
-                                        <input type="date" class="form-control">
+                                        <input type="date" class="form-control" id="toDate">
+
+
+
                                     </div>
+                                    <small id="dateError" class="text-danger d-none">
+                                        From Date cannot be greater than To Date
+                                    </small>
+
 
                                 </div>
 
                                 <div class="mt-3 text-end">
-                                    <button class="btn btn-primary">Search</button>
+                                    <button id="searchBtn" class="btn btn-primary">Search</button>
+
                                 </div>
                             </div>
                         </div>
@@ -1889,38 +1900,46 @@
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h5 class="mb-0">Audit Entries</h5>
-                                <button class="btn btn-sm btn-outline-secondary">Export Logs</button>
+                                <button class="btn btn-outline-primary" onclick="exportTableToCSV()">
+                                    Export
+                                </button>
+
+
                             </div>
 
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table id="listingTable" class="table">
+
                                         <thead>
                                             <tr>
-                                                <th>Timestamp</th>
-                                                <th>User</th>
-                                                <th>Entity</th>
-                                                <th>Action</th>
-                                                <th>Details</th>
-                                            </tr>
+                                                <th onclick="sortTable(0)">Timestamp ⬍</th>
+                                                <th onclick="sortTable(1)">User ⬍</th>
+                                                <th onclick="sortTable(2)">Entity ⬍</th>
+                                                <th onclick="sortTable(3)">Action ⬍</th>
+
+                                                <th onclick="sortTable(4)">Details ⬍</th>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>2024-10-12 10:30</td>
+                                                <td class="audit-date">2024-10-12 10:30</td>
+
                                                 <td>admin@kge.com</td>
                                                 <td>User</td>
                                                 <td>Role Updated</td>
                                                 <td>Assigned Manager role</td>
                                             </tr>
                                             <tr>
-                                                <td>2024-10-12 09:45</td>
+                                                <td class="audit-date">2024-10-12 09:45</td>
+
                                                 <td>ops@kge.com</td>
                                                 <td>Job</td>
                                                 <td>Status Changed</td>
                                                 <td>Marked job as Completed</td>
                                             </tr>
                                             <tr>
-                                                <td>2024-10-11 18:20</td>
+                                                <td class="audit-date">2024-10-11 18:20</td>
+
                                                 <td>system</td>
                                                 <td>Report</td>
                                                 <td>Generated</td>
@@ -1940,8 +1959,12 @@
                                 </nav>
                             </div>
                         </div>
+                        <div class="page-details">
+                            Running Jobs · Admin
+                        </div>
 
                     </div>
+
                     <!--/ Content -->
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
@@ -2007,6 +2030,241 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const select = document.getElementById('entitySelect');
+
+                            if (!select) return;
+
+                            // Separate "All" option
+                            const options = Array.from(select.options);
+                            const allOption = options.find(opt => opt.text.toLowerCase() === 'all');
+                            const otherOptions = options.filter(opt => opt !== allOption);
+
+                            // Sort alphabetically
+                            otherOptions.sort((a, b) => a.text.localeCompare(b.text));
+
+                            // Clear dropdown
+                            select.innerHTML = '';
+
+                            // Re-append options
+                            if (allOption) select.appendChild(allOption);
+                            otherOptions.forEach(opt => select.appendChild(opt));
+                        });
+                    </script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            document.querySelectorAll('.date-input').forEach(input => {
+                                input.addEventListener('input', function () {
+                                    this.value = this.value
+                                        .replace(/[^0-9]/g, '')
+                                        .replace(/^(\d{2})(\d)/, '$1-$2')
+                                        .replace(/^(\d{2})-(\d{2})(\d)/, '$1-$2-$3')
+                                        .slice(0, 10);
+                                });
+                            });
+                        });
+                    </script>
+                    <script>
+                        function parseDate(dateStr) {
+                            const parts = dateStr.split('-');
+                            if (parts.length !== 3) return null;
+                            return new Date(parts[2], parts[1] - 1, parts[0]);
+                        }
+
+                        function validateDateRange() {
+                            const fromInput = document.getElementById('fromDate');
+                            const toInput = document.getElementById('toDate');
+                            const error = document.getElementById('dateError');
+                            const searchBtn = document.getElementById('searchBtn');
+
+                            const fromDate = parseDate(fromInput.value);
+                            const toDate = parseDate(toInput.value);
+
+                            if (!fromDate || !toDate) {
+                                error.classList.add('d-none');
+                                return true;
+                            }
+
+                            if (fromDate > toDate) {
+                                error.classList.remove('d-none');
+                                searchBtn.disabled = true;
+                                return false;
+                            } else {
+                                error.classList.add('d-none');
+                                searchBtn.disabled = false;
+                                return true;
+                            }
+
+                        }
+
+                        document.getElementById('fromDate').addEventListener('change', validateDateRange);
+                        document.getElementById('toDate').addEventListener('change', validateDateRange);
+                    </script>
+                    <script>
+                        let sortDirection = true;
+
+                        function sortTable(columnIndex) {
+                            const table = document.getElementById("listingTable");
+                            const tbody = table.tBodies[0];
+                            const rows = Array.from(tbody.rows);
+
+                            sortDirection = !sortDirection;
+
+                            rows.sort((a, b) => {
+                                let valA = a.cells[columnIndex].innerText.trim();
+                                let valB = b.cells[columnIndex].innerText.trim();
+
+                                // Try numeric comparison
+                                let numA = parseFloat(valA.replace(/[^0-9.-]+/g, ""));
+                                let numB = parseFloat(valB.replace(/[^0-9.-]+/g, ""));
+
+                                if (!isNaN(numA) && !isNaN(numB)) {
+                                    return sortDirection ? numA - numB : numB - numA;
+                                }
+
+                                // Text comparison
+                                return sortDirection
+                                    ? valA.localeCompare(valB)
+                                    : valB.localeCompare(valA);
+                            });
+
+                            rows.forEach(row => tbody.appendChild(row));
+                        }
+                    </script>
+                    <script>
+                        document.getElementById("exportBtn")?.addEventListener("click", function () {
+                            const table = document.querySelector("table");
+                            if (!table) {
+                                alert("No data to export");
+                                return;
+                            }
+
+                            let csv = [];
+                            const rows = table.querySelectorAll("tr");
+
+                            rows.forEach(row => {
+                                const cols = row.querySelectorAll("th, td");
+                                let rowData = [];
+                                cols.forEach(col => {
+                                    rowData.push('"' + col.innerText.replace(/"/g, '""') + '"');
+                                });
+                                csv.push(rowData.join(","));
+                            });
+
+                            const csvBlob = new Blob([csv.join("\n")], { type: "text/csv" });
+                            const url = URL.createObjectURL(csvBlob);
+
+                            const link = document.createElement("a");
+                            link.href = url;
+                            link.download = "export.csv";
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        });
+                    </script>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const select = document.getElementById("entitySelect");
+                            if (!select) return;
+
+                            const options = Array.from(select.options);
+
+                            // Keep "All" at the top
+                            const allOption = options.find(opt => opt.text === "All");
+                            const otherOptions = options.filter(opt => opt.text !== "All");
+
+                            otherOptions.sort((a, b) => a.text.localeCompare(b.text));
+
+                            select.innerHTML = "";
+                            if (allOption) select.appendChild(allOption);
+                            otherOptions.forEach(opt => select.appendChild(opt));
+                        });
+                    </script>
+                    <script>
+                        function formatDateToDDMMYYYY(dateStr) {
+                            if (!dateStr) return "";
+                            const [year, month, day] = dateStr.split("-");
+                            return `${day}-${month}-${year}`;
+                        }
+
+                        function attachDateFormatter(inputId) {
+                            const input = document.getElementById(inputId);
+                            if (!input) return;
+
+                            input.addEventListener("change", function () {
+                                const formatted = formatDateToDDMMYYYY(this.value);
+                                this.setAttribute("data-display", formatted);
+                            });
+                        }
+
+                        attachDateFormatter("fromDate");
+                        attachDateFormatter("toDate");
+                    </script>
+                    <script>
+                        document.querySelectorAll(".audit-date").forEach(td => {
+                            const [date, time] = td.innerText.split(" ");
+                            const [y, m, d] = date.split("-");
+                            td.innerText = `${d}-${m}-${y} ${time}`;
+                        });
+                    </script>
+                    <script>
+                        const fromDate = document.getElementById("fromDate");
+                        const toDate = document.getElementById("toDate");
+                        const searchBtn = document.querySelector(".btn-primary");
+
+                        function validateDateRange() {
+                            if (!fromDate.value || !toDate.value) {
+                                searchBtn.disabled = false;
+                                return;
+                            }
+
+                            if (fromDate.value > toDate.value) {
+                                alert("From Date cannot be greater than To Date");
+                                searchBtn.disabled = true;
+                            } else {
+                                searchBtn.disabled = false;
+                            }
+                        }
+
+                        fromDate.addEventListener("change", validateDateRange);
+                        toDate.addEventListener("change", validateDateRange);
+                    </script>
+                    <script>
+                        fromDate.addEventListener("change", () => {
+                            toDate.min = fromDate.value;
+                        });
+
+                        toDate.addEventListener("change", () => {
+                            fromDate.max = toDate.value;
+                        });
+                    </script>
+                    <script>
+                        function exportTableToCSV() {
+                            const table = document.querySelector("table");
+                            let csv = [];
+
+                            for (let row of table.rows) {
+                                let cols = [];
+                                for (let cell of row.cells) {
+                                    cols.push('"' + cell.innerText.replace(/"/g, '""') + '"');
+                                }
+                                csv.push(cols.join(","));
+                            }
+
+                            const csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
+                            const downloadLink = document.createElement("a");
+
+                            downloadLink.download = "export.csv";
+                            downloadLink.href = window.URL.createObjectURL(csvFile);
+                            downloadLink.style.display = "none";
+
+                            document.body.appendChild(downloadLink);
+                            downloadLink.click();
+                            document.body.removeChild(downloadLink);
+                        }
+                    </script>
+
 </body>
 
 </html>
