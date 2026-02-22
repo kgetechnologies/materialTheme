@@ -1862,9 +1862,11 @@
                                         <strong>Status</strong>
                                         <div><span class="badge bg-success">Running</span></div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <strong>Start Time</strong>
-                                        <div>10:30 AM</div>
+                                    <div>
+                                        <div class="fw-semibold">Start Time</div>
+                                        <div class="text-muted">
+                                            2026-02-05 10:30 AM
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1877,7 +1879,7 @@
                             </div>
                             <div class="card-body">
 
-                                <div class="d-flex align-items-center mb-3">
+                                <div id="stage-1" class="d-flex align-items-center mb-3">
                                     <span class="badge bg-primary me-3">1</span>
                                     <div class="flex-grow-1">
                                         <strong>Cutting</strong>
@@ -1885,9 +1887,13 @@
                                     </div>
                                 </div>
 
-                                <div class="text-center mb-3">⬇</div>
+                                <div class="text-center mb-3">
+                                    <a href="#stage-2" class="text-decoration-none text-muted">
+                                        <i class="ri-arrow-down-line ri-24px"></i>
+                                    </a>
+                                </div>
 
-                                <div class="d-flex align-items-center mb-3">
+                                <div id="stage-2" class="d-flex align-items-center mb-3">
                                     <span class="badge bg-warning me-3">2</span>
                                     <div class="flex-grow-1">
                                         <strong>Welding</strong>
@@ -1895,9 +1901,13 @@
                                     </div>
                                 </div>
 
-                                <div class="text-center mb-3">⬇</div>
+                                <div class="text-center mb-3">
+                                    <a href="#stage-3" class="text-decoration-none text-muted">
+                                        <i class="ri-arrow-down-line ri-24px"></i>
+                                    </a>
+                                </div>
 
-                                <div class="d-flex align-items-center">
+                                <div id="stage-3" class="d-flex align-items-center">
                                     <span class="badge bg-secondary me-3">3</span>
                                     <div class="flex-grow-1">
                                         <strong>Painting</strong>
@@ -1944,10 +1954,18 @@
                             <div class="card-header">
                                 <h5 class="mb-0">Admin Actions</h5>
                             </div>
-                            <div class="card-body d-flex gap-2">
-                                <button class="btn btn-outline-warning">Force Complete Stage</button>
-                                <button class="btn btn-outline-secondary">Reopen Stage</button>
-                                <button class="btn btn-outline-danger">Add Manual Correction</button>
+                            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                                <button class="btn btn-primary">
+                                    Force Complete Stage
+                                </button>
+
+                                <button class="btn btn-primary">
+                                    Reopen Stage
+                                </button>
+
+                                <button class="btn btn-primary">
+                                    Add Manual Correction
+                                </button>
                             </div>
                         </div>
 

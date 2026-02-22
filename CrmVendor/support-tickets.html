@@ -1860,7 +1860,7 @@
                             <div class="col-xl-2 col-md-4 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <h4 class="mb-0">47</h4>
+                                        <h4 class="fw-bold text-primary">47</h4>
                                         <small class="text-muted">Total Tickets</small>
                                     </div>
                                 </div>
@@ -1869,7 +1869,7 @@
                             <div class="col-xl-2 col-md-4 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <h4 class="text-info mb-0">18</h4>
+                                        <h4 class="fw-bold text-info">18</h4>
                                         <small class="text-muted">Open</small>
                                     </div>
                                 </div>
@@ -1878,7 +1878,7 @@
                             <div class="col-xl-2 col-md-4 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <h4 class="text-warning mb-0">12</h4>
+                                        <h4 class="fw-bold text-warning">12</h4>
                                         <small class="text-muted">In Progress</small>
                                     </div>
                                 </div>
@@ -1887,7 +1887,7 @@
                             <div class="col-xl-3 col-md-6 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <h4 class="text-success mb-0">14</h4>
+                                        <h4 class="fw-bold text-success">14</h4>
                                         <small class="text-muted">Resolved Today</small>
                                     </div>
                                 </div>
@@ -1896,7 +1896,7 @@
                             <div class="col-xl-3 col-md-6 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <h4 class="text-danger mb-0">3</h4>
+                                        <h4 class="fw-bold text-danger">3</h4>
                                         <small class="text-muted">High Priority</small>
                                     </div>
                                 </div>
@@ -1911,7 +1911,8 @@
                                     <!-- Search -->
                                     <div class="flex-grow-1" style="max-width: 400px;">
                                         <input type="text" class="form-control"
-                                            placeholder="Search tickets by ID, title, or description">
+                                            placeholder="Search tickets by ID, title"
+                                            id="searchInput" />
                                     </div>
 
                                     <!-- Create Ticket -->
@@ -2317,7 +2318,25 @@
                         // Initial load
                         displayPage(1);
                     </script>
+                    <script>
+                        const searchInput = document.getElementById("searchInput");
+                        const table = document.getElementById("ticketsTable");
+                        const rows = table.querySelectorAll("tbody tr");
 
+                        searchInput.addEventListener("keyup", function () {
+                            const searchValue = searchInput.value.toLowerCase().trim();
+
+                            rows.forEach(row => {
+                                const rowText = row.innerText.toLowerCase();
+
+                                if (rowText.includes(searchValue)) {
+                                    row.style.display = "";
+                                } else {
+                                    row.style.display = "none";
+                                }
+                            });
+                        });
+                    </script>
 </body>
 
 </html>

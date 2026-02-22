@@ -1873,8 +1873,13 @@
                                     </div>
 
                                     <div class="col-md-3">
-                                        <label class="form-label">Date Range</label>
-                                        <input type="date" class="form-control">
+                                        <label class="form-label">From Date</label>
+                                        <input type="date" class="form-control" id="fromDate">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="form-label">To Date</label>
+                                        <input type="date" class="form-control" id="toDate">
                                     </div>
 
                                     <div class="col-md-2 d-flex align-items-end">
@@ -1896,9 +1901,19 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Date</th>
-                                                <th>Metric</th>
-                                                <th>Value</th>
+                                                <th onclick="sortTable(0)" class="sortable">
+                                                    DATE <span class="sort-icon">⇅</span>
+                                                </th>
+
+                                                <th onclick="sortTable(1)" class="sortable">
+                                                    METRIC <span class="sort-icon">⇅</span>
+                                                </th>
+
+                                                <th onclick="sortTable(2)" class="sortable">
+
+                                                    VALUE <span class="sort-icon ms-1">⇅</span>
+
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1945,7 +1960,9 @@
                                 <button class="btn btn-outline-primary">Subscribe</button>
                             </div>
                         </div>
-
+                        <div class="page-meta">
+                            Tenant Metrics · Monitoring
+                        </div>
                     </div>
                     <!--/ Content -->
                     <!-- Footer -->
@@ -2012,6 +2029,51 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script>
+                        const fromDate = document.getElementById("fromDate");
+                        const toDate = document.getElementById("toDate");
+
+                        fromDate.addEventListener("change", () => {
+                            toDate.min = fromDate.value;
+                        });
+                    </script>
+                    <script>
+                        let sortDirection = {};
+
+                        function sortTable(colIndex) {
+                            const table = document.querySelector("table");
+                            const tbody = table.tBodies[0];
+                            const rows = Array.from(tbody.rows);
+
+                            const isAsc = sortDirection[colIndex] = !sortDirection[colIndex];
+
+                            rows.sort((a, b) => {
+                                let x = a.cells[colIndex].innerText.trim();
+                                let y = b.cells[colIndex].innerText.trim();
+
+                                // Date handling
+                                if (!isNaN(Date.parse(x)) && !isNaN(Date.parse(y))) {
+                                    return isAsc ? new Date(x) - new Date(y) : new Date(y) - new Date(x);
+                                }
+
+                                // Number handling
+                                if (!isNaN(x) && !isNaN(y)) {
+                                    return isAsc ? x - y : y - x;
+                                }
+
+                                // Text handling
+                                return isAsc
+                                    ? x.localeCompare(y)
+                                    : y.localeCompare(x);
+                            });
+
+                            rows.forEach(row => tbody.appendChild(row));
+
+                            // Update arrow styles
+                            document.querySelectorAll(".sortable").forEach(th => th.classList.remove("active"));
+                            table.tHead.rows[0].cells[colIndex].classList.add("active");
+                        }
+                    </script>
 </body>
 
 </html>

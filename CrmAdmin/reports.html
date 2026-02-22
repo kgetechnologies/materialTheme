@@ -1884,11 +1884,18 @@
 
                                     <div class="col-md-8">
                                         <label class="form-label">Recipients (Emails)</label>
-                                        <input class="form-control" placeholder="admin@kge.com, ops@kge.com">
+                                        <input type="email" class="form-control" id="recipientEmail"
+                                            placeholder="Recipient Email" required onblur="validateRecipientEmail()">
+                                        <div class="invalid-feedback">
+                                            Please enter a valid email address (e.g. user@example.com)
+                                        </div>
                                     </div>
 
-                                    <div class="col-md-4 d-flex align-items-end">
-                                        <button class="btn btn-primary w-100">Create Report</button>
+                                    <div class="col-md-3">
+                                        <label class="form-label">&nbsp;</label>
+                                        <button class="btn btn-primary w-100 btn-match-input">
+                                            Create Report
+                                        </button>
                                     </div>
 
                                 </div>
@@ -1905,33 +1912,48 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>Dataset</th>
-                                                <th>Format</th>
-                                                <th>Schedule</th>
-                                                <th>Recipients</th>
-                                                <th>Status</th>
-                                                <th>Actions</th>
+                                                <th class="sortable" data-index="0">
+                                                    DATASET
+                                                    <span class="sort-icon"></span>
+                                                </th>
+                                                <th class="sortable" data-index="1">FORMAT <span
+                                                        class="sort-icon"></span></th>
+                                                <th class="sortable" data-index="2">SCHEDULE <span
+                                                        class="sort-icon"></span></th>
+                                                <th class="sortable" data-index="3">RECIPIENTS <span
+                                                        class="sort-icon"></span></th>
+                                                <th class="sortable" data-index="4">STATUS <span
+                                                        class="sort-icon"></span></th>
+                                                <th>ACTIONS</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Production</td>
-                                                <td>CSV</td>
-                                                <td>Daily</td>
-                                                <td>ops@kge.com</td>
-                                                <td><span class="badge bg-success">Active</span></td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-secondary">Run Now</button>
-                                                </td>
-                                            </tr>
                                             <tr>
                                                 <td>Defects</td>
                                                 <td>JSON</td>
                                                 <td>Weekly</td>
                                                 <td>admin@kge.com</td>
-                                                <td><span class="badge bg-secondary">Paused</span></td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                                    <span class="status-badge status-paused">Paused</span>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-outline-primary btn-sm action-btn">
+                                                        Edit
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Production</td>
+                                                <td>CSV</td>
+                                                <td>Daily</td>
+                                                <td>ops@kge.com</td>
+                                                <td>
+                                                    <span class="status-badge status-active">Active</span>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-sm action-btn">
+                                                        Run Now
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1939,7 +1961,25 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="d-flex justify-content-end mt-3">
+                            <ul class="pagination mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link">Previous</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link">2</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="page-meta">
+                            Reports & Exports · Admin
+                        </div>
                     </div>
                     <!--/ Content -->
                     <!-- Footer -->
@@ -2006,6 +2046,56 @@
 
                     <!-- Page JS -->
                     <script src="./assets/js/dashboards-analytics.js"></script>
+                    <script>
+                        document.querySelectorAll(".sortable").forEach(header => {
+                            header.addEventListener("click", function () {
+                                const table = this.closest("table");
+                                const tbody = table.querySelector("tbody");
+                                const index = this.dataset.index;
+                                const asc = !this.classList.contains("asc");
+
+                                // reset all headers
+                                table.querySelectorAll(".sortable").forEach(th => {
+                                    th.classList.remove("asc", "desc");
+                                });
+
+                                this.classList.add(asc ? "asc" : "desc");
+
+                                const rows = Array.from(tbody.querySelectorAll("tr"));
+
+                                rows.sort((a, b) => {
+                                    const A = a.children[index].innerText.trim().toLowerCase();
+                                    const B = b.children[index].innerText.trim().toLowerCase();
+
+                                    if (!isNaN(A) && !isNaN(B)) {
+                                        return asc ? A - B : B - A;
+                                    }
+
+                                    return asc ? A.localeCompare(B) : B.localeCompare(A);
+                                });
+
+                                rows.forEach(row => tbody.appendChild(row));
+                            });
+                        });
+                    </script>
+                    <script>
+                        function validateRecipientEmail() {
+                            const emailInput = document.getElementById("recipientEmail");
+                            const emailValue = emailInput.value.trim();
+
+                            // Standard email regex
+                            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                            if (!emailRegex.test(emailValue)) {
+                                emailInput.classList.add("is-invalid");
+                                return false;
+                            } else {
+                                emailInput.classList.remove("is-invalid");
+                                emailInput.classList.add("is-valid");
+                                return true;
+                            }
+                        }
+                    </script>
 </body>
 
 </html>

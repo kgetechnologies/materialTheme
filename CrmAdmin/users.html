@@ -1849,17 +1849,156 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h4 class="fw-bold mb-0">Users</h4>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inviteUserModal">
-                                Invite User
-                            </button>
 
+
+                        </div>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md">
+                                <div class="card text-white h-100"
+                                    style="background: linear-gradient(135deg,#6a6fd6,#8f94fb);">
+                                    <div class="card-body">
+                                        <small>Total Users</small>
+                                        <h3 class="fw-bold mb-0">1,428</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md">
+                                <div class="card text-white h-100"
+                                    style="background: linear-gradient(135deg,#f78fb3,#f368e0);">
+                                    <div class="card-body">
+                                        <small>Active Users</small>
+                                        <h3 class="fw-bold mb-0">1,256</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md">
+                                <div class="card text-white h-100"
+                                    style="background: linear-gradient(135deg,#48c6ef,#6f86d6);">
+                                    <div class="card-body">
+                                        <small>Admin Users</small>
+                                        <h3 class="fw-bold mb-0">45</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md">
+                                <div class="card text-white h-100"
+                                    style="background: linear-gradient(135deg,#2ed573,#1dd1a1);">
+                                    <div class="card-body">
+                                        <small>Pending Approval</small>
+                                        <h3 class="fw-bold mb-0">23</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md">
+                                <div class="card text-white h-100"
+                                    style="background: linear-gradient(135deg,#ff9f43,#feca57);">
+                                    <div class="card-body">
+                                        <small>Deactivated</small>
+                                        <h3 class="fw-bold mb-0">172</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Search by name or email">
+                                </div>
+                                <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="selectAllUsers">
+                                        <label class="form-check-label" for="selectAllUsers">
+                                            Select All
+                                        </label>
+                                        <small class="text-muted ms-2">
+                                            Applies to users listed below
+                                        </small>
+                                    </div>
+
+                                    <button class="btn btn-success btn-sm" id="bulkActivate">
+                                        Activate Selected
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm" id="bulkDeactivate">
+                                        Deactivate Selected
+                                    </button>
+
+                                    <button class="btn btn-warning btn-sm" id="bulkChangeRole">
+                                        Change Role
+                                    </button>
+
+                                </div>
+                                <div class="row g-3">
+
+                                    <!-- Company -->
+                                    <div class="col-md-2">
+                                        <label class="form-label">Company</label>
+                                        <select class="form-select" id="filterCompany">
+                                            <option>All Companies</option>
+                                            <option>KGE</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Role -->
+                                    <div class="col-md-2">
+                                        <label class="form-label">Role</label>
+                                        <select class="form-select" id="filterRole">
+                                            <option>All Roles</option>
+                                            <option>AppOwner</option>
+                                            <option>Architect</option>
+                                            <option>Manager</option>
+                                            <option>Viewer</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Status -->
+                                    <div class="col-md-2">
+                                        <label class="form-label">Status</label>
+                                        <select class="form-select" id="filterStatus">
+                                            <option>All Status</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+                                    </div>
+
+
+
+                                    <!-- Last Login -->
+                                    <div class="col-md-3">
+                                        <label class="form-label">Last Login</label>
+                                        <select class="form-select" id="filterLastLogin">
+                                            <option>All Time</option>
+                                            <option>Last 7 Days</option>
+                                            <option>Last 30 Days</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 d-flex align-items-end">
+                                        <button class="btn btn-outline-secondary w-100" id="clearFilters">
+                                            Clear Filters
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
+                                <div class="d-flex justify-content-end mb-3">
+                                    <button class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#inviteUserModal">
+                                        Invite User
+                                    </button>
+                                </div>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
+                                                <th style="width:40px;"></th>
                                                 <th>Email</th>
                                                 <th>Name</th>
                                                 <th>Roles</th>
@@ -1869,8 +2008,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                            <tr data-page="1">
+
+
+                                            <tr data-page="1" data-company="KGE" data-role="AppOwner" data-status="Yes"
+                                                data-lastlogin="2026-01-15">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>admin@kge.com</td>
                                                 <td>Admin User</td>
                                                 <td>AppOwner</td>
@@ -1885,8 +2029,12 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="1">
+
+                                            <tr data-page="1" data-company="KGE" data-role="Architect" data-status="No"
+                                                data-lastlogin="2026-01-15">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>vikash@kge.com</td>
                                                 <td>Vikash</td>
                                                 <td>Architect</td>
@@ -1901,9 +2049,14 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="1">
+
+                                            <tr data-page="1" data-company="KGE" data-role="Manager" data-status="No"
+                                                data-lastlogin="2026-01-16">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>prashant@kge.com</td>
+
                                                 <td>Prashant Kumar</td>
                                                 <td>Manager</td>
                                                 <td>2026-01-16</td>
@@ -1917,8 +2070,12 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="1">
+
+                                            <tr data-page="1" data-company="KGE" data-role="Viewer" data-status="Yes"
+                                                data-lastlogin="2026-01-19">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>user1@kge.com</td>
                                                 <td>Anuj Kumar</td>
                                                 <td>Viewer</td>
@@ -1934,8 +2091,12 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="1">
+
+                                            <tr data-page="1" data-company="KGE" data-role="Viewer" data-status="Yes"
+                                                data-lastlogin="2026-01-19">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>user2@kge.com</td>
                                                 <td>Alok Raj</td>
                                                 <td>Viewer</td>
@@ -1951,8 +2112,12 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="2">
+
+                                            <tr data-page="2" data-company="KGE" data-role="Viewer" data-status="Yes"
+                                                data-lastlogin="2026-01-19">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>user3@kge.com</td>
                                                 <td>Abhishek Kumar</td>
                                                 <td>Viewer</td>
@@ -1967,8 +2132,12 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="2">
+
+                                            <tr data-page="2" data-company="KGE" data-role="Viewer" data-status="Yes"
+                                                data-lastlogin="2026-01-19">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>user4@kge.com</td>
                                                 <td>Danny</td>
                                                 <td>Viewer</td>
@@ -1983,8 +2152,12 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="2">
+
+                                            <tr data-page="2" data-company="KGE" data-role="Viewer" data-status="Yes"
+                                                data-lastlogin="2026-01-19">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>user5@kge.com</td>
                                                 <td>Kanika</td>
                                                 <td>Viewer</td>
@@ -1999,8 +2172,12 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="2">
+
+                                            <tr data-page="2" data-company="KGE" data-role="Viewer" data-status="Yes"
+                                                data-lastlogin="2026-01-19">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>user6@kge.com</td>
                                                 <td>Hrithik</td>
                                                 <td>Viewer</td>
@@ -2015,8 +2192,12 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="2">
+
+                                            <tr data-page="2" data-company="KGE" data-role="Viewer" data-status="Yes"
+                                                data-lastlogin="2026-01-19">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>user7@kge.com</td>
                                                 <td>Raj Kumar</td>
                                                 <td>Viewer</td>
@@ -2032,8 +2213,12 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="3">
+
+                                            <tr data-page="3" data-company="KGE" data-role="Viewer" data-status="Yes"
+                                                data-lastlogin="2026-01-19">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>user8@kge.com</td>
                                                 <td>Ayush</td>
                                                 <td>Viewer</td>
@@ -2049,8 +2234,12 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="3">
+
+                                            <tr data-page="3" data-company="KGE" data-role="Viewer" data-status="Yes"
+                                                data-lastlogin="2026-01-19">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>user9@kge.com</td>
                                                 <td>Akash</td>
                                                 <td>Viewer</td>
@@ -2066,8 +2255,12 @@
                                                 </td>
 
                                             </tr>
-                                            <tr>
-                                            <tr data-page="3">
+
+                                            <tr data-page="3" data-company="KGE" data-role="Viewer" data-status="Yes"
+                                                data-lastlogin="2026-01-19">
+                                                <td>
+                                                    <input type="checkbox" class="user-checkbox">
+                                                </td>
                                                 <td>user10@kge.com</td>
                                                 <td>Manish</td>
                                                 <td>Viewer</td>
@@ -2268,6 +2461,33 @@
                             modal.hide();
                         });
                     </script>
+                    <div class="modal fade" id="changeRoleModal" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Change Role</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <label class="form-label">Select new role</label>
+                                    <select class="form-select" id="newRoleSelect">
+                                        <option>AppOwner</option>
+                                        <option>Architect</option>
+                                        <option>Manager</option>
+                                        <option>Viewer</option>
+                                    </select>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-primary" id="applyRoleChange">Apply</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                     <script>
                         let currentPage = 1;
                         const rows = document.querySelectorAll("tbody tr");
@@ -2306,6 +2526,272 @@
                         showPage(1);
                     </script>
 
+                    <script>
+                        const filters = {
+                            company: document.getElementById("filterCompany"),
+                            role: document.getElementById("filterRole"),
+                            status: document.getElementById("filterStatus"),
+
+                            lastLogin: document.getElementById("filterLastLogin")
+                        };
+
+                        function applyFilters() {
+                            const rows = document.querySelectorAll("tbody tr");
+
+                            rows.forEach(row => {
+                                let visible = true;
+
+                                if (filters.role.value !== "All Roles" &&
+                                    row.dataset.role !== filters.role.value) {
+                                    visible = false;
+                                }
+
+                                if (filters.status.value !== "All Status" &&
+                                    row.dataset.status !== filters.status.value) {
+                                    visible = false;
+                                }
+
+                                row.style.display = visible ? "" : "none";
+                            });
+                        }
+
+                        Object.values(filters).forEach(select => {
+                            select.addEventListener("change", applyFilters);
+                        });
+                    </script>
+                    <script>
+                        document.getElementById("clearFilters").addEventListener("click", () => {
+                            Object.values(filters).forEach(select => {
+                                select.selectedIndex = 0;
+                            });
+                            applyFilters();
+                        });
+                    </script>
+                    <script>
+                        const filterRole = document.getElementById("filterRole");
+                        const filterStatus = document.getElementById("filterStatus");
+                        const rows = document.querySelectorAll("tbody tr");
+
+                        function applyFilters() {
+                            rows.forEach(row => {
+                                let showRow = true;
+
+                                // Role filter
+                                if (filterRole.value !== "All Roles" &&
+                                    row.dataset.role !== filterRole.value) {
+                                    showRow = false;
+                                }
+
+                                // Status filter
+                                if (filterStatus.value !== "All Status" &&
+                                    row.dataset.status !== filterStatus.value) {
+                                    showRow = false;
+                                }
+
+                                row.style.display = showRow ? "" : "none";
+                            });
+                        }
+
+                        filterRole.addEventListener("change", applyFilters);
+                        filterStatus.addEventListener("change", applyFilters);
+                    </script>
+                    <script>
+                        document.getElementById("clearFilters").addEventListener("click", () => {
+                            filterRole.selectedIndex = 0;
+                            filterStatus.selectedIndex = 0;
+
+                            rows.forEach(row => {
+                                row.style.display = "";
+                            });
+                        });
+                    </script>
+                    <script>
+                        const searchInput = document.getElementById("userSearch");
+
+                        function applySearch() {
+                            const searchValue = searchInput.value.toLowerCase();
+                            const rows = document.querySelectorAll("tbody tr");
+
+                            rows.forEach(row => {
+                                const email = row.children[0].innerText.toLowerCase();
+                                const name = row.children[1].innerText.toLowerCase();
+
+                                if (
+                                    email.includes(searchValue) ||
+                                    name.includes(searchValue)
+                                ) {
+                                    row.style.display = "";
+                                } else {
+                                    row.style.display = "none";
+                                }
+                            });
+                        }
+
+                        searchInput.addEventListener("input", applySearch);
+                    </script>
+                    <script>
+                        const selectAllCheckbox = document.getElementById("selectAllUsers");
+
+                        function getVisibleRows() {
+                            return Array.from(document.querySelectorAll("tbody tr"))
+                                .filter(row => row.style.display !== "none");
+                        }
+
+                        selectAllCheckbox.addEventListener("change", () => {
+                            getVisibleRows().forEach(row => {
+                                const checkbox = row.querySelector(".user-checkbox");
+                                checkbox.checked = selectAllCheckbox.checked;
+                            });
+                        });
+                    </script>
+                    <script>
+                        function updateStatus(newStatus) {
+                            getVisibleRows().forEach(row => {
+                                const checkbox = row.querySelector(".user-checkbox");
+
+                                if (checkbox.checked) {
+                                    const statusBadge = row.querySelector(".status-badge");
+
+                                    if (newStatus === "Yes") {
+                                        statusBadge.textContent = "Yes";
+                                        statusBadge.className = "badge bg-success status-badge";
+                                        row.dataset.status = "Yes";
+                                    } else {
+                                        statusBadge.textContent = "No";
+                                        statusBadge.className = "badge bg-secondary status-badge";
+                                        row.dataset.status = "No";
+                                    }
+
+                                    checkbox.checked = false;
+                                }
+                            });
+
+                            selectAllCheckbox.checked = false;
+                        }
+
+
+                    </script>
+                    <script>
+                        const bulkActivateBtn = document.getElementById("bulkActivate");
+                        const bulkDeactivateBtn = document.getElementById("bulkDeactivate");
+
+                        function updateStatus(newStatus) {
+                            getVisibleRows().forEach(row => {
+                                const checkbox = row.querySelector(".user-checkbox");
+
+                                if (checkbox && checkbox.checked) {
+                                    const badge = row.querySelector(".status-badge");
+
+                                    if (newStatus === "Yes") {
+                                        badge.textContent = "Yes";
+                                        badge.className = "badge bg-success status-badge";
+                                        row.dataset.status = "Yes";
+                                    } else {
+                                        badge.textContent = "No";
+                                        badge.className = "badge bg-secondary status-badge";
+                                        row.dataset.status = "No";
+                                    }
+
+                                    checkbox.checked = false;
+                                }
+                            });
+
+                            selectAllCheckbox.checked = false;
+                        }
+
+                        bulkActivateBtn.addEventListener("click", () => updateStatus("Yes"));
+                        bulkDeactivateBtn.addEventListener("click", () => updateStatus("No"));
+                    </script>
+                    <script>
+                        const changeRoleBtn = document.getElementById("bulkChangeRole");
+                        const applyRoleBtn = document.getElementById("applyRoleChange");
+                        const newRoleSelect = document.getElementById("newRoleSelect");
+
+                        changeRoleBtn.addEventListener("click", () => {
+                            const modal = new bootstrap.Modal(
+                                document.getElementById("changeRoleModal")
+                            );
+                            modal.show();
+                        });
+
+                        applyRoleBtn.addEventListener("click", () => {
+                            const newRole = newRoleSelect.value;
+
+                            getVisibleRows().forEach(row => {
+                                const checkbox = row.querySelector(".user-checkbox");
+
+                                if (checkbox && checkbox.checked) {
+                                    row.children[3].innerText = newRole; // Roles column
+                                    row.dataset.role = newRole;
+                                    checkbox.checked = false;
+                                }
+                            });
+
+                            document.getElementById("selectAllUsers").checked = false;
+
+                            bootstrap.Modal
+                                .getInstance(document.getElementById("changeRoleModal"))
+                                .hide();
+                        });
+                    </script>
+                    <script>
+                        const filterLastLogin = document.getElementById("filterLastLogin");
+
+                        function isWithinDays(dateString, days) {
+                            const today = new Date();
+                            const loginDate = new Date(dateString);
+
+                            const diffTime = today - loginDate;
+                            const diffDays = diffTime / (1000 * 60 * 60 * 24);
+
+                            return diffDays <= days;
+                        }
+
+                        function applyLastLoginFilter() {
+                            const rows = document.querySelectorAll("tbody tr");
+                            const value = filterLastLogin.value;
+
+                            rows.forEach(row => {
+                                const loginDate = row.dataset.lastlogin;
+
+                                if (value === "All Time") {
+                                    row.style.display = "";
+                                    return;
+                                }
+
+                                if (value === "Last 7 Days" && isWithinDays(loginDate, 7)) {
+                                    row.style.display = "";
+                                } else if (value === "Last 30 Days" && isWithinDays(loginDate, 30)) {
+                                    row.style.display = "";
+                                } else {
+                                    row.style.display = "none";
+                                }
+                            });
+                        }
+
+                        filterLastLogin.addEventListener("change", applyLastLoginFilter);
+                    </script>
+                    <script>
+                        const bulkButtons = [
+                            document.getElementById("bulkActivate"),
+                            document.getElementById("bulkDeactivate"),
+                            document.getElementById("bulkChangeRole")
+                        ];
+
+                        function updateBulkButtons() {
+                            const anyChecked = document.querySelectorAll(".user-checkbox:checked").length > 0;
+                            bulkButtons.forEach(btn => btn.disabled = !anyChecked);
+                        }
+
+                        document.addEventListener("change", e => {
+                            if (e.target.classList.contains("user-checkbox") ||
+                                e.target.id === "selectAllUsers") {
+                                updateBulkButtons();
+                            }
+                        });
+
+                        updateBulkButtons();
+                    </script>
 </body>
 
 </html>
