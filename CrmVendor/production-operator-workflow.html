@@ -1871,6 +1871,9 @@
                                     </div>
 
                                 </div>
+                                <div class="progress step-progress mt-3">
+                                    <div class="progress-bar" id="stepProgressBar"></div>
+                                </div>
 
                             </div>
                         </div>
@@ -2981,6 +2984,59 @@
             background: #f1f8e9;
         }
     </style>
+    <style>
+        /* Step box color sync */
+        .step-box[data-step="1"].active-step {
+            background: #8d6e63;
+        }
+
+        .step-box[data-step="2"].active-step {
+            background: #3949ab;
+        }
+
+        .step-box[data-step="3"].active-step {
+            background: #00897b;
+        }
+
+        .step-box[data-step="4"].active-step {
+            background: #5e35b1;
+        }
+
+        .step-box[data-step="5"].active-step {
+            background: #2e7d32;
+        }
+
+        .step-box[data-step="6"].active-step {
+            background: #ef6c00;
+        }
+
+        .step-box[data-step="7"].active-step {
+            background: #0277bd;
+        }
+
+        .step-box[data-step="8"].active-step {
+            background: #2e7d32;
+        }
+
+        .step-box.active-step .step-title,
+        .step-box.active-step .step-label {
+            color: #fff;
+        }
+    </style>
+    <style>
+        .step-progress {
+            height: 6px;
+            border-radius: 6px;
+            background: #e0e0e0;
+            overflow: hidden;
+        }
+
+        .step-progress .progress-bar {
+            background: linear-gradient(90deg, #7367f0, #5e50ee);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+    </style>
     <script>
         let currentStep = 1;
         const totalSteps = 8;
@@ -3006,6 +3062,10 @@
                     box.classList.add('active-step');
                 }
             });
+
+            // Update progress bar
+            const progressPercent = ((step - 1) / 7) * 100;
+            document.getElementById('stepProgressBar').style.width = progressPercent + '%';
         }
 
         // Next buttons
