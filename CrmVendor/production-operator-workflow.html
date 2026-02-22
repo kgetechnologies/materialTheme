@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>Production Workflow</title>
+    <title>Production Operator Workflow</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../Static/assets/img/favicon/favicon.ico" />
@@ -1819,339 +1819,1026 @@
                     <!-- CONTENT -->
                     <div class="container-xxl flex-grow-1 container-p-y">
 
-                        <h4 class="fw-bold mb-1">Production Operator Workflow</h4>
-                        <p class="text-muted mb-4">
-                            End-to-end production workflow from job creation to dispatch
-                        </p>
+                        <div class="mb-4">
+                            <h4 class="fw-bold mb-1">Production Operator Workflow</h4>
+                            <p class="text-muted mb-0">
+                                Book Binding Production – Step-wise Vendor Operations
+                            </p>
+                        </div>
                         <div class="card mb-4">
-                            <div class="card-body p-4">
+                            <div class="card-body">
 
-                                <ul class="nav nav-pills mb-4 gap-2">
+                                <div class="d-flex flex-wrap gap-2">
 
-                                    <li class="nav-item">
-                                        <button class="nav-link active fw-semibold" type="button" data-bs-toggle="tab"
-                                            data-bs-target="#step1">
-                                            <span class="badge bg-white text-primary me-2">1</span>
-                                            Job Card
-                                        </button>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <button class="nav-link fw-semibold" type="button" data-bs-toggle="tab"
-                                            data-bs-target="#step2">
-                                            <span class="badge bg-light text-muted me-2">2</span>
-                                            Cutting
-                                        </button>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <button class="nav-link fw-semibold" type="button" data-bs-toggle="tab"
-                                            data-bs-target="#step3">
-                                            <span class="badge bg-light text-muted me-2">3</span>
-                                            QC
-                                        </button>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <button class="nav-link fw-semibold" type="button" data-bs-toggle="tab"
-                                            data-bs-target="#step4">
-                                            <span class="badge bg-light text-muted me-2">4</span>
-                                            Dispatch
-                                        </button>
-                                    </li>
-
-                                </ul>
-
-                                <div class="tab-content">
-                                    <div class="tab-pane fade show active" id="step1">
-                                        <div class="card">
-                                            <div class="card-header bg-light">
-                                                <h6 class="mb-0">
-                                                    <i class="ri-file-list-3-line me-2 text-primary"></i>
-                                                    Job Card Creation & Material Selection
-                                                </h6>
-                                            </div>
-
-                                            <div class="card-body p-4">
-                                                <form id="jobCardForm" class="needs-validation" novalidate>
-
-                                                    <div class="row g-3">
-
-                                                        <div class="col-md-4">
-                                                            <label class="form-label">
-                                                                Job Card Number <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="text" class="form-control" placeholder="JC-001"
-                                                                required>
-                                                            <div class="invalid-feedback">Required</div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <label class="form-label">
-                                                                Operator Name <span class="text-danger">*</span>
-                                                            </label>
-                                                            <select class="form-select" required>
-                                                                <option value="">Select Operator</option>
-                                                                <option>Joseph</option>
-                                                                <option>Rahul</option>
-                                                            </select>
-                                                            <div class="invalid-feedback">Required</div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <label class="form-label">Shift</label>
-                                                            <select class="form-select">
-                                                                <option>Shift 1</option>
-                                                                <option>Shift 2</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="col-md-6">
-                                                            <label class="form-label">
-                                                                Raw Material <span class="text-danger">*</span>
-                                                            </label>
-                                                            <select class="form-select" required>
-                                                                <option value="">Select Material</option>
-                                                                <option>Brown Sheet</option>
-                                                                <option>Steel Roll</option>
-                                                            </select>
-                                                            <div class="invalid-feedback">Required</div>
-                                                        </div>
-
-                                                        <div class="col-md-6">
-                                                            <label class="form-label">
-                                                                Target Product <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Book Cover / Seat Cover" required>
-                                                            <div class="invalid-feedback">Required</div>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="mt-4 d-flex justify-content-end">
-                                                        <button class="btn btn-primary px-4">
-                                                            Save & Continue →
-                                                        </button>
-                                                    </div>
-
-                                                </form>
-                                            </div>
-                                        </div>
+                                    <div class="step-box active-step" data-step="1">
+                                        <div class="step-title">Step 1</div>
+                                        <div class="step-label">Brown Sheet Cutting</div>
                                     </div>
-                                    <div class="tab-pane fade" id="step2">
 
-                                        <div class="card">
-                                            <div class="card-header d-flex justify-content-between align-items-center">
-                                                <h6 class="mb-0">
-                                                    <i class="ri-file-list-3-line me-2 text-primary"></i>
-                                                    Operation Execution (Cutting / Processing)
-                                                </h6>
-                                                <button class="btn btn-outline-primary btn-sm">
-                                                    + Add Operation
-                                                </button>
-                                            </div>
-
-                                            <div class="card-body p-4">
-                                                <form id="operationForm" class="needs-validation" novalidate>
-
-                                                    <div id="operationContainer">
-
-                                                        <!-- OPERATION ROW -->
-                                                        <div class="border rounded p-3 mb-3 operation-row">
-
-                                                            <div class="row g-3">
-                                                                <div class="col-md-4">
-                                                                    <label class="form-label">
-                                                                        Operation Type <span
-                                                                            class="text-danger">*</span>
-                                                                    </label>
-                                                                    <select class="form-select" required>
-                                                                        <option value="">Select Operation</option>
-                                                                        <option>Sheet Cutting</option>
-                                                                        <option>Gum Pasting</option>
-                                                                        <option>Stitching</option>
-                                                                        <option>Binding</option>
-                                                                        <option>Lamination</option>
-                                                                    </select>
-                                                                    <div class="invalid-feedback">Required</div>
-                                                                </div>
-
-                                                                <div class="col-md-4">
-                                                                    <label class="form-label">
-                                                                        Machine / Tool <span
-                                                                            class="text-danger">*</span>
-                                                                    </label>
-                                                                    <input type="text" class="form-control" required
-                                                                        placeholder="Cutting Machine A">
-                                                                    <div class="invalid-feedback">Required</div>
-                                                                </div>
-
-                                                                <div class="col-md-3">
-                                                                    <label class="form-label">
-                                                                        Quantity Processed <span
-                                                                            class="text-danger">*</span>
-                                                                    </label>
-                                                                    <input type="number" class="form-control" required
-                                                                        placeholder="100">
-                                                                    <div class="invalid-feedback">Required</div>
-                                                                </div>
-
-                                                                <div class="col-md-1 d-flex align-items-end">
-                                                                    <button type="button"
-                                                                        class="btn btn-outline-danger btn-sm removeOperationBtn">
-                                                                        ✕
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <!-- END OPERATION ROW -->
-
-                                                    </div>
-
-                                                    <div class="mt-4 d-flex justify-content-end">
-                                                        <button class="btn btn-primary px-4">
-                                                            Save & Continue →
-                                                        </button>
-                                                    </div>
-
-                                                </form>
-                                            </div>
-                                        </div>
-
+                                    <div class="step-box" data-step="2">
+                                        <div class="step-title">Step 2</div>
+                                        <div class="step-label">Center Cloth Pasting</div>
                                     </div>
-                                    <div class="tab-pane fade" id="step3">
 
-                                        <div class="card">
-                                            <div class="card-header bg-light">
-                                                <h6 class="mb-0">
-                                                    <i class="ri-file-list-3-line me-2 text-primary"></i>
-                                                    Quality Control (QC)
-                                                </h6>
-                                            </div>
-
-                                            <div class="card-body p-4">
-                                                <form id="qcForm" class="needs-validation" novalidate>
-
-                                                    <div class="row g-3">
-
-                                                        <div class="col-md-4">
-                                                            <label class="form-label">
-                                                                QC Status <span class="text-danger">*</span>
-                                                            </label>
-                                                            <select class="form-select" id="qcStatus" required>
-                                                                <option value="">Select Status</option>
-                                                                <option value="pass">Pass</option>
-                                                                <option value="fail">Fail</option>
-                                                            </select>
-                                                            <div class="invalid-feedback">Required</div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <label class="form-label">
-                                                                Quantity Checked <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="number" class="form-control" required
-                                                                placeholder="100">
-                                                            <div class="invalid-feedback">Required</div>
-                                                        </div>
-
-                                                        <div class="col-md-4" id="rejectQtyBox" style="display:none;">
-                                                            <label class="form-label">
-                                                                Reject Quantity <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="number" class="form-control" id="rejectQty">
-                                                            <div class="invalid-feedback">Required when QC fails</div>
-                                                        </div>
-
-                                                        <div class="col-md-12">
-                                                            <label class="form-label">QC Remarks</label>
-                                                            <textarea class="form-control" rows="3"
-                                                                placeholder="Defect details / observations"></textarea>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="mt-4 d-flex justify-content-end">
-                                                        <button class="btn btn-primary px-4">
-                                                            Save & Continue →
-                                                        </button>
-                                                    </div>
-
-                                                </form>
-                                            </div>
-                                        </div>
-
+                                    <div class="step-box" data-step="3">
+                                        <div class="step-title">Step 3</div>
+                                        <div class="step-label">Gum Pasting</div>
                                     </div>
-                                    <div class="tab-pane fade" id="step4">
 
-                                        <div class="card">
-                                            <div class="card-header bg-light">
-                                                <h6 class="mb-0">
-                                                    <i class="ri-file-list-3-line me-2 text-primary"></i>
-                                                    Dispatch & Completion
-                                                </h6>
-                                            </div>
-
-                                            <div class="card-body p-4">
-                                                <form id="dispatchForm" class="needs-validation" novalidate>
-
-                                                    <div class="row g-3">
-
-                                                        <div class="col-md-4">
-                                                            <label class="form-label">
-                                                                Dispatch Date <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="date" class="form-control" required>
-                                                            <div class="invalid-feedback">Required</div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <label class="form-label">
-                                                                Dispatch Quantity <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="number" class="form-control" required
-                                                                placeholder="100">
-                                                            <div class="invalid-feedback">Required</div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <label class="form-label">
-                                                                Dispatch Mode <span class="text-danger">*</span>
-                                                            </label>
-                                                            <select class="form-select" required>
-                                                                <option value="">Select Mode</option>
-                                                                <option>Internal Transfer</option>
-                                                                <option>Customer Delivery</option>
-                                                                <option>Warehouse Storage</option>
-                                                            </select>
-                                                            <div class="invalid-feedback">Required</div>
-                                                        </div>
-
-                                                        <div class="col-md-12">
-                                                            <label class="form-label">Dispatch Remarks</label>
-                                                            <textarea class="form-control" rows="3"
-                                                                placeholder="Any final notes before dispatch"></textarea>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="mt-4 d-flex justify-content-end">
-                                                        <button class="btn btn-success px-4">
-                                                            ✔ Complete Workflow
-                                                        </button>
-                                                    </div>
-
-                                                </form>
-                                            </div>
-                                        </div>
-
+                                    <div class="step-box" data-step="4">
+                                        <div class="step-title">Step 4</div>
+                                        <div class="step-label">Paper Sticking</div>
                                     </div>
+
+                                    <div class="step-box" data-step="5">
+                                        <div class="step-title">Step 5</div>
+                                        <div class="step-label">Binding</div>
+                                    </div>
+
+                                    <div class="step-box" data-step="6">
+                                        <div class="step-title">Step 6</div>
+                                        <div class="step-label">Corner Bending</div>
+                                    </div>
+
+                                    <div class="step-box" data-step="7">
+                                        <div class="step-title">Step 7</div>
+                                        <div class="step-label">Side Cutting</div>
+                                    </div>
+
+                                    <div class="step-box" data-step="8">
+                                        <div class="step-title">Step 8</div>
+                                        <div class="step-label">Lamination & Dispatch</div>
+                                    </div>
+
                                 </div>
 
                             </div>
                         </div>
+                        <div class="step-section" data-step="1">
+                            <div class="card mb-4 step-content" data-step-content="1">
+                                <div class="card-body">
+
+                                    <h5 class="mb-2">Step 1: Brown Sheet Cutting</h5>
+                                    <p class="text-muted mb-4">
+                                        Cut brown sheets to required book size before pasting process
+                                    </p>
+
+                                    <!-- Job Info -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Job Card Number</label>
+                                            <input type="text" class="form-control" placeholder="JOB/BS/001">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Vendor Name</label>
+                                            <input type="text" class="form-control" placeholder="ABC Binding Works">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Operator Name</label>
+                                            <input type="text" class="form-control" placeholder="Ramesh">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Time Period -->
+                                    <h6 class="mb-3">Running Time Period</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Start Time</label>
+                                            <input type="datetime-local" class="form-control">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">End Time</label>
+                                            <input type="datetime-local" class="form-control">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Material Details -->
+                                    <h6 class="mb-3">Material Details</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Brown Sheet Type</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select sheet type</option>
+                                                <option>300 GSM</option>
+                                                <option>350 GSM</option>
+                                                <option>400 GSM</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Sheet Size</label>
+                                            <input type="text" class="form-control" placeholder="24 x 18 inches">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Quantity -->
+                                    <h6 class="mb-3">Production Quantity</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Input Sheets</label>
+                                            <input type="number" class="form-control" placeholder="1000">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Output Sheets</label>
+                                            <input type="number" class="form-control" placeholder="980">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Wastage</label>
+                                            <input type="number" class="form-control" placeholder="20">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Remarks -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Remarks</label>
+                                        <textarea class="form-control" rows="3"
+                                            placeholder="Any cutting issues or notes..."></textarea>
+                                    </div>
+
+                                    <!-- Actions -->
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-secondary" disabled>Back</button>
+                                        <button class="btn btn-primary next-step">Save & Continue</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-section" data-step="2">
+                            <div class="card mb-4 step-content" data-step-content="2">
+                                <div class="card-body">
+
+                                    <h5 class="mb-2">Step 2: Center Cloth Pasting</h5>
+                                    <p class="text-muted mb-4">
+                                        Paste center cloth on cut brown sheets for binding strength
+                                    </p>
+
+                                    <!-- Operator Info -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Operator Name</label>
+                                            <input type="text" class="form-control" placeholder="Suresh">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Work Date</label>
+                                            <input type="date" class="form-control">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Shift</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select shift</option>
+                                                <option>Morning</option>
+                                                <option>Evening</option>
+                                                <option>Night</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Cloth Details -->
+                                    <h6 class="mb-3">Cloth Material Details</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Cloth Type</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select cloth type</option>
+                                                <option>Cotton</option>
+                                                <option>Polyester</option>
+                                                <option>Mixed Fabric</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Cloth Color</label>
+                                            <input type="text" class="form-control" placeholder="Red / Blue / Black">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Cloth Width</label>
+                                            <input type="text" class="form-control" placeholder="2.5 inches">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Gum & Pasting -->
+                                    <h6 class="mb-3">Pasting Details</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Gum Type Used</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select gum</option>
+                                                <option>Synthetic Gum</option>
+                                                <option>Natural Gum</option>
+                                                <option>Resin Gum</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Sheets Processed</label>
+                                            <input type="number" class="form-control" placeholder="950">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Wastage</label>
+                                            <input type="number" class="form-control" placeholder="10">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Quality Check -->
+                                    <h6 class="mb-3">Quality Check</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Alignment Quality</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select quality</option>
+                                                <option>Perfect</option>
+                                                <option>Acceptable</option>
+                                                <option>Rework Needed</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Supervisor Approval</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select approval</option>
+                                                <option>Approved</option>
+                                                <option>Rejected</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Remarks -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Remarks</label>
+                                        <textarea class="form-control" rows="3"
+                                            placeholder="Cloth pasting alignment notes or issues..."></textarea>
+                                    </div>
+
+                                    <!-- Actions -->
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-secondary prev-step">Back</button>
+                                        <button class="btn btn-primary next-step">Save & Continue</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-section" data-step="3">
+                            <div class="card mb-4 step-content" data-step-content="3">
+                                <div class="card-body">
+
+                                    <h5 class="mb-2">Step 3: Gum Pasting</h5>
+                                    <p class="text-muted mb-4">
+                                        Apply gum uniformly on cloth and sheets before sticking process
+                                    </p>
+
+                                    <!-- Operator & Time -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Operator Name</label>
+                                            <input type="text" class="form-control" placeholder="Mahesh">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Gum Batch Number</label>
+                                            <input type="text" class="form-control" placeholder="GUM/BATCH/023">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Work Date</label>
+                                            <input type="date" class="form-control">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Gum Details -->
+                                    <h6 class="mb-3">Gum Details</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Gum Type</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select gum type</option>
+                                                <option>Synthetic Gum</option>
+                                                <option>Natural Gum</option>
+                                                <option>Resin Gum</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Mixing Ratio</label>
+                                            <input type="text" class="form-control" placeholder="1:2 (Gum:Water)">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Application Method</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select method</option>
+                                                <option>Brush</option>
+                                                <option>Roller</option>
+                                                <option>Machine</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Quantity -->
+                                    <h6 class="mb-3">Production Quantity</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Sheets Covered</label>
+                                            <input type="number" class="form-control" placeholder="930">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Drying Time (minutes)</label>
+                                            <input type="number" class="form-control" placeholder="15">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Wastage</label>
+                                            <input type="number" class="form-control" placeholder="8">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Quality Check -->
+                                    <h6 class="mb-3">Quality Check</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Uniform Application</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select status</option>
+                                                <option>Good</option>
+                                                <option>Average</option>
+                                                <option>Poor</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Supervisor Approval</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select approval</option>
+                                                <option>Approved</option>
+                                                <option>Rejected</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Remarks -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Remarks</label>
+                                        <textarea class="form-control" rows="3"
+                                            placeholder="Gum consistency, drying issues, or notes..."></textarea>
+                                    </div>
+
+                                    <!-- Actions -->
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-secondary prev-step">Back</button>
+                                        <button class="btn btn-primary next-step">Save & Continue</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-section" data-step="4">
+                            <div class="card mb-4 step-content" data-step-content="4">
+                                <div class="card-body">
+
+                                    <h5 class="mb-2">Step 4: Paper Sticking</h5>
+                                    <p class="text-muted mb-4">
+                                        Stick printed paper sheets on gum-applied surface accurately
+                                    </p>
+
+                                    <!-- Operator & Shift -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Operator Name</label>
+                                            <input type="text" class="form-control" placeholder="Karthik">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Work Date</label>
+                                            <input type="date" class="form-control">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Shift</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select shift</option>
+                                                <option>Morning</option>
+                                                <option>Evening</option>
+                                                <option>Night</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Paper Details -->
+                                    <h6 class="mb-3">Paper Details</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Paper Type</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select paper type</option>
+                                                <option>Art Paper</option>
+                                                <option>Maplitho</option>
+                                                <option>Bond Paper</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Paper GSM</label>
+                                            <input type="number" class="form-control" placeholder="170">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Paper Size</label>
+                                            <input type="text" class="form-control" placeholder="A4 / Custom">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Production Quantity -->
+                                    <h6 class="mb-3">Production Quantity</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Sheets Stuck</label>
+                                            <input type="number" class="form-control" placeholder="920">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Rejected Sheets</label>
+                                            <input type="number" class="form-control" placeholder="12">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Pressing Method</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select method</option>
+                                                <option>Hand Press</option>
+                                                <option>Hydraulic Press</option>
+                                                <option>Roller Press</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Quality Check -->
+                                    <h6 class="mb-3">Quality Check</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Alignment Accuracy</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select accuracy</option>
+                                                <option>Perfect</option>
+                                                <option>Acceptable</option>
+                                                <option>Rework Required</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Supervisor Approval</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select approval</option>
+                                                <option>Approved</option>
+                                                <option>Rejected</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Remarks -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Remarks</label>
+                                        <textarea class="form-control" rows="3"
+                                            placeholder="Paper sticking alignment issues or notes..."></textarea>
+                                    </div>
+
+                                    <!-- Actions -->
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-secondary prev-step">Back</button>
+                                        <button class="btn btn-primary next-step">Save & Continue</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-section" data-step="5">
+                            <div class="card mb-4 step-content" data-step-content="5">
+                                <div class="card-body">
+
+                                    <h5 class="mb-2">Step 5: Binding</h5>
+                                    <p class="text-muted mb-4">
+                                        Bind the prepared sheets into book form securely
+                                    </p>
+
+                                    <!-- Operator & Machine -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Operator Name</label>
+                                            <input type="text" class="form-control" placeholder="Rajesh">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Binding Method</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select binding method</option>
+                                                <option>Perfect Binding</option>
+                                                <option>Thread Binding</option>
+                                                <option>Spiral Binding</option>
+                                                <option>Hard Binding</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Machine Used</label>
+                                            <input type="text" class="form-control" placeholder="Binding Machine #2">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Production Quantity -->
+                                    <h6 class="mb-3">Production Quantity</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Books Bound</label>
+                                            <input type="number" class="form-control" placeholder="900">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Rejected Books</label>
+                                            <input type="number" class="form-control" placeholder="6">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Binding Strength</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select strength</option>
+                                                <option>Strong</option>
+                                                <option>Medium</option>
+                                                <option>Weak</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Quality Check -->
+                                    <h6 class="mb-3">Quality Check</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Spine Alignment</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select status</option>
+                                                <option>Perfect</option>
+                                                <option>Acceptable</option>
+                                                <option>Rework Required</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Supervisor Approval</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select approval</option>
+                                                <option>Approved</option>
+                                                <option>Rejected</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Remarks -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Remarks</label>
+                                        <textarea class="form-control" rows="3"
+                                            placeholder="Binding quality notes or issues..."></textarea>
+                                    </div>
+
+                                    <!-- Actions -->
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-secondary prev-step">Back</button>
+                                        <button class="btn btn-primary next-step">Save & Continue</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-section" data-step="6">
+                            <div class="card mb-4 step-content" data-step-content="6">
+                                <div class="card-body">
+
+                                    <h5 class="mb-2">Step 6: Corner Bending</h5>
+                                    <p class="text-muted mb-4">
+                                        Bend and finish book corners for durability and clean edges
+                                    </p>
+
+                                    <!-- Operator & Method -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Operator Name</label>
+                                            <input type="text" class="form-control" placeholder="Suresh">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Corner Type</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select corner type</option>
+                                                <option>Rounded</option>
+                                                <option>Square</option>
+                                                <option>Soft Rounded</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Method Used</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select method</option>
+                                                <option>Machine</option>
+                                                <option>Manual</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Quantity Details -->
+                                    <h6 class="mb-3">Processing Details</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Books Processed</label>
+                                            <input type="number" class="form-control" placeholder="890">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Corner Defects</label>
+                                            <input type="number" class="form-control" placeholder="4">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Finish Quality</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select quality</option>
+                                                <option>Excellent</option>
+                                                <option>Good</option>
+                                                <option>Needs Rework</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Quality Approval -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Corner Uniformity</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select status</option>
+                                                <option>Uniform</option>
+                                                <option>Slight Variation</option>
+                                                <option>Not Acceptable</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Supervisor Approval</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select approval</option>
+                                                <option>Approved</option>
+                                                <option>Rejected</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Remarks -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Remarks</label>
+                                        <textarea class="form-control" rows="3"
+                                            placeholder="Corner bending issues or notes..."></textarea>
+                                    </div>
+
+                                    <!-- Actions -->
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-secondary prev-step">Back</button>
+                                        <button class="btn btn-primary next-step">Save & Continue</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-section" data-step="7">
+                            <div class="card mb-4 step-content" data-step-content="7">
+                                <div class="card-body">
+
+                                    <h5 class="mb-2">Step 7: Side Cutting (Final Trim)</h5>
+                                    <p class="text-muted mb-4">
+                                        Final trimming of all book sides for uniform size and clean finish
+                                    </p>
+
+                                    <!-- Operator & Machine -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Operator Name</label>
+                                            <input type="text" class="form-control" placeholder="Ramesh">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Cutting Machine</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select machine</option>
+                                                <option>Hydraulic Cutter</option>
+                                                <option>Manual Cutter</option>
+                                                <option>Automatic Trimmer</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Cut Type</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select cut type</option>
+                                                <option>3 Side Cut</option>
+                                                <option>2 Side Cut</option>
+                                                <option>Top Only</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Quantity -->
+                                    <h6 class="mb-3">Cutting Details</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Books Before Cut</label>
+                                            <input type="number" class="form-control" placeholder="890">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Books After Cut</label>
+                                            <input type="number" class="form-control" placeholder="885">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Rejected Pieces</label>
+                                            <input type="number" class="form-control" placeholder="5">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Quality Check -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Edge Finish Quality</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select quality</option>
+                                                <option>Excellent</option>
+                                                <option>Good</option>
+                                                <option>Needs Recut</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Size Accuracy</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select accuracy</option>
+                                                <option>Exact Match</option>
+                                                <option>Minor Variation</option>
+                                                <option>Incorrect</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Approval -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Supervisor Approval</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select approval</option>
+                                                <option>Approved</option>
+                                                <option>Rejected</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Rework Required</label>
+                                            <select class="form-select">
+                                                <option>No</option>
+                                                <option>Yes</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Remarks -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Remarks</label>
+                                        <textarea class="form-control" rows="3"
+                                            placeholder="Cutting issues, blade problems, size notes..."></textarea>
+                                    </div>
+
+                                    <!-- Actions -->
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-secondary prev-step">Back</button>
+                                        <button class="btn btn-primary next-step">Save & Continue</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-section" data-step="8">
+                            <div class="card mb-4 border border-success step-content" data-step-content="8">
+                                <div class="card-body">
+
+                                    <h5 class="mb-2">Step 8: Lamination & Final Packing</h5>
+                                    <p class="text-muted mb-4">
+                                        Protective lamination, final inspection, packing, and dispatch readiness
+                                    </p>
+
+                                    <!-- Lamination Details -->
+                                    <h6 class="mb-3">Lamination Details</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Lamination Type</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select lamination</option>
+                                                <option>Gloss Lamination</option>
+                                                <option>Matte Lamination</option>
+                                                <option>Soft Touch Lamination</option>
+                                                <option>No Lamination</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Lamination Machine</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select machine</option>
+                                                <option>Automatic Lamination Machine</option>
+                                                <option>Manual Lamination Machine</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Operator Name</label>
+                                            <input type="text" class="form-control" placeholder="Suresh">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Quantity -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Books Before Lamination</label>
+                                            <input type="number" class="form-control" placeholder="885">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Books After Lamination</label>
+                                            <input type="number" class="form-control" placeholder="882">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Rejected During Lamination</label>
+                                            <input type="number" class="form-control" placeholder="3">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Final Quality Check -->
+                                    <h6 class="mb-3">Final Quality Inspection</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Surface Finish</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select finish</option>
+                                                <option>Excellent</option>
+                                                <option>Good</option>
+                                                <option>Damaged</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Edge & Corner Check</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select status</option>
+                                                <option>Perfect</option>
+                                                <option>Minor Issue</option>
+                                                <option>Rejected</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Overall Approval</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select approval</option>
+                                                <option>Approved for Dispatch</option>
+                                                <option>Hold for Rework</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Packing -->
+                                    <h6 class="mb-3">Packing Details</h6>
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Packing Type</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select packing</option>
+                                                <option>Carton Box</option>
+                                                <option>Plastic Wrap</option>
+                                                <option>Bundle Packing</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Books Per Box</label>
+                                            <input type="number" class="form-control" placeholder="50">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label">Total Boxes</label>
+                                            <input type="number" class="form-control" placeholder="18">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Dispatch -->
+                                    <div class="row g-3 mb-4">
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Dispatch Status</label>
+                                            <select class="form-select">
+                                                <option selected disabled>Select status</option>
+                                                <option>Ready for Dispatch</option>
+                                                <option>Dispatched</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Dispatch Date</label>
+                                            <input type="date" class="form-control">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Remarks -->
+                                    <div class="mb-4">
+                                        <label class="form-label">Final Remarks</label>
+                                        <textarea class="form-control" rows="3"
+                                            placeholder="Any final notes before dispatch..."></textarea>
+                                    </div>
+
+                                    <!-- Final Actions -->
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-secondary prev-step">Back</button>
+                                        <button class="btn btn-success">Complete Job</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
 
@@ -2201,117 +2888,154 @@
     <script src="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="../Static/assets/vendor/js/menu.js"></script>
     <script src="../Static/assets/js/main.js"></script>
+    <style>
+        .step-box {
+            min-width: 160px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: #f4f5fa;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .step-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #6c757d;
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        .active-step {
+            background: linear-gradient(135deg, #7367f0, #5e50ee);
+        }
+
+        .active-step .step-title,
+        .active-step .step-label {
+            color: #ffffff;
+        }
+    </style>
+
+    <style>
+        .step-content {
+            display: none;
+        }
+    </style>
+    <style>
+        /* Common step card styling */
+        .step-content {
+            border-left: 5px solid transparent;
+            background: #ffffff;
+        }
+
+        /* STEP 1 – Brown Sheet Cutting */
+        .step-content[data-step-content="1"] {
+            border-left-color: #8d6e63;
+            background: #efebe9;
+        }
+
+        /* STEP 2 – Center Cloth Pasting */
+        .step-content[data-step-content="2"] {
+            border-left-color: #3949ab;
+            background: #e8eaf6;
+        }
+
+        /* STEP 3 – Gum Pasting */
+        .step-content[data-step-content="3"] {
+            border-left-color: #00897b;
+            background: #e0f2f1;
+        }
+
+        /* STEP 4 – Paper Sticking */
+        .step-content[data-step-content="4"] {
+            border-left-color: #5e35b1;
+            background: #ede7f6;
+        }
+
+        /* STEP 5 – Binding */
+        .step-content[data-step-content="5"] {
+            border-left-color: #2e7d32;
+            background: #e8f5e9;
+        }
+
+        /* STEP 6 – Corner Bending */
+        .step-content[data-step-content="6"] {
+            border-left-color: #ef6c00;
+            background: #fff3e0;
+        }
+
+        /* STEP 7 – Side Cutting */
+        .step-content[data-step-content="7"] {
+            border-left-color: #0277bd;
+            background: #e1f5fe;
+        }
+
+        /* STEP 8 – Lamination & Dispatch */
+        .step-content[data-step-content="8"] {
+            border-left-color: #2e7d32;
+            background: #f1f8e9;
+        }
+    </style>
     <script>
-        (() => {
-            const form = document.getElementById('jobCardForm');
+        let currentStep = 1;
+        const totalSteps = 8;
 
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                } else {
-                    event.preventDefault();
-                    document.querySelector('[data-bs-target="#step2"]').click();
-                }
-                form.classList.add('was-validated');
-            });
-        })();
-    </script>
-    <script>
-        (() => {
+        function showStep(step) {
+            currentStep = step;
 
-            const container = document.getElementById('operationContainer');
-            const addBtn = document.getElementById('addOperationBtn');
-
-            addBtn.addEventListener('click', () => {
-                const firstRow = container.querySelector('.operation-row');
-                const newRow = firstRow.cloneNode(true);
-
-                // Clear values
-                newRow.querySelectorAll('input, select').forEach(el => {
-                    el.value = '';
-                    el.classList.remove('is-valid', 'is-invalid');
-                });
-
-                container.appendChild(newRow);
+            // Hide all step contents
+            document.querySelectorAll('.step-content').forEach(card => {
+                card.style.display = 'none';
             });
 
-            container.addEventListener('click', (e) => {
-                if (e.target.classList.contains('removeOperationBtn')) {
-                    const rows = container.querySelectorAll('.operation-row');
-                    if (rows.length > 1) {
-                        e.target.closest('.operation-row').remove();
-                    }
+            // Show active step
+            const activeCard = document.querySelector(
+                `.step-content[data-step-content="${step}"]`
+            );
+            if (activeCard) activeCard.style.display = 'block';
+
+            // Update step header boxes
+            document.querySelectorAll('.step-box').forEach(box => {
+                box.classList.remove('active-step');
+                if (Number(box.dataset.step) === step) {
+                    box.classList.add('active-step');
                 }
             });
+        }
 
-        })();
-    </script>
-    <script>
-        (() => {
-            const form = document.getElementById('operationForm');
-
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                } else {
-                    event.preventDefault();
-                    document.querySelector('[data-bs-target="#step3"]').click();
-                }
-                form.classList.add('was-validated');
-            });
-        })();
-    </script>
-    <script>
-        (() => {
-            const qcStatus = document.getElementById('qcStatus');
-            const rejectBox = document.getElementById('rejectQtyBox');
-            const rejectInput = document.getElementById('rejectQty');
-
-            qcStatus.addEventListener('change', () => {
-                if (qcStatus.value === 'fail') {
-                    rejectBox.style.display = 'block';
-                    rejectInput.setAttribute('required', 'required');
-                } else {
-                    rejectBox.style.display = 'none';
-                    rejectInput.removeAttribute('required');
-                    rejectInput.value = '';
+        // Next buttons
+        document.querySelectorAll('.next-step').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep < totalSteps) {
+                    showStep(currentStep + 1);
                 }
             });
-        })();
-    </script>
-    <script>
-        (() => {
-            const form = document.getElementById('qcForm');
+        });
 
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                } else {
-                    event.preventDefault();
-                    document.querySelector('[data-bs-target="#step4"]').click();
+        // Back buttons
+        document.querySelectorAll('.prev-step').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    showStep(currentStep - 1);
                 }
-                form.classList.add('was-validated');
             });
-        })();
-    </script>
-    <script>
-        (() => {
-            const form = document.getElementById('dispatchForm');
+        });
 
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                } else {
-                    event.preventDefault();
-                    alert('Production workflow completed successfully!');
-                }
-                form.classList.add('was-validated');
+        // Step header click navigation
+        document.querySelectorAll('.step-box').forEach(box => {
+            box.addEventListener('click', () => {
+                const step = Number(box.dataset.step);
+                showStep(step);
             });
-        })();
+        });
+
+        // Load first step
+        showStep(1);
     </script>
 </body>
 
