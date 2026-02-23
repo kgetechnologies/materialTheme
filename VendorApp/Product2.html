@@ -1857,10 +1857,12 @@
                             </ul>
                         </div>
                     </aside>
-                    <div class="container mt-5">
+                    <div class="container-fluid mt-5 px-5">
+                        <h6 style="font-size: 30px; font-weight: 600;">Production Book Binding order</h6>
+                        <p>Complete Job Card Processing - From Creation to Dispatch</p>
 
   <!-- Stepper Top -->
-  <div class="card mb-4">
+  <div class="card mb-4 px-4">
     <div class="card-body">
       <ul class="nav nav-pills justify-content-between" id="stepTabs">
         <li class="nav-item">
@@ -1891,7 +1893,7 @@
   <div class="card">
     <div class="card-body">
 
-      <form>
+      
 
         <!-- STEP 1 -->
         <div id="step1">
@@ -2008,7 +2010,7 @@
         </button>
       </div>
 
-    </form>
+    
 
   </div>
 </div> 
@@ -2092,19 +2094,19 @@
               <tr>
                 <td>Spiral Alignment</td>
                 <td>Centered</td>
-                <td><span class="badge bg-success">Pass</span></td>
+                <td>✅Pass</span></td>
               </tr>
 
               <tr>
                 <td>Page Cutting Edge</td>
                 <td>Clean & Smooth</td>
-                <td><span class="badge bg-success">Pass</span></td>
+                <td>✅Pass</span></td>
               </tr>
 
               <tr>
                 <td>Cover Finishing</td>
                 <td>No Damage</td>
-                <td><span class="badge bg-success">Pass</span></td>
+                <td>✅Pass</span></td>
               </tr>
             </tbody>
           </table>
@@ -2112,28 +2114,41 @@
       </div>
 
       <!-- WASTAGE & DEFECT -->
-      <div class="mt-4">
-        <h5>Wastage & Defect</h5>
+      <div class="wastage-section">
+        <h4 style="font-size:20px;">Wastage and Defect</h4>
 
-        <div class="row g-3">
+  <button type="button" class="btn btn-primary btn-sm add-defect-btn mb-3">
+    + Add Defect
+  </button>
 
-          <div class="col-md-6">
-            <label class="form-label">Defect Type</label>
-            <select class="form-select">
-              <option>Spiral Misalignment</option>
-              <option>Paper Tear</option>
-              <option>Cover Damage</option>
-            </select>
-          </div>
+  <div class="defect-container">
 
-          <div class="col-md-6">
-            <label class="form-label">Defect Quantity</label>
-            <input type="number" class="form-control"
-                   placeholder="Enter defect count" min="0">
-          </div>
+    <div class="row g-3 align-items-end defect-row mb-3">
 
-        </div>
+      <div class="col-md-5">
+        <label>Defect Type</label>
+        <select class="form-select">
+          <option>Punch misalignment</option>
+          <option>Spiral Loose</option>
+        </select>
       </div>
+
+      <div class="col-md-4">
+        <label>Defect Quantity</label>
+        <input type="number" class="form-control" placeholder="0">
+      </div>
+
+      <div class="col-md-2">
+        <button type="button" class="btn btn-outline-danger remove-defect">
+          ✕
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div> 
 
       
       
@@ -2213,21 +2228,21 @@
                 <td>Spiral Strength</td>
                 <td>Firm & Tight</td>
                 <td>Firm</td>
-                <td><span class="badge bg-success">Pass</span></td>
+                <td>✅Pass</span></td>
               </tr>
 
               <tr>
                 <td>Page Alignment</td>
                 <td>Centered</td>
                 <td>Centered</td>
-                <td><span class="badge bg-success">Pass</span></td>
+                <td>✅Pass</span></td>
               </tr>
 
               <tr>
                 <td>Cover Finish</td>
                 <td>No Damage</td>
                 <td>No Damage</td>
-                <td><span class="badge bg-success">Pass</span></td>
+                <td>✅Pass</span></td>
               </tr>
             </tbody>
 
@@ -2236,25 +2251,87 @@
       </div>
 
       <!-- WASTAGE -->
-      <div class="mt-4">
-        <h5>Wastage & Defect</h5>
+      <div class="wastage-section">
+        <h4 style="font-size:20px;">Wastage and Defect</h4>
 
-        <div class="row g-3">
-          <div class="col-md-6">
-            <label class="form-label">Defect Type</label>
-            <select class="form-select">
-              <option>Spiral Loose</option>
-              <option>Page Misalignment</option>
-              <option>Cover Damage</option>
-            </select>
-          </div>
+  <button type="button" class="btn btn-primary btn-sm add-defect-btn mb-3">
+    + Add Defect
+  </button>
 
-          <div class="col-md-6">
-            <label class="form-label">Defect Quantity</label>
-            <input type="number" class="form-control" min="0">
-          </div>
-        </div>
+  <div class="defect-container">
+
+    <div class="row g-3 align-items-end defect-row mb-3">
+
+      <div class="col-md-5">
+        <label>Defect Type</label>
+        <select class="form-select">
+          <option>Punch misalignment</option>
+          <option>Spiral Loose</option>
+        </select>
       </div>
+
+      <div class="col-md-4">
+        <label>Defect Quantity</label>
+        <input type="number" class="form-control" placeholder="0">
+      </div>
+
+      <div class="col-md-2">
+        <button type="button" class="btn btn-outline-danger remove-defect">
+          ✕
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div> 
+<div class="mt-4">
+
+  <h5 class="mb-3">Test Methods</h5>
+
+  <!-- Add Button -->
+  <button type="button" class="btn btn-primary btn-sm mb-3 add-test-btn">
+    + Add Test Method
+  </button>
+
+  <div class="test-container">
+
+    <div class="row g-3 align-items-end test-row mb-3">
+
+      <div class="col-md-4">
+        <label class="form-label">Test Method</label>
+        <select class="form-select">
+          <option>ASTM D638 Tensile</option>
+          <option>Impact Test</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Sample Size</label>
+        <input type="number" class="form-control" placeholder="0">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Test Operator</label>
+        <select class="form-select">
+          <option>Sarah Johnson</option>
+          <option>James Smith</option>
+        </select>
+      </div>
+
+      <div class="col-md-2 text-center">
+        <button type="button" class="btn btn-outline-danger remove-test">
+          ✕
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div> 
+
 
       <!-- REMARKS -->
       <div class="mt-4">
@@ -2317,23 +2394,33 @@
 
       <!-- QC CHECKLIST -->
       <div class="mt-4">
-        <h5>Inspection Checklist</h5>
+  <h5>Inspection Checklist</h5>
 
-        <ul class="list-group">
-          <li class="list-group-item">
-            ✔ Dimensions within tolerance
-          </li>
-          <li class="list-group-item">
-            ✔ Spiral binding properly aligned
-          </li>
-          <li class="list-group-item">
-            ✔ Cover finish acceptable
-          </li>
-          <li class="list-group-item">
-            ✔ Packaging requirements met
-          </li>
-        </ul>
-      </div>
+  <div class="list-group">
+
+    <label class="list-group-item">
+      <input class="form-check-input me-2" type="checkbox" checked>
+      Dimensions within tolerance
+    </label>
+
+    <label class="list-group-item">
+      <input class="form-check-input me-2" type="checkbox" checked>
+      Spiral binding properly aligned
+    </label>
+
+    <label class="list-group-item">
+      <input class="form-check-input me-2" type="checkbox" checked>
+      Cover finish acceptable
+    </label>
+
+    <label class="list-group-item">
+      <input class="form-check-input me-2" type="checkbox" checked>
+      Packaging requirements met
+    </label>
+
+  </div>
+</div> 
+
 
       <!-- REJECTION DETAILS -->
       <div class="mt-4">
@@ -2619,6 +2706,67 @@ function goToStep(step) {
   document.getElementById("tab" + step).classList.add("active");
 }
 </script> 
+<script>
+document.addEventListener("click", function(e) {
+
+  // ADD DEFECT
+  if (e.target.classList.contains("add-defect-btn")) {
+
+    const section = e.target.closest(".wastage-section");
+    const container = section.querySelector(".defect-container");
+    const firstRow = container.querySelector(".defect-row");
+    const newRow = firstRow.cloneNode(true);
+
+    newRow.querySelectorAll("input").forEach(input => input.value = "");
+
+    container.appendChild(newRow);
+  }
+
+  // REMOVE DEFECT
+  if (e.target.classList.contains("remove-defect")) {
+
+    const container = e.target.closest(".defect-container");
+    const rows = container.querySelectorAll(".defect-row");
+
+    if (rows.length > 1) {
+      e.target.closest(".defect-row").remove();
+    }
+  }
+
+});
+</script> 
+<script>
+document.addEventListener("click", function(e) {
+
+  // ADD TEST METHOD
+  if (e.target.classList.contains("add-test-btn")) {
+
+    const section = e.target.closest(".mt-4");
+    const container = section.querySelector(".test-container");
+    const firstRow = container.querySelector(".test-row");
+    const newRow = firstRow.cloneNode(true);
+
+    // Clear input values
+    newRow.querySelectorAll("input").forEach(input => input.value = "");
+
+    container.appendChild(newRow);
+  }
+
+  // REMOVE TEST METHOD
+  if (e.target.classList.contains("remove-test")) {
+
+    const container = e.target.closest(".test-container");
+    const rows = container.querySelectorAll(".test-row");
+
+    if (rows.length > 1) {
+      e.target.closest(".test-row").remove();
+    }
+  }
+
+});
+</script> 
+
+
 
                 </body>
             </html>
