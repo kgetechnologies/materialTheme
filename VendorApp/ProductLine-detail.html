@@ -1834,11 +1834,11 @@
     <div class="container-xxl flex-grow-1 container-p-y">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="fw-bold mb-0">
-      <span class="text-muted fw-light">Product Lines /</span> Assembly Line - 1001
+      <span >Product Lines /</span> Assembly Line - 1001
     </h4>
     <div class="d-flex gap-2">
-      <button class="btn btn-outline-secondary">Edit Line</button>
-      <button class="btn btn-success">Active</button> </div>
+      <button class="btn btn-primary" onclick="editLine(this)">Edit Line</button>
+      <button class="btn btn-success" onclick="toggleStatus(this)"">Active</button> </div>
   </div>
 
   <div class="row">
@@ -1846,7 +1846,7 @@
       <div class="card mb-4">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h5 class="mb-0">Manufacturing Stages</h5>
-          <button class="btn btn-primary btn-sm">+ Add Stage</button> </div>
+          <button  type="button" class="btn btn-primary btn-sm" onclick="addStage()">+ Add Stage</button> </div>
         <div class="card-body">
           <div class="list-group list-group-flush">
             <div class="list-group-item d-flex justify-content-between align-items-center px-0">
@@ -1896,6 +1896,13 @@
     </div>
   </div>
 </div>
+<div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
 <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
                             <div
@@ -2040,6 +2047,66 @@
                         // Initial load
                         displayPage(1);
                     </script>
+                    <script>
+function editLine(btn) {
+
+    let titleElement = document.querySelector("h4 span");
+    let currentText = titleElement.innerText;
+
+    let newName = prompt("Edit Product Line Name:", currentText);
+
+    if (newName !== null && newName.trim() !== "") {
+        titleElement.innerText = newName;
+    }
+}
+</script> 
+<script>
+function toggleStatus(btn) {
+    if (btn.innerText === "Active") {
+        btn.innerText = "Inactive";
+        btn.classList.remove("btn-success");
+        btn.classList.add("btn-danger");
+    } else {
+        btn.innerText = "Active";
+        btn.classList.remove("btn-danger");
+        btn.classList.add("btn-success");
+    }
+}
+</script> 
+<script>
+
+let stageCount = document.querySelectorAll(".list-group-item").length;
+
+function addStage() {
+
+    stageCount++;
+
+    // target correct list-group inside this card
+    let listGroup = document.querySelector(".card-body .list-group");
+
+    if (!listGroup) {
+        alert("List group not found!");
+        return;
+    }
+
+    let newStage = document.createElement("div");
+    newStage.className = "list-group-item d-flex justify-content-between align-items-center px-0";
+
+    newStage.innerHTML = `
+        <div>
+            <h6 class="mb-1">New Stage ${stageCount}</h6>
+            <small class="text-muted">Est. Duration: 30 mins</small>
+        </div>
+        <span class="badge bg-label-info">Sequence: ${stageCount}</span>
+    `;
+
+    listGroup.appendChild(newStage);
+}
+
+</script> 
+
+
+                    
 
 
 </body>

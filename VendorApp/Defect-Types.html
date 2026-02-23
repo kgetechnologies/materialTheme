@@ -1846,15 +1846,17 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Category Name</th>
+                                <th>Code &#8597;</th>
+                                <th>Category Name &#8597;</th>
                                 <th>Severity</th>
-                                <th>Group</th>
+                                <th>Group &#8597;</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
                             <tr>
+                                <td>DEF-001</td>
                                 <td><strong>Structural Crack</strong></td>
                                 <td><span class="badge bg-label-danger">Critical</span></td>
                                 <td>Material Integrity</td>
@@ -1867,6 +1869,7 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>DEF-002</td>
                                 <td><strong>Surface Scratch</strong></td>
                                 <td><span class="badge bg-label-info">Minor</span></td>
                                 <td>Aesthetics</td>
@@ -1879,6 +1882,7 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>DEF-003</td>
                                 <td><strong>Seal Breach</strong></td>
                                 <td><span class="badge bg-label-warning">Major</span></td>
                                 <td>Packaging</td>
@@ -1897,6 +1901,36 @@
         </div>
     </div>
 </div>
+<!-- Create Defect Modal -->
+<div id="defectModal" style="display:none; position:fixed; top:0; left:0;
+width:100%; height:100%; background:rgba(0,0,0,0.5);
+justify-content:center; align-items:center;">
+
+  <div style="background:white; padding:20px; width:300px; border-radius:8px;">
+    <h4>Add Defect Type</h4>
+
+    <label>Code:</label>
+    <input type="text" id="defectCode" class="form-control" /><br>
+
+    <label>Category Name:</label>
+    <input type="text" id="defectCategory" class="form-control" /><br>
+
+    <label>Severity:</label>
+    <input type="text" id="defectSeverity" class="form-control" /><br>
+
+    <button onclick="saveDefect()" class="btn btn-success">Save</button>
+    <button onclick="closeModal()" class="btn btn-secondary">Cancel</button>
+  </div>
+</div> 
+<div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
+ 
+
 
 <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
@@ -2096,5 +2130,41 @@ function toggleStatus(defectId) {
  
 
                     </script>
+                    <script>
+function openCreateDefectModal() {
+    document.getElementById("defectModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("defectModal").style.display = "none";
+}
+
+function saveDefect() {
+    let code = document.getElementById("defectCode").value.trim();
+    let category = document.getElementById("defectCategory").value.trim();
+    let severity = document.getElementById("defectSeverity").value.trim();
+
+    if (code === "" || category === "" || severity === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let table = document.querySelector("table tbody");
+
+    let newRow = table.insertRow();
+
+    newRow.insertCell(0).innerText = code;
+    newRow.insertCell(1).innerText = category;
+    newRow.insertCell(2).innerText = severity;
+
+    closeModal();
+
+    // Clear fields
+    document.getElementById("defectCode").value = "";
+    document.getElementById("defectCategory").value = "";
+    document.getElementById("defectSeverity").value = "";
+}
+</script> 
+
                 </body>
             </html>

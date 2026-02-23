@@ -1837,8 +1837,8 @@
             <div class="card shadow-none border">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Material Wastage Records</h5>
-                    <button type="button" class="btn btn-primary" onclick="openWastageRecordingModal()">
-                        Record New Waste
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createWasetagerecordModal">
+                        <i class="bx bx-plus me-1"></i>Record New Waste
                     </button>
                 </div>
                
@@ -1846,12 +1846,13 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Material / Lot</th>
-                                <th>Wastage Category</th>
-                                <th>Recyclable</th>
-                                <th>Cost Impact</th>
-                                <th>Recorded Date</th>
-                                <th>Actions</th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Material / Lot &#8597; </strong></th>
+                                <th onclick="sortTable(0, 'string')" 
+                                style="cursor:pointer"><strong> WastageTypes &#8597; </strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Recyclable &#8597; </strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Cost &#8597; </strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Recorded Date &#8597; </strong></th>
+                                <th><strong>Actions</strong></th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -1932,6 +1933,66 @@
         </div>
     </div>
 </div>
+<!-- Waste Recording Modal -->
+
+<div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
+
+<!-- Create Wastage Modal -->
+<div class="modal fade" id="createWastageRecordModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Record New Waste</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="mb-3">
+          <label class="form-label">Material / Lot</label>
+          <input type="text" id="materialLot" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Wastage Category</label>
+          <input type="text" id="wasteCategory" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Recyclable</label>
+          <select id="recyclable" class="form-select">
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Cost Impact</label>
+          <input type="number" id="costImpact" class="form-control">
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-primary" onclick="saveWaste()">
+          Save
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div> 
 
 <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
@@ -2125,3 +2186,60 @@ function fetchWastageCategories() {
 }
 
                     </script>
+                    <script>
+
+function saveWaste() {
+
+    let material = document.getElementById("materialLot").value.trim();
+    let category = document.getElementById("wasteCategory").value.trim();
+    let recyclable = document.getElementById("recyclable").value;
+    let cost = document.getElementById("costImpact").value;
+
+    if (!material || !category || !recyclable || !cost) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let tableBody = document.querySelector(".table tbody");
+
+    let newRow = document.createElement("tr");
+
+    newRow.innerHTML = `
+        <td class="fw-bold">${material}</td>
+        <td>${category}</td>
+        <td>
+          <span class="badge ${recyclable === 'Yes' ? 'bg-label-success' : 'bg-label-danger'}">
+            ${recyclable}
+          </span>
+        </td>
+        <td>$${parseFloat(cost).toFixed(2)}</td>
+        <td>${new Date().toISOString().split('T')[0]}</td>
+        <td>
+          <div class="d-flex align-items-center">
+            <button class="btn btn-sm btn-label-danger"
+                    onclick="this.closest('tr').remove()">
+              Delete
+            </button>
+          </div>
+        </td>
+    `;
+
+    tableBody.appendChild(newRow);
+
+    // Close modal properly (Bootstrap way)
+    let modal = bootstrap.Modal.getInstance(document.getElementById('createWastageRecordModal'));
+    modal.hide();
+
+    // Clear fields
+    document.getElementById("materialLot").value = "";
+    document.getElementById("wasteCategory").value = "";
+    document.getElementById("recyclable").value = "";
+    document.getElementById("costImpact").value = "";
+}
+
+</script> 
+
+                    
+
+                </body>
+            </html>
