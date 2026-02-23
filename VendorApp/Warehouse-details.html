@@ -1840,7 +1840,7 @@
                         <h4 class="fw-bold mb-1">Main Hub - North</h4>
                         <p class="text-muted mb-0">123 Industrial Way, NY</p>
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="openTransferModal()">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#transferModal">
                         New Stock Transfer
                     </button>
                 </div>
@@ -1851,11 +1851,12 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Zone/Aisle</th>
-                                <th>Material Lot</th>
-                                <th>Quantity On Hand</th>
-                                <th>Last Moved</th>
-                                <th>Actions</th>
+                                <th>Zone/Aisle &#8597; </th>
+                                <th>Material Lot &#8597;</th>
+                                <th>Quantity On Hand &#8597;</th>
+                                <th>Last Moved &#8597;</th> <br>
+                            
+                                <th class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -1864,8 +1865,8 @@
                                 <td><a href="material-details.html" class="fw-medium">LOT-2026-001</a></td>
                                 <td>350 kg</td>
                                 <td>2026-02-10</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
+                                <td class="text-center">
+                                    <div class="d-inline-flex gap-2">
                                         <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="initiateZoneTransfer('LOT-2026-089')">Transfer</button>
                                         <button type="button" class="btn btn-sm btn-label-warning me-2" onclick="reportWastage('LOT-2026-089')">Report</button>
                                         <button type="button" class="btn btn-sm btn-label-secondary">Edit</button>
@@ -1877,8 +1878,8 @@
                                 <td><a href="material-details.html" class="fw-medium">LOT-2026-089</a></td>
                                 <td>25 Liters</td>
                                 <td>2026-02-12</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
+                                <td class="text-center">
+                                    <div class="d-inline-flex gap-2">
                                         <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="initiateZoneTransfer('LOT-2026-089')">Transfer</button>
                                         <button type="button" class="btn btn-sm btn-label-warning me-2" onclick="reportWastage('LOT-2026-089')">Report</button>
                                         <button type="button" class="btn btn-sm btn-label-secondary">Edit</button>
@@ -1890,8 +1891,8 @@
                                 <td><a href="material-details.html" class="fw-medium">LOT-2026-001</a></td>
                                 <td>1200kg</td>
                                 <td>2026-02-14</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
+                                <td class="text-center">
+                                    <div class="d-inline-flex gap-2">
                                         <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="initiateZoneTransfer('LOT-2026-089')">Transfer</button>
                                         <button type="button" class="btn btn-sm btn-label-warning me-2" onclick="reportWastage('LOT-2026-089')">Report</button>
                                         <button type="button" class="btn btn-sm btn-label-secondary">Edit</button>
@@ -1906,8 +1907,39 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="transferModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">New Stock Transfer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="transferForm">
+          <input type="text" class="form-control mb-2" id="fromWarehouse" placeholder="From Warehouse" required>
+          <input type="text" class="form-control mb-2" id="toWarehouse" placeholder="To Warehouse" required>
+          <input type="number" class="form-control mb-2" id="quantity" placeholder="Quantity" required>
+          <button type="submit" class="btn btn-success">Transfer</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div> 
 
 
+
+
+
+<div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
  
 
                     
@@ -2101,5 +2133,16 @@ function updateCapacityUI() {
     console.log("Recalculating warehouse floor space...");
 }
 </script>
+<script>
+document.getElementById("transferForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let from = document.getElementById("fromWarehouse").value;
+  let to = document.getElementById("toWarehouse").value;
+  let qty = document.getElementById("quantity").value;
+
+  alert("Stock Transferred from " + from + " to " + to + " (Qty: " + qty + ")");
+});
+</script> 
                 </body>
             </html>
