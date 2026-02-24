@@ -24,10 +24,50 @@
         background: #e0e0e0;
         border-radius: 2px;
     }
-    .step-line.active-line {
-        background: #3f87f5;
-    }
     
+    
+
+    #stepTabs{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 90px;
+
+    }
+     #stepTabs .nav-link {
+    width: 190px;
+    height: 90px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    white-space: normal;
+    line-height: 1.2;
+    font-size: 14px;
+    word-break: break-word;
+    background-color: #f1f5f9;
+    color: #6c757d;
+    
+}
+#stepTabs{
+    flex:0 0 auto;
+}
+
+
+/* Active = Blue */
+#stepTabs .nav-link.active {
+    background-color: #0d6efd !important;
+    color: white !important;
+}
+
+/* Completed = Green */
+#stepTabs .nav-link.completed {
+    background-color: #42e869 !important;
+    color: white !important;
+} 
+
 </style>
 
  
@@ -1865,7 +1905,7 @@
   <!-- Stepper Top -->
   <div class="card mb-4 px-5">
     <div class="card-body">
-      <ul class="nav nav-pills justify-content-between step-square" id="stepTabs">
+      <ul class="nav nav-pills justify-content-center "   id="stepTabs">
         <li class="nav-item">
           <button class="nav-link active" onclick="goToStep(1)" id="tab1">
             Step 1 - Job Card and Material
@@ -1887,6 +1927,12 @@
           </button>
         </li>
       </ul>
+      
+                <div class="progress mt-3" style="height: 6px;">
+                <div id="stepProgress" class="progress-bar bg-primary" role="progressbar" style="width: 25%">
+                        </div>
+                                    </div>
+                                </div>
     </div>
   </div>
 
@@ -2671,17 +2717,47 @@ function adjustStock(lotId) {
           
           
   <script>
+
+</script> 
+
+<script>
 function goToStep(step) {
 
-  for (let i = 1; i <= 4; i++) {
-    document.getElementById("step" + i).style.display = "none";
-    document.getElementById("tab" + i).classList.remove("active");
-  }
+    const totalSteps = 4;
 
-  document.getElementById("step" + step).style.display = "block";
-  document.getElementById("tab" + step).classList.add("active");
+    for (let i = 1; i <= totalSteps; i++) {
+
+        // Hide all step content
+        document.getElementById("step" + i).style.display = "none";
+
+        // Remove classes
+        document.getElementById("tab" + i).classList.remove("active");
+        document.getElementById("tab" + i).classList.remove("completed");
+
+        // Add completed to previous steps
+        if (i < step) {
+            document.getElementById("tab" + i).classList.add("completed");
+        }
+    }
+
+    // Show current step content
+    document.getElementById("step" + step).style.display = "block";
+
+    // Active step
+    document.getElementById("tab" + step).classList.add("active");
+
+    // 🔥 Update Progress Bar
+    let percent = (step / totalSteps) * 100;
+    document.getElementById("stepProgress").style.width = percent + "%";
 }
+
+// Default load
+document.addEventListener("DOMContentLoaded", function () {
+    goToStep(1);
+});
 </script> 
+
+
 <script>
 document.addEventListener("click", function(e) {
 
