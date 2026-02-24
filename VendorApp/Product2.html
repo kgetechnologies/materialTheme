@@ -27,6 +27,7 @@
     .step-line.active-line {
         background: #3f87f5;
     }
+    
 </style>
 
  
@@ -1858,31 +1859,31 @@
                         </div>
                     </aside>
                     <div class="container-fluid mt-5 px-5">
-                        <h6 style="font-size: 30px; font-weight: 600;">Production Book Binding order</h6>
+                        <h6 style="font-size: 30px; font-weight: 600;">Production Punching Order</h6>
                         <p>Complete Job Card Processing - From Creation to Dispatch</p>
 
   <!-- Stepper Top -->
-  <div class="card mb-4 px-4">
+  <div class="card mb-4 px-5">
     <div class="card-body">
-      <ul class="nav nav-pills justify-content-between" id="stepTabs">
+      <ul class="nav nav-pills justify-content-between step-square" id="stepTabs">
         <li class="nav-item">
           <button class="nav-link active" onclick="goToStep(1)" id="tab1">
-            Step 1 - Job Card
+            Step 1 - Job Card and Material
           </button>
         </li>
         <li class="nav-item">
           <button class="nav-link" onclick="goToStep(2)" id="tab2">
-            Step 2 - Binding
+            Step 2 - Punching & QC
           </button>
         </li>
         <li class="nav-item">
           <button class="nav-link" onclick="goToStep(3)" id="tab3">
-            Step 3 - Inspection
+            Step 3 - Final Inspection
           </button>
         </li>
         <li class="nav-item">
           <button class="nav-link" onclick="goToStep(4)" id="tab4">
-            Step 4 - Dispatch
+            Step 4 - Ready to Dispatch
           </button>
         </li>
       </ul>
@@ -1901,10 +1902,7 @@
 
           <div class="card">
   <div class="card-body">
-
-    
-    
-    <h4 class="mb-3">
+<h4 class="mb-3">
       Step 1: Job Card Creation & Material Selection
     </h4>
 
@@ -1926,7 +1924,7 @@
           <label class="form-label">End Time</label>
           <input type="datetime-local" class="form-control">
         </div>
-
+        <h6><strong>Material Selection</strong></h6>
         <!-- Job Card -->
         <div class="col-md-6">
           <label class="form-label">Job Card Number</label>
@@ -1936,17 +1934,17 @@
 
         <!-- Raw Material -->
         <div class="col-md-6">
-          <label class="form-label">Paper Material</label>
+          <label class="form-label">Operator Name</label>
           <select class="form-select">
-            <option>80 GSM A4 Paper</option>
-            <option>100 GSM Premium Paper</option>
-            <option>Art Paper 120 GSM</option>
+            <option>Joseph</option>
+            <option>Rakesh</option>
+            <option>Suresh</option>
           </select>
         </div>
 
         <!-- Cover Material -->
         <div class="col-md-6">
-          <label class="form-label">Cover Type</label>
+          <label class="form-label">Raw Material</label>
           <select class="form-select">
             <option>Soft Cover</option>
             <option>Hard Board Cover</option>
@@ -1956,7 +1954,7 @@
 
         <!-- Binding Type -->
         <div class="col-md-6">
-          <label class="form-label">Binding Type</label>
+          <label class="form-label">Target Product</label>
           <select class="form-select">
             <option>Spiral Binding</option>
             <option>Perfect Binding</option>
@@ -1974,25 +1972,7 @@
         </div>
 
         <!-- Operator -->
-        <div class="col-md-6">
-          <label class="form-label">Operator Name</label>
-          <input type="text" class="form-control"
-                 placeholder="Enter operator name">
-        </div>
-
-        <!-- Target Product -->
-        <div class="col-md-6">
-          <label class="form-label">Target Product</label>
-          <input type="text" class="form-control"
-                 placeholder="A4 Spiral Notebook">
-        </div>
-
-        <!-- Quantity -->
-        <div class="col-md-6">
-          <label class="form-label">Target Quantity</label>
-          <input type="number" class="form-control"
-                 placeholder="500">
-        </div>
+        
 
         <!-- Reject Partial -->
         <div class="col-md-6">
@@ -2030,12 +2010,13 @@
   <div class="card-body">
 
     <h4 class="mb-3">
-      Step 2: Binding & Quality Check
+      Step 2:Punching & QC
     </h4>
 
-    <p class="text-muted">
-      Perform spiral binding and check quality parameters
-    </p>
+   <p> <strong>Punching Stage:</strong><span class="text-muted">
+      Punch cut peices and perform quality control
+    </span></p>
+    
 
     <form>
 
@@ -2053,26 +2034,25 @@
         </div>
 
         <!-- Production Data -->
+         <h6><strong>Production Data</strong></h6>
         <div class="col-md-6">
-          <label class="form-label">Input Material</label>
+          <label class="form-label">Input Material from Previous Stage</label>
           <input type="text" class="form-control"
-                 value="80 GSM A4 Paper"
+                 value="AB/Prod/01 & 15-12-2024 & 2"
                  readonly>
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">Target Product</label>
-          <input type="text" class="form-control"
-                 value="A4 Spiral Notebook"
-                 readonly>
+          <label class="form-label">End Time</label>
+          <input type="datetime-local" class="form-control">
         </div>
 
-        <!-- Output Quantity -->
         <div class="col-md-6">
-          <label class="form-label">Output Quantity (Pieces)</label>
-          <input type="number" class="form-control"
-                 placeholder="Enter produced quantity">
+          <label class="form-label">Start Time</label>
+          <input type="datetime-local" class="form-control">
         </div>
+        
+        
 
       </div>
 
@@ -2092,20 +2072,20 @@
 
             <tbody>
               <tr>
-                <td>Spiral Alignment</td>
-                <td>Centered</td>
+                <td>Punch Diameter</td>
+                <td>25 +- 5</td>
                 <td>✅Pass</span></td>
               </tr>
 
               <tr>
-                <td>Page Cutting Edge</td>
-                <td>Clean & Smooth</td>
+                <td>Punch Position </td>
+                <td>Center 1mm</td>
                 <td>✅Pass</span></td>
               </tr>
 
               <tr>
-                <td>Cover Finishing</td>
-                <td>No Damage</td>
+                <td>Edge condition</td>
+                <td>Clean</td>
                 <td>✅Pass</span></td>
               </tr>
             </tbody>
@@ -2195,16 +2175,7 @@
           <input type="datetime-local" class="form-control">
         </div>
 
-        <div class="col-md-6">
-          <label class="form-label">Inspector Name</label>
-          <input type="text" class="form-control" placeholder="Enter inspector name">
-        </div>
-
-        <div class="col-md-6">
-          <label class="form-label">Sample Size</label>
-          <input type="number" class="form-control" placeholder="Enter sample quantity">
-        </div>
-
+        
       </div>
 
       <!-- TEST RESULTS TABLE -->
@@ -2376,7 +2347,7 @@
       <div class="row g-3">
 
         <div class="col-md-4">
-          <label class="form-label">Total Pieces</label>
+          <label class="form-label">Total Pieces for Inspection</label>
           <input type="number" class="form-control" value="500" readonly>
         </div>
 
@@ -2389,12 +2360,17 @@
           <label class="form-label">Accepted Pieces</label>
           <input type="number" class="form-control" value="495">
         </div>
+        <div class="col-md-4">
+          <label class="form-label">Inspector Name</label>
+          <input type="text" class="form-control" value="Sarah Johnson">
+        </div>
 
       </div>
 
       <!-- QC CHECKLIST -->
       <div class="mt-4">
-  <h5>Inspection Checklist</h5>
+  <h5><strong>Quality Control</strong></h5><br>
+  <p class="text-muted">Inspection Checklist</p>
 
   <div class="list-group">
 
@@ -2405,7 +2381,7 @@
 
     <label class="list-group-item">
       <input class="form-check-input me-2" type="checkbox" checked>
-      Spiral binding properly aligned
+      Surface finish Acceptable
     </label>
 
     <label class="list-group-item">
@@ -2426,22 +2402,21 @@
       <div class="mt-4">
         <h5>Rejection Details</h5>
 
-        <div class="row g-3">
-          <div class="col-md-6">
-            <label class="form-label">Rejection Type</label>
-            <select class="form-select" id="rejectionType">
-              <option>Spiral Misalignment</option>
-              <option>Paper Damage</option>
-              <option>Cover Scratch</option>
-            </select>
-          </div>
+        <div class="card shadow-none border">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Rejection Details</h5>
+    <button type="button" class="btn btn-primary btn-sm" onclick="addRejectionRow()">
+      + Add Rejection Type
+    </button>
+  </div>
 
-          <div class="col-md-6">
-            <label class="form-label">Rejected Quantity</label>
-            <input type="number" id="rejectedQty" class ="form-control" value="5">
-          </div>
-        </div>
-      </div>
+  <div class="card-body">
+    <div id="rejectionContainer">
+      <!-- Dynamic rows will come here -->
+    </div>
+  </div>
+</div> 
+
 
       <!-- APPROVAL -->
       <div class="row g-3 mt-4">
@@ -2478,15 +2453,16 @@
   </div>
 </div> 
 
-
-          <button type="button" class="btn btn-secondary mt-4"
+         <div class="d-flex justify-content-between mt-4">
+          <button type="button" class="btn btn-secondary mt-4 mb-5 px-4"
                   onclick="goToStep(3)">
             Back
           </button>
 
-          <button id="completeBtn" class="btn btn-success mt-4">
-            Complete
+          <button id="completeBtn" class="btn btn-success mt-4 mb-5">
+            Complete Dispatch
           </button>
+         </div>
         </div>
 
       </form>
@@ -2494,7 +2470,7 @@
     </div>
   </div>
 
-</div> 
+                    </div>
 
       
                     
@@ -2765,6 +2741,60 @@ document.addEventListener("click", function(e) {
 
 });
 </script> 
+<script>
+
+let rejectionCount = 0;
+
+function addRejectionRow() {
+
+    rejectionCount++;
+
+    let container = document.getElementById("rejectionContainer");
+
+    let row = document.createElement("div");
+    row.className = "row align-items-center mb-3";
+    row.id = "rejectionRow_" + rejectionCount;
+
+    row.innerHTML = `
+        <div class="col-md-5">
+            <select class="form-select">
+                <option value="">Select Rejection Type</option>
+                <option>Punch Misalignment</option>
+                <option>Surface Scratch</option>
+                <option>Crack</option>
+                <option>Color Mismatch</option>
+                <option>Dimension Out of Tolerance</option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <input type="number" class="form-control" placeholder="Qty">
+        </div>
+
+        <div class="col-md-2">
+            <button class="btn btn-outline-danger" onclick="removeRejectionRow(${rejectionCount})">
+                ✕
+            </button>
+        </div>
+    `;
+
+    container.appendChild(row);
+}
+
+function removeRejectionRow(id) {
+    let row = document.getElementById("rejectionRow_" + id);
+    if (row) {
+        row.remove();
+    }
+}
+
+// Load one default row
+window.onload = function() {
+    addRejectionRow();
+}
+
+</script> 
+
 
 
 
