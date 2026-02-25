@@ -1834,17 +1834,17 @@
 <div class="container-xxl flex-grow-1 container-p-y">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h4 class="fw-bold mb-0">
-      <span class="text-muted fw-light">Stages /</span> Main Assembly
+      <span id="stageTitle">Stages /</span> Main Assembly
     </h4>
     <div class="d-flex gap-2">
-      <button class="btn btn-outline-primary">Edit Settings</button> 
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Edit Settings</button> 
     </div>
   </div>
   <div class="row mb-4">
     <div class="col-md-3">
       <div class="card p-3 text-center">
         <small class="text-muted d-block">Est. Duration</small>
-        <h2 class="mb-0">120 Mins</h2> </div>
+        <h2 class="mb-0" ">120 Mins</h2> </div>
     </div>
     <div class="col-md-3">
       <div class="card p-3 text-center">
@@ -1870,9 +1870,9 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Order ID</th>
-            <th>Product SKU</th>
-            <th>Time in Stage</th>
+            <th onclick="sortTable(0, 'string')" style="cursor:pointer">Order ID &#8597;</th>
+            <th onclick="sortTable(0, 'string')" style="cursor:pointer">Product SKU &#8597;</th>
+            <th onclick="sortTable(0, 'string')" style="cursor:pointer">Time in Stage &#8597;</th>
             <th>Status</th>
             <th class="text-center">Action</th>
           </tr>
@@ -1883,14 +1883,46 @@
             <td>STEEL-FRAME-01</td>
             <td>1h 10m</td>
             <td><span class="badge bg-label-info">In Progress</span></td> <td class="text-center">
-              <button class="btn btn-sm btn-primary">Move to Next Stage</button> </td>
+              <button class="btn btn-sm btn-primary move-btn">Move to Next Stage</button> </td>
           </tr>
           <tr>
-            <td><strong>#ORD-9905</strong></td>
+            <td><strong>#ORD-9906</strong></td>
+            <td>GEAR-UNIT-02</td>
+            <td>45m</td>
+            <td><span class="badge bg-label-info">In Progess</span></td> <td class="text-center">
+              <button class="btn btn-sm btn-primary move-btn" >Move to Next Stage</button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>#ORD-9907</strong></td>
+            <td>AXLE-CORE-11</td>
+            <td>3h 15m</td>
+            <td><span class="badge bg-label-success">Completed</span></td> <td class="text-center">
+              <button class="btn btn-sm btn-primary move-btn" ">Move to Next Stage</button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>#ORD-9908</strong></td>
+            <td>BOLT-SET-09</td>
+            <td>1h 15m</td>
+            <td><span class="badge bg-label-warning">Pending</span></td> <td class="text-center">
+              <button class="btn btn-sm btn-primary move-btn" >Move to Next Stage</button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>#ORD-9909</strong></td>
+            <td>FRAME-BASE-03</td>
+            <td>2h 40m</td>
+            <td><span class="badge bg-label-danger">Delayed</span></td> <td class="text-center">
+              <button class="btn btn-sm btn-primary move-btn" >Move to Next Stage</button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>#ORD-9902</strong></td>
             <td>ALLOY-PLATE-04</td>
             <td>2h 15m</td>
             <td><span class="badge bg-label-danger">Delayed</span></td> <td class="text-center">
-              <button class="btn btn-sm btn-primary">Move to Next Stage</button>
+              <button class="btn btn-sm btn-primary move-btn" >Move to Next Stage</button>
             </td>
           </tr>
         </tbody>
@@ -1902,7 +1934,44 @@
             </div>
         </div>
     </div>
-    <footer class="content-footer footer bg-footer-theme">
+    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
+                                    <!-- Edit Stage Modal -->
+           <div class="modal fade" id="editModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Stage</h5>
+        <button type="button" class="btn-close"
+                data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <input type="text" id="editName" class="form-control mb-3"
+               placeholder="Stage Name">
+
+        <input type="number" id="editDuration"
+               class="form-control"
+               placeholder="Duration (Minutes)">
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary"
+                data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary"
+                onclick="saveStage()">Save</button>
+      </div>
+
+    </div>
+  </div>
+</div> 
+<footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
                             <div
                                 class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
@@ -2052,5 +2121,65 @@
                         // Initial load
                         displayPage(1);
                     </script>
+                    <script>
+function saveStage() {
+
+  let name = document.getElementById("editName").value;
+  let duration = document.getElementById("editDuration").value;
+
+  if(name === "" || duration === ""){
+    alert("Fill all fields");
+    return;
+  }
+
+  document.querySelector("h4 span").innerText = name;
+  document.querySelector("h2").innerText = duration + " Mins";
+
+  let modal = bootstrap.Modal.getInstance(
+      document.getElementById('editModal')
+  );
+  modal.hide();
+}
+</script> 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  document.querySelectorAll(".move-btn").forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+      let row = this.closest("tr");
+      if (!row) {
+        alert("Row not found");
+        return;
+      }
+
+      let statusSpan = row.querySelector("span.badge");
+      if (!statusSpan) {
+        alert("Status not found");
+        return;
+      }
+
+      let status = statusSpan.textContent.trim();
+
+      if (status === "Pending") {
+        statusSpan.textContent = "In Progress";
+        statusSpan.className = "badge bg-label-info";
+      }
+      else if (status === "In Progress") {
+        statusSpan.textContent = "Completed";
+        statusSpan.className = "badge bg-label-success";
+      }
+      else if (status === "Completed") {
+        alert("Already Completed");
+      }
+
+    });
+
+  });
+
+});
+</script> 
+
 </body>
 </html>

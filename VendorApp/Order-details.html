@@ -1833,19 +1833,19 @@
                     <div class="card shadow-none border">
   <div class="card-header border-bottom d-flex justify-content-between align-items-center">
     <h5 class="card-title mb-0">Production Stage Tracking</h5>
-    <button class="btn btn-primary btn-sm" onclick="completeCurrentStage('ORD-7710')">
-      Complete Current Stage
+    <button class="btn btn-primary btn-sm" onclick="completeCurrentStage('ORD-7705')">
+    Move to Next Stage
     </button>
   </div>
   <div class="table-responsive">
     <table class="table table-hover" id="stageHistoryTable">
       <thead>
         <tr>
-          <th>Stage Name</th>
-          <th>Started At</th>
-          <th>Completed At</th>
-          <th>Duration</th>
-          <th>Status</th>
+          <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Stage Name &#8597;</strong></th>
+          <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Started At &#8597;</strong></th>
+          <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Completed At &#8597;</strong></th>
+          <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Duration &#8597;</strong></th>
+          <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Status &#8597;</strong></th>
         </tr>
       </thead>
       <tbody>
@@ -1874,6 +1874,13 @@
     </table>
   </div>
 </div>
+<div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
         
 
                     <footer class="content-footer footer bg-footer-theme">
@@ -2026,7 +2033,8 @@
                         // Initial load
                         displayPage(1);
                     </script>
-                    <script>
+                    
+          <script>
                         /**
  * Order Details Logic
  */

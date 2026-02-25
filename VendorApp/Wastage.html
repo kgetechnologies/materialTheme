@@ -1837,8 +1837,8 @@
             <div class="card shadow-none border">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Material Wastage Records</h5>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createWasetagerecordModal">
-                        <i class="bx bx-plus me-1"></i>Record New Waste
+                    <button type="button" class="btn btn-primary" onclick="openWasteModal()">
+                        Record New Waste
                     </button>
                 </div>
                
@@ -1852,7 +1852,7 @@
                                 <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Recyclable &#8597; </strong></th>
                                 <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Cost &#8597; </strong></th>
                                 <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Recorded Date &#8597; </strong></th>
-                                <th><strong>Actions</strong></th>
+                                <th class="text-center"><strong>Actions</strong></th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -1863,7 +1863,7 @@
                                 <td>$125.50</td>
                                 <td>2026-02-14</td>
                                 <td>
-                                    <div class="d-flex align-items-center">
+                                    <div class="text-center">
                                         <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="editWastage('WST-001')">Edit</button>
                                         <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewWastageDetail('WST-001')">View</button>
                                     </div>
@@ -1876,7 +1876,7 @@
                                 <td>$420.00</td>
                                 <td>2026-02-13</td>
                                 <td>
-                                    <div class="d-flex align-items-center">
+                                    <div class="text-center">
                                         <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="editWastage('WST-002')">Edit</button>
                                         <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewWastageDetail('WST-002')">View</button>
                                     </div>
@@ -1889,7 +1889,7 @@
     <td>$85.00</td>
     <td>2026-02-14</td>
     <td>
-        <div class="d-flex align-items-center">
+        <div class="text-center">
             <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="editWastage('WST-003')">Edit</button>
             <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewWastageDetail('WST-003')">View</button>
         </div>
@@ -1903,7 +1903,7 @@
     <td>$1,120.00</td>
     <td>2026-02-12</td>
     <td>
-        <div class="d-flex align-items-center">
+        <div class="text-center">
             <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="editWastage('WST-004')">Edit</button>
             <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewWastageDetail('WST-004')">View</button>
         </div>
@@ -1917,7 +1917,20 @@
     <td>$345.20</td>
     <td>2026-02-11</td>
     <td>
-        <div class="d-flex align-items-center">
+        <div class="text-center">
+            <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="editWastage('WST-005')">Edit</button>
+            <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewWastageDetail('WST-005')">View</button>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td><strong>LOT-2026-551 (Non-Perishable)</strong></td>
+    <td>Leakage</td>
+    <td><span class="badge bg-label-info">Rejected</span></td>
+    <td>$545.20</td>
+    <td>2026-02-15</td>
+    <td>
+        <div class="text-center">
             <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="editWastage('WST-005')">Edit</button>
             <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewWastageDetail('WST-005')">View</button>
         </div>
@@ -1933,18 +1946,8 @@
         </div>
     </div>
 </div>
-<!-- Waste Recording Modal -->
-
-<div class="d-flex justify-content-between align-items-center mt-3">
-                                        <p id="pageInfo" class="mb-0"></p>
-
-                                        <nav>
-                                            <ul class="pagination mb-0" id="pagination"></ul>
-                                        </nav>
-                                    </div>
-
-<!-- Create Wastage Modal -->
-<div class="modal fade" id="createWastageRecordModal" tabindex="-1">
+<!-- Create Waste Modal -->
+<div class="modal fade" id="wasteModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -1961,38 +1964,39 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Wastage Category</label>
+          <label class="form-label">Waste Category</label>
           <input type="text" id="wasteCategory" class="form-control">
         </div>
 
         <div class="mb-3">
           <label class="form-label">Recyclable</label>
           <select id="recyclable" class="form-select">
-            <option value="">Select</option>
-            <option>Yes</option>
-            <option>No</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
           </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Cost Impact</label>
-          <input type="number" id="costImpact" class="form-control">
         </div>
 
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Cancel
-        </button>
-        <button type="button" class="btn btn-primary" onclick="saveWaste()">
-          Save
-        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="saveWaste()">Save</button>
       </div>
 
     </div>
   </div>
 </div> 
+
+<div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
+
+<!-- Create Wastage Modal -->
+
 
 <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
@@ -2187,6 +2191,46 @@ function fetchWastageCategories() {
 
                     </script>
                     <script>
+function openWasteModal() {
+    var modal = new bootstrap.Modal(document.getElementById('wasteModal'));
+    modal.show();
+}
+
+function saveWaste() {
+
+    let materialLot = document.getElementById("materialLot").value;
+    let wasteCategory = document.getElementById("wasteCategory").value;
+    let recyclable = document.getElementById("recyclable").value;
+
+    if (materialLot === "" || wasteCategory === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let tableBody = document.querySelector("table tbody");
+
+    let newRow = `
+        <tr>
+            <td>${materialLot}</td>
+            <td>${wasteCategory}</td>
+            <td>${recyclable}</td>
+            <td><span class="badge bg-label-primary">Active</span></td>
+        </tr>
+    `;
+
+    tableBody.insertAdjacentHTML("beforeend", newRow);
+
+    // Close modal
+    var modalInstance = bootstrap.Modal.getInstance(document.getElementById('wasteModal'));
+    modalInstance.hide();
+
+    // Clear form
+    document.getElementById("materialLot").value = "";
+    document.getElementById("wasteCategory").value = "";
+}
+</script> 
+
+                    <script>
 
 function saveWaste() {
 
@@ -2238,6 +2282,7 @@ function saveWaste() {
 }
 
 </script> 
+
 
                     
 

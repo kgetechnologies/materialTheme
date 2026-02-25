@@ -1834,22 +1834,26 @@
     
     <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Inventory /</span> Product Master Data
+        <span >Inventory /</span> Product Master Data
     </h4>
 
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Product List</h5>
-            <button class="btn btn-primary">
-                <i class="bx bx-plus me-1"></i> Add New Product
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                 + Add New Product
             </button> </div>
 
         <div class="table-responsive text-nowrap">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>SKU Code</th> <th>Product Name</th>
-                        <th>BOM Status</th> <th>Activation</th> <th>Current Status</th> <th class="text-center">Actions</th>
+                        <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>SKU Code &#8597;</strong></th>
+                         <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Product Name &#8597;</strong></th>
+                        <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>BOM Status &#8597;</strong></th>
+                         <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Activation &#8597;</strong></th>
+                          <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Current Status &#8597;</strong></th> 
+                          <th class="text-center"><strong>Actions</strong></th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
@@ -1863,7 +1867,7 @@
                             </div>
                         </td>
                         <td><span class="badge bg-label-success">In Stock</span></td> <td class="text-center">
-                            <button class="btn btn-sm btn-outline-primary">View BOM</button>
+                            <button class="btn btn-sm btn-outline-primary view-bom">View BOM</button>
                         </td>
                     </tr>
 
@@ -1877,20 +1881,68 @@
                             </div>
                         </td>
                         <td><span class="badge bg-label-danger">Discontinued</span></td> <td class="text-center">
-                            <button class="btn btn-sm btn-outline-primary">View BOM</button>
+                            <button class="btn btn-sm btn-outline-primary view-bom">View BOM</button>
                         </td>
                     </tr>
                     <tr>
                         <td><strong>PROD-C-303</strong></td>
                     <td>Electronic Control Unit</td>
-                <td><span class="bagde bg-label-warning">Inreview</span></td>
+                <td><span class="bagde bg-label-warning" >Inreview</span></td>
                 <td>
                     <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox">
                             </div>
                         </td>
                         <td><span class="badge bg-label-danger">Incoming</span></td> <td class="text-center">
-                            <button class="btn btn-sm btn-outline-primary">View BOM</button>
+                            <button class="btn btn-sm btn-outline-primary view-bom">View BOM</button>
+                        </td>
+                    
+                </td>
+
+                </td></tr>
+                <tr>
+                        <td><strong>PROD-C-304</strong></td>
+                    <td>Hydraulic Pump</td>
+                <td><span class="bagde bg-label-success">Available</span></td>
+                <td>
+                    <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox">
+                            </div>
+                        </td>
+                        <td><span class="badge bg-label-success">In Stock</span></td> <td class="text-center">
+                            <button class="btn btn-sm btn-outline-primary view-bom">View BOM</button>
+                        </td>
+                    
+                </td>
+
+                </td></tr>
+                <tr>
+                        <td><strong>PROD-C-305</strong></td>
+                    <td>Gear Shaft Assembly</td>
+                <td><span class="bagde bg-label-warning">Linked</span></td>
+                <td>
+                    <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-label-danger">Incoming</span></td> <td class="text-center">
+                            <button class="btn btn-sm btn-outline-primary view-bom">View BOM</button>
+                        </td>
+                    
+                </td>
+
+                </td></tr>
+                <tr>
+                        <td><strong>PROD-C-308</strong></td>
+                    <td>Cooling Fan Module</td>
+                <td><span class="bagde bg-label-warning">Out of Stock</span></td>
+                <td>
+                    <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox">
+                            </div>
+                        </td>
+                        <td><span class="badge bg-label-danger">Discontinued</span></td> <td class="text-center">
+                            <button class="btn btn-sm btn-outline-primary view-bom">View BOM</button>
                         </td>
                     
                 </td>
@@ -1901,6 +1953,84 @@
         </div>
     </div>
 </div>
+<div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
+                                    <!-- Add Product Modal -->
+<div class="modal fade" id="addProductModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="mb-3">
+          <label>Order ID</label>
+          <input type="text" id="orderId" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label>Product SKU</label>
+          <input type="text" id="sku" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label>Time in Stage</label>
+          <input type="text" id="time" class="form-control" placeholder="2h 30m">
+        </div>
+
+        <div class="mb-3">
+          <label>Status</label>
+          <select id="status" class="form-select">
+            <option>Pending</option>
+            <option>In Progress</option>
+            <option>Completed</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary" onclick="saveProduct()">Save</button>
+      </div>
+
+    </div>
+  </div>
+</div> 
+<!-- BOM Modal -->
+<div class="modal fade" id="bomModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Bill of Materials</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body" id="bomContent">
+        <!-- BOM data will appear here -->
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div> 
+
+
 <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
                             <div
@@ -2073,6 +2203,82 @@ function addMaterialRow() {
 
 
                     </script>
+                    <script>
+function saveProduct() {
+
+  let orderId = document.getElementById("orderId").value.trim();
+  let sku = document.getElementById("sku").value.trim();
+  let time = document.getElementById("time").value.trim();
+  let status = document.getElementById("status").value;
+
+  if(!orderId || !sku || !time){
+    alert("Fill all fields");
+    return;
+  }
+
+  let tableBody = document.querySelector("table tbody");
+
+  let badgeClass = "bg-label-warning";
+  if(status === "In Progress") badgeClass = "bg-label-info";
+  if(status === "Completed") badgeClass = "bg-label-success";
+
+  let newRow = document.createElement("tr");
+
+  newRow.innerHTML = `
+    <td><strong>${orderId}</strong></td>
+    <td>${sku}</td>
+    <td>${time}</td>
+    <td>
+      <span class="badge ${badgeClass}">${status}</span>
+    </td>
+    <td class="text-center">
+      <button class="btn btn-sm btn-primary">Move to Next Stage</button>
+    </td>
+  `;
+
+  tableBody.appendChild(newRow);
+
+  // Clear fields
+  document.getElementById("orderId").value = "";
+  document.getElementById("sku").value = "";
+  document.getElementById("time").value = "";
+
+  // Close modal
+  let modal = bootstrap.Modal.getInstance(document.getElementById('addProductModal'));
+  modal.hide();
+}
+</script> 
+<script>
+document.addEventListener("click", function(e){
+
+  if(e.target.classList.contains("view-bom")){
+
+    let row = e.target.closest("tr");
+
+    let productName = row.children[1].innerText;
+    let status = row.querySelector(".badge").innerText;
+
+    let bomHTML = `
+      <p><strong>Product:</strong> ${productName}</p>
+      <p><strong>Status:</strong> ${status}</p>
+      <hr>
+      <ul>
+        <li>Steel Frame</li>
+        <li>Alloy Brackets</li>
+        <li>Industrial Bolts</li>
+        <li>Quality Seal</li>
+      </ul>
+    `;
+
+    document.getElementById("bomContent").innerHTML = bomHTML;
+
+    let modal = new bootstrap.Modal(document.getElementById('bomModal'));
+    modal.show();
+  }
+
+});
+</script> 
+
 
 </body>
 </html>

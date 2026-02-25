@@ -47,7 +47,7 @@
 
     <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
 
-    <script src="./assets/js/js/config.js"></script>
+    <scrip src="./assets/js/js/config.js"></script>
 </head>
 <body>
     <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
@@ -1837,22 +1837,38 @@
                     </aside>
     <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Production Management /</span> Manufacturing Stages
+        <span >Production Management /</span> Manufacturing Stages
     </h4>
 
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">All Manufacturing Stages</h5>
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStageModal">
-                <i class="bx bx-plus me-1"></i> Add New Stage
+                 Add New Stage
             </button> </div>
         
         <div class="table-responsive text-nowrap">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th># Seq</th> <th>Stage Name</th>
-                        <th>Estimated Duration</th> <th>Quality Check</th> <th>Performance Status</th> <th class="text-center">Actions</th>
+                        <th onclick="sortTable(0, 'string')" style="cursor:pointer"></th># Seq ⬍
+                                                </th>
+                        <th onclick="sortTable(0, 'string')" style="cursor:pointer">
+                                                    Stage Name ⬍
+                                                </th>
+                    <th onclick="sortTable(0, 'string')" style="cursor:pointer">
+                                                    Estimated Duration⬍
+                                                </th>
+                        <th onclick="sortTable(0, 'string')" style="cursor:pointer">
+                                                    Quality Check⬍
+                                                </th>
+                        <th onclick="sortTable(0, 'string')" style="cursor:pointer">
+                                                    Performance Status⬍
+                                                </th>
+                        <th onclick="sortTable(0, 'string')" style="cursor:pointer" class="text-center">
+                                                    Action ⬍
+                                                </th>
+                        
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
@@ -1867,18 +1883,38 @@
                         </td>
                         <td>
                             <span class="badge bg-label-success">On Track</span> </td>
-                        <td class="text-center">
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-sm btn-primary">
-                                    <i class="bx bx-edit me-1"></i>Edit
-                                </button>
-                                </td>
-                                </div>
-                                </div>
-                            </div>
-                        </td>
+                            <td class="text-center">
+                            
+  <div class="d-flex justify-content-center gap-2">
+
+    <!-- Move Up -->
+    <button class="btn btn-sm btn-outline-primary"
+            onclick="moveUp(this)">
+      <i class="bx bx-up-arrow-alt">&uarr;</i>
+    </button>
+
+    <!-- Move Down -->
+    <button class="btn btn-sm btn-outline-primary"
+            onclick="moveDown(this)">
+      <i class="bx bx-down-arrow-alt">&darr;</i>
+    </button>
+
+    <!-- Edit -->
+    <button class="btn btn-sm btn-outline-warning">
+      <i class="bx bx-pencil">&#9998;</i>
+    </button>
+
+    <!-- Delete -->
+    <button class="btn btn-sm btn-outline-danger"
+            onclick="deleteRow(this)">
+      <i class="bx bx-trash">&#10005;</i>
+    </button>
+
+  </div>
+</td> 
+
                     </tr>
-                    
+                        
                     <tr>
                         <td>
                             <span class="badge badge-center rounded-pill bg-label-primary">2</span>
@@ -1891,19 +1927,275 @@
                             <span class="badge bg-label-danger">Bottleneck</span> </td>
                         <td class="text-center">
                             
-                                    <button type="button" class="btn btn-sm btn-primary">
-                                    <i class="bx bx-edit me-1"></i>Edit
-                                    </button>
+  <div class="d-flex justify-content-center gap-2">
+
+    <!-- Move Up -->
+    <button class="btn btn-sm btn-outline-primary"
+            onclick="moveUp(this)">
+      <i class="bx bx-up-arrow-alt">&uarr;</i>
+    </button>
+
+    <!-- Move Down -->
+    <button class="btn btn-sm btn-outline-primary"
+            onclick="moveDown(this)">
+      <i class="bx bx-down-arrow-alt">&darr;</i>
+    </button>
+
+    <!-- Edit -->
+    <button class="btn btn-sm btn-outline-warning">
+      <i class="bx bx-pencil">&#9998;</i>
+    </button>
+
+    <!-- Delete -->
+    <button class="btn btn-sm btn-outline-danger"
+            onclick="deleteRow(this)">
+      <i class="bx bx-trash">&#10005;</i>
+    </button>
+
+  </div>
+</td> 
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="badge badge-center rounded-pill bg-label-primary">3</span>
                         </td>
-                                </div>
-                            </div>
+                        <td><strong>Assembly</strong></td>
+                        <td>25 Mins</td>
+                        <td>
+                            <span class="badge bg-label-warning">In Process</span>
                         </td>
+                        <td>
+                            <span class="badge bg-label-success">On Track</span> </td>
+                        <td class="text-center">
+                            
+  <div class="d-flex justify-content-center gap-2">
+
+    <!-- Move Up -->
+    <button class="btn btn-sm btn-outline-primary"
+            onclick="moveUp(this)">
+      <i class="bx bx-up-arrow-alt">&uarr;</i>
+    </button>
+
+    <!-- Move Down -->
+    <button class="btn btn-sm btn-outline-primary"
+            onclick="moveDown(this)">
+      <i class="bx bx-down-arrow-alt">&darr;</i>
+    </button>
+
+    <!-- Edit -->
+    <button class="btn btn-sm btn-outline-warning">
+      <i class="bx bx-pencil">&#9998;</i>
+    </button>
+
+    <!-- Delete -->
+    <button class="btn btn-sm btn-outline-danger"
+            onclick="deleteRow(this)">
+      <i class="bx bx-trash">&#10005;</i>
+    </button>
+
+  </div>
+</td> 
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="badge badge-center rounded-pill bg-label-primary">4</span>
+                        </td>
+                        <td><strong>Quality Check</strong></td>
+                        <td>60 Mins</td>
+                        <td>
+                            <span class="badge bg-label-secondary">Not Required</span>
+                        </td>
+                        <td>
+                            <span class="badge bg-label-Danger">Delayed</span> </td>
+                        <td class="text-center">
+                            
+  <div class="d-flex justify-content-center gap-2">
+
+    <!-- Move Up -->
+    <button class="btn btn-sm btn-outline-primary"
+            onclick="moveUp(this)">
+      <i class="bx bx-up-arrow-alt">&uarr;</i>
+    </button>
+
+    <!-- Move Down -->
+    <button class="btn btn-sm btn-outline-primary"
+            onclick="moveDown(this)">
+      <i class="bx bx-down-arrow-alt">&darr;</i>
+    </button>
+
+    <!-- Edit -->
+    <button class="btn btn-sm btn-outline-warning">
+      <i class="bx bx-pencil">&#9998;</i>
+    </button>
+
+    <!-- Delete -->
+    <button class="btn btn-sm btn-outline-danger"
+            onclick="deleteRow(this)">
+      <i class="bx bx-trash">&#10005;</i>
+    </button>
+
+  </div>
+</td> 
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="badge badge-center rounded-pill bg-label-primary">5</span>
+                        </td>
+                        <td><strong>Packing</strong></td>
+                        <td>30 Mins</td>
+                        <td>
+                            <span class="badge bg-label-info">Optional</span>
+                        </td>
+                        <td>
+                            <span class="badge bg-label-success">On Track</span> </td>
+                        <td class="text-center">
+                            
+  <div class="d-flex justify-content-center gap-2">
+
+    <!-- Move Up -->
+    <button class="btn btn-sm btn-outline-primary"
+            onclick="moveUp(this)">
+      <i class="bx bx-up-arrow-alt">&uarr;</i>
+    </button>
+
+    <!-- Move Down -->
+    <button class="btn btn-sm btn-outline-primary"
+            onclick="moveDown(this)">
+      <i class="bx bx-down-arrow-alt">&darr;</i>
+    </button>
+
+    <!-- Edit -->
+    <button class="btn btn-sm btn-outline-warning">
+      <i class="bx bx-pencil">&#9998;</i>
+    </button>
+
+    <!-- Delete -->
+    <button class="btn btn-sm btn-outline-danger"
+            onclick="deleteRow(this)">
+      <i class="bx bx-trash">&#10005;</i>
+    </button>
+
+  </div>
+</td> 
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
+                                    <!-- Add Stage Modal -->
+<div class="modal fade" id="addStageModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Stage</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="mb-3">
+          <label class="form-label">Stage Name</label>
+          <input type="text" id="stageName" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Duration (Minutes)</label>
+          <input type="number" id="stageDuration" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Status</label>
+          <select id="stageStatus" class="form-select">
+            <option value="Not Required">Not Required</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary" onclick="addStage()">Save</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+                                    <script>
+function addStage() {
+
+    let name = document.getElementById("stageName").value.trim();
+    let duration = document.getElementById("stageDuration").value;
+    let status = document.getElementById("stageStatus").value;
+
+    if (!name || !duration) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let tableBody = document.querySelector(".table tbody");
+
+    let stageNumber = tableBody.rows.length + 1;
+
+    let newRow = document.createElement("tr");
+
+    newRow.innerHTML = `
+        <td>
+          <span class="badge badge-center rounded-pill bg-label-primary">
+            ${stageNumber}
+          </span>
+        </td>
+
+        <td><strong>${name}</strong></td>
+
+        <td>${duration} Mins</td>
+
+        <td>
+          <span class="badge ${
+              status === "Completed" ? "bg-label-success" :
+              status === "In Progress" ? "bg-label-warning" :
+              "bg-label-secondary"
+          }">
+            ${status}
+          </span>
+        </td>
+
+        <td>
+          <span class="badge bg-label-success">On Track</span>
+        </td>
+
+        <td class="text-center">
+          <button type="button" class="btn btn-sm btn-primary">
+            <i class="bx bx-edit me-1"></i>Edit
+          </button>
+        </td>
+    `;
+
+    tableBody.appendChild(newRow);
+
+    // Clear form
+    document.getElementById("stageName").value = "";
+    document.getElementById("stageDuration").value = "";
+
+    // Close modal
+    let modal = bootstrap.Modal.getInstance(
+        document.getElementById("addStageModal")
+    );
+    modal.hide();
+}
+</script>
+
 <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
                             <div
@@ -2054,5 +2346,27 @@
                         // Initial load
                         displayPage(1);
                     </script>
+                    <script>
+function moveUp(btn) {
+    let row = btn.closest("tr");
+    let prev = row.previousElementSibling;
+    if (prev) {
+        row.parentNode.insertBefore(row, prev);
+    }
+}
+
+function moveDown(btn) {
+    let row = btn.closest("tr");
+    let next = row.nextElementSibling;
+    if (next) {
+        row.parentNode.insertBefore(next, row);
+    }
+}
+
+function deleteRow(btn) {
+    btn.closest("tr").remove();
+}
+</script> 
+
 </body>
 </html>
