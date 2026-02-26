@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .action-btn{
+            min-width: 90px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+        }
+    </style>
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
@@ -1846,12 +1856,12 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Transfer ID</th>
-                                <th>Origin</th>
-                                <th>Destination</th>
-                                <th>Vehicle</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Transfer ID &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Origin &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Destination &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Vehicle &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Status &#8597;</strong></th>
+                                <th ><strong>Actions &#8597;</strong></th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -1862,9 +1872,9 @@
                                 <td>Truck #42 (Van)</td>
                                 <td><span class="badge bg-label-warning">In Transit</span></td>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <button type="button" class="btn btn-sm btn-label-success me-2" onclick="approveTransfer('TRF-2026-001')">Approve</button>
-                                        <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewTransfer('TRF-2026-001')">View</button>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <button type="button" class="btn btn-sm btn-label-success me-2 action-btn" onclick="approveTransfer('TRF-2026-001')">Approve</button>
+                                        <button type="button" class="btn btn-sm btn-label-secondary action-btn" onclick="viewTransfer('TRF-2026-001')">View</button>
                                     </div>
                                 </td>
                             </tr>
@@ -1875,8 +1885,8 @@
                                 <td>Freight Carrier A</td>
                                 <td><span class="badge bg-label-success">Completed</span></td>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewTransfer('TRF-2026-005')">Details</button>
+                                    <div class="d-flex ">
+                                        <button type="button" class="btn btn-sm btn-label-secondary action-btn" onclick="viewTransfer('TRF-2026-005')">Details</button>
                                     </div>
                                 </td>
                             </tr>
@@ -1887,9 +1897,9 @@
                                 <td>Truck#15</td>
                                 <td><span class="badge bg-label-success">Scheduled</span></td>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <button type="button" class="btn btn-sm btn-label-success me-2" onclick="editTransfer('TRF-2026-005')">Edit</button>
-                                        <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewTransfer('TRF-2026-005')">View</button>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <button type="button" class="btn btn-sm btn-label-success me-2 action-btn" onclick="editTransfer('TRF-2026-005')">Edit</button>
+                                        <button type="button" class="btn btn-sm btn-label-secondary action-btn" onclick="viewTransfer('TRF-2026-005')">View</button>
                                     </div>
                                 </td>
                             </tr>
@@ -1898,11 +1908,11 @@
                                 <td>Secondary cold Storage</td>
                                 <td>Destribution Center West</td>
                                 <td>Unassigned</td>
-                                <td><span class="badge bg-label-success">Scheduled</span></td>
+                                <td><span class="badge bg-label-success ">Scheduled</span></td>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <button type="button" class="btn btn-sm btn-label-success me-2" onclick="approveTransfer('TRF-2026-015')">Approve</button>
-                                        <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewTransfer('TRF-2026-015')">Details</button>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <button type="button" class="btn btn-sm btn-label-success me-2 action-btn" onclick="approveTransfer('TRF-2026-015')">Approve</button>
+                                        <button type="button" class="btn btn-sm btn-label-secondary action-btn" onclick="viewTransfer('TRF-2026-015')">Details</button>
                                     </div>
                                 </td>
                             </tr>
@@ -1913,6 +1923,14 @@
         </div>
     </div>
 </div>
+<div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
+
 
  
     <footer class="content-footer footer bg-footer-theme">

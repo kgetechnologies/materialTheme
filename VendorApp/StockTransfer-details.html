@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    </style>
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
@@ -1832,7 +1834,7 @@
                     </aside>
                     <div class="layout-page">
     <div class="content-wrapper">
-        <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="container-xxl flex-grow-1 container-p-y" >
            
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h4 class="fw-bold mb-0">Transfer Details: <span class="text-primary">TRF-2026-001</span></h4>
@@ -1842,9 +1844,9 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4">
+            <div class="row ">
+                <div class="col-md-4 d-flex">
+                    <div class="card mb-4 w-100">
                         <div class="card-header"><h5 class="mb-0">Shipment Route</h5></div>
                         <div class="card-body">
                             <p class="mb-2"><strong>Origin:</strong> Main Hub - North</p>
@@ -1854,16 +1856,16 @@
                     </div>
                 </div>
 
-                <div class="col-md-8">
-                    <div class="card shadow-none border">
+                <div class="col-md-8 ">
+                    <div class="card shadow-none border ">
                         <div class="table-responsive text-nowrap">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Material Lot</th>
-                                        <th>Expected Qty</th>
-                                        <th>Actual Qty</th>
-                                        <th>Status</th>
+                                        <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Material Lot  &#8597;</strong></th>
+                                        <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Expected Qty  &#8597;</strong></th>
+                                        <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Actual Qty  &#8597;</strong></th>
+                                        <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Status  &#8597;</strong></th>
                                     </tr>
                                 </thead>
                                 <tbody>

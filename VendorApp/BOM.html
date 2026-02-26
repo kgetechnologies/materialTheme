@@ -1834,7 +1834,7 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h4 class="fw-bold mb-0">
-                                <span class="text-muted fw-light">Inventory/</span>Bill Of Materials(BOM)
+                                <span >Inventory/</span>Bill Of Materials(BOM)
                             </h4>
                             <button class="btn btn-primary" onclick="addMaterialRow()">
                                 <i class="bx bx-plus me-1"></i>Add Components
@@ -2041,15 +2041,15 @@ function addMaterialRow() {
                 <input type="text" class="form-control" placeholder="e.g. RAW-STL-01">
             </td>
             <td class="py-4">
-                <input type="number" class="form-control qty" value="1" oninput="calculateRow(${rowId})">
+                <input type="number" class="form-control qty" value="1" min="0" oninput="calculateRow(${rowId})">
             </td>
             <td class="py-4">
-                <input type="number" class="form-control cost" value="0.00" oninput="calculateRow(${rowId})">
+                <input type="number" class="form-control cost" value="0.00" min="0" oninput="calculateRow(${rowId})">
             </td>
             <td class="py-4 fw-bold text-dark">$<span class="row-total">0.00</span></td>
             <td class="text-center py-4">
                 <button class="btn btn-sm btn-icon btn-outline-danger" onclick="document.getElementById('row-${rowId}').remove(); updateGrandTotal();">
-                    <i class="bx bx-trash"></i>
+                    <i class="bx bx-trash">&#10006;</i>
                 </button>
             </td>
         </tr>`;
@@ -2088,4 +2088,3 @@ window.onload = addMaterialRow;
 </html>
 
                         
-
