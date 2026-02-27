@@ -1836,7 +1836,7 @@
            
             <div class="card shadow-none border">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">Technical Component & Firmware Versions</h5>
+                    <h5 class="mb-0"><strong>Technical Component & Firmware Versions</strong></h5>
                     <button type="button" class="btn btn-primary" onclick="registerNewVersion()">
                         Register New Version
                     </button>
@@ -1846,12 +1846,12 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Component Name</th>
-                                <th>Build / Version</th>
-                                <th>Installed In (Serial)</th>
-                                <th>Release Date</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Component Name &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Build / Version &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Installed In (Serial) &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Release Date &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Status &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer" class="text-center"><strong>Actions &#8597;</strong></th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -1860,9 +1860,9 @@
                                 <td>v2.4.1-Stable</td>
                                 <td>SN-2026-X99</td>
                                 <td>2026-02-15</td>
-                                <td><span class="badge bg-label-primary">Current</span></td>
+                                <td><span class="badge bg-label-primary" style="width:90px">Current</span></td>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewVersionDetails('V-101')">Details</button>
+                                    <button type="button" class="btn btn-sm btn-label-secondary" style="width:100px"onclick="viewVersionDetails('V-101')">Details</button>
                                 </td>
                             </tr>
                             <tr>
@@ -1870,9 +1870,9 @@
                                 <td>v1.0.5-Legacy</td>
                                 <td>SN-2026-Z05</td>
                                 <td>2026-01-10</td>
-                                <td><span class="badge bg-label-secondary">Deprecated</span></td>
+                                <td><span class="badge bg-label-secondary" style="width:90px">Deprecated</span></td>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-label-info" onclick="upgradePrompt('SN-2026-Z05')">Plan Upgrade</button>
+                                    <button type="button" class="btn btn-sm btn-label-info" style="width:100px"onclick="upgradePrompt('SN-2026-Z05')">Plan Upgrade</button>
                                 </td>
                             </tr>
                             <tr>
@@ -1880,9 +1880,9 @@
                                 <td>v3.0.0-Beta</td>
                                 <td>SN-2026-B12</td>
                                 <td>2026-02-16</td>
-                                <td><span class="badge bg-label-info">Beta</span></td>
+                                <td><span class="badge bg-label-info" style="width:90px">Beta</span></td>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-label-primary" onclick="editVersion('V-103')">Edit Build</button>
+                                    <button type="button" class="btn btn-sm btn-label-primary" style="width:100px" onclick="editVersion('V-103')">Edit Build</button>
                                 </td>
                             </tr>
                             <tr>
@@ -1890,9 +1890,9 @@
     <td>Revision B.2</td>
     <td>SN-2026-X12</td>
     <td>2026-02-10</td>
-    <td><span class="badge bg-label-danger">Recall</span></td>
+    <td><span class="badge bg-label-danger" style="width:90px">Recall</span></td>
     <td>
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center" style="width:200px">
             <button type="button" class="btn btn-sm btn-label-danger me-2" onclick="upgradePrompt('SN-2026-X12')">Plan Replacement</button>
             <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewVersionDetails('V-205')">Details</button>
         </div>
@@ -1904,9 +1904,9 @@
     <td>Patch_2026_01</td>
     <td>SN-2026-X99</td>
     <td>2026-02-16</td>
-    <td><span class="badge bg-label-success">Secure</span></td>
+    <td><span class="badge bg-label-success" style="width:90px">Secure</span></td>
     <td>
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center" style="width:150px">
             <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewVersionDetails('V-310')">View Patch Notes</button>
         </div>
     </td>
@@ -1922,7 +1922,13 @@
     </div>
 </div>
 
- 
+ <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
 
                     
     

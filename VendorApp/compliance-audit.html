@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .actions-grid{
+            display: grid;
+            grid-template-columns: repeat(3,100px);
+            gap:5px;
+        }
+            
+    </style>
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
@@ -1836,7 +1844,7 @@
            
             <div class="card shadow-none border">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">Serialization Compliance Audits</h5>
+                    <h5 class="mb-0"><strong>Serialization Compliance Audits</strong></h5>
                     <button type="button" class="btn btn-primary" onclick="scheduleAudit()">
                         Schedule New Audit
                     </button>
@@ -1846,12 +1854,14 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Audit ID</th>
-                                <th>Serial Reference</th>
-                                <th>Standard / Type</th>
-                                <th>Inspector</th>
-                                <th>Result</th>
-                                <th>Actions</th>
+                                        
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Audit ID &#8597;</strong></th>
+                                
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Serial Reference &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Standard / Type &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Inspector &#8597;</strong></th>
+                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Result &#8597;</strong> </th>
+                                <th class="text-center" style="width:360px"><strong>Actions</strong></th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -1862,9 +1872,10 @@
                                 <td>John Doe</td>
                                 <td><span class="badge bg-label-success">Pass</span></td>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <button type="button" class="btn btn-sm btn-label-secondary me-2">View Report</button>
-                                        <button type="button" class="btn btn-sm btn-label-primary">Details</button>
+                                    <div class="d-flex gap-2">
+                                        <button type="button" class="btn btn-sm btn-label-primary " style="width:100px">View Report</button>
+                                        <button type="button" class="btn btn-sm btn-label-primary" style="width:100px">Details</button>
+                                        <button class="download-btn btn btn-sm btn-label-info">Download</button>
                                     </div>
                                 </td>
                             </tr>
@@ -1875,8 +1886,10 @@
                                 <td>Sarah Smith</td>
                                 <td><span class="badge bg-label-warning">Pending</span></td>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <button type="button" class="btn btn-sm btn-label-primary">Start Audit</button>
+                                    <div class="d-flex gap-2">
+                                        <button type="button" class="btn btn-sm btn-label-primary ms-6" style="width:100px">Start Audit</button>
+                                    
+                                        <button class="download-btn btn btn-sm btn-label-info">Download</button>
                                     </div>
                                 </td>
                             </tr>
@@ -1887,21 +1900,23 @@
                                 <td>Mike Ross</td>
                                 <td><span class="badge bg-label-danger">Fail</span></td>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <button type="button" class="btn btn-sm btn-label-danger me-2">Issue Defect</button>
-                                        <button type="button" class="btn btn-sm btn-label-secondary">Re-Audit</button>
+                                    <div class="d-flex  gap-2">
+                                        <button type="button" class="btn btn-sm btn-label-primary me-2" style="width:100px">Issue Defect</button>
+                                        <button type="button" class="btn btn-sm btn-label-primary" style="width:100px">Re-Audit</button>
+                                        <button class="download-btn btn btn-sm btn-label-info">Download</button>
                                     </div>
                                 </td>
                             </tr>
-                            tr>
+                            <tr>
     <td><strong>AUD-2026-012</strong></td>
     <td>SN-2026-Z05</td>
     <td>FCC Compliance</td>
     <td>Robert Vance</td>
     <td><span class="badge bg-label-secondary">Expired</span></td>
-    <td>
-        <div class="d-flex align-items-center">
-            <button type="button" class="btn btn-sm btn-label-warning" onclick="reAudit('AUD-2026-012')">Renew Audit</button>
+    <td >
+           <div class="d-flex  gap-2"></div>
+            <button type="button" class="btn btn-sm btn-label-primary ms-5" onclick="reAudit('AUD-2026-012')" style="width:100px">Renew Audit</button>
+            <button class="download-btn btn btn-sm btn-label-info">Download</button>
         </div>
     </td>
 </tr>
@@ -1913,9 +1928,10 @@
     <td>Inspector Miller</td>
     <td><span class="badge bg-label-danger">Fail</span></td>
     <td>
-        <div class="d-flex align-items-center">
-            <button type="button" class="btn btn-sm btn-label-danger me-2" onclick="issueDefectFromAudit('AUD-2026-015', 'SN-2026-X12')">Issue Defect</button>
-            <button type="button" class="btn btn-sm btn-label-secondary" onclick="viewAuditReport('AUD-2026-015')">View Details</button>
+        <div class="d-flex  gap-2 " >
+            <button type="button" class="btn btn-sm btn-label-primary me-2" onclick="issueDefectFromAudit('AUD-2026-015', 'SN-2026-X12')" style="width:100px">Issue Defect</button>
+            <button type="button" class="btn btn-sm btn-label-primary" onclick="viewAuditReport('AUD-2026-015')" style="width:100px">View Details</button>
+            <button class="download-btn btn btn-sm btn-label-info">Download</button>
         </div>
     </td>
 </tr>
@@ -1929,12 +1945,15 @@
         </div>
     </div>
 </div>
+<div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
 
- 
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
 
-    
-
-    <footer class="content-footer footer bg-footer-theme">
+<footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl">
                             <div
                                 class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
@@ -2128,5 +2147,43 @@ function reAudit(auditId) {
  
 
                     </script>
+                    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll(".download-btn").forEach(button => {
+
+    button.addEventListener("click", function () {
+
+      const row = this.closest("tr");
+      const cells = row.querySelectorAll("td");
+
+      const auditId = cells[0].innerText.trim();
+      const serial = cells[1].innerText.trim();
+      const standard = cells[2].innerText.trim();
+      const inspector = cells[3].innerText.trim();
+      const result = cells[4].innerText.trim();
+
+      const csvContent =
+        "Audit ID,Serial,Standard,Inspector,Result\n" +
+        `${auditId},${serial},${standard},${inspector},${result}`;
+
+      const blob = new Blob([csvContent], { type: "text/csv" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = auditId + ".csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      URL.revokeObjectURL(url);
+    });
+
+  });
+
+});
+</script> 
+
 </body>
 </html>
