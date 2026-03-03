@@ -1984,8 +1984,9 @@
 
         <div class="mb-3">
           <label>Time in Stage</label>
-          <input type="text" id="time" class="form-control" placeholder="2h 30m">
+          <input type="number" id="time" class="form-control" min="1" step="1" required>
         </div>
+        
 
         <div class="mb-3">
           <label>Status</label>
@@ -2208,10 +2209,13 @@ function saveProduct() {
 
   let orderId = document.getElementById("orderId").value.trim();
   let sku = document.getElementById("sku").value.trim();
-  let time = document.getElementById("time").value.trim();
+  
   let status = document.getElementById("status").value;
+  let time = parseInt(document.getElementById("time").value);
 
-  if(!orderId || !sku || !time){
+  
+
+  if(!orderId || !sku || isNaN(time) || !time <= 0){
     alert("Fill all fields");
     return;
   }

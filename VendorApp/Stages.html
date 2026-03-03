@@ -2110,7 +2110,7 @@
 
         <div class="mb-3">
           <label class="form-label">Duration (Minutes)</label>
-          <input type="number" id="stageDuration" class="form-control">
+          <input type="number" id="stageDuration" class="form-control" min="1" step="1" required>
         </div>
 
         <div class="mb-3">
@@ -2139,8 +2139,8 @@ function addStage() {
     let duration = document.getElementById("stageDuration").value;
     let status = document.getElementById("stageStatus").value;
 
-    if (!name || !duration) {
-        alert("Please fill all fields");
+    if (!name || !duration || duration <= 0) {
+        alert("Duration must be positive number");
         return;
     }
 
@@ -2149,6 +2149,8 @@ function addStage() {
     let stageNumber = tableBody.rows.length + 1;
 
     let newRow = document.createElement("tr");
+
+    
 
     newRow.innerHTML = `
         <td>

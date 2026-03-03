@@ -1901,8 +1901,8 @@
       </div>
 
       <div class="modal-body">
-        <input type="text" class="form-control mb-3" placeholder="Material Name">
-        <input type="number" class="form-control mb-3" placeholder="Quantity">
+        <input type="text" id="materialName" class="form-control mb-3" placeholder="Material Name">
+        <input type="number" id="quantity" class="form-control mb-3" placeholder="Quantity" min="0" step="1" required>
       </div>
 
       <div class="modal-footer">
@@ -2076,40 +2076,43 @@
                         displayPage(1);
                     </script>
                     <script>
-                        /**
- * Logic for Material Lot Management
- */
+                      
+displayPage(1); // keep only if this function exists somewhere
 
-// 1. Record Material Receipt
 async function createMaterialLot(lotData) {
-    // Connects to: POST /api/v1/VendorClient/Materials/{companyId}/create-lot
     console.log("Recording new material receipt...", lotData);
-    // Logic to refresh table after receipt
 }
 
-// 2. Allocate to Production
-function allocateToProduction(lotId) {
-    // Connects to: POST /api/v1/VendorClient/Materials/{companyId}/allocate
-    const qty = prompt(`Enter quantity to allocate from ${lotId}:`);
-    
-    if (qty) {
-        console.log(`Allocating ${qty} units from ${lotId} to production.`);
-        alert(`Successfully allocated ${qty} units for production job!`);
-        // Capability: Track material costs through allocation
-    }
-}
-
-// 3. Monitor Stock Levels
 function checkExpiryDates() {
-    // Logic for Capability: Expiry date tracking
     const today = new Date();
     console.log("Checking for materials nearing expiry...");
 }
-                    </script>
-                    <script>
+
 function saveReceipt() {
+
+    const material = document.getElementById("materialName").value.trim();
+    const quantity = document.getElementById("quantity").value;
+
+    if (!material) {
+        alert("Please enter Material Name");
+        return;
+    }
+
+    if (!quantity || isNaN(quantity) || Number(quantity) <= 0) {
+        alert("Quantity must be a positive number");
+        return;
+    }
+
     alert("Material Receipt Recorded Successfully!");
+
+    // Optional: clear fields
+    document.getElementById("materialName").value = "";
+    document.getElementById("quantity").value = "";
 }
+
 </script> 
+  
+ 
+
                     </body>
-                    </html>
+     </html>
