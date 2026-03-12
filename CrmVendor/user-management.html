@@ -17,16 +17,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="./assets/vendor/fonts/iconify-icons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../Static/assets/vendor/css/core.css" />
-    <link rel="stylesheet" href="../Static/assets/css/demo.css" />
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Helpers -->
-    <script src="../Static/assets/vendor/js/helpers.js"></script>
-    <script src="../Static/assets/js/config.js"></script>
+    <script src="./assets/vendor/js/helpers.js"></script>
+    <script src="./assets/js/config.js"></script>
 </head>
 
 <body>
@@ -1862,24 +1862,27 @@
                             </div>
 
                         </div>
+
+                        <div class="card">
+                            <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h5 class="mb-0">Tenant Users</h5>
-                            <button class="btn btn-primary">
+                            <button class="btn btn-primary" onclick="addUser()">
                                 + Add New User
                             </button>
                         </div>
-                        <div class="card">
+                        
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead class="table-light">
                                         <tr>
-                                            <th>User ID</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Role</th>
-                                            <th>Status</th>
-                                            <th>Last Login</th>
-                                            <th>Actions</th>
+                                            <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>User ID &#8597;</strong></th>
+                                            <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Name &#8597;</strong></th>
+                                            <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Email &#8597;</strong></th>
+                                            <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Role &#8597;</strong></th>
+                                            <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Status &#8597;</strong></th>
+                                            <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Last Login &#8597;</strong></th>
+                                            <th onclick="sortTable(0, 'string')" style="cursor:pointer" class="text-center"><strong>Actions &#8597;</strong></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1888,12 +1891,12 @@
                                             <td>USR-001</td>
                                             <td>Rahul Sharma</td>
                                             <td>rahul@company.com</td>
-                                            <td><span class="badge bg-primary">Company_Admin</span></td>
+                                            <td>Company_Admin</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>2026-02-14 10:45</td>
                                             <td>
                                                 <button class="btn btn-sm btn-outline-primary">View</button>
-                                                <button class="btn btn-sm btn-outline-danger">Deactivate</button>
+                                                <button class="btn btn-sm btn-outline-danger ">Deactivate</button>
                                             </td>
                                         </tr>
 
@@ -1901,12 +1904,16 @@
                                             <td>USR-014</td>
                                             <td>Anita Verma</td>
                                             <td>anita@company.com</td>
-                                            <td><span class="badge bg-info">QualityControl</span></td>
+                                            <td>QualityControl</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>2026-02-13 18:12</td>
                                             <td>
+                                                
                                                 <button class="btn btn-sm btn-outline-primary">View</button>
-                                                <button class="btn btn-sm btn-outline-danger">Deactivate</button>
+                                                <button class="btn btn-sm btn-outline-danger ">Deactivate</button>
+                                                
+                                            </td>
+                                            </td>
                                             </td>
                                         </tr>
 
@@ -1914,12 +1921,12 @@
                                             <td>USR-021</td>
                                             <td>Mohit Singh</td>
                                             <td>mohit@company.com</td>
-                                            <td><span class="badge bg-secondary">Operator</span></td>
+                                            <td>Operator</td>
                                             <td><span class="badge bg-danger">Inactive</span></td>
                                             <td>2026-02-01 09:30</td>
                                             <td>
                                                 <button class="btn btn-sm btn-outline-primary">View</button>
-                                                <button class="btn btn-sm btn-outline-success">Activate</button>
+                                                <button class="btn btn-sm btn-outline-success ">Activate</button>
                                             </td>
                                         </tr>
 
@@ -1931,6 +1938,14 @@
 
 
                     </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
+
                 
 
                     <!-- /CONTENT -->
@@ -1974,11 +1989,115 @@
     </div>
 
     <!-- Core JS -->
-    <script src="../Static/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../Static/assets/vendor/js/bootstrap.js"></script>
-    <script src="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../Static/assets/vendor/js/menu.js"></script>
-    <script src="../Static/assets/js/main.js"></script>
+    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="./assets/vendor/js/bootstrap.js"></script>
+    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="./assets/vendor/js/menu.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+    <script>
+                        const rowsPerPage = 5;
+                        let currentPage = 1;
+
+                        const table = document.querySelector("table");
+                        const tbody = table.querySelector("tbody");
+                        const rows = Array.from(tbody.querySelectorAll("tr"));
+
+                        function displayPage(page) {
+                            currentPage = page;
+                            const start = (page - 1) * rowsPerPage;
+                            const end = start + rowsPerPage;
+
+                            rows.forEach((row, index) => {
+                                row.style.display = index >= start && index < end ? "" : "none";
+                            });
+
+                            updatePagination();
+                            updatePageInfo();
+                        }
+
+                        function updatePagination() {
+                            const totalPages = Math.ceil(rows.length / rowsPerPage);
+                            const pagination = document.getElementById("pagination");
+                            pagination.innerHTML = "";
+
+                            // Previous
+                            pagination.innerHTML += `
+    <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
+      <a class="page-link" href="#" onclick="displayPage(${currentPage - 1})">Previous</a>
+    </li>
+  `;
+
+                            // Page numbers
+                            for (let i = 1; i <= totalPages; i++) {
+                                pagination.innerHTML += `
+      <li class="page-item ${currentPage === i ? "active" : ""}">
+        <a class="page-link" href="#" onclick="displayPage(${i})">${i}</a>
+      </li>
+    `;
+                            }
+
+                            // Next
+                            pagination.innerHTML += `
+    <li class="page-item ${currentPage === totalPages ? "disabled" : ""}">
+      <a class="page-link" href="#" onclick="displayPage(${currentPage + 1})">Next</a>
+    </li>
+  `;
+                        }
+
+                        function updatePageInfo() {
+                            const start = (currentPage - 1) * rowsPerPage + 1;
+                            const end = Math.min(currentPage * rowsPerPage, rows.length);
+                            document.getElementById("pageInfo").innerText =
+                                `Showing ${start}–${end} of ${rows.length}`;
+                        }
+
+                        // Initial load
+                        displayPage(1);
+                        </script>
+
+                        <script>
+
+function addUser(){
+
+let name = prompt("Enter User Name");
+if(!name){
+alert("User name required");
+return;
+}
+
+let role = prompt("Enter Role (Admin / Operator / Manager)");
+if(!role){
+alert("Role required");
+return;
+}
+
+let table = document.querySelector("table tbody");
+
+let newRow = `
+<tr>
+<td>${name}</td>
+<td>${role}</td>
+<td>Active</td>
+<td>
+<button class="btn btn-sm btn-danger" onclick="deleteUser(this)">
+Delete
+</button>
+</td>
+</tr>
+`;
+
+table.insertAdjacentHTML("beforeend", newRow);
+
+}
+
+function deleteUser(btn){
+btn.closest("tr").remove();
+}
+
+</script> 
+
+
 
 </body>
 

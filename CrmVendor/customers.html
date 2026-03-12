@@ -9,11 +9,16 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Customer Management</title>
+    <style>
+        .table thead th{
+            white-space: nowrap;
+        }
+    </style>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../Static/assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../Static/assets/img/favicon/fvicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,17 +26,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
         rel="stylesheet" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="./assets/vendor/fonts/iconify-icons.css" />
 
     <!-- Core CSS -->
     <!-- build:css assets/vendor/css/theme.css -->
 
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/node-waves/node-waves.css" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/pickr/pickr-themes.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/pickr/pickr-themes.css" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/css/core.css" />
-    <link rel="stylesheet" href="../Static/assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
 
     <!-- Vendors CSS -->
 
@@ -1894,7 +1899,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mb-3">
-                            <button class="btn btn-primary">
+                            <button class="btn btn-primary" onclick="addCustomer()">
                                 + Add New Customer
                             </button>
                         </div>
@@ -1904,16 +1909,16 @@
                                     <table class="table table-hover">
                                         <thead class="table-light">
                                             <tr>
-                                                <th>Customer Code</th>
-                                                <th>Company Name</th>
-                                                <th>Contact Person</th>
-                                                <th>Email</th>
-                                                <th>Phone</th>
-                                                <th>Type</th>
-                                                <th>Total Orders</th>
-                                                <th>Credit Limit</th>
-                                                <th>Status</th>
-                                                <th>Actions</th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Customer Code &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Company Name &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Contact Person &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Email &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Phone &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Type &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Total Orders &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Credit Limit &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Status &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Actions &#8597;</strong></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -2197,6 +2202,35 @@
                     // Initial load
                     displayPage(1);
                 </script>
+
+                <script>
+function addCustomer(){
+
+let name = prompt("Enter Customer Name");
+let email = prompt("Enter Customer Email");
+let phone = prompt("Enter Phone Number");
+
+if(!name){
+alert("Customer name is required");
+return;
+}
+
+let table = document.querySelector("table tbody");
+
+let row = `
+<tr>
+<td>${name}</td>
+<td>${email || "-"}</td>
+<td>${phone || "-"}</td>
+<td><span class="badge bg-success">Active</span></td>
+</tr>
+`;
+
+table.insertAdjacentHTML("beforeend", row);
+
+}
+</script> 
+
 
 </body>
 

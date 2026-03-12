@@ -9,6 +9,11 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Demo: Dashboard - Analytics | Materialize - Bootstrap Dashboard PRO</title>
+    <style>
+        .table thead th{
+            white-space: nowrap;
+        }
+    </style>
 
     <meta name="description" content="" />
 
@@ -26,32 +31,32 @@
     <!-- Core CSS -->
     <!-- build:css assets/vendor/css/theme.css -->
 
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/node-waves/node-waves.css" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/pickr/pickr-themes.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/pickr/pickr-themes.css" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/css/core.css" />
-    <link rel="stylesheet" href="../Static/assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
 
     <!-- Vendors CSS -->
 
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- endbuild -->
 
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/swiper/swiper.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/swiper/swiper.css" />
 
     <!-- Page CSS -->
-    <link rel="stylesheet" href="../Static/assets/vendor/css/pages/cards-statistics.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/pages/cards-statistics.css" />
 
     <!-- Helpers -->
-    <script src="../Static/assets/vendor/js/helpers.js"></script>
+    <script src="./assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 
     <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
 
-    <script src="../Static/assets/js/config.js"></script>
+    <script src="./assets/js/config.js"></script>
 </head>
 
 <body>
@@ -1860,7 +1865,7 @@
                             <div class="col-xl-2 col-md-4 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <h4 class="fw-bold text-primary">47</h4>
+                                        <h3 class="fw-bold text-primary">47</h3>
                                         <small class="text-muted">Total Tickets</small>
                                     </div>
                                 </div>
@@ -1869,7 +1874,7 @@
                             <div class="col-xl-2 col-md-4 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <h4 class="fw-bold text-info">18</h4>
+                                        <h3 class="fw-bold text-info">18</h3>
                                         <small class="text-muted">Open</small>
                                     </div>
                                 </div>
@@ -1878,7 +1883,7 @@
                             <div class="col-xl-2 col-md-4 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <h4 class="fw-bold text-warning">12</h4>
+                                        <h3 class="fw-bold text-warning">12</h3>
                                         <small class="text-muted">In Progress</small>
                                     </div>
                                 </div>
@@ -1887,7 +1892,7 @@
                             <div class="col-xl-3 col-md-6 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <h4 class="fw-bold text-success">14</h4>
+                                        <h3 class="fw-bold text-success">14</h3>
                                         <small class="text-muted">Resolved Today</small>
                                     </div>
                                 </div>
@@ -1896,7 +1901,7 @@
                             <div class="col-xl-3 col-md-6 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <h4 class="fw-bold text-danger">3</h4>
+                                        <h3 class="fw-bold text-danger">3</h3>
                                         <small class="text-muted">High Priority</small>
                                     </div>
                                 </div>
@@ -2004,7 +2009,7 @@
                                                     <span class="badge bg-success">On Track</span>
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-outline-primary"
+                                                    <button class="btn btn-sm btn-primary"
                                                         data-bs-toggle="modal" data-bs-target="#ticketDetailModal">
                                                         View
                                                     </button>
@@ -2023,7 +2028,7 @@
                                                     <span class="badge bg-warning">Due Soon</span>
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-outline-primary"
+                                                    <button class="btn btn-sm btn-primary"
                                                         data-bs-toggle="modal" data-bs-target="#ticketDetailModal">
                                                         View
                                                     </button>
@@ -2042,7 +2047,7 @@
                                                     <span class="badge bg-danger">Breached</span>
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-outline-primary"
+                                                    <button class="btn btn-sm btn-primary"
                                                         data-bs-toggle="modal" data-bs-target="#ticketDetailModal">
                                                         View
                                                     </button>
@@ -2068,6 +2073,63 @@
 
 
                     </div>
+
+
+                    <div class="modal fade" id="createTicketModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Create New Ticket</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="row g-3">
+
+          <div class="col-md-6">
+            <label class="form-label">Ticket Title</label>
+            <input type="text" class="form-control" id="ticketTitle">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Priority</label>
+            <select class="form-select" id="ticketPriority">
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+              <option>Critical</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Status</label>
+            <select class="form-select" id="ticketStatus">
+              <option>Open</option>
+              <option>In Progress</option>
+              <option>Resolved</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Assigned To</label>
+            <input type="text" class="form-control" id="ticketAssigned">
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-success" onclick="createTicket()">Create Ticket</button>
+      </div>
+
+    </div>
+  </div>
+</div> 
+
                     <!--/ Content -->
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
@@ -2259,6 +2321,8 @@
                             </div>
                         </div>
                     </div>
+                    
+
                     <script>
                         const rowsPerPage = 5;
                         let currentPage = 1;
@@ -2337,6 +2401,70 @@
                             });
                         });
                     </script>
+                    <script>
+
+document.getElementById("searchInput").addEventListener("keyup", function(){
+
+let searchValue = this.value.toLowerCase();
+let rows = document.querySelectorAll("#ticketTableBody tr");
+
+rows.forEach(function(row){
+
+let ticketId = row.cells[0].innerText.toLowerCase();
+let title = row.cells[1].innerText.toLowerCase();
+
+if(ticketId.includes(searchValue) || title.includes(searchValue)){
+row.style.display = "";
+}else{
+row.style.display = "none";
+}
+
+});
+
+});
+
+</script> 
+
+
+<script>
+
+let ticketNumber = 1050;
+
+function createTicket(){
+
+let title = document.getElementById("ticketTitle").value;
+let priority = document.getElementById("ticketPriority").value;
+let status = document.getElementById("ticketStatus").value;
+
+if(title === ""){
+alert("Enter ticket title");
+return;
+}
+
+ticketNumber++;
+
+let table = document.getElementById("ticketTableBody");
+
+let newRow = `
+<tr>
+<td class="fw-semibold text-primary">TKT-${ticketNumber}</td>
+<td>${title}</td>
+<td>${priority}</td>
+<td>${status}</td>
+<td>Support Team</td>
+<td>${new Date().toLocaleDateString()}</td>
+<td>On Track</td>
+<td><button class="btn btn-sm btn-primary">View</button></td>
+</tr>
+`;
+
+table.insertAdjacentHTML("beforeend", newRow);
+
+}
+
+</script> 
+
+
 </body>
 
 </html>

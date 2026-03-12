@@ -20,13 +20,13 @@
     <link rel="stylesheet" href="../Static/assets/vendor/fonts/iconify-icons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../Static/assets/vendor/css/core.css" />
-    <link rel="stylesheet" href="../Static/assets/css/demo.css" />
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Helpers -->
-    <script src="../Static/assets/vendor/js/helpers.js"></script>
-    <script src="../Static/assets/js/config.js"></script>
+    <script src="./assets/vendor/js/helpers.js"></script>
+    <script src="./assets/js/config.js"></script>
 </head>
 
 <body>
@@ -1864,14 +1864,16 @@
                             </div>
 
                         </div>
+                        <div class="card">
+                            <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h5 class="mb-0">Tenant Roles</h5>
-                            <button class="btn btn-primary">
+                            <button class="btn btn-primary" onclick="createRole()">
                                 + Create Role
                             </button>
 
                         </div>
-                        <div class="card">
+                        
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead class="table-light">
@@ -1889,7 +1891,7 @@
                                         <tr>
                                             <td>Company_Admin</td>
                                             <td>Full system access with administrative privileges</td>
-                                            <td>3</td>
+                                            <td class="text-center">3</td>
                                             <td><span class="badge bg-warning">Locked</span></td>
                                             <td>
                                                 <button class="btn btn-sm btn-outline-secondary" disabled>View</button>
@@ -1900,11 +1902,11 @@
                                         <tr>
                                             <td>Manager</td>
                                             <td>Manages operations, reports, and approvals</td>
-                                            <td>6</td>
+                                            <td class="text-center">6</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>
                                                 <button class="btn btn-sm btn-outline-primary">View</button>
-                                                <button class="btn btn-sm btn-outline-warning">Edit Permissions</button>
+                                                <button class="btn btn-sm btn-outline-primary">Edit Permissions</button>
                                             </td>
                                         </tr>
 
@@ -1912,21 +1914,21 @@
                                         <tr>
                                             <td>Operator</td>
                                             <td>Handles daily production activities</td>
-                                            <td>18</td>
+                                            <td class="text-center">18</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>
                                                 <button class="btn btn-sm btn-outline-primary">View</button>
-                                                <button class="btn btn-sm btn-outline-warning">Edit Permissions</button>
+                                                <button class="btn btn-sm btn-outline-primary">Edit Permissions</button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>QualityControl</td>
                                             <td>Responsible for inspections and defect tracking</td>
-                                            <td>7</td>
+                                            <td class="text-center">7</td>
                                             <td><span class="badge bg-success">Active</span></td>
                                             <td>
                                                 <button class="btn btn-sm btn-outline-primary">View</button>
-                                                <button class="btn btn-sm btn-outline-warning">Edit Permissions</button>
+                                                <button class="btn btn-sm btn-outline-primary">Edit Permissions</button>
                                             </td>
                                         </tr>
 
@@ -1983,11 +1985,40 @@
     </div>
 
     <!-- Core JS -->
-    <script src="../Static/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../Static/assets/vendor/js/bootstrap.js"></script>
-    <script src="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../Static/assets/vendor/js/menu.js"></script>
-    <script src="../Static/assets/js/main.js"></script>
+    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="./assets/vendor/js/bootstrap.js"></script>
+    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="./assets/vendor/js/menu.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+    <script>
+function createRole() {
+
+    let roleName = prompt("Enter Role Name:");
+    if(!roleName){
+        alert("Role name is required");
+        return;
+    }
+
+    let description = prompt("Enter Role Description:");
+    if(!description){
+        alert("Description is required");
+        return;
+    }
+
+    let table = document.querySelector("table tbody");
+
+    let newRow = `
+        <tr>
+            <td>${roleName}</td>
+            <td>${description}</td>
+        </tr>
+    `;
+
+    table.insertAdjacentHTML("beforeend", newRow);
+}
+</script> 
+
 
 </body>
 

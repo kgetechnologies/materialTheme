@@ -17,16 +17,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="./assets/vendor/fonts/iconify-icons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../Static/assets/vendor/css/core.css" />
-    <link rel="stylesheet" href="../Static/assets/css/demo.css" />
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Helpers -->
-    <script src="../Static/assets/vendor/js/helpers.js"></script>
-    <script src="../Static/assets/js/config.js"></script>
+    <script src="./assets/vendor/js/helpers.js"></script>
+    <script src="./assets/js/config.js"></script>
 </head>
 
 <body>
@@ -1835,8 +1835,8 @@
                                             Output quantity, efficiency, utilization, and production trends.
                                         </p>
                                         <div class="d-flex gap-2">
-                                            <button class="btn btn-outline-primary btn-sm">View</button>
-                                            <button class="btn btn-primary btn-sm">Generate</button>
+                                            <button class="btn btn-primary btn-sm" onclick="viewTraceability()">View</button>
+                                            <button class="btn btn-primary btn-sm" onclick="generateTraceability()">Generate</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1851,8 +1851,8 @@
                                             Stock levels, material movement, and low stock analysis.
                                         </p>
                                         <div class="d-flex gap-2">
-                                            <button class="btn btn-outline-primary btn-sm">View</button>
-                                            <button class="btn btn-primary btn-sm">Generate</button>
+                                            <button class="btn btn-primary btn-sm" onclick="viewTraceability()">View</button>
+                                            <button class="btn btn-primary btn-sm" onclick="generateTraceability()">Generate</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1867,8 +1867,8 @@
                                             Inspection results, quality scores, and compliance metrics.
                                         </p>
                                         <div class="d-flex gap-2">
-                                            <button class="btn btn-outline-primary btn-sm">View</button>
-                                            <button class="btn btn-primary btn-sm">Generate</button>
+                                            <button class="btn btn-primary btn-sm" onclick="viewTraceability()">View</button>
+                                            <button class="btn btn-primary btn-sm" onclick="generateTraceability()">Generate</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1883,8 +1883,8 @@
                                             Stage-wise wastage, scrap tracking, and loss analysis.
                                         </p>
                                         <div class="d-flex gap-2">
-                                            <button class="btn btn-outline-primary btn-sm">View</button>
-                                            <button class="btn btn-primary btn-sm">Generate</button>
+                                            <button class="btn btn-primary btn-sm" onclick="viewTraceability()"">View</button>
+                                            <button class="btn btn-primary btn-sm" onclick="generateTraceability()">Generate</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1899,8 +1899,8 @@
                                             Defect types, severity, root cause, and rejection trends.
                                         </p>
                                         <div class="d-flex gap-2">
-                                            <button class="btn btn-outline-primary btn-sm">View</button>
-                                            <button class="btn btn-primary btn-sm">Generate</button>
+                                            <button class="btn btn-primary btn-sm" onclick="viewTraceability()"">View</button>
+                                            <button class="btn btn-primary btn-sm" onclick="generateTraceability()">Generate</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1915,8 +1915,8 @@
                                             Job-wise production status, cycle time, and completion data.
                                         </p>
                                         <div class="d-flex gap-2">
-                                            <button class="btn btn-outline-primary btn-sm">View</button>
-                                            <button class="btn btn-primary btn-sm">Generate</button>
+                                            <button class="btn btn-primary btn-sm" onclick="viewTraceability()"">View</button>
+                                            <button class="btn btn-primary btn-sm" onclick="generateTraceability()">Generate</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1931,8 +1931,8 @@
                                             Batch, lot, and material traceability across production stages.
                                         </p>
                                         <div class="d-flex gap-2">
-                                            <button class="btn btn-outline-primary btn-sm">View</button>
-                                            <button class="btn btn-primary btn-sm">Generate</button>
+                                            <button class="btn btn-primary btn-sm" onclick="viewTraceability()"">View</button>
+                                            <button class="btn btn-primary btn-sm" onclick="generateTraceability()">Generate</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1940,15 +1940,15 @@
 
                             <!-- Material Requirements Calculation -->
                             <div class="col-md-6 col-lg-4">
-                                <div class="card border-warning h-100">
+                                <div class="card border-primary h-100">
                                     <div class="card-body">
                                         <h5 class="card-title">Material Requirements Calculation</h5>
                                         <p class="text-muted">
                                             Auto-calculate required materials based on production plans.
                                         </p>
                                         <div class="d-flex gap-2">
-                                            <button class="btn btn-outline-warning btn-sm">View</button>
-                                            <button class="btn btn-warning btn-sm">Calculate</button>
+                                            <button class="btn btn-primary btn-sm" onclick="viewTraceability()">View</button>
+                                            <button class="btn btn-primary btn-sm" onclick="calculateMaterial()">Calculate</button>
                                         </div>
                                     </div>
                                 </div>
@@ -2004,11 +2004,26 @@
     </div>
 
     <!-- Core JS -->
-    <script src="../Static/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../Static/assets/vendor/js/bootstrap.js"></script>
-    <script src="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../Static/assets/vendor/js/menu.js"></script>
-    <script src="../Static/assets/js/main.js"></script>
+    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="./assets/vendor/js/bootstrap.js"></script>
+    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="./assets/vendor/js/menu.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+    <script>
+        function viewTraceability(){
+            alert("Opening production traceability details...")
+        }
+        function generateTraceability(){
+            alert("Generating Traceability report..")
+        }
+        function calculateMaterial(){
+            alert("Calculating Material Requirements")
+        }
+        function viewMaterial(){
+            aket("Viewing material requirements...")
+        }
+    </script>
 
 </body>
 

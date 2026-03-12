@@ -17,16 +17,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="./assets/vendor/fonts/iconify-icons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../Static/assets/vendor/css/core.css" />
-    <link rel="stylesheet" href="../Static/assets/css/demo.css" />
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Helpers -->
-    <script src="../Static/assets/vendor/js/helpers.js"></script>
-    <script src="../Static/assets/js/config.js"></script>
+    <script src="./assets/vendor/js/helpers.js"></script>
+    <script src="./assets/js/config.js"></script>
 </head>
 
 <body>
@@ -1827,9 +1827,10 @@
 
                         <div class="card mb-4">
                             <div class="card-body">
+                            
                                 <h5 class="card-title mb-3">Job Order Selection</h5>
 
-                                <div class="row g-3 align-items-end">
+                                <div class="row g-3">
                                     <div class="col-md-4">
                                         <label class="form-label">Job Order</label>
                                         <select class="form-select">
@@ -1842,13 +1843,13 @@
 
                                     <div class="col-md-4">
                                         <label class="form-label">Planned Quantity</label>
-                                        <input type="number" class="form-control" value="Auto (from Job Order)"
-                                            readonly>
+                                        <input type="number" class="form-control" id="plannedQty" placeholder="Enter quantity">
+                                            
 
                                     </div>
 
-                                    <div class="col-md-4 d-grid">
-                                        <button class="btn btn-primary">
+                                    <div class="col-md-4 d-flex align-items-end">
+                                        <button class="btn btn-primary w-90" style="height:42px;" onclick="calculateRequirements()">
                                             Calculate Requirements
                                         </button>
                                     </div>
@@ -1860,8 +1861,8 @@
                             <div class="col-md-3">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <small class="text-muted">Total Materials Required</small>
-                                        <h4 class="fw-bold mt-2">1,250 kg</h4>
+                                        <small class="text-muted" >Total Materials Required</small>
+                                        <h4 class="fw-bold mt-2" id="totalMaterial">1,250 kg</h4>
                                         <small class="text-muted">Based on BOM</small>
                                     </div>
                                 </div>
@@ -1870,8 +1871,8 @@
                             <div class="col-md-3">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <small class="text-muted">Available Stock</small>
-                                        <h4 class="fw-bold mt-2 text-success">980 kg</h4>
+                                        <small class="text-muted" >Available Stock</small>
+                                        <h4 class="fw-bold mt-2 text-success" id="avilableStock">980 kg</h4>
                                         <small class="text-muted">Current inventory</small>
                                     </div>
                                 </div>
@@ -1880,8 +1881,8 @@
                             <div class="col-md-3">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <small class="text-muted">Shortage</small>
-                                        <h4 class="fw-bold mt-2 text-danger">270 kg</h4>
+                                        <small class="text-muted" >Shortage</small>
+                                        <h4 class="fw-bold mt-2 text-danger" id="shortage">270 kg</h4>
                                         <small class="text-muted">Procurement needed</small>
                                     </div>
                                 </div>
@@ -1890,8 +1891,8 @@
                             <div class="col-md-3">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <small class="text-muted">Surplus</small>
-                                        <h4 class="fw-bold mt-2">0 kg</h4>
+                                        <small class="text-muted" >Surplus</small>
+                                        <h4 class="fw-bold mt-2" id="surplus">0 kg</h4>
                                         <small class="text-muted">No excess</small>
                                     </div>
                                 </div>
@@ -2005,11 +2006,47 @@
     </div>
 
     <!-- Core JS -->
-    <script src="../Static/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../Static/assets/vendor/js/bootstrap.js"></script>
-    <script src="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../Static/assets/vendor/js/menu.js"></script>
-    <script src="../Static/assets/js/main.js"></script>
+    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="./assets/vendor/js/bootstrap.js"></script>
+    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="./assets/vendor/js/menu.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+    <script>
+
+function calculateRequirements(){
+
+let plannedQty = document.getElementById("plannedQty").value;
+
+if(!plannedQty || plannedQty <= 0){
+alert("Enter valid quantity");
+return;
+}
+
+plannedQty = parseFloat(plannedQty);
+
+// calculation
+let requiredMaterial = plannedQty * 1.25;
+let availableStock = 980;
+
+let shortage = 0;
+let surplus = 0;
+
+if(requiredMaterial > availableStock){
+shortage = requiredMaterial - availableStock;
+}else{
+surplus = availableStock - requiredMaterial;
+}
+
+// update cards
+document.getElementById("totalMaterial").innerText = requiredMaterial.toFixed(0) + " kg";
+document.getElementById("availableStock").innerText = availableStock + " kg";
+document.getElementById("shortage").innerText = shortage.toFixed(0) + " kg";
+document.getElementById("surplus").innerText = surplus.toFixed(0) + " kg";
+
+}
+
+</script> 
 
 </body>
 

@@ -9,6 +9,11 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Supplier Management</title>
+    <style>
+        .table thead th{
+            white-space: nowrap;
+        }
+    </style>
 
     <meta name="description" content="" />
 
@@ -21,37 +26,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
         rel="stylesheet" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="./assets/vendor/fonts/iconify-icons.css" />
 
     <!-- Core CSS -->
     <!-- build:css assets/vendor/css/theme.css -->
 
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/node-waves/node-waves.css" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/pickr/pickr-themes.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/pickr/pickr-themes.css" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/css/core.css" />
-    <link rel="stylesheet" href="../Static/assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
 
     <!-- Vendors CSS -->
 
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- endbuild -->
 
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/apex-charts/apex-charts.css" />
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/swiper/swiper.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/swiper/swiper.css" />
 
     <!-- Page CSS -->
-    <link rel="stylesheet" href="../Static/assets/vendor/css/pages/cards-statistics.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/pages/cards-statistics.css" />
 
     <!-- Helpers -->
-    <script src="../Static/assets/vendor/js/helpers.js"></script>
+    <script src="./assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 
     <!--? Config: Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file. -->
 
-    <script src="../Static/assets/js/config.js"></script>
+    <script src="./assets/js/config.js"></script>
 </head>
 
 <body>
@@ -1860,8 +1865,8 @@
                             <div class="col-md-3">
                                 <div class="card bg-primary text-white">
                                     <div class="card-body">
-                                        <h6>Total Suppliers</h6>
-                                        <h3>156</h3>
+                                        <h5>Total Suppliers</h5>
+                                        <h4><strong>156</strong></h4>
                                     </div>
                                 </div>
                             </div>
@@ -1869,8 +1874,8 @@
                             <div class="col-md-3">
                                 <div class="card bg-success text-white">
                                     <div class="card-body">
-                                        <h6>Active Suppliers</h6>
-                                        <h3>128</h3>
+                                        <h5>Active Suppliers</h5>
+                                        <h4><strong>128</strong></h4>
                                     </div>
                                 </div>
                             </div>
@@ -1878,8 +1883,8 @@
                             <div class="col-md-3">
                                 <div class="card bg-info text-white">
                                     <div class="card-body">
-                                        <h6>Total Purchases</h6>
-                                        <h3>₹12.3 Cr</h3>
+                                        <h5>Total Purchases</h5>
+                                        <h4><strong>₹12.3 Cr</strong></h4>
                                     </div>
                                 </div>
                             </div>
@@ -1887,15 +1892,15 @@
                             <div class="col-md-3">
                                 <div class="card bg-warning text-white">
                                     <div class="card-body">
-                                        <h6>Pending POs</h6>
-                                        <h3>89</h3>
+                                        <h5>Pending POs</h5>
+                                        <h4><strong>89</strong></h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="d-flex justify-content-end mb-3">
-                            <button class="btn btn-primary">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#supplierModal" >
                                 + Add New Supplier
                             </button>
 
@@ -1906,17 +1911,17 @@
                                     <table class="table table-hover">
                                         <thead class="table-light">
                                             <tr>
-                                                <th>Supplier Code</th>
-                                                <th>Supplier Name</th>
-                                                <th>Category</th>
-                                                <th>Contact</th>
-                                                <th>Lead Time</th>
-                                                <th>Quality Rating</th>
-                                                <th>On-Time %</th>
-                                                <th>Defect Rate %</th>
-                                                <th>Purchase Orders</th>
-                                                <th>Payment Terms</th>
-                                                <th>Status</th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Supplier Code &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Supplier Name &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Category &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Contact &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Lead Time &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Quality Rating &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>On-Time % &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Defect Rate % &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Purchase Orders &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Payment Terms &#8597;</strong></th>
+                                                <th onclick="sortTable(0, 'string')" style="cursor:pointer"><strong>Status &#8597;</strong></th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -1927,7 +1932,7 @@
                                                 <td>Raw Materials</td>
                                                 <td>+91 98765 11111</td>
                                                 <td>5–7 days</td>
-                                                <td>⭐ ⭐ ⭐ ⭐ ⭐ 4.8</td>
+                                                <td>⭐⭐⭐⭐⭐4.8</td>
                                                 <td>96.5%</td>
                                                 <td>1.2%</td>
                                                 <td>
@@ -1948,7 +1953,7 @@
                                                 <td>Packaging</td>
                                                 <td>+91 87654 22222</td>
                                                 <td>3–5 days</td>
-                                                <td>⭐ ⭐ ⭐ ⭐ 4.3</td>
+                                                <td>⭐⭐⭐⭐ 4.3</td>
                                                 <td>92.8%</td>
                                                 <td>2.8%</td>
                                                 <td>
@@ -1968,7 +1973,7 @@
                                                 <td>Additives</td>
                                                 <td>+91 76543 33333</td>
                                                 <td>7–10 days</td>
-                                                <td>⭐ ⭐ ⭐ ⭐ ⭐ 4.6</td>
+                                                <td>⭐⭐⭐⭐⭐4.6</td>
                                                 <td>94.2%</td>
                                                 <td>1.9%</td>
                                                 <td>
@@ -2028,34 +2033,34 @@
 
                     <!-- build:js assets/vendor/js/theme.js  -->
 
-                    <script src="../Static/assets/vendor/libs/jquery/jquery.js"></script>
+                    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
 
-                    <script src="../Static/assets/vendor/libs/popper/popper.js"></script>
-                    <script src="../Static/assets/vendor/js/bootstrap.js"></script>
+                    <script src="./assets/vendor/libs/popper/popper.js"></script>
+                    <script src="./assets/vendor/js/bootstrap.js"></script>
                     <script src="../Static/assets/vendor/libs/node-waves/node-waves.js"></script>
 
-                    <script src="../Static/assets/vendor/libs/pickr/pickr.js"></script>
+                    <script src="./assets/vendor/libs/pickr/pickr.js"></script>
 
-                    <script src="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+                    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-                    <script src="../Static/assets/vendor/libs/hammer/hammer.js"></script>
+                    <script src="./assets/vendor/libs/hammer/hammer.js"></script>
 
-                    <script src="../Static/assets/vendor/libs/i18n/i18n.js"></script>
+                    <script src="./assets/vendor/libs/i18n/i18n.js"></script>
 
-                    <script src="../Static/assets/vendor/js/menu.js"></script>
+                    <script src="./assets/vendor/js/menu.js"></script>
 
                     <!-- endbuild -->
 
                     <!-- Vendors JS -->
-                    <script src="../Static/assets/vendor/libs/apex-charts/apexcharts.js"></script>
-                    <script src="../Static/assets/vendor/libs/swiper/swiper.js"></script>
+                    <script src="./assets/vendor/libs/apex-charts/apexcharts.js"></script>
+                    <script src="./assets/vendor/libs/swiper/swiper.js"></script>
 
                     <!-- Main JS -->
 
-                    <script src="../Static/assets/js/main.js"></script>
+                    <script src="./assets/js/main.js"></script>
 
                     <!-- Page JS -->
-                    <script src="../Static/assets/js/dashboards-analytics.js"></script>
+                    <script src="./assets/js/dashboards-analytics.js"></script>
 
 
                     <!-- Ticket Detail Modal -->
@@ -2143,6 +2148,70 @@
                         </div>
                     </div>
                 </div>
+                <!-- Add Supplier Modal -->
+<div class="modal fade" id="supplierModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+     
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Supplier</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="supplierForm">
+          <div class="row g-3">
+
+            <div class="col-md-4">
+              <label class="form-label">Supplier Code</label>
+              <input type="text" class="form-control" id="supplierCode" required>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Supplier Name</label>
+              <input type="text" class="form-control" id="supplierName" required>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Category</label>
+              <input type="text" class="form-control" id="category" required>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Contact</label>
+              <input type="text" class="form-control" id="contact" required>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Lead Time (days)</label>
+              <input type="number" class="form-control" id="leadTime" required>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Payment Terms</label>
+              <input type="text" class="form-control" id="paymentTerms" required>
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="saveSupplier()">Save Supplier</button>
+      </div>
+
+    </div>
+  </div>
+</div> 
+<div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p id="pageInfo" class="mb-0"></p>
+
+                                        <nav>
+                                            <ul class="pagination mb-0" id="pagination"></ul>
+                                        </nav>
+                                    </div>
+
                 <script>
                     const rowsPerPage = 5;
                     let currentPage = 1;
@@ -2202,6 +2271,42 @@
                     // Initial load
                     displayPage(1);
                 </script>
+                <script>
+                function addSupplier() {
+
+let code = document.getElementById("supplierCode").value;
+let name = document.getElementById("supplierName").value;
+let category = document.getElementById("category").value;
+let contact = document.getElementById("contact").value;
+let leadTime = document.getElementById("leadTime").value;
+let paymentTerms = document.getElementById("paymentTerms").value;
+
+if (!code || !name) {
+alert("Please fill required fields");
+return;
+}
+
+let table = document.querySelector("table tbody");
+
+let newRow = `
+<tr>
+<td>${code}</td>
+<td>${name}</td>
+<td>${category}</td>
+<td>${contact}</td>
+<td>${leadTime} days</td>
+<td>${paymentTerms}</td>
+<td><span class="badge bg-success">Active</span></td>
+</tr>
+`;
+
+table.insertAdjacentHTML("beforeend", newRow);
+
+// clear form
+document.getElementById("supplierForm").reset();
+
+} 
+</script>
 
 </body>
 
