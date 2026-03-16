@@ -2041,10 +2041,10 @@ function addMaterialRow() {
                 <input type="text" class="form-control" placeholder="e.g. RAW-STL-01">
             </td>
             <td class="py-4">
-                <input type="number" class="form-control qty" value="1" min="0" required oninput="calculateRow(${rowId})">
+                <input type="number" class="form-control qty" value="1" min="0" max="1000" required oninput="calculateRow(${rowId})">
             </td>
             <td class="py-4">
-                <input type="number" class="form-control cost" value="0.01" min="0"  required oninput="calculateRow(${rowId})">
+                <input type="number" class="form-control cost" value="0.01" min="0" max="1000" required oninput="calculateRow(${rowId})">
             </td>
             <td class="py-4 fw-bold text-dark">$<span class="row-total">0.00</span></td>
             <td class="text-center py-4">
