@@ -2198,129 +2198,6 @@
 
 
                     <!-- Ticket Detail Modal -->
-                    <div class="modal fade" id="ticketDetailModal" tabindex="-1">
-                        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                            <div class="modal-content">
-
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Ticket #TK-1024</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-                                <hr>
-
-
-
-                                <div class="modal-body">
-                                    <!-- Ticket Info -->
-                                    <h6 class="mb-3">Update Ticket</h6>
-
-                                    <div class="row g-3">
-                                        <!-- Status -->
-                                        <div class="col-md-4">
-                                            <label class="form-label">Status</label>
-                                            <select class="form-select">
-                                                <option>Open</option>
-                                                <option>In Progress</option>
-                                                <option>Resolved</option>
-                                                <option>Closed</option>
-                                            </select>
-                                        </div>
-
-                                        <!-- Priority -->
-                                        <div class="col-md-4">
-                                            <label class="form-label">Priority</label>
-                                            <select class="form-select">
-                                                <option>Low</option>
-                                                <option selected>Medium</option>
-                                                <option>High</option>
-                                                <option>Critical</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="mb-4">
-                                        <h6 class="mb-2">SLA Information</h6>
-
-                                        <div class="row g-3">
-                                            <div class="col-md-4">
-                                                <small class="text-muted">SLA Target</small>
-                                                <div class="fw-semibold">8 Hours</div>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <small class="text-muted">Time Elapsed</small>
-                                                <div class="fw-semibold">5 Hours 20 Min</div>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <small class="text-muted">SLA Status</small><br>
-                                                <span class="badge bg-warning">Due Soon</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <small class="text-muted">SLA Consumption</small>
-                                            <div class="progress" style="height: 6px;">
-                                                <div class="progress-bar bg-warning" style="width: 70%"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <hr>
-
-                                    <div class="mt-3">
-                                        <small class="text-muted">SLA Consumption</small>
-                                        <div class="progress" style="height: 6px;">
-                                            <div class="progress-bar bg-warning" style="width: 70%"></div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="mt-4">
-                                        <label class="form-label">Add Comment</label>
-                                        <textarea class="form-control" rows="3"
-                                            placeholder="Write your update or comment here..."></textarea>
-                                    </div>
-                                    <div class="mb-4">
-                                        <span class="badge bg-label-warning me-2">Medium Priority</span>
-                                        <span class="badge bg-label-info">Open</span>
-                                    </div>
-
-                                    <p><strong>Category:</strong> Inventory</p>
-                                    <p><strong>Description:</strong></p>
-                                    <p class="text-muted">
-                                        Stock quantity mismatch during warehouse transfer.
-                                    </p>
-
-                                    <hr>
-
-                                    <!-- Comments -->
-                                    <h6>Comments</h6>
-
-                                    <div class="border rounded p-3 mb-3">
-                                        <small class="text-muted">Vendor • 12 Feb 2026, 10:45 AM</small>
-                                        <p class="mb-0">Issue observed during inward entry.</p>
-                                    </div>
-
-                                    <div class="border rounded p-3">
-                                        <small class="text-muted">Support • 12 Feb 2026, 12:10 PM</small>
-                                        <p class="mb-0">We are reviewing the stock logs.</p>
-                                    </div>
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                        Cancel
-                                    </button>
-                                    <button class="btn btn-primary">
-                                        Update Ticket
-                                    </button>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
                     
 
                     <script>
@@ -2328,7 +2205,7 @@
                         let currentPage = 1;
 
                         const tbody = document.getElementById("ticketTableBody");
-                        const rows = Array.from(tbody.querySelectorAll("tr"));
+                        const ticketRows = Array.from(tbody.querySelectorAll("tr"));
 
                         function displayPage(page) {
                             currentPage = page;

@@ -17,16 +17,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
-    <link rel="stylesheet" href="../Static/assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="./assets/vendor/fonts/iconify-icons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../Static/assets/vendor/css/core.css" />
-    <link rel="stylesheet" href="../Static/assets/css/demo.css" />
-    <link rel="stylesheet" href="../Static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Helpers -->
-    <script src="../Static/assets/vendor/js/helpers.js"></script>
-    <script src="../Static/assets/js/config.js"></script>
+    <script src="./assets/vendor/js/helpers.js"></script>
+    <script src="./assets/js/config.js"></script>
 </head>
 
 <body>
@@ -1880,7 +1880,7 @@
 
                                     <div class="col-md-6">
                                         <label class="form-label">Job Card Number</label>
-                                        <input type="text" class="form-control"
+                                        <input type="number" class="form-control"
                                             placeholder="AB/Prod/C/01 & 15-12-2024 & 2">
                                     </div>
 
@@ -2019,7 +2019,7 @@
 
                                     <div class="col-md-3">
                                         <label class="form-label">Quantity</label>
-                                        <input type="number" class="form-control" value="7">
+                                        <input type="number" class="form-control" value="7" min="1" max="1000">
                                     </div>
 
                                     <div class="col-md-2">
@@ -2102,7 +2102,7 @@
 
                                     <div class="col-md-3">
                                         <label class="form-label">Output Quantity (Pieces)</label>
-                                        <input type="number" class="form-control" value="254">
+                                        <input type="number" class="form-control" value="254" min="1" max="1000">
                                     </div>
 
                                 </div>
@@ -2150,7 +2150,7 @@
 
                                     <div class="col-md-3">
                                         <label class="form-label">Quantity</label>
-                                        <input type="number" class="form-control" value="7">
+                                        <input type="number" class="form-control" value="7" min="1" max="1000">
                                     </div>
 
                                     <div class="col-md-2">
@@ -2248,17 +2248,17 @@
 
                                     <div class="col-md-4">
                                         <label class="form-label">Input Pieces</label>
-                                        <input type="number" class="form-control" value="254">
+                                        <input type="number" class="form-control" value="254" min="1" max="1000">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label class="form-label">Output Pieces</label>
-                                        <input type="number" class="form-control" value="252">
+                                        <input type="number" class="form-control" value="252" min="1" max="1000">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label class="form-label">Dust / Reject Count</label>
-                                        <input type="number" class="form-control" value="2">
+                                        <input type="number" class="form-control" value="2" min="1" max="1000">
                                     </div>
 
                                 </div>
@@ -2353,17 +2353,17 @@
 
                                     <div class="col-md-4">
                                         <label class="form-label">Input Pieces</label>
-                                        <input type="number" class="form-control" value="252">
+                                        <input type="number" class="form-control" value="252" min="1" max="1000">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label class="form-label">Output Pieces</label>
-                                        <input type="number" class="form-control" value="250">
+                                        <input type="number" class="form-control" value="250" min="0" max="1000">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label class="form-label">Rejected Pieces</label>
-                                        <input type="number" class="form-control" value="2">
+                                        <input type="number" class="form-control" value="2" min="0" max="1000">
                                     </div>
 
                                 </div>
@@ -2466,17 +2466,17 @@
 
                                     <div class="col-md-4">
                                         <label class="form-label">Input Books</label>
-                                        <input type="number" class="form-control" value="250">
+                                        <input type="number" class="form-control" value="250" min="0" max="1000">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label class="form-label">Output Books</label>
-                                        <input type="number" class="form-control" value="248">
+                                        <input type="number" class="form-control" value="248" min="0" max="1000">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label class="form-label">Rejected Books</label>
-                                        <input type="number" class="form-control" value="2">
+                                        <input type="number" class="form-control" value="2" min="0" max="1000">
                                     </div>
 
                                 </div>
@@ -2582,7 +2582,7 @@
 
                                     <div class="col-md-4">
                                         <label class="form-label">Tolerance (± mm)</label>
-                                        <input type="number" class="form-control" placeholder="1">
+                                        <input type="number" class="form-control" placeholder="1" min="0" max="1000">
                                     </div>
 
                                 </div>
@@ -2592,17 +2592,17 @@
 
                                     <div class="col-md-4">
                                         <label class="form-label">Books Before Cut</label>
-                                        <input type="number" class="form-control" value="248">
+                                        <input type="number" class="form-control" value="248" min="0" max="1000">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label class="form-label">Books After Cut</label>
-                                        <input type="number" class="form-control" value="245">
+                                        <input type="number" class="form-control" value="245" min="0" max="1000">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label class="form-label">Rejected Books</label>
-                                        <input type="number" class="form-control" value="3">
+                                        <input type="number" class="form-control" value="3" min="0" max="1000">
                                     </div>
 
                                 </div>
@@ -2696,12 +2696,12 @@
 
                                     <div class="col-md-4">
                                         <label class="form-label">Books per Box</label>
-                                        <input type="number" class="form-control" value="50">
+                                        <input type="number" class="form-control" value="50" min="0" max="1000">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label class="form-label">Total Boxes</label>
-                                        <input type="number" class="form-control" value="5">
+                                        <input type="number" class="form-control" value="5" min="0" max="1000">
                                     </div>
 
                                 </div>
