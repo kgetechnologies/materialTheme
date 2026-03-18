@@ -1984,7 +1984,7 @@
 
         <div class="mb-3">
           <label>Time in Stage</label>
-          <input type="number" id="time" class="form-control" min="1"  max="1000" step="1" required oninput="this.value=this.value.replace(/[^0-9]/g,)">
+          <input type="number" id="time" class="form-control" min="1"  max="1000" step="1" required oninput="this.value=this.value.replace(/[^0-9]/g,).slice(0,4)">
         </div>
         
 
@@ -2190,8 +2190,8 @@ function addMaterialRow() {
     const rowHtml = `
         <tr id="row-${rowId}">
             <td><input type="text" class="form-control" placeholder="Material SKU"></td>
-            <td><input type="number" class="form-control qty-input" value="1" oninput="this.value=this.value.replace(/[^0-9]/g,)"oninput="calculateBOMTotal()"></td>
-            <td><input type="number" class="form-control price-input" value="0.00" oninput="this.value=this.value.replace(/[^0-9]/g,)"oninput="calculateBOMTotal()"></td>
+            <td><input type="number" class="form-control qty-input" value="1"  min=0 max=1000 oninput="this.value=this.value.replace(/[^0-9]/g,)"oninput="calculateBOMTotal()"></td>
+            <td><input type="number" class="form-control price-input" value="0.00" min=0 max=1000 oninput="this.value=this.value.replace(/[^0-9]/g,)"oninput="calculateBOMTotal()"></td>
             <td class="text-center">
                 <button type="button" class="btn btn-sm btn-icon btn-outline-danger" onclick="document.getElementById('row-${rowId}').remove(); calculateBOMTotal();">
                     <i class="bx bx-trash"></i>

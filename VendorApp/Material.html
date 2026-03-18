@@ -1902,7 +1902,7 @@
 
       <div class="modal-body">
         <input type="text" id="materialName" class="form-control mb-3" placeholder="Material Name">
-        <input type="number" id="quantity" class="form-control mb-3" placeholder="Quantity" min="0" max="1000" step="1" required oninput="this.value=this.value.replace(/[^0-9]/g,)">
+        <input type="number" id="quantity" class="form-control mb-3" placeholder="Quantity" min="0" max="1000" step="1" required oninput="this.value=this.value.replace(/[^0-9]/g,).slice(0,4)">
       </div>
 
       <div class="modal-footer">
