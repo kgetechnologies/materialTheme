@@ -2,7 +2,28 @@
 * demo.css
 * File include item demo only specific css only
 ******************************************************************************/
+/* Checkbox List Alignment */
 
+
+/* Clear Cache Button (Darker/Muted Style) */
+.btn-clear {
+    background-color: #72a331; /* Same as the green buttons */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-clear:hover {
+    background-color: #5d8428;
+}
+
+/* Small spacing adjustment for the Add Icon */
+.btn-green i {
+    margin-right: 8px;
+}
 .menu .app-brand.demo {
   height: 64px;
 }
@@ -250,7 +271,7 @@
   color: #fff;
 }
 
-<style>th {
+th {
   cursor: pointer;
   user-select: none;
 }
@@ -261,7 +282,8 @@
   opacity: 0.6;
 }
 
-</style>.page-meta {
+
+.page-meta {
   position: absolute;
   bottom: 16px;
   left: 24px;
@@ -269,11 +291,11 @@
   color: #6c757d;
 }
 
-<style>html {
+html {
   scroll-behavior: smooth;
 }
 
-</style>.sortable {
+.sortable {
   cursor: pointer;
   user-select: none;
 }
