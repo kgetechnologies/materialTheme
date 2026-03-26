@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en" class="layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr" data-skin="default"
     data-bs-theme="light" data-assets-path="../Static/assets/" data-template="horizontal-menu-template">
@@ -17,82 +18,32 @@
     --accent-green: #7eb343;
     --border-color: #e1e4e8;
 }
+.main-header{
+    position: relative !important;
+    z-index:1001;;
+    height:70px;
+}
+/* Ensure the sub-navbar is visible and correctly positioned */
+
+
+
+
+
 
 .account-wrapper {
-    display: flex !important;
-    height:100vh;
+    display: block !important;
+     margin-top:20px;
     width:100vw;
-    margin: 0;
-    background-color: rgb(84, 83, 83);
+    
 }
 .profile-content{
-    flex: 1;
+    width:100%;
     background-color: #ffff !important;
     padding:60px 40px !important;
     box-shadow: inset 1px 0 0 #e0e0e0;
     display: block !important;
     height: fit-content;
 }
-
-
-.side-menu {
-    width: 280px;
-    background-color: #f1f2f3; 
-    height: fit-content;
-    padding-top:  80px; 
-    display: flex;
-    flex-direction: column;
-}
-
-.side-menu ul {
-    list-style: none;
-    padding: 0;
-}
-
-.side-menu li {
-    margin-bottom: 10px; 
-}
-
-.side-menu li a {
-    display: flex;
-    align-items: center;
-    padding: 18px 25px;
-    color: #435165; 
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    margin: 4px 12px;
-    border-radius: 6px; 
-    
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-
-.side-menu li a:hover {
-    background-color: #e8ebf0; /* That light blueish-grey hover color */
-    color: #2c333e;
-}
-
-/* Icons styling */
-.side-menu li a i {
-    margin-right: 12px;
-    font-size: 18px;
-    width: 24px;
-    text-align: center;
-    color: #788ba3; /* Muted icon color */
-}
-
-/* The Active State (When you are on that page) */
-.side-menu li.active a {
-    background-color: #ffffff; /* White background for the active tab */
-    color: #2c333e;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Very subtle shadow to pop */
-}
-
-.side-menu li.active a i {
-    color: #3346b0;; /* Green icon for the active page, as seen in Jotform */
-}
-/* Content Area Styling */
 
 
 
@@ -103,6 +54,7 @@
     width:100%;
     text-align: center;
     font-weight: 500;
+    margin-top: 5px;
 }
 
 .highlight {
@@ -110,25 +62,13 @@
     font-weight: bold;
 }
 
-.info-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 0;
-    border-bottom: 1px solid var(--border-color);
-}
+
 
 .info-row label {
     font-weight: bold;
     color: black;
     width: 200px;
-}
 
-.value-group {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .btn-green {
@@ -182,11 +122,99 @@
     font-size: 14px;
     font-weight: 500;
 }
-.info-row{
-    min-height: 80px;
 
+
+
+.info-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    height: 70px; /* Fixed height prevents page jumping */
 }
-    </style>
+
+.value-group {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Ensure the edit box looks like a popup overlay */
+.edit-view {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    margin-top: -10px; /* Adjust to align with the label */
+}
+
+ 
+
+#phoneVerificationModal .modal-content{
+    border-radius: 8px;
+    overflow: hidden;
+}
+#phoneVerificationModal .bg-light{
+    background-color: #f8f9fa !important;
+}
+#phoneVerificationModal .input-group-text{
+    border-right: none;
+    color: #515b6d;
+}
+#phoneVerificationModal .form-control{
+    border-left: none;
+    padding: 12px;
+}
+#phoneVerificationModal .form-control:focus{
+    box-shadow: none;
+    border-color:#dee2ea;
+        
+    }
+    #phoneVerificationModal .btn-primary{
+        background-color: #1a73e8;
+        border: none;
+        padding:10px 30px;
+        font-weight: 500;
+    }
+    .border-dashed {
+    border-style: dashed !important;
+    border-color: #dee2e6 !important;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    background-color: #e9ecef !important;
+    border-color: #1a73e8 !important;
+}
+
+#logoUploadModal .modal-content {
+    border-radius: 12px;
+}
+
+#logoUploadModal .btn-primary {
+    background-color: #1a73e8;
+    border: none;
+    font-weight: 500;
+}
+
+ .static-view.d-flex {
+    display: flex !important;
+    align-items: center;
+}
+
+.edt-btn {
+    color: #1a73e8; /* Blue color from your screenshot */
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* Prevents the row from expanding too much when editing */
+.edit-view {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+  </style>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../Static/assets/img/favicon/favicon.ico" />
@@ -1226,318 +1254,84 @@
                                         <i class="menu-icon icon-base ri ri-article-line"></i>
                                         <div data-i18n="Pages">Pages</div>
                                     </a>
-                                    <ul class="menu-sub">
+                                
+                    <ul class="menu-sub">
                                         <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-checkbox-multiple-blank-line"></i>
-                                                <div data-i18n="Front Pages">Front Pages</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="../front-pages/landing-page.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Landing">Landing</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="../front-pages/pricing-page.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Pricing">Pricing</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="../front-pages/payment-page.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Payment">Payment</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="../front-pages/checkout-page.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Checkout">Checkout</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="../front-pages/help-center-landing.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Help Center">Help Center</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                            <a href="Account.html" class="menu-link"><i class="fas fa-user"></i>
+        <div>Account</div>
+      </a>
+    </li>
 
-                                        <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-account-circle-line"></i>
-                                                <div data-i18n="User Profile">User Profile</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="pages-profile-user.html" class="menu-link">
-                                                        <div data-i18n="Profile">Profile</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-profile-teams.html" class="menu-link">
-                                                        <div data-i18n="Teams">Teams</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-profile-projects.html" class="menu-link">
-                                                        <div data-i18n="Projects">Projects</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-profile-connections.html" class="menu-link">
-                                                        <div data-i18n="Connections">Connections</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-settings-2-line"></i>
-                                                <div data-i18n="Account Settings">Account Settings</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="pages-account-settings-account.html" class="menu-link">
-                                                        <div data-i18n="Account">Account</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-account-settings-security.html" class="menu-link">
-                                                        <div data-i18n="Security">Security</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-account-settings-billing.html" class="menu-link">
-                                                        <div data-i18n="Billing & Plans">Billing & Plans</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-account-settings-notifications.html"
-                                                        class="menu-link">
-                                                        <div data-i18n="Notifications">Notifications</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-account-settings-connections.html" class="menu-link">
-                                                        <div data-i18n="Connections">Connections</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="pages-faq.html" class="menu-link">
-                                                <i class="menu-icon icon-base ri ri-question-line"></i>
-                                                <div data-i18n="FAQ">FAQ</div>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="pages-pricing.html" class="menu-link">
-                                                <i class="menu-icon icon-base ri ri-money-dollar-circle-line"></i>
-                                                <div data-i18n="Pricing">Pricing</div>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-file-line"></i>
-                                                <div data-i18n="Misc">Misc</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="pages-misc-error.html" class="menu-link" target="_blank">
-                                                        <div data-i18n="Error">Error</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-misc-under-maintenance.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Under Maintenance">Under Maintenance</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-misc-comingsoon.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Coming Soon">Coming Soon</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-misc-not-authorized.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Not Authorized">Not Authorized</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-misc-server-error.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Server Error">Server Error</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
+    <li class="menu-item">
+      <a href="settings.html" class="menu-link"><i class="fas fa-cog"></i>
+        <div>Settings</div>
+      </a>
+    </li>
 
-                                        <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-lock-line"></i>
-                                                <div data-i18n="Authentications">Authentications</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Login">Login</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-login-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-login-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Register">Register</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-register-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-register-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-register-multisteps.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Multi-steps">Multi-steps</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Verify Email">Verify Email</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-verify-email-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-verify-email-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Reset Password">Reset Password</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-reset-password-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-reset-password-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Forgot Password">Forgot Password</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-forgot-password-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-forgot-password-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Two Steps">Two Steps</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-two-steps-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-two-steps-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-git-commit-line"></i>
-                                                <div data-i18n="Wizard Examples">Wizard Examples</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="wizard-ex-checkout.html" class="menu-link">
-                                                        <div data-i18n="Checkout">Checkout</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="wizard-ex-property-listing.html" class="menu-link">
-                                                        <div data-i18n="Property Listing">Property Listing</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="wizard-ex-create-deal.html" class="menu-link">
-                                                        <div data-i18n="Create Deal">Create Deal</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="modal-examples.html" class="menu-link">
-                                                <i class="menu-icon icon-base ri ri-tv-2-line"></i>
-                                                <div data-i18n="Modal Examples">Modal Examples</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+    <li class="menu-item">
+      <a href="Security.html" class="menu-link"><i class="fas fa-lock"></i>
+        <div>Security</div>
+      </a>
+    </li>
 
+    <li class="menu-item">
+      <a href="Users.html" class="menu-link"><i class="fas fa-users"></i>
+        <div>Users</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="Upgrade.html" class="menu-link"><i class="fas fa-rocket"></i>
+        <div>Upgrade</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+            
+      <a href="Connections.html" class="menu-link"><i class="fas fa-plug"></i>
+        <div>Connections</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="Data.html" class="menu-link"><i class="fas fa-database"></i>
+        <div>Data</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="History.html" class="menu-link"><i class="fas fa-history"></i>
+        <div>History</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="API.html" class="menu-link"><i class="fas fa-microchip"></i>
+        <div>API</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="Usage.html" class="menu-link"><i class="fas fa-chart-line"></i>
+        <div>Usage</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="Increaselimits.html" class="menu-link"><i class="fas fa-plus-circle"></i>
+        <div>Increase Limits</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="Partnership.html" class="menu-link"><i class="fas fa-handshake"></i>
+        <div>Partnership</div>
+      </a>
+    </li>
+                    </ul>
+  
+</li>
+
+                                        
+                                        
+
+                                        
                                 <!-- Components -->
                                 <li class="menu-item">
                                     <a href="javascript:void(0)" class="menu-link menu-toggle">
@@ -1988,30 +1782,19 @@
                                                         <div data-i18n="Level 3">Level 3</div>
                                                     </a>
                                                 </li>
+                                                </li>
                                             </ul>
+                                </li>
                                         </li>
                                     </ul>
+                                    
                                 </li>
+                                
                             </ul>
+                            
                         </div>
                     </aside>
-                   <div class="account-wrapper">
-    <nav class="side-menu">
-        <ul>
-            <li class="active"><a href="Account.html"><i class="fas fa-user"></i> Account</a></li>
-            <li><a href="Settings.html"><i class="fas fa-cog"></i> Settings</a></li>
-            <li><a href="Security.html"><i class="fas fa-lock"></i> Security</a></li>
-            <li><a href="Users.html"><i class="fas fa-users"></i> Users</a></li>
-            <li><a href="Upgrade.html"><i class="fas fa-rocket"></i> Upgrade</a></li>
-            <li><a href="Connections.html"><i class="fas fa-plug"></i> Connections</a></li>
-            <li><a href="Data.html"><i class="fas fa-database"></i> Data</a></li>
-            <li><a href="History.html"><i class="fas fa-history"></i>History</a></li>
-            <li><a href="API.html"><i class="fas fa-microchip"></i> API</a></li>
-            <li><a href="Usage.html"><i class="fas fa-chart-bar"></i> Usage</a></li>
-            <li><a href="Increaselimits.html"><i class="fas fa-gift"></i> Increase limits</a></li>
-            <li><a href="Partnership.html"><i class="fas fa-handshake"></i> Partnership</a></li>
-        </ul>
-    </nav>
+                                      
 
     <main class="profile-content">
         <h1>Update <span class="highlight">Account</span> and General Information</h1>
@@ -2019,37 +1802,95 @@
         <div class="info-table">
             <div class="info-row">
                 <label>Account Type</label>
-                <div class="value-group">
+                <a class="value-group">
+                    
                     <span>Free</span>
-                    <button class="btn-green">Upgrade Account</button>
+                    
+                    <button type="button" class="btn-green" onclick="window.location.href='Upgrade.html';">Upgrade Account</button>
+                </a>
                 </div>
             </div>
-
             <div class="info-row">
                 <label>Username</label>
                 <div class="value-group">
                     <span class="user-id">shreyadev08</span>
-                    <a href="#" class="edit-btn">Edit</a>
+                    
+                    <a href="#" class="edit-btn" onclick="openModal()">Edit</a>
+
+<!-- Modal -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+   
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <h2>Update Account and General Info</h2>
+
+    <label>Username</label>
+    <input type="text" value="priyankasdev08" disabled>
+
+    <label>New Username</label>
+    <input type="text" id="newUsername" placeholder="Enter new username">
+
+    <button class="save-btn">Save</button>
+
+  </div>
+</div> 
+
                 </div>
             </div>
-
-            <div class="info-row">
+                <div class="info-row">
                 <label>Password</label>
                 <div class="value-group">
-                    <a href="#" class="link-blue">Reset Password</a>
+                    <a href="javascript:void(0)" class="edt-btn" onclick="openResetModal">Reset Password</a>
+                    <!-- Reset Password Modal -->
+<div id="resetModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close" onclick="closeResetModal()">&times;</span>
+
+    <h3>Password Reset</h3>
+
+    <p>
+      Your password reset email was sent to <b>priyankas.dev08@gmail.com</b>
+    </p>
+
+    <a href="#" class="link-blue">Resend Email</a>
+    <span> or </span>
+    <a href="#" class="link-red" onclick="closeResetModal()">Cancel</a>
+
+  </div>
+</div> 
+
                 </div>
             </div>
             <div class="info-row">
                 <label>Avatar</label>
                 <div class="value-group">
                     <div class="avatar-box">S</div>
-                    <a href="#" class="edt-btn">Edit</a>
+                    <a href="javascript:void(0)" class="edt-btn">Edit</a>
+                    <!-- Avatar Modal -->
+<div id="avatarModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close" onclick="closeAvatarModal()">&times;</span>
+
+    <h3>Edit Avatar</h3>
+
+    <div class="avatar-options">
+      <button class="avatar-btn">Upload Picture</button>
+      <button class="avatar-btn">Select an Avatar</button>
+      <button class="avatar-btn">Use Gravatar</button>
+    </div>
+
+  </div>
+</div> 
+
                 </div>
             </div>
             <div class="info-row">
                 <label>Phone Number</label>
                 <div class="value-group">
-                    <button class="btn-green">Add Phone</button>
+                    <button class="btn-green" data-bs-toggle="modal" data-bs-target="#phoneVerificationModal">Add Phone</button>
                 </div>
             </div>
             <div class="info-row">
@@ -2068,7 +1909,9 @@
             <div class="info-row">
                 <label>Organization Logo</label>
                 <div class="value-group">
-                    <button class="btn-green">Add Organization Logo</button>
+                    <input type="file" id="logoInput" style="display: none;"" accept="image/*" onchange="handleFileSelect(this)">
+                    <button class="btn-green" onclick="document.getElementById('logoInput').click();">Add Organization Logo</button>
+                    <span is="fileNameDislay" class="ms-2 text-muted small"></span>
                 </div>
             </div>
             <div class="delet-section">
@@ -2080,6 +1923,48 @@
         </div>
     </main>
 </div>
+<div class="modal fade" id="phoneVerificationModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg">
+      
+         
+         <div class="modal-body p-0">
+  <div class="row g-0">
+    <div class="col-md-4 bg-light p-4 border-end">
+      <ul class="list-unstyled" id="modal-steps-list">
+        <li class="mb-3 text-primary fw-bold step-item-1">
+          <span class="step-dot">●</span> Phone Number
+        </li>
+        <li class="text-muted step-item-2">
+          <span class="ms-4">Verification Code</span>
+        </li>
+      </ul>
+    </div>
+   
+    <div class="col-md-8 p-5">
+      <div id="step-phone-container">
+        <h6>Enter your phone number</h6>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Enter phone number">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="goToStepTwo()">Continue</button>
+      </div>
+
+      <div id="step-otp-container" style="display: none;">
+        <h6>Enter verification code</h6>
+        <div class="d-flex gap-2 mb-3">
+          <input type="text" class="form-control text-center otp-input" maxlength="1">
+          </div>
+        <button type="button" class="btn btn-primary">Verify</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+
+ 
+
 
     <script src="./assets/vendor/libs/jquery/jquery.js"></script>
     <script src="./assets/vendor/js/bootstrap.js"></script>
@@ -2106,6 +1991,97 @@
         });
     });
 </script>
+<script>
+function goToStepTwo() {
+    const step1 = document.getElementById('step-phone-container');
+    const step2 = document.getElementById('step-otp-container');
+    const label1 = document.querySelector('.step-item-1');
+    const label2 = document.querySelector('.step-item-2');
+
+    if (step1 && step2) {
+        // Switch visibility
+        step1.style.setProperty('display', 'none', 'important');
+        step2.style.setProperty('display', 'block', 'important');
+
+        // Update sidebar labels to match Jotform UI
+        if (label1 && label2) {
+            label1.classList.remove('text-primary', 'fw-bold');
+            label1.classList.add('text-muted');
+            label1.innerHTML = '<span class="ms-4">Phone Number</span>';
+
+            label2.classList.remove('text-muted');
+            label2.classList.add('text-primary', 'fw-bold');
+            label2.innerHTML = '<span class="step-dot">●</span> Verification Code';
+        }
+    } else {
+        console.error("Could not find step containers. Check your IDs!");
+    }
+}
+
+ 
+
+
+</script>
+<script>
+    function handleFileSelect(input) {
+    const display = document.getElementById('fileNameDisplay');
+   
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+       
+        // 1. Show the name of the file next to the button
+        display.innerText = "Selected: " + file.name;
+       
+        // 2. Optional: Log to console to verify it's working
+        console.log("File ready for upload:", file.name);
+       
+        // 3. You can now trigger an automatic upload or show a success message
+        // alert("System file '" + file.name + "' has been attached.");
+    }
+}
+
+ 
+
+</script>
+<script>
+    
+
+function openModal() {
+  document.getElementById("editModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("editModal").style.display = "none";
+}
+
+/* Close when clicking outside */
+window.onclick = function(event) {
+  let modal = document.getElementById("editModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+</script>
+<script>
+    function openResetModal(){
+        document.getElementById("resetModal").style.display="block";
+    }
+    function closeResetModal(){
+        document.getElementById("resetModal").style.display="none";
+    }
+</script>
+ <script>
+function openAvatarModal() {
+  document.getElementById("avatarModal").style.display = "block";
+}
+
+function closeAvatarModal() {
+  document.getElementById("avatarModal").style.display = "none";
+}
+</script> 
+
 </body>
 </html>
 

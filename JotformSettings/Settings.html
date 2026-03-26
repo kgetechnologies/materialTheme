@@ -35,63 +35,7 @@
 }
 
 
-.side-menu {
-    width: 280px;
-    background-color: #f1f2f3; 
-    height: fit-content;
-    padding-top:  80px; 
-    display: flex;
-    flex-direction: column;
-}
 
-.side-menu ul {
-    list-style: none;
-    padding: 0;
-}
-
-.side-menu li {
-    margin-bottom: 10px; 
-}
-
-.side-menu li a {
-    display: flex;
-    align-items: center;
-    padding: 18px 25px;
-    color: #435165; 
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    margin: 4px 12px;
-    border-radius: 6px; 
-    
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-
-.side-menu li a:hover {
-    background-color: #e8ebf0; /* That light blueish-grey hover color */
-    color: #2c333e;
-}
-
-/* Icons styling */
-.side-menu li a i {
-    margin-right: 12px;
-    font-size: 18px;
-    width: 24px;
-    text-align: center;
-    color: #788ba3; /* Muted icon color */
-}
-
-/* The Active State (When you are on that page) */
-.side-menu li.active a {
-    background-color: #ffffff; /* White background for the active tab */
-    color: #2c333e;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Very subtle shadow to pop */
-}
-
-.side-menu li.active a i {
-    color: #3346b0;; /* Green icon for the active page, as seen in Jotform */
-}
 /* Content Area Styling */
 
 
@@ -111,9 +55,9 @@
 }
 
 .info-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    
+    
+
     padding: 25px 0;
     border-bottom: 1px solid var(--border-color);
 }
@@ -192,6 +136,7 @@
  .checkbox-list {
     display: flex;
     flex-direction: column;
+    flex:1;
     gap: 12px;
     align-items: flex-start !important;
     width: 100%;
@@ -234,10 +179,68 @@
 .btn-green i {
     margin-right: 8px;
 }
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 500px;
+  border-radius: 10px;
+}
+
+.close-btn{
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+} 
+.options{
+    display: flex;
+    gap:20px;
+    justify-content: center;
+    margin: 20px 0;
+}
+.card{
+    width:140px;
+    height:140px;
+    border: 2px solid #2c333e;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:all 0.3s ease;
+
+}
+.card i{
+    font-size: 28px;
+    margin-bottom: 10px;
+    color:#3b82f6
+}
+.card span{
+    font-size: 14px;
+    font-weight: 500;
+}
+.card.active{
+    border-color: #3b82f6;
+    background: #f0f7ff;
+}
     </style>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../Static/assets/img/favicon/favicon.ico" />
+    
+                    <link rel="icon" type="image/x-icon" href="../Static/assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1274,318 +1277,84 @@
                                         <i class="menu-icon icon-base ri ri-article-line"></i>
                                         <div data-i18n="Pages">Pages</div>
                                     </a>
-                                    <ul class="menu-sub">
+                                
+                    <ul class="menu-sub">
                                         <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-checkbox-multiple-blank-line"></i>
-                                                <div data-i18n="Front Pages">Front Pages</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="../front-pages/landing-page.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Landing">Landing</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="../front-pages/pricing-page.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Pricing">Pricing</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="../front-pages/payment-page.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Payment">Payment</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="../front-pages/checkout-page.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Checkout">Checkout</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="../front-pages/help-center-landing.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Help Center">Help Center</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                            <a href="Account.html" class="menu-link"><i class="fas fa-user"></i>
+        <div>Account</div>
+      </a>
+    </li>
 
-                                        <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-account-circle-line"></i>
-                                                <div data-i18n="User Profile">User Profile</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="pages-profile-user.html" class="menu-link">
-                                                        <div data-i18n="Profile">Profile</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-profile-teams.html" class="menu-link">
-                                                        <div data-i18n="Teams">Teams</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-profile-projects.html" class="menu-link">
-                                                        <div data-i18n="Projects">Projects</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-profile-connections.html" class="menu-link">
-                                                        <div data-i18n="Connections">Connections</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-settings-2-line"></i>
-                                                <div data-i18n="Account Settings">Account Settings</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="pages-account-settings-account.html" class="menu-link">
-                                                        <div data-i18n="Account">Account</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-account-settings-security.html" class="menu-link">
-                                                        <div data-i18n="Security">Security</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-account-settings-billing.html" class="menu-link">
-                                                        <div data-i18n="Billing & Plans">Billing & Plans</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-account-settings-notifications.html"
-                                                        class="menu-link">
-                                                        <div data-i18n="Notifications">Notifications</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-account-settings-connections.html" class="menu-link">
-                                                        <div data-i18n="Connections">Connections</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="pages-faq.html" class="menu-link">
-                                                <i class="menu-icon icon-base ri ri-question-line"></i>
-                                                <div data-i18n="FAQ">FAQ</div>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="pages-pricing.html" class="menu-link">
-                                                <i class="menu-icon icon-base ri ri-money-dollar-circle-line"></i>
-                                                <div data-i18n="Pricing">Pricing</div>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-file-line"></i>
-                                                <div data-i18n="Misc">Misc</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="pages-misc-error.html" class="menu-link" target="_blank">
-                                                        <div data-i18n="Error">Error</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-misc-under-maintenance.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Under Maintenance">Under Maintenance</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-misc-comingsoon.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Coming Soon">Coming Soon</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-misc-not-authorized.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Not Authorized">Not Authorized</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="pages-misc-server-error.html" class="menu-link"
-                                                        target="_blank">
-                                                        <div data-i18n="Server Error">Server Error</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
+    <li class="menu-item">
+      <a href="settings.html" class="menu-link"><i class="fas fa-cog"></i>
+        <div>Settings</div>
+      </a>
+    </li>
 
-                                        <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-lock-line"></i>
-                                                <div data-i18n="Authentications">Authentications</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Login">Login</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-login-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-login-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Register">Register</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-register-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-register-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-register-multisteps.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Multi-steps">Multi-steps</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Verify Email">Verify Email</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-verify-email-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-verify-email-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Reset Password">Reset Password</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-reset-password-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-reset-password-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Forgot Password">Forgot Password</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-forgot-password-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-forgot-password-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                        <div data-i18n="Two Steps">Two Steps</div>
-                                                    </a>
-                                                    <ul class="menu-sub">
-                                                        <li class="menu-item">
-                                                            <a href="auth-two-steps-basic.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Basic">Basic</div>
-                                                            </a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="auth-two-steps-cover.html" class="menu-link"
-                                                                target="_blank">
-                                                                <div data-i18n="Cover">Cover</div>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                                <i class="menu-icon icon-base ri ri-git-commit-line"></i>
-                                                <div data-i18n="Wizard Examples">Wizard Examples</div>
-                                            </a>
-                                            <ul class="menu-sub">
-                                                <li class="menu-item">
-                                                    <a href="wizard-ex-checkout.html" class="menu-link">
-                                                        <div data-i18n="Checkout">Checkout</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="wizard-ex-property-listing.html" class="menu-link">
-                                                        <div data-i18n="Property Listing">Property Listing</div>
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="wizard-ex-create-deal.html" class="menu-link">
-                                                        <div data-i18n="Create Deal">Create Deal</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="modal-examples.html" class="menu-link">
-                                                <i class="menu-icon icon-base ri ri-tv-2-line"></i>
-                                                <div data-i18n="Modal Examples">Modal Examples</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+    <li class="menu-item">
+      <a href="Security.html" class="menu-link"><i class="fas fa-lock"></i>
+        <div>Security</div>
+      </a>
+    </li>
 
+    <li class="menu-item">
+      <a href="Users.html" class="menu-link"><i class="fas fa-users"></i>
+        <div>Users</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="Upgrade.html" class="menu-link"><i class="fas fa-rocket"></i>
+        <div>Upgrade</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+            
+      <a href="Connections.html" class="menu-link"><i class="fas fa-plug"></i>
+        <div>Connections</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="Data.html" class="menu-link"><i class="fas fa-database"></i>
+        <div>Data</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="History.html" class="menu-link"><i class="fas fa-history"></i>
+        <div>History</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="API.html" class="menu-link"><i class="fas fa-microchip"></i>
+        <div>API</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="Usage.html" class="menu-link"><i class="fas fa-chart-line"></i>
+        <div>Usage</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="Increaselimits.html" class="menu-link"><i class="fas fa-plus-circle"></i>
+        <div>Increase Limits</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="Partnership.html" class="menu-link"><i class="fas fa-handshake"></i>
+        <div>Partnership</div>
+      </a>
+    </li>
+                    </ul>
+  
+</li>
+
+                                        
+                                        
+
+                                        
                                 <!-- Components -->
                                 <li class="menu-item">
                                     <a href="javascript:void(0)" class="menu-link menu-toggle">
@@ -2036,30 +1805,19 @@
                                                         <div data-i18n="Level 3">Level 3</div>
                                                     </a>
                                                 </li>
+                                                </li>
                                             </ul>
+                                </li>
                                         </li>
                                     </ul>
+                                    
                                 </li>
+                                
                             </ul>
+                            
                         </div>
                     </aside>
-                   <div class="account-wrapper">
-    <nav class="side-menu">
-        <ul>
-            <li class="active"><a href="Account.html"><i class="fas fa-user"></i> Account</a></li>
-            <li><a href="Settings.html"><i class="fas fa-cog"></i> Settings</a></li>
-            <li><a href="Security.html"><i class="fas fa-lock"></i> Security</a></li>
-            <li><a href="Users.html"><i class="fas fa-users"></i> Users</a></li>
-            <li><a href="Upgrade.html"><i class="fas fa-rocket"></i> Upgrade</a></li>
-            <li><a href="Connections.html"><i class="fas fa-plug"></i> Connections</a></li>
-            <li><a href="Data.html"><i class="fas fa-database"></i> Data</a></li>
-            <li><a href="History.html"><i class="fas fa-history"></i>History</a></li>
-            <li><a href="API.html"><i class="fas fa-microchip"></i> API</a></li>
-            <li><a href="Usage.html"><i class="fas fa-chart-bar"></i> Usage</a></li>
-            <li><a href="Increaselimits.html"><i class="fas fa-gift"></i> Increase limits</a></li>
-            <li><a href="Partnership.html"><i class="fas fa-handshake"></i> Partnership</a></li>
-        </ul>
-    </nav>
+                                      
 
     <main class="profile-content">
     <h1>Update Your <span class="highlight">Settings</span></h1>
@@ -2068,16 +1826,51 @@
         <div class="info-row">
             <label>Timezone</label>
             <div class="value-group">
-                <span>Asia/Kolkata</span>
-                <a href="#" class="edit-btn">Edit</a>
-            </div>
+                <span id="current-timezone">(GMT+5:30)Asia/Kolkata</span>
+                <a href="javascript:void(0)" class="edit-btn" onclick="openTimezoneModal()">Edit</a>
+
+<!-- Modal --><div id="timezoneModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeTimezoneModal()">&times;</span>
+   
+    <h2>Select Timezone</h2>
+
+    <select>
+      <option>Asia/Kolkata (GMT +05:30)</option>
+      <option>Asia/Dubai (GMT +04:00)</option>
+      <option>America/New_York (GMT -05:00)</option>
+    </select>
+
+    <br><br>
+    <button>Save</button>
+  </div>
+</div> 
+
+
+</div>
         </div>
 
         <div class="info-row">
             <label>Time Format</label>
             <div class="value-group">
                 <span>ISO 8601 - YMD</span>
-                <a href="#" class="edit-btn">Edit</a>
+                <a href="javascript:void()" class="edit-btn" onclick="openTimeformatModal()">Edit</a>
+                <div id="timeformatModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeTimeformatModal()">&times;</span>
+   
+    <h2>Select Time formate</h2>
+
+    <select>
+      <option>ISO 8601 - YMD</option>
+      <option>EU-USA-DMY</option>
+      <option>US-MDY</option>
+    </select>
+
+    <br><br>
+    <button>Save</button>
+  </div>
+</div> 
             </div>
         </div>
 
@@ -2085,13 +1878,29 @@
             <label>Language</label>
             <div class="value-group">
                 <span>English</span>
-                <a href="#" class="edit-btn">Edit</a>
+                <a href="javascript:void()" class="edit-btn" onclick="openLanguageModal()">Edit</a>
+                <div id="languageModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeLanguageModal()">&times;</span>
+   
+    <h2>Select Language</h2>
+
+    <select>
+      <option>English</option>
+      <option>Francais</option>
+      <option>Italiano</option>
+    </select>
+
+    <br><br>
+    <button>Save</button>
+  </div>
+</div> 
             </div>
         </div>
 
         <div class="info-row">
             <label>Subscriptions</label>
-            <div class="value-group checkbox-list">
+            <div class="checkbox-list">
                 <label class="check-container"><input type="checkbox" checked> Monthly Newsletters</label>
                 <label class="check-container"><input type="checkbox"> Educational Emails</label>
                 <label class="check-container"><input type="checkbox" checked> Jotform Promotions</label>
@@ -2103,17 +1912,59 @@
         <div class="info-row">
             <label>Sender Emails</label>
             <div class="value-group">
-                <button class="btn-green"><i class="fas fa-plus"></i> Add Sender Email</button>
+                <button class="btn-clear" onclick="openSMTPModal()"><i class="fas fa-plus"></i> Add Sender Email</button>
+
+                <div id="smtpModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeSMTPModal()">&times;</span>
+   
+    <h2>Sender Email Configuration</h2>
+
+    
+        <div class="options">
+            <div class="card">
+                <i class="fas fa-envelope"></i>Custom</div>
+            <div class="card">
+                <i class="fa-brands fa-google"></i>Google</div>
+            <div class="card">
+                <i class="fa-brands fa-microsoft"></i>Microsoft</div>
+
+
+        </div>
+      
+    
+
+    
+    <button class="continue-btn">Continue</button>
+  </div>
+</div> 
             </div>
         </div>
 
         <div class="info-row">
             <label>Form Caches</label>
             <div class="value-group">
-                <button class="btn-clear">Clear Cache</button>
+                <button class="btn-clear" onclick="clearCache()">Clear Cache</button>
+                <p id="cacheMsg" style="display:none; color:green; font-weight: 500;">
+                    &#10004; All chaches are cleared.
+                </p>
             </div>
         </div>
+
+        <div class="info-row">
+            <label>Bounce list</label>
+            <div class="value-group">
+                <input type="text" class="form-control" placeholder="shreyadev08@gmail.com">
+                <button class="btn-clear" onclick="checkBounce()"></i>check</button>
+                <p id="resultMsg" style="display:none; color:green; font-weight:500;">
+                    shreyadev08@gmail.com is not in the bounce list
+                    shreyadev08@gmail.com is not in the unsubscribe list
+                </p>
+
+                
     </div>
+
+    
 </main>
 
     <script src="./assets/vendor/libs/jquery/jquery.js"></script>
@@ -2141,6 +1992,59 @@
         });
     });
 </script>
+
+<script>
+function openTimezoneModal() {
+    document.getElementById("timezoneModal").style.display = "block";
+}
+function closeTimezoneModal() {
+    document.getElementById("timezoneModal").style.display = "none";
+}
+</script>
+<script>
+function openTimeformatModal() {
+    document.getElementById("timeformatModal").style.display = "block";
+}
+function closeTimeformatModal() {
+    document.getElementById("timeformatModal").style.display = "none";
+}
+</script>
+
+<script>
+function openLanguageModal() {
+    document.getElementById("languageModal").style.display = "block";
+}
+function closeLanguageModal() {
+    document.getElementById("languageModal").style.display = "none";
+}
+</script>
+
+<script>
+function openSMTPModal() {
+    document.getElementById("smtpModal").style.display = "block";
+}
+function closeSMTPModal() {
+    document.getElementById("smtpModal").style.display = "none";
+}
+const cards = document.querySelectorAll(".card");
+cards.forEach(cards => {
+    cards.addEventListener("click", () => {
+        cards.forEach( c => c.classList.remove("active"));
+    });
+});
+</script>
+<script>
+    function clearCache() {
+        document.getElementById("cacheMsg").style.display = "block";
+    }
+</script>
+<script>
+function checkBounce() {
+        document.getElementById("resultMsg").style.display = "block";
+    }
+
+</script>
+
 </body>
 </html>
 
