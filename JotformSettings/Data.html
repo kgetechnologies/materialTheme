@@ -1,4 +1,4 @@
-!doctype html>
+<!doctype html>
 <html lang="en" class="layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr" data-skin="default"
     data-bs-theme="light" data-assets-path="../Static/assets/" data-template="horizontal-menu-template">
 
@@ -7,6 +7,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <title>Vendor Analytics Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
     <style>
         :root {
     --bg-light: #f3f5f7;
@@ -120,13 +121,6 @@
 }
 /* Ensure the sub-navbar is visible and correctly positioned */
 
-
-
-
-
-
-
-
 .profile-content{
     width:100%;
     background-color: #ffff !important;
@@ -152,8 +146,189 @@
     color: var(--accent-green) ;
     font-weight: bold;
 }
+.info-row {
+  display: flex;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
 
- 
+.info-row label {
+  width: 220px;
+  font-weight: 600;
+}
+
+.value-group {
+  flex: 1;
+}
+
+.icon-box {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box.blue {
+  background: #e3f2fd;
+  color: #2196f3;
+}
+
+.ms-3 {
+  margin-left: 15px;
+}
+.modal {
+  display: none;
+  position: fixed !important;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  width: 600px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.plan-box {
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+
+}
+
+.modal-box {
+  display: flex;
+  width: 800px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* LEFT */
+.modal-left {
+  width: 40%;
+  background: linear-gradient(135deg, #0d47a1, #1976d2);
+  color: #fff;
+  padding: 25px;
+}
+
+/* RIGHT */
+.modal-right {
+  width: 60%;
+  padding: 20px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* FORM */
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+input, select, textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+textarea {
+  height: 80px;
+}
+
+.form-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-box {
+  width: 500px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+}
+
+/* HEADER */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* TEXT */
+.sub-text {
+  color: #777;
+  margin: 10px 0 20px;
+}
+
+/* BODY */
+.modal-body label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal-body select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* FOOTER */
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -1736,72 +1911,432 @@
                     </aside>
                     
 <main class="profile-content">
-    <div class="page-header">
-        <h1>Your <span class="highlight">Data</span></h1>
-    </div>
 
-    <div class="data-section">
-        <div class="section-label">Data Security</div>
-        <div class="section-content">
-            <div class="data-item">
-                <div class="data-icon icon-blue">
-                    <i class="fas fa-caduceus"></i>
-                </div>
-                <div class="data-info">
-                    <h3>HIPAA Compliance Features</h3>
-                    <p>Collect sensitive healthcare information with Jotform's HIPAA compliance features.</p>
-                    <div class="button-group">
-                        <button class="btn btn-green">Enable HIPAA Compliance</button>
-                        <button class="btn btn-outline">Learn More</button>
-                    </div>
-                </div>
-            </div>
+  <h1>Your <span class="highlight">Data</span></h1>
 
-            <div class="data-item">
-                <div class="data-icon icon-cyan">
-                    <i class="fas fa-shield-halved"></i>
-                </div>
-                <div class="data-info">
-                    <h3>SOC 2 Compliance</h3>
-                    <p>Uphold all five SOC 2 Trust Service Principles: security, confidentiality, availability, privacy, and processing integrity.</p>
-                    <div class="button-group">
-                        <button class="btn btn-blue">Enable SOC 2 Compliance <i class="fas fa-rocket" style="font-size: 12px; margin-left: 5px;"></i></button>
-                        <button class="btn btn-outline">Learn More</button>
-                    </div>
-                </div>
-            </div>
+  <!-- DATA SECURITY -->
+  <div class="info-row">
+    <label>Data Security</label>
+
+    <div class="value-group">
+
+      <!-- HIPAA -->
+      <div class="d-flex align-items-center mb-3">
+        <div class="icon-box blue">
+          <i class="fas fa-notes-medical"></i>
         </div>
-    </div>
 
-    <hr class="section-divider">
+        <div class="ms-3">
+          <h4>HIPAA Compliance Features</h4>
+          <p>Collect sensitive healthcare information with HIPAA compliance features.</p>
 
-    <div class="data-section">
-        <div class="section-label">Identity Verification</div>
-        <div class="section-content">
-            <p class="section-description">
-                We use identity verification to comply with Know Your Customer (KYC) regulations. Once you verify your identity, you can collect personally identifiable information (PII) like passport numbers, social security numbers, and other government ID numbers, etc.
-            </p>
-            <a href="#" class="link-blue">Learn More</a>
-            <div class="mt-3">
-                <button class="btn btn-green">Verify now</button>
-            </div>
+          <button class="btn btn-clear btn-sm" id="openHipaaModal">Enable HIPAA Compliance</button>
+          <button class="btn btn-light btn-sm">Learn More</button>
         </div>
+      </div>
+      <div id="hipaaModal" class="modal">
+
+  <div class="modal-content">
+
+    <span class="close-btn" id="closeHipaaModal">&times;</span>
+
+    <h2>HIPAA Compliance Features Setup Wizard</h2>
+
+    <p>HIPAA compliance features are available only on Gold and Enterprise plans.</p>
+
+    <div class="plan-box">
+      <h3>Gold</h3>
+      <p>$64.50/month</p>
+      <button class="btn btn-warning">Upgrade</button>
     </div>
 
-    <div class="data-row-simple">
-        <div class="section-label">Auto Delete Submissions</div>
-        <div class="section-content">
-            <button class="btn btn-green">Set Deletion Period</button>
-        </div>
+    <div class="plan-box">
+      <h3>Enterprise</h3>
+      <p>Custom Price</p>
+      <button class="btn btn-primary">Contact Sales</button>
     </div>
+
+  </div>
+
+</div>
+
+      <!-- SOC2 -->
+      <div class="d-flex align-items-center">
+        <div class="icon-box blue">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+
+        <div class="ms-3">
+          <h4>SOC 2 Compliance</h4>
+          <p>Ensure security, availability, confidentiality, and privacy standards.</p>
+
+          <button class="btn btn-primary btn-sm" id="openSocModal">Enable SOC 2 Compliance</button>
+          <button class="btn btn-light btn-sm">Learn More</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- IDENTITY VERIFICATION -->
+  <div class="info-row">
+    <label>Identity Verification</label>
+
+    <div class="value-group">
+      <p>
+        Verify your identity to collect personal information like passport or ID numbers.
+      </p>
+
+      <button class="btn btn-clear btn-sm">Verify Now</button>
+    </div>
+  </div>
+  <div id="socModal" class="modal">
+
+  <div class="modal-box">
+
+    <!-- LEFT SIDE -->
+    <div class="modal-left">
+      <h3>JOTFORM ENTERPRISE</h3>
+      <h2>Join Jotform Enterprise to secure your data with SOC 2 compliance solutions</h2>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="modal-right">
+
+      <span class="close-btn" id="closeSocModal">&times;</span>
+
+      <div class="form-row">
+        <input type="text" placeholder="First Name">
+        <input type="text" placeholder="Last Name">
+      </div>
+
+      <input type="email" placeholder="Company Email">
+      
+      <div class="form-row">
+        <input type="text" placeholder="Organization Name">
+        <input type="text" placeholder="Job Title">
+      </div>
+
+      <select>
+        <option>India</option>
+        <option>USA</option>
+      </select>
+
+      <textarea placeholder="Questions & Comments (optional)"></textarea>
+
+      <div class="form-actions">
+        <button class="btn btn-primary">Contact Sales</button>
+        <button class="btn btn-light">Learn More</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+  <!-- AUTO DELETE -->
+  <div class="info-row">
+    <label>Auto Delete Submissions</label>
+
+    <div class="value-group">
+      <button class="btn btn-clear btn-sm" id="openDeleteModal">Set Deletion Period</button>
+    </div>
+  </div>
+
+  <div id="deleteModal" class="modal">
+
+  <div class="modal-content-box">
+
+    <!-- HEADER -->
+    <div class="modal-header">
+      <h2>Auto-Delete Submissions</h2>
+      <span class="close-btn" id="closeDeleteModal">&times;</span>
+    </div>
+
+    <p class="sub-text">
+      Delete existing and new form submissions after a certain period of time
+    </p>
+
+    <!-- BODY -->
+    <div class="modal-body">
+      <label>Deletion Period</label>
+
+      <select class="form-control">
+        <option>Disabled</option>
+        <option>1 Day</option>
+        <option>7 Days</option>
+        <option>30 Days</option>
+        <option>90 Days</option>
+      </select>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="modal-footer">
+      <button id="cancelDelete" class="btn btn-light">Cancel</button>
+      <button class="btn btn-primary">Next</button>
+    </div>
+
+  </div>
+
+</div>
+
+
+  <!-- ENTERPRISE DATA -->
+  <div class="info-row">
+    <label>Enterprise Data Centers</label>
+
+    <div class="value-group">
+      <p>Store my data in a specific location</p>
+
+      <select class="form-control">
+        <option>Moncks Corner, South Carolina, USA</option>
+      </select>
+    </div>
+  </div>
+
+
+  <!-- GDPR -->
+  <div class="info-row">
+    <label>GDPR Data Center</label>
+
+    <div class="value-group">
+      <label>
+        <input type="checkbox">
+        Store my data only in Europe (Germany)
+      </label>
+    </div>
+  </div>
+
+
+  <!-- EXPORT -->
+  <div class="info-row">
+    <label>Export Data</label>
+
+    <div class="value-group">
+      <button class="btn btn-clear btn-sm" id="openExportModal">Download My Data</button>
+    </div>
+  </div>
+
+  <div id="exportModal" class="modal">
+
+  <div class="modal-content-box large">
+
+    <!-- HEADER -->
+    <div class="modal-header">
+      <div class="header-left">
+        <div class="icon-box dark">
+          <i class="fas fa-download"></i>
+        </div>
+        <div>
+          <h2>Export Data</h2>
+          <p>Download your forms, submissions, uploaded files, and AI Agent conversations</p>
+        </div>
+      </div>
+
+      <span class="close-btn" id="closeExportModal">&times;</span>
+    </div>
+
+    <!-- BODY -->
+    <div class="modal-body text-center">
+
+      <button class="btn btn-outline-primary create-btn">
+        <i class="fas fa-plus"></i> Create New Export
+      </button>
+
+      <div class="empty-box">
+        <div class="folder-icon">
+          <i class="fas fa-folder"></i>
+          <span class="count">0</span>
+        </div>
+
+        <h4>YOU DON’T HAVE ANY EXPORTS YET</h4>
+        <p>Your exports will appear here</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+  <!-- TRANSFER -->
+  <div class="info-row">
+    <label>Transfer Forms</label>
+
+    <div class="value-group">
+      <p>You can transfer forms to another account.</p>
+      <button class="btn btn-clear btn-sm" class="openTransferModal">Transfer Forms</button>
+    </div>
+  </div>
+
+  <div id="transferModal" class="modal">
+
+  <div class="modal-content-box">
+
+    <span class="close-btn" id="closeTransferModal">&times;</span>
+
+    <h2>Verify it’s you to transfer forms</h2>
+    <p class="sub-text">
+      Enter the six-digit code we sent to pr************@gmail.com.
+    </p>
+
+    <label>Authentication Code</label>
+
+    <div class="otp-box">
+      <input maxlength="1">
+      <input maxlength="1">
+      <input maxlength="1">
+      <input maxlength="1">
+      <input maxlength="1">
+      <input maxlength="1">
+    </div>
+
+    <button class="btn btn-success verify-btn">Verify</button>
+
+    <div class="bottom-row">
+      <span class="timer">⏱ 04:53</span>
+      <a href="#">Resend email</a>
+    </div>
+
+  </div>
+
+</div>
 
 </main>
-
 <script src="./assets/vendor/libs/jquery/jquery.js"></script>
     <script src="./assets/vendor/js/bootstrap.js"></script>
     <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="./assets/vendor/js/menu.js"></script>
     <script src="./assets/js/main.js"></script>
+
+    <script>
+const hipaaModal = document.getElementById("hipaaModal");
+const openHipaa = document.getElementById("openHipaaModal");
+const closeHipaa = document.getElementById("closeHipaaModal");
+
+// OPEN
+openHipaa.onclick = () => {
+  hipaaModal.style.display = "flex";
+};
+
+// CLOSE (X button)
+closeHipaa.onclick = () => {
+  hipaaModal.style.display = "none";
+};
+
+// CLOSE when clicking outside
+window.onclick = (e) => {
+  if (e.target === hipaaModal) {
+    hipaaModal.style.display = "none";
+  }
+};
+</script>
+
+<script>
+const socModal = document.getElementById("socModal");
+const openSoc = document.getElementById("openSocModal");
+const closeSoc = document.getElementById("closeSocModal");
+
+// OPEN
+openSoc.onclick = () => {
+  socModal.style.display = "flex";
+};
+
+// CLOSE (X)
+closeSoc.onclick = () => {
+  socModal.style.display = "none";
+};
+
+// CLOSE outside
+window.onclick = (e) => {
+  if (e.target === socModal) {
+    socModal.style.display = "none";
+  }
+};
+</script>
+
+<script>
+const deleteModal = document.getElementById("deleteModal");
+const openDelete = document.getElementById("openDeleteModal");
+const closeDelete = document.getElementById("closeDeleteModal");
+const cancelDelete = document.getElementById("cancelDelete");
+
+// OPEN
+openDelete.onclick = () => {
+  deleteModal.style.display = "flex";
+};
+
+// CLOSE (X)
+closeDelete.onclick = () => {
+  deleteModal.style.display = "none";
+};
+
+// CANCEL button
+cancelDelete.onclick = () => {
+  deleteModal.style.display = "none";
+};
+
+// CLOSE outside
+window.onclick = (e) => {
+  if (e.target === deleteModal) {
+    deleteModal.style.display = "none";
+  }
+};
+</script>
+
+<script>
+const exportModal = document.getElementById("exportModal");
+const openExport = document.getElementById("openExportModal");
+const closeExport = document.getElementById("closeExportModal");
+
+// OPEN
+openExport.onclick = () => {
+  exportModal.style.display = "flex";
+};
+
+// CLOSE
+closeExport.onclick = () => {
+  exportModal.style.display = "none";
+};
+
+// CLOSE outside
+window.addEventListener("click", function(e) {
+  if (e.target === exportModal) {
+    exportModal.style.display = "none";
+  }
+});
+</script>
+
+
+<script>
+const transferModal = document.getElementById("transferModal");
+const openTransfer = document.getElementById("openTransferModal");
+const closeTransfer = document.getElementById("closeTransferModal");
+
+// SAFE CHECK (important)
+if (openTransfer) {
+  openTransfer.onclick = () => {
+    transferModal.style.display = "flex";
+  };
+}
+
+if (closeTransfer) {
+  closeTransfer.onclick = () => {
+    transferModal.style.display = "none";
+  };
+}
+
+// ONE global close
+window.addEventListener("click", function(e) {
+  if (e.target.classList.contains("modal")) {
+    e.target.style.display = "none";
+  }
+});
+</script>
 </body>
 </html>
 

@@ -7,10 +7,8 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <title>Vendor Analytics Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
-
-<style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
+    <style>
      
 .partner-card .fas {
     font-family: "Font Awesome 5 Free" !important; /* Or "Font Awesome 6 Free" depending on your version */
@@ -1756,7 +1754,7 @@
                 <h3>RESELLER PARTNER</h3>
                 <p>Resell Jotform Enterprise with competitive margins and more!</p>
             </div>
-            <button class="btn-learn btn-blue">Learn More</button>
+            <a href="reseller.html" class="btn-learn btn-blue">Learn More</a>
         </div>
 
         <div class="partner-card">
@@ -1767,7 +1765,7 @@
                 <h3>AGENCY PARTNER</h3>
                 <p>Refer clients to Jotform and receive recurring commissions.</p>
             </div>
-            <button class="btn-learn btn-purple">Learn More</button>
+            <a href="agency.html" class="btn-learn btn-purple">Learn More</a>
         </div>
 
         <div class="partner-card">
@@ -1778,13 +1776,31 @@
                 <h3>JOTFORM AFFILIATE</h3>
                 <p>Earn a recurring commission for your Jotform paid plan referrals!</p>
             </div>
-            <button class="btn-learn btn-orange">Learn More</button>
+            <a href="affiliate.html" class="btn-learn btn-orange">Learn More</a>
         </div>
     </div>
 </main>
 
  
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        const currentPage = window.location.pathname.split("/").pop();
 
+        
+        const navLinks = document.querySelectorAll(".side-menu ul li a");
+
+        navLinks.forEach(link => {
+            
+            link.parentElement.classList.remove("active");
+
+            
+            if (link.getAttribute("href") === currentPage) {
+                link.parentElement.classList.add("active");
+            }
+        });
+    });
+</script>
  
 
                     <script src="./assets/vendor/libs/jquery/jquery.js"></script>

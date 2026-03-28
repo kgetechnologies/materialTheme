@@ -92,7 +92,79 @@
     background-color: #fcfcfc !important;
     border: 1px solid #eee !important;
 }
+/* MODAL BACKGROUND */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
 
+/* MODAL BOX */
+.modal-content {
+  background: #fff;
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* INPUT */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* ACTION BUTTONS */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-btn {
+  background: #f1f1f1;
+}
+
+.submit-btn {
+  background: #007bff;
+  color: white;
+}
+.hidden-form {
+  display: none;
+  margin-top: 15px;
+}
+
+
+
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
+#videoForm{
+    display:none;
+}
  
 
 </style>
@@ -1695,8 +1767,21 @@
             <label>Invite Friend by Email</label>
             <div class="value-group">
                 <p class="small text-muted mb-3">Send a personal invitation to someone who'd love Jotform. When they get started, you get rewarded!</p>
-                <button class="btn btn-outline-primary btn-sm">Send Invite <i class="bi bi-chevron-down"></i></button>
+                <button class="btn btn-primary btn-sm" id="openModal">Send Invite <i class="bi bi-chevron-down"></i></button>
                 <span class="float-end text-primary small">+10 Submissions</span>
+            </div>
+            <div id="inviteModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="closeModal">&times</span>
+                    <h3>Invite friend by Email</h3>
+                    <p class="text-muted">Send a personal invitation to someone who'd love Jotform</p>
+
+                <label>Friend's Email</label>
+                <input type="friend@gmail.com" class="input-field">
+                <div class="modal-action">
+                    <button class="btn-clear">Submit</button>
+                </div>
+                </div>
             </div>
         </div>
 
@@ -1704,8 +1789,21 @@
             <label>Make a Video About Us</label>
             <div class="value-group">
                 <p class="small text-muted mb-3">Create a video showcasing how you use our tools and share it online. Submit the link for review.</p>
-                <button class="btn btn-outline-primary btn-sm">Submit Video Link <i class="bi bi-chevron-down"></i></button>
+                <button class="btn btn-primary btn-sm" id="toggleVideo">Submit Video Link <i class="bi bi-chevron-down"></i></button>
                 <span class="float-end text-primary small">+25 Submissions</span>
+            </div>
+            <div id="videoLinkModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="closeVideoModal">&times</span>
+                    <h3>Link URL</h3>
+                    <p class="text-muted">You can upload YouTube, TikTok, Instagram Reels videos.</p>
+
+                <label>URL</label>
+                <input type="https://youtbe.com" class="input-field">
+                <div class="modal-action">
+                    <button class="btn-clear">Submit</button>
+                </div>
+                </div>
             </div>
         </div>
 
@@ -1713,11 +1811,36 @@
             <label>Review on Popular Platforms</label>
             <div class="value-group">
                 <p class="small text-muted mb-3">Leave an honest review on Reddit, G2, Trustpilot, or Capterra. Each platform counts separately!</p>
-                <button class="btn btn-outline-primary btn-sm">Submit Review Link <i class="bi bi-chevron-down"></i></button>
+                <button class="btn btn-primary btn-sm" id="openReviewModal">Submit Review Link <i class="bi bi-chevron-down"></i></button>
                 <span class="float-end text-primary small">+10 Submissions</span>
             </div>
-        </div>
+            <div id="reviewModal" class="modal">
+
+  <div class="modal-content">
+
+    <span class="close-btn" id="closeReviewModal">&times;</span>
+
+    <h3>Select Platform</h3>
+
+    <select class="form-control mb-2">
+      <option>Choose platform</option>
+      <option>Reddit</option>
+      <option>G2</option>
+      <option>Trustpilot</option>
+      <option>Capterra</option>
+    </select>
+
+    <div style="margin-top: 10px;">
+      <button id="cancelReviewModal" class="btn btn-light">Cancel</button>
+      <button class="btn btn-success">Submit</button>
     </div>
+
+  </div>
+
+</div>
+            </div>
+        </div>
+    
 
     <div class="mt-5 p-4 bg-light rounded text-center border">
         <h3>Have questions?</h3>
@@ -1734,6 +1857,82 @@
     <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="./assets/vendor/js/menu.js"></script>
     <script src="./assets/js/main.js"></script>
+
+    <script>
+  const modal = document.getElementById("inviteModal");
+  const openBtn = document.getElementById("openModal");
+  const closeBtn = document.getElementById("closeModal");
+  const cancelBtn = document.getElementById("cancelModal");
+
+  openBtn.onclick = () => {
+    modal.style.display = "flex";
+  };
+
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  cancelBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  window.onclick = (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+<script>
+const videoModal = document.getElementById("videoLinkModal");
+const openVideoBtn = document.getElementById("toggleVideo"); // your button id
+const closeVideoBtn = document.getElementById("closeVideoModal");
+
+// OPEN MODAL
+openVideoBtn.onclick = () => {
+  videoModal.style.display = "flex";
+};
+
+// CLOSE (X button)
+closeVideoBtn.onclick = () => {
+  videoModal.style.display = "none";
+};
+
+// CLOSE when clicking outside
+window.onclick = (e) => {
+  if (e.target === videoModal) {
+    videoModal.style.display = "none";
+  }
+};
+</script>
+<script>
+const reviewModal = document.getElementById("reviewModal");
+const openReviewModal = document.getElementById("openReviewModal");
+const closeReviewModal = document.getElementById("closeReviewModal");
+const cancelReviewModal = document.getElementById("cancelReviewModal");
+
+// OPEN
+openReviewModal.onclick = () => {
+  reviewModal.style.display = "flex";
+};
+
+// CLOSE (X)
+closeReviewModal.onclick = () => {
+  reviewModal.style.display = "none";
+};
+
+// CLOSE (Cancel)
+cancelReviewModal.onclick = () => {
+  reviewModal.style.display = "none";
+};
+
+// CLOSE when click outside
+window.onclick = (e) => {
+  if (e.target === reviewModal) {
+    reviewModal.style.display = "none";
+  }
+};
+</script>
     </body>
 </html>
 
