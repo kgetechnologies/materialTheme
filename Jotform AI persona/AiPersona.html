@@ -116,11 +116,11 @@ input, select {
 
 /* Tab Content */
 .tab-content {
-  display: none;
+  display: none !important;
 }
 
 .tab-content.active {
-  display: block;
+  display: block !important;
 }
 
 /* Guidelines */
@@ -182,6 +182,86 @@ input, select {
     color:#1976d2;
      font-weight:600
 }
+
+.agent-voice-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.agent-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa; /* Light grey background from your image */
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.agent-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.agent-thumb {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.agent-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: block;
+}
+
+.agent-tags {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.tag {
+  background: #e9ecef;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  color: #6c757d;
+}
+
+.agent-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.change-btn {
+  background: #f1f1f1;
+  border: 1px solid #ddd;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.labels {
+  display: flex;
+  justify-content: space-between; /* This pushes labels to the edges */
+  padding: 0 5px; 
+  margin-top: 10px;
+}
+
+.label {
+  font-size: 12px;
+  color: #888;
+  width: 25%; /* Ensures each word occupies an equal quarter of the bar */
+  text-align: center;
+}
+
+/* Align first and last labels to the edges */
+.label:first-child { text-align: left; }
+.label:last-child { text-align: right; }
 
 </style>
 
@@ -1830,12 +1910,12 @@ input, select {
     <!-- Chat -->
     <div id="chat" class="tab-content active">
        <label>Chat Response Lenght</label>
-        <input type="range" min="0" nax="3" step="1" value="1" oninput="updateLabels(this)">
+        <input type="range" min="0" nax="30" step="1" value="20" oninput="updateLabels(this)">
         <div class="labels">
-            <span>Minimal</span>
-            <span>Short</span>
-            <span>Long</span>
-            <span>Chatty</span>
+            <span clas="label">Minimal</span>
+            <span class="label">Short</span>
+            <span class="label">Long</span>
+            <span class="label">Chatty</span>
         </div>
   
 
@@ -1884,15 +1964,36 @@ input, select {
 
 
 
-<div id="voice" class="tab-content active">
+<div id="voice" class="tab-content ">
        <label>Chat Response Lenght</label>
-        <input type="range" min="0" nax="3" step="1" value="1" oninput="updateLabels(this)">
+        <input type="range" min="0" nax="30" step="1" value="0" oninput="updateLabels(this)">
         <div class="labels">
-            <span>Minimal</span>
-            <span>Short</span>
-            <span>Long</span>
-            <span>Chatty</span>
+            <span class="label">Minimal</span>
+            <span class="label">Short</span>
+            <span class="label">Long</span>
+            <span class="label">Chatty</span>
         </div>
+        <div class="agent-voice-card">
+  <h3>Agent Voice</h3>
+  <div class="agent-info">
+    <div class="agent-profile">
+      <img src="Profile.jpg" alt="Laura" class="agent-thumb">
+      <div class="agent-details">
+        <span class="agent-name">Laura</span>
+        <div class="agent-tags">
+          <span class="tag">English</span>
+          <span class="tag">American</span>
+          <span class="tag">Female</span>
+          <span class="tag">Young</span>
+        </div>
+      </div>
+    </div>
+    <div class="agent-actions">
+      <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+      <button class="change-btn">Change</button>
+    </div>
+  </div>
+</div>
   
 
   <h4>Voice Guidelines</h4>
@@ -1940,14 +2041,14 @@ input, select {
 
   
 
-<div id="email" class="tab-content active">
+<div id="email" class="tab-content ">
        <label>Email Response Lenght</label>
-        <input type="range" min="0" nax="3" step="1" value="1" oninput="updateLabels(this)">
+        <input type="range" min="0" nax="30" step="1" value="30" oninput="updateLabels(this)">
         <div class="labels">
-            <span>Minimal</span>
-            <span>Short</span>
-            <span>Long</span>
-            <span>Chatty</span>
+            <span class="label">Minimal</span>
+            <span class="label">Short</span>
+            <span clas="label">Long</span>
+            <span class="label">Chatty</span>
         </div>
   
 
@@ -2014,6 +2115,14 @@ function switchTab(event, tabName) {
     <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="./assets/vendor/js/menu.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script>
+        let data = JSON.parse(localStorage.getItem(type)) || [];
+        data.push(text);
+        localStorage.setItem(type, JSON.stringify(data));
+        </script>
+
+        
+
     
 <script>
 function handleEnter(event, type) {
@@ -2076,6 +2185,21 @@ function handleEnter(event, type) {
   });
 
 };
+        </script>
+        <script>
+            function updateLabels(input) {
+  const val = input.value;
+  const labels = input.nextElementSibling.querySelectorAll('.label');
+  
+  // Reset colors
+  labels.forEach(l => l.style.color = "#888");
+
+  // Highlight based on range
+  if (val <= 5) labels[0].style.color = "#6f4bfc";      // Minimal
+  else if (val <= 15) labels[1].style.color = "#6f4bfc"; // Short
+  else if (val <= 25) labels[2].style.color = "#6f4bfc"; // Long
+  else labels[3].style.color = "#6f4bfc";                // Chatty
+}
         </script>
         
     </body>
