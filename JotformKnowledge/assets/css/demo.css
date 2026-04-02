@@ -1,0 +1,608 @@
+/*
+* demo.css
+* File include item demo only specific css only
+******************************************************************************/
+/* Checkbox List Alignment */
+
+
+/* Clear Cache Button (Darker/Muted Style) */
+
+
+  .gateway-card {
+    transition: all 0.2s ease;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gateway-card:hover {
+    border-color: #007bff !important;
+    background-color: #f8fbff;
+}
+
+.btn-green {
+    background-color: #8cb369;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+ 
+
+
+/* Center Plug Style */
+.main-plug-icon {
+    width: 100px;
+    height: 100px;
+    background-color: #71a92c; /* The green from your screenshot */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+}
+
+/* Floating Icon Circles */
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Positioning based on screenshot layout */
+.icon-m { top: 40%; left: 15%; }
+.icon-b { top: 20%; left: 25%; }
+.icon-square { top: 60%; left: 35%; }
+.icon-paypal { top: 30%; left: 48%; color: #003087; }
+.icon-s { top: 30%; left: 68%; color: #6772e5; }
+.icon-wave { top: 55%; left: 78%; color: #00d2ff; }
+.icon-check { top: 25%; left: 88%; color: #28a745; }
+
+/* Primary Button Color */
+#addConnectionBtn {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+}
+
+ 
+
+
+/* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Modal Box */
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 25px;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Close Button */
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 15px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-bottom: 2px solid #4CAF50;
+}
+
+/* Save Button (old)
+.save-btn {
+  width: 100%;
+  padding: 12px;
+  background: #8BC34A;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: #689F38;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+} 
+
+
+.btn-clear {
+    background-color: #72a331; /* Same as the green buttons */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-clear:hover {
+    background-color: #5d8428;
+}
+
+/* Small spacing adjustment for the Add Icon */
+.btn-green i {
+    margin-right: 8px;
+}
+.menu .app-brand.demo {
+  height: 64px;
+}
+
+.app-brand-logo.demo svg {
+  width: 38px;
+  height: 20px;
+}
+
+.app-brand-text.demo {
+  font-size: 1.25rem;
+  letter-spacing: 0.15px;
+}
+
+.authentication-wrapper .app-brand-text.demo {
+  text-transform: capitalize;
+}
+
+/* ! For .layout-navbar-fixed added fix padding top to .layout-page */
+/* Default navbar */
+.layout-navbar-fixed .layout-wrapper:not(.layout-without-menu) .layout-page {
+  padding-top: 64px !important;
+}
+
+/* Navbar page z-index issue solution */
+
+
+
+/*
+* Content
+******************************************************************************/
+
+.demo-blocks>* {
+  display: block !important;
+}
+
+.demo-inline-spacing>* {
+  margin: 1rem 0.375rem 0 0 !important;
+}
+
+/* ? .demo-vertical-spacing class is used to have vertical margins between elements. To remove margin-top from the first-child, use .demo-only-element class with .demo-vertical-spacing class. For example, we have used this class in forms-input-groups.html file. */
+.demo-vertical-spacing>* {
+  margin-top: 1.25rem !important;
+  margin-bottom: 0 !important;
+}
+
+.demo-vertical-spacing.demo-only-element> :first-child {
+  margin-top: 0 !important;
+}
+
+.demo-vertical-spacing-lg>* {
+  margin-top: 1.875rem !important;
+  margin-bottom: 0 !important;
+}
+
+.demo-vertical-spacing-lg.demo-only-element> :first-child {
+  margin-top: 0 !important;
+}
+
+.demo-vertical-spacing-xl>* {
+  margin-top: 5rem !important;
+  margin-bottom: 0 !important;
+}
+
+.demo-vertical-spacing-xl.demo-only-element> :first-child {
+  margin-top: 0 !important;
+}
+
+/* Dropdown buttons going out of small screens */
+@media (max-width: 576px) {
+  #dropdown-variation-demo .btn-group .text-truncate {
+    width: 300px;
+    position: relative;
+  }
+
+  #dropdown-variation-demo .btn-group .text-truncate::after {
+    position: absolute;
+    top: 45%;
+    right: 0.65rem;
+  }
+}
+
+/*
+* Layout demo
+******************************************************************************/
+
+.layout-demo-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-top: 1.25rem;
+}
+
+.layout-demo-placeholder img {
+  width: 900px;
+}
+
+.layout-demo-info {
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+.page-meta {
+  position: absolute;
+  left: 24px;
+  bottom: 16px;
+  font-size: 12px;
+  color: #6c757d;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.container-xxl {
+  position: relative;
+}
+
+/* === Standardize Status badges/buttons === */
+.status-pill,
+.badge.status-pill,
+.btn.status-pill {
+  min-width: 90px;
+  /* same width for all */
+  height: 32px;
+  /* same height */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 16px;
+  padding: 0 12px;
+}
+
+/* ===========================
+   FILTER ROW FIX (Materialize)
+   =========================== */
+
+/* Remove extra label spacing */
+.filter-row .form-label {
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+/* Force same control height */
+.filter-row .form-select,
+.filter-row .form-control {
+  min-height: 40px !important;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* Align all columns to bottom */
+.filter-row {
+  align-items: flex-end;
+}
+
+/* ===========================
+   STATUS BADGE UNIFORM SIZE
+   =========================== */
+.status-badge {
+  min-width: 90px;
+  text-align: center;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.page-details {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  font-size: 12px;
+  color: #6c757d;
+}
+
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.action-btn {
+  min-width: 90px;
+  height: 34px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.page-details {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-size: 13px;
+  color: #6f6b7d;
+}
+
+.ticket-action-btn {
+  border: 1.5px solid #696cff;
+  /* Materialize primary */
+  color: #696cff;
+  background-color: transparent;
+}
+
+.ticket-action-btn:hover {
+  background-color: #696cff;
+  color: #fff;
+}
+
+.activity-time {
+  font-weight: 600;
+  color: #566a7f;
+}
+
+.activity-actor {
+  color: #696cff;
+  font-weight: 500;
+}
+
+.ticket-action-btn {
+  min-width: 140px;
+  /* same width */
+  height: 40px;
+  /* same height */
+  padding: 0 16px;
+  border: 1.5px solid #696cff;
+  background-color: transparent;
+  color: #696cff;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticket-action-btn:hover {
+  background-color: #696cff;
+  color: #fff;
+}
+
+th {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sort-icon {
+  font-size: 0.75rem;
+  margin-left: 5px;
+  opacity: 0.6;
+}
+
+
+.page-meta {
+  position: absolute;
+  bottom: 16px;
+  left: 24px;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sort-icon {
+  font-size: 12px;
+  margin-left: 4px;
+  color: #999;
+}
+
+.sortable.active .sort-icon {
+  color: #696cff;
+  /* theme primary */
+}
+
+.page-meta {
+  position: absolute;
+  bottom: 16px;
+  left: 24px;
+  font-size: 0.875rem;
+  color: #6f6b7d;
+}
+
+/* ===== Table Sorting (Materialize Fix) ===== */
+
+th.sortable {
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+}
+
+th.sortable .sort-icon {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 11px;
+  color: #6c757d;
+  vertical-align: middle;
+}
+
+/* Ascending */
+th.sortable.asc .sort-icon::after {
+  content: "▲";
+  color: #696cff;
+  /* Materialize primary */
+}
+
+/* Descending */
+th.sortable.desc .sort-icon::after {
+  content: "▼";
+  color: #696cff;
+}
+
+/* Hover feedback */
+th.sortable:hover {
+  color: #696cff;
+}
+
+.page-meta {
+  position: absolute;
+  bottom: 12px;
+  left: 24px;
+  font-size: 13px;
+  color: #6c757d;
+}
+
+
+.status-badge {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 80px;
+
+  height: 30px;
+
+
+  font-size: 13px;
+  font-weight: 500;
+
+  border-radius: 6px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Active status */
+.status-active {
+  background-color: #28c76f;
+  color: #ffffff;
+}
+
+/* Paused status */
+.status-paused {
+  background-color: #ff9f43;
+  color: #ffffff;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 90px;
+  height: 32px;
+
+  padding: 0;
+  font-size: 13px;
+  font-weight: 500;
+
+  border-radius: 6px;
+}
+
+.btn-match-input {
+  height: calc(2.875rem + 2px);
+  /* matches .form-control height */
+}
+
+.feature-summary-card {
+  height: 130px;
+  border-radius: 14px;
+  padding: 24px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.feature-summary-card h3 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.feature-summary-card p {
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.gradient-purple {
+  background: linear-gradient(135deg, #6a74db, #6f57c7);
+}
+
+.gradient-pink {
+  background: linear-gradient(135deg, #ff8ccf, #ff6b9a);
+}
+
+.company-status {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.status-active {
+  background-color: #e8f7ef;
+  color: #1e8e5a;
+}
+
+.status-trial {
+  background-color: #fff4e5;
+  color: #b26a00;
+}
+
+.status-suspended {
+  background-color: #fdeaea;
+  color: #c62828;
+}
