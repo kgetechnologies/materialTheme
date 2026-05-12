@@ -14,23 +14,29 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
-
+<link
+rel="stylesheet"
+href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+/> 
 </head>
-
 <body>
+    <div class="animated-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+</div>
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
 
-    
-    <header class="navbar">
-
-        <div class="container nav-container">
-
-           
-            <div class="logo">
+    <header class="navbar" data-aos="zoom-in-down" data-aos-duration="1500">
+ <div class="container nav-container">
+<div class="logo" data-aos="fade-right">
                 MiniMorph
             </div>
 <nav>
 
-                <ul class="nav-links">
+                <ul class="nav-links" data-aos="fade-down" data-aos-delay="300">
 
                     <li>
                         <a href="#hero">Home</a>
@@ -72,7 +78,7 @@
 
             <!-- LEFT CONTENT -->
 
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-right">
 
                 <span class="hero-tag">
                     Custom 3D Miniature Dolls
@@ -102,7 +108,7 @@
 
             <!-- RIGHT IMAGE -->
 
-            <div class="hero-image">
+            <div class="hero-image" data-aos="fade-right">
 
                 <div class="hero-circle"></div>
 
@@ -133,7 +139,7 @@
 
         <div class="steps-grid">
 
-            <div class="step-card">
+            <div class="step-card" data-aos="flip-left">
 
                 <div class="step-number">
                     01
@@ -148,7 +154,7 @@
             </div>
         
 
-            <div class="step-card">
+            <div class="step-card" data-aos="flip-left">
 
                 <div class="step-number">
                     02
@@ -163,7 +169,7 @@
             </div>
     
 
-            <div class="step-card">
+            <div class="step-card" data-aos="flip-left">
 
                 <div class="step-number">
                     03
@@ -186,11 +192,11 @@
 
     <div class="container about-container">
 
-        <div class="about-image">
+        <div class="about-image" data-aos="fade-right">
             <img src="about.jpg" alt="">
         </div>
 
-        <div class="about-content">
+        <div class="about-content" data-aos="fade-left">
 
             <span>About MiniMorph</span>
 
@@ -243,19 +249,19 @@
 
         <div class="gallery-grid">
 
-            <div class="gallery-card">
+            <div class="gallery-card" data-aos="zoom-in">
                 <img src="image1.jpg" alt="">
             </div>
 
-            <div class="gallery-card">
+            <div class="gallery-card" data-aos="zoom-in">
                 <img src="image2.jpg" alt="">
             </div>
 
-            <div class="gallery-card">
+            <div class="gallery-card" data-aos="zoom-in">
                 <img src="image3.jpg" alt="">
             </div>
 
-            <div class="gallery-card">
+            <div class="gallery-card" data-aos="zoom-in">
                 <img src="image4.jpg" alt="">
             </div>
 
@@ -283,7 +289,7 @@
 
         <div class="reviews-grid">
 
-            <div class="review-card">
+            <div class="review-card" data-aos="fade-up">
 
                 <p>
                     “The doll looked exactly like us. The detailing and quality were amazing.”
@@ -328,7 +334,7 @@
 
 <section class="contact" id="contact">
 
-    <div class="container contact-container">
+    <div class="container contact-container" data-aos="zoom-in">
 
         <div class="contact-content">
 
@@ -409,6 +415,25 @@
 
 </div> 
 
+<script
+src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+</script>
+
+<script>
+
+AOS.init({
+
+    duration:1200,
+
+    once:false,
+
+    mirror:true,
+
+    offset:120
+
+});
+
+</script> 
 
     <script src="script.js"></script>
 
