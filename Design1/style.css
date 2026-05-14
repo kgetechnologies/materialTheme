@@ -6,19 +6,21 @@
 
 html{
     scroll-behavior:smooth;
+    overflow-x: hidden;
 }
 
 body{
     font-family:'Poppins',sans-serif;
     background:#ffffff;
     overflow-x:hidden;
+    position:relative;
 }
 
 .animated-bg {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     z-index: -1;
     background: #fdfbff; 
@@ -369,6 +371,7 @@ html, body {
 .hero-buttons{
     display:flex;
     gap:20px;
+    flex-wrap: wrap;
 }
 
 .primary-btn{
@@ -649,6 +652,7 @@ html, body {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 200px; /* Base height */
     gap: 20px;
+    overflow: hidden;
 }
 
 /* Make specific cards larger for a creative mix */
