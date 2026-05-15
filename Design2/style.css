@@ -1009,6 +1009,7 @@
     .contact{
 
         padding:120px 14%;
+        overflow: hidden;
     }
 
     .contact-box{
@@ -1028,11 +1029,13 @@
         display:flex;
 
         gap:60px;
+        overflow: hidden;
     }
 
     .contact-left{
 
         width:45%;
+        overflow: hidden;
     }
 
     .contact-left h2{
@@ -1045,6 +1048,7 @@
     .contact-form{
 
         width:55%;
+        overflow: hidden;
     }
 
     .contact-form input,
