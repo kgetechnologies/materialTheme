@@ -973,9 +973,6 @@ html, body {
     animation:contactGlow 5s ease-in-out infinite;
 }
 
-/* =========================
-   ANIMATIONS
-========================= */
 
 @keyframes softFloat{
 
@@ -1210,7 +1207,7 @@ html, body {
     gap:70px;
 }
 
-/* IMAGE */
+
 
 .about-image{
 
@@ -1227,7 +1224,7 @@ html, body {
     border-radius: 60px 20px 60px 20px;
 }
 
-/* CONTENT */
+
 
 .about-content{
 
@@ -1265,7 +1262,7 @@ html, body {
     margin-bottom:35px;
 }
 
-/* FEATURES */
+
 
 .about-features{
 
@@ -1315,7 +1312,7 @@ html, body {
     0 15px 30px rgba(79,70,229,0.2);
 }
 
-/* ANIMATIONS */
+
 
 @keyframes floatImage{
 
