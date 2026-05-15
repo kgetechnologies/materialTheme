@@ -482,24 +482,92 @@ nav a:hover::after{
 
     grid-template-columns:1fr 1fr;
 
-    gap:70px;
+   
 
     align-items:center;
 }
 
-.story-left img{
+.story-left{
 
-    width:100%;
+    position:relative;
 
-    border-radius:70px;
+    width:600px;
 
-    box-shadow:
-    0 20px 50px rgba(0,0,0,0.12);
+    height:500px;
 
-    animation:
-    floatImage 5s ease-in-out infinite;
+    margin:auto;
 }
 
+/* BOTH IMAGES */
+
+.story-left img{
+
+    position:absolute;
+
+    width:400px;
+
+    height:400px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.12);
+    transition: 0.4s;
+}
+
+/* FIRST IMAGE */
+
+.main-img{
+
+    
+animation:floatMain 5s ease-in-out infinite;
+    left:40px;
+     bottom:20px;
+    z-index:1;
+    
+}
+
+/* SECOND IMAGE OVERLAP */
+
+.small-img{
+
+    top:20px;
+
+    right:50px;
+
+    z-index:3;
+animation:floatSmall 4s ease-in-out infinite;
+    border:8px solid white;
+} 
+@keyframes floatMain{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-18px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+@keyframes floatSmall{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(18px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.story-left img:hover{
+    transform: translateY(-10px)scale(1.03);
+
+}
 .story-right span{
 
     color:#ff006e;
@@ -511,9 +579,9 @@ nav a:hover::after{
 
 .story-right h2{
 
-    font-size:65px;
+    font-size:40px;
 
-    line-height:1.1;
+    line-height:1;
 
     margin:25px 0;
 }
@@ -521,7 +589,7 @@ nav a:hover::after{
 .story-right p{
 
     color:#1f2021dd;
-    line-height:1.9;
+    line-height:1.3;
 
     margin-bottom:20px;
 
@@ -539,14 +607,14 @@ nav a:hover::after{
 
     gap:18px;
 
-    margin-top:35px;
+    margin-top:20px;
 }
 
 .feature-box{
 
     background:white;
 
-    padding:18px 22px;
+    padding:10px 15px;
 
     border-radius:18px;
 
@@ -681,6 +749,11 @@ nav a:hover::after{
 
     margin:20px 0;
 }
+.video-left span{
+    color:#ff006e;
+    font-size: 20px;
+}
+
 
 .video-left p{
 
@@ -690,6 +763,7 @@ nav a:hover::after{
 }
 
 .video-card{
+
 
     overflow:hidden;
 
