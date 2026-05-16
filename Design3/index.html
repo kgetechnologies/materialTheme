@@ -645,27 +645,53 @@ document.addEventListener(
 });
 
 /* HOVER */
-
 document.querySelectorAll(
-"a,button,.card"
-).forEach(item=>{
+".nav-links a"
+).forEach(link=>{
 
-    item.addEventListener(
+    link.addEventListener(
     "mouseenter",()=>{
+        cursor.classList.add("nav-hover");
 
-        cursor.classList.add("hover");
+        cursor.style.background =
+        "rgba(255,255,255,0.15)";
+
+        cursor.style.width =
+        "22px";
+
+        cursor.style.height =
+        "22px";
+
+        cursor.style.boxShadow =
+        "0 0 8px rgba(255,255,255,0.2)";
+        
     });
 
-    item.addEventListener(
+    link.addEventListener(
     "mouseleave",()=>{
+        cursor.classList.remove("nav-hover");
 
-        cursor.classList.remove("hover");
+        cursor.style.background =
+        "linear-gradient(135deg,#ff006e,#8338ec)";
+
+        cursor.style.width =
+        "14px";
+
+        cursor.style.height =
+        "14px";
+
+        cursor.style.boxShadow =
+        "0 0 20px rgba(255,0,110,0.5)";
     });
-});
+}); 
+
+
 
 
 
     </script>
+    
+        
     <script
         src="https://unpkg.com/aos@2.3.4/dist/aos.js">
     </script>
