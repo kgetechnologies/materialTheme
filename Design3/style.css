@@ -163,27 +163,99 @@ body{
 
 /* CURSOR */
 
+body{
+
+    cursor:none;
+}
+
+/* MAIN BLOB */
+
 .cursor{
 
-    width:25px;
-    height:25px;
+    width:26px;
 
-    border:2px solid #ff006e;
+    height:26px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff006e,
+        #8338ec
+    );
 
     border-radius:50%;
 
     position:fixed;
 
-    transform:translate(-50%,-50%);
+    transform:
+    translate(-50%,-50%);
 
     pointer-events:none;
 
     z-index:9999;
 
-    transition:0.08s;
+    filter:blur(1px);
+
+    
+
+    transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    transform 0.08s ease;
 }
 
-/* NAVBAR */
+/* TRAIL BLOBS */
+
+.trail{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,0,110,0.4);
+
+    position:fixed;
+
+    pointer-events:none;
+
+    z-index:9998;
+
+    animation:
+    blobFade 0.7s linear forwards;
+}
+
+/* HOVER EFFECT */
+
+.cursor.hover{
+
+    width:55px;
+
+    height:55px;
+}
+
+/* BLOB ANIMATION */
+
+@keyframes blobFade{
+
+    0%{
+
+        opacity:1;
+
+        transform:
+        scale(1);
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+        scale(0);
+    }
+} 
 
 .navbar{
 
@@ -2003,7 +2075,7 @@ body{
 .rotate-fade{
 
     animation:
-    rotateFade 1.3s ease;
+    rotateFade 1.3s ease-in-out infinite;
 }
 
 @keyframes rotateFade{
@@ -2032,7 +2104,7 @@ body{
 .blur-fade{
 
     animation:
-    blurFade 1.4s ease;
+    blurFade 5s ease;
 }
 
 @keyframes blurFade{
@@ -2092,7 +2164,7 @@ body{
 .wave-slide{
 
     animation:
-    waveSlide 1.5s ease;
+    waveSlide 5s ease-in-out infinite;
 }
 
 @keyframes waveSlide{
@@ -2150,7 +2222,7 @@ body{
 .glow-reveal{
 
     animation:
-    glowReveal 1.5s ease;
+    glowReveal 5s ease-in-out infinite;
 }
 
 @keyframes glowReveal{
@@ -2250,6 +2322,67 @@ body{
         width:100%;
 
         border-radius:25px;
+    }
+} 
+@media(max-width:992px){
+
+    .story{
+
+        flex-direction:column;
+
+        gap:60px;
+
+        overflow:hidden;
+    }
+
+    .story-left{
+
+        width:100%;
+
+        height:420px;
+
+        position:relative;
+
+        overflow:hidden;
+    }
+
+    .story-left img{
+
+        width:220px;
+
+        height:220px;
+    }
+
+    /* BACK IMAGE */
+
+    .main-img{
+
+        left:20px;
+
+        bottom:20px;
+    }
+
+    /* FRONT IMAGE */
+
+    .small-img{
+
+        right:20px;
+
+        top:0;
+    }
+
+    .story-right{
+
+        width:100%;
+
+        text-align:center;
+    }
+
+    .story-right h2{
+
+        font-size:42px;
+
+        line-height:1.2;
     }
 } 
 

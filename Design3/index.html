@@ -161,7 +161,7 @@ href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
         <div class="story-features">
 
-            <div class="feature-box">
+            <div class="feature-box ">
 
                 ✨ Premium Handcrafted Detailing
 
@@ -246,7 +246,7 @@ href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
         </div>
 
-        <div class="video-card" data-aos="fade-left">
+        <div class="video-card zoom-reveal" >
 
             <video autoplay muted loop controls>
 
@@ -608,14 +608,62 @@ href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
     <script>
 
-        const cursor = document.querySelector(".cursor");
+const cursor =
+document.querySelector(".cursor");
 
-        document.addEventListener("mousemove", (e) => {
+/* MOVE */
 
-            cursor.style.left = e.clientX + "px";
-            cursor.style.top = e.clientY + "px";
+document.addEventListener(
+"mousemove",(e)=>{
 
-        });
+    cursor.style.left =
+    e.clientX + "px";
+
+    cursor.style.top =
+    e.clientY + "px";
+
+    /* TRAIL */
+
+    const trail =
+    document.createElement("div");
+
+    trail.classList.add("trail");
+
+    trail.style.left =
+    e.clientX + "px";
+
+    trail.style.top =
+    e.clientY + "px";
+
+    document.body.appendChild(trail);
+
+    setTimeout(()=>{
+
+        trail.remove();
+
+    },700);
+});
+
+/* HOVER */
+
+document.querySelectorAll(
+"a,button,.card"
+).forEach(item=>{
+
+    item.addEventListener(
+    "mouseenter",()=>{
+
+        cursor.classList.add("hover");
+    });
+
+    item.addEventListener(
+    "mouseleave",()=>{
+
+        cursor.classList.remove("hover");
+    });
+});
+
+
 
     </script>
     <script
