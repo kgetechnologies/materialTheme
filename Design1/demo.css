@@ -280,3 +280,148 @@
         transform:translateY(0);
     }
 } 
+
+
+@media (max-width: 992px) {
+    .details-page {
+        gap: 30px;
+        padding: 40px 30px;
+    }
+
+    .details-content h1 {
+        font-size: 38px;
+    }
+
+    .price-box h2 {
+        font-size: 34px;
+    }
+
+    .details-image img {
+        width: 300px;
+    }
+}
+
+/* --- MOBILE PHONES (Max Width: 768px) --- */
+@media (max-width: 768px) {
+    .details-page {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 35px;
+        padding: 60px 20px;
+        overflow-y: auto;
+    }
+
+    .details-image {
+        flex: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        /* Replaced side-slide with an elegant fade-down for mobile */
+        animation: slideDownMobile 1s ease forwards;
+    }
+
+    .details-image img {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .details-content {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        /* Replaced side-slide with an elegant fade-up for mobile */
+        animation: slideUpMobile 1s ease forwards;
+    }
+
+    .details-content h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .tag {
+        display: table;
+        margin: 0 auto;
+    }
+
+    .desc {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .price-box {
+        justify-content: center;
+    }
+
+    /* Stack buttons vertically on small screens */
+    .btn-group {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .order-btn, .back-btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+        box-sizing: border-box;
+    }
+
+    
+    .back-1 { width: 300px; height: 300px; }
+    .back-2 { width: 250px; height: 250px; }
+    .back-3 { width: 200px; height: 200px; }
+    .back-4 { width: 150px; height: 150px; }
+
+    
+    .cursor-dot, .cursor-outline {
+        display: none !important;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .details-page {
+        padding: 40px 15px;
+    }
+
+    .details-content h1 {
+        font-size: 28px;
+    }
+
+    .price-box h2 {
+        font-size: 30px;
+    }
+
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .info-card {
+        padding: 15px;
+    }
+}
+
+
+@keyframes slideDownMobile {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpMobile {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
