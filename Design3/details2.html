@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Miniature</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+    <div class="sparks">
+
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+
+    </div>
+
+    <!-- CURSOR -->
+
+    <div class="cursor"></div>
+
+
+<div class="details-container">
+
+    <div class="image-section">
+        <img src="image2.jpg" alt="">
+    </div>
+
+    <div class="content-section">
+
+        <span class="tag">Cyber Collection</span>
+
+        <h1>Cyber Miniature</h1>
+
+        <p class="desc">
+            Futuristic cyberpunk miniature crafted with glowing sci-fi aesthetics,
+            robotic detailing and premium holographic finishing.
+        </p>
+
+        <div class="price-box">
+            <h2>₹3499</h2>
+            <span>Premium Delivery</span>
+        </div>
+
+        <div class="info-grid">
+
+            <div class="card">
+                <h3>Material</h3>
+                <p>Glossy Resin</p>
+            </div>
+
+            <div class="card">
+                <h3>Height</h3>
+                <p>9 Inches</p>
+            </div>
+
+            <div class="card">
+                <h3>Theme</h3>
+                <p>Cyberpunk</p>
+            </div>
+
+            <div class="card">
+                <h3>Delivery</h3>
+                <p>6-8 Days</p>
+            </div>
+
+        </div>
+
+        <button>Order Now</button>
+        <button>Add to cart</button>
+
+    </div>
+
+</div>
+<script>
+
+const cursor =
+document.querySelector(".cursor");
+
+/* MOVE */
+
+document.addEventListener(
+"mousemove",(e)=>{
+
+    cursor.style.left =
+    e.clientX + "px";
+
+    cursor.style.top =
+    e.clientY + "px";
+
+    /* TRAIL */
+
+    const trail =
+    document.createElement("div");
+
+    trail.classList.add("trail");
+
+    trail.style.left =
+    e.clientX + "px";
+
+    trail.style.top =
+    e.clientY + "px";
+
+    document.body.appendChild(trail);
+
+    setTimeout(()=>{
+
+        trail.remove();
+
+    },700);
+});
+</script>
+</body>
+</html> 

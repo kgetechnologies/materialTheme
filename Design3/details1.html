@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Doll</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<div class="sparks">
+
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+        <span>✨</span>
+
+    </div>
+
+    <!-- CURSOR -->
+
+    <div class="cursor"></div>
+
+<div class="details-container">
+
+    <div class="image-section">
+        <img src="image1.jpg" alt="">
+    </div>
+
+    <div class="content-section">
+
+        <span class="tag">Anime Collection</span>
+
+        <h1>Anime Doll Miniature</h1>
+
+        <p class="desc">
+            Beautiful handcrafted anime-inspired doll with dreamy pastel styling,
+            expressive eyes and premium fantasy detailing.
+        </p>
+
+        <div class="price-box">
+            <h2>₹2499</h2>
+            <span>Free Delivery</span>
+        </div>
+
+        <div class="info-grid">
+
+            <div class="card">
+                <h3>Material</h3>
+                <p>Premium Resin</p>
+            </div>
+
+            <div class="card">
+                <h3>Height</h3>
+                <p>8 Inches</p>
+            </div>
+
+            <div class="card">
+                <h3>Theme</h3>
+                <p>Fantasy Anime</p>
+            </div>
+
+            <div class="card">
+                <h3>Delivery</h3>
+                <p>5-7 Days</p>
+            </div>
+
+        </div>
+
+        <button>Order Now</button>
+        <button>Add to cart</button>
+        
+    </div>
+
+</div>
+<script>
+
+const cursor =
+document.querySelector(".cursor");
+
+/* MOVE */
+
+document.addEventListener(
+"mousemove",(e)=>{
+
+    cursor.style.left =
+    e.clientX + "px";
+
+    cursor.style.top =
+    e.clientY + "px";
+
+    /* TRAIL */
+
+    const trail =
+    document.createElement("div");
+
+    trail.classList.add("trail");
+
+    trail.style.left =
+    e.clientX + "px";
+
+    trail.style.top =
+    e.clientY + "px";
+
+    document.body.appendChild(trail);
+
+    setTimeout(()=>{
+
+        trail.remove();
+
+    },700);
+});
+</script>
+</body>
+</html> 
