@@ -124,8 +124,8 @@
         background:
         radial-gradient(
             circle,
-            rgba(249, 157, 229, 0.117),
-            rgba(156, 234, 250, 0.074),
+            rgba(249, 157, 229, 0.499),
+            rgba(156, 234, 250, 0.557),
             transparent
         );
 
@@ -865,15 +865,16 @@
         display:grid;
 
         grid-template-columns:
-        repeat(auto-fit,minmax(280px,1fr));
+        repeat(2,1fr);
 
-        gap:30px;
+        gap:40px;
     }
 
     .gallery-card{
 
         overflow:hidden;
-
+        flex-direction: column;
+        align-items: center;
         border-radius:30px;
 
         position:relative;
@@ -892,7 +893,21 @@
 
         transform:
         scale(1.12)
-        rotate(2deg);
+    
+    }
+    .details-btn{
+        margin-top: 18px;
+        text-decoration: none;
+        padding:12px 28px;
+        border-radius: 30px;
+        background: lineaar-gradient(135deg,#7c3ead,#06b6d4);
+        color: white;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+    .details-btn:hover{
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
     }
 
     /* =========================

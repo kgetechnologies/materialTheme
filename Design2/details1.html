@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Blossom Miniature</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-blur"></div>
+
+<div class="details-container">
+
+    <div class="image-section">
+        <img src="image.jpg" alt="">
+    </div>
+
+    <div class="content-section">
+
+        <span class="tag">Fantasy Collection</span>
+
+        <h1>Fantasy Blossom Miniature</h1>
+
+        <p class="desc">
+            A magical handcrafted miniature inspired by fantasy forest aesthetics
+            with dreamy floral detailing and expressive anime styling.
+        </p>
+
+        <div class="price-box">
+            <h2>₹2999</h2>
+            <span>Free Delivery</span>
+        </div>
+
+        <div class="info-grid">
+
+            <div class="card">
+                <h3>Material</h3>
+                <p>Premium Resin</p>
+            </div>
+
+            <div class="card">
+                <h3>Height</h3>
+                <p>8 Inches</p>
+            </div>
+
+            <div class="card">
+                <h3>Finish</h3>
+                <p>Matte Fantasy</p>
+            </div>
+
+            <div class="card">
+                <h3>Delivery</h3>
+                <p>5-7 Days</p>
+            </div>
+
+        </div>
+
+        <button>Order Now</button>
+        <button>Add to Cart</button>
+
+    </div>
+
+</div>
+<script>
+    const cursor =
+    document.querySelector(".cursor");
+
+    const blur =
+    document.querySelector(".cursor-blur");
+
+    document.addEventListener("mousemove",(e)=>{
+
+        cursor.style.left =
+        e.clientX + "px";
+
+        cursor.style.top =
+        e.clientY + "px";
+
+        blur.style.left =
+        e.clientX + "px";
+
+        blur.style.top =
+        e.clientY + "px";
+
+    });
+
+</script>
+
+</body>
+</html> 
