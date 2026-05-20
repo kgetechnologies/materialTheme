@@ -676,26 +676,14 @@ html, body {
     transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.gallery-card::after {
-    content: "View Details";
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -20%);
-    color: white;
-    font-weight: 600;
-    opacity: 0;
-    transition: 0.4s;
-}
+
 
 .gallery-card:hover img {
     transform: scale(1.1) rotate(2deg);
     filter: brightness(0.6);
 }
 
-.gallery-card:hover::after {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-}
+
 
 .reviews{
     padding:120px 0;
@@ -1373,4 +1361,24 @@ html, body {
         font-size:36px;
     }
 } 
+.details-btn{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+   
+    background:linear-gradient(135deg,#7c3aed,#4f46e5);
+    color:white;
+    padding:12px 24px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+   
+    opacity:0;
+    transition:0.4s;
+    z-index:100;
+}
 
+.gallery-card:hover .details-btn{
+    opacity:1;
+} 

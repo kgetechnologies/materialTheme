@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couple Miniature</title>
+<link rel="stylesheet" href="demo.css">
+    </head>
+<body>
+    <body>
+    <div class="background-bg">
+    <div class="back back-1"></div>
+    <div class="back back-2"></div>
+    <div class="back back-3"></div>
+    <div class="back back-4"></div>
+</div>
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<div class="details-page">
+
+    <div class="details-image" data-aos="fade-down">
+        <img src="image3.jpg" alt="">
+    </div>
+
+    <div class="details-content" data-aos="fade-in">
+
+        <span class="tag">Premium Miniature</span>
+
+        <h1>Elder Couples Miniature</h1>
+
+        <p class="desc">
+            Heartwarming elder couple miniature crafted with emotional detailing,realistic expressions and premium handcrafted finishing to preserve Beautiful lifelong memories
+        </p>
+
+        <div class="price-box">
+            <h2>₹3499</h2>
+            <span>Free Delivery</span>
+        </div>
+
+        <div class="info-grid">
+
+            <div class="info-card">
+                <h3>Delivery Time</h3>
+                <p>5-7 Days</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Height</h3>
+                <p>10 Inches</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Material</h3>
+                <p>Premium Resin</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Customization</h3>
+                <p>Available</p>
+            </div>
+
+        </div>
+
+        <div class="btn-group">
+            <button class="order-btn">Order Now</button>
+
+            <a href="index.html" class="back-btn">
+                Add to cart
+            </a>
+        </div>
+
+    </div>
+
+</div> 
+
+
+<script>
+    const cursorDot = document.querySelector(".cursor-dot");
+const cursorOutline = document.querySelector(".cursor-outline");
+
+window.addEventListener("mousemove", function(e){
+
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    cursorOutline.animate({
+        left: `${posX - 14}px`,
+        top: `${posY - 14}px`
+    }, {
+        duration: 300,
+        fill: "forwards"
+    });
+
+}); 
+
+</script>
+
+</body>
+</html> 
