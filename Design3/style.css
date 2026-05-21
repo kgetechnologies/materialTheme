@@ -2423,4 +2423,21 @@ body{
         line-height:1.2;
     }
 } 
+@media (max-width:768px){
 
+    body{
+        overflow-x:hidden;
+    }
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+        padding:20px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+}
